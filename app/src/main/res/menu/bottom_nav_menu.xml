@@ -2,28 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/homefrag"
+    <item android:id="@+id/bNavHome"
         android:title="Home"
         android:icon="@drawable/ic_home"
-        app:showAsAction="ifRoom"/>
+       />
 
-    <item android:id="@+id/messagefrag"
+    <item android:id="@+id/bNavChat"
         android:title="Chats"
         android:icon="@drawable/ic_chat_icon"
-        app:showAsAction="ifRoom"/>
+        />
 
     <item
-        android:title=""
-        app:showAsAction="ifRoom"/>
+        android:id="@+id/bNavSell"
+        android:title="Sell"
+        android:icon="@drawable/ic_sell"
+      />
 
-    <item android:id="@+id/likesfrag"
+    <item android:id="@+id/bNavMyAds"
         android:title="My Ads"
         android:icon="@drawable/ic_heart_unselected"
-        app:showAsAction="ifRoom"/>
+      />
 
-    <item android:id="@+id/accountfrag"
+    <item android:id="@+id/bNavAccount"
         android:title="Account"
-        android:icon="@drawable/ic_account"
-        app:showAsAction="ifRoom"/>
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        />
 
 </menu>
