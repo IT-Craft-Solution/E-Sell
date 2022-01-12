@@ -19,7 +19,7 @@ public class login extends Fragment {
         // Required empty public constructor
     }
 
-    Button btnContinueWithPhone,btnContinueWithGoogle;
+    private Button btnContinueWithPhone,btnContinueWithGoogle;
 
 
     @Override

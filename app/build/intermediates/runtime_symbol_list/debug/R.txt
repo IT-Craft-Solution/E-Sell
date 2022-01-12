@@ -141,6 +141,17 @@ int attr badgeGravity 0x7f04004b
 int attr badgeStyle 0x7f04004c
 int attr badgeTextColor 0x7f04004d
 int attr barLength 0x7f04004e
+int attr bar_active_color 0x7f0403eb
+int attr bar_enabled 0x7f0403ec
+int attr bar_error_color 0x7f0403ed
+int attr bar_height 0x7f0403ee
+int attr bar_inactive_color 0x7f0403ef
+int attr bar_margin 0x7f0403f0
+int attr bar_margin_bottom 0x7f0403f1
+int attr bar_margin_left 0x7f0403f2
+int attr bar_margin_right 0x7f0403f3
+int attr bar_margin_top 0x7f0403f4
+int attr bar_success_color 0x7f0403f5
 int attr barrierAllowsGoneWidgets 0x7f04004f
 int attr barrierDirection 0x7f040050
 int attr barrierMargin 0x7f040051
@@ -175,6 +186,11 @@ int attr boxStrokeColor 0x7f04006d
 int attr boxStrokeErrorColor 0x7f04006e
 int attr boxStrokeWidth 0x7f04006f
 int attr boxStrokeWidthFocused 0x7f040070
+int attr box_margin 0x7f0403f6
+int attr box_margin_bottom 0x7f0403f7
+int attr box_margin_left 0x7f0403f8
+int attr box_margin_right 0x7f0403f9
+int attr box_margin_top 0x7f0403fa
 int attr brightness 0x7f040071
 int attr buttonBarButtonStyle 0x7f040072
 int attr buttonBarNegativeButtonStyle 0x7f040073
@@ -486,6 +502,8 @@ int attr hideAnimationBehavior 0x7f0401a4
 int attr hideMotionSpec 0x7f0401a5
 int attr hideOnContentScroll 0x7f0401a6
 int attr hideOnScroll 0x7f0401a7
+int attr hide_otp 0x7f0403fb
+int attr hide_otp_drawable 0x7f0403fc
 int attr hintAnimationEnabled 0x7f0401a8
 int attr hintEnabled 0x7f0401a9
 int attr hintTextAppearance 0x7f0401aa
@@ -625,6 +643,7 @@ int attr layout_optimizationLevel 0x7f04022f
 int attr layout_scrollFlags 0x7f040230
 int attr layout_scrollInterpolator 0x7f040231
 int attr layout_wrapBehaviorInParent 0x7f040232
+int attr length 0x7f0403fd
 int attr liftOnScroll 0x7f040233
 int attr liftOnScrollTargetViewId 0x7f040234
 int attr limitBoundsTo 0x7f040235
@@ -748,6 +767,13 @@ int attr onPositiveCross 0x7f0402aa
 int attr onShow 0x7f0402ab
 int attr onStateTransition 0x7f0402ac
 int attr onTouchUp 0x7f0402ad
+int attr otp 0x7f0403fe
+int attr otp_box_background 0x7f0403ff
+int attr otp_box_background_active 0x7f040400
+int attr otp_box_background_error 0x7f040401
+int attr otp_box_background_inactive 0x7f040402
+int attr otp_box_background_success 0x7f040403
+int attr otp_text_size 0x7f040404
 int attr overlapAnchor 0x7f0402ae
 int attr overlay 0x7f0402af
 int attr paddingBottomNoButtons 0x7f0402b0
@@ -967,6 +993,7 @@ int attr textOutlineThickness 0x7f040385
 int attr textPanX 0x7f040386
 int attr textPanY 0x7f040387
 int attr textStartPadding 0x7f040388
+int attr text_typeface 0x7f040405
 int attr textureBlurFactor 0x7f040389
 int attr textureEffect 0x7f04038a
 int attr textureHeight 0x7f04038b
@@ -1052,6 +1079,7 @@ int attr wavePeriod 0x7f0403da
 int attr wavePhase 0x7f0403db
 int attr waveShape 0x7f0403dc
 int attr waveVariesBy 0x7f0403dd
+int attr width 0x7f040406
 int attr windowActionBar 0x7f0403de
 int attr windowActionBarOverlay 0x7f0403df
 int attr windowActionModeOverlay 0x7f0403e0
@@ -1165,6 +1193,7 @@ int color error_color_material_light 0x7f06005d
 int color folroscent_green 0x7f06005e
 int color foreground_material_dark 0x7f06005f
 int color foreground_material_light 0x7f060060
+int color grey 0x7f0600df
 int color highlighted_text_material_dark 0x7f060061
 int color highlighted_text_material_light 0x7f060062
 int color ic_launcher_background 0x7f060063
@@ -1271,6 +1300,7 @@ int color purple_200 0x7f0600c7
 int color purple_500 0x7f0600c8
 int color purple_700 0x7f0600c9
 int color radiobutton_themeable_attribute_color 0x7f0600ca
+int color red 0x7f0600e0
 int color ripple_material_dark 0x7f0600cb
 int color ripple_material_light 0x7f0600cc
 int color sea_green 0x7f0600cd
@@ -1290,6 +1320,7 @@ int color test_mtrl_calendar_day 0x7f0600da
 int color test_mtrl_calendar_day_selected 0x7f0600db
 int color tooltip_background_dark 0x7f0600dc
 int color tooltip_background_light 0x7f0600dd
+int color transparent 0x7f0600e1
 int color white 0x7f0600de
 int dimen _100font_mdp 0x7f070000
 int dimen _100mdp 0x7f070001
@@ -2559,6 +2590,7 @@ int drawable abc_vector_test 0x7f080055
 int drawable autocar 0x7f080056
 int drawable avd_hide_password 0x7f080057
 int drawable avd_show_password 0x7f080058
+int drawable bg_pin 0x7f0800ab
 int drawable box 0x7f080059
 int drawable btn_checkbox_checked_mtrl 0x7f08005a
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f08005b
@@ -2850,10 +2882,6 @@ int id endToStart 0x7f0a00c8
 int id end_padder 0x7f0a00c9
 int id enterAlways 0x7f0a00ca
 int id enterAlwaysCollapsed 0x7f0a00cb
-int id etCode_1 0x7f0a00cc
-int id etCode_2 0x7f0a00cd
-int id etCode_3 0x7f0a00ce
-int id etCode_4 0x7f0a00cf
 int id etEnterCountryCode 0x7f0a00d0
 int id etEnterPhoneNumber 0x7f0a00d1
 int id exitUntilCollapsed 0x7f0a00d2
@@ -2895,6 +2923,7 @@ int id igHomeCat 0x7f0a00f5
 int id igSampleHomeCat 0x7f0a00f6
 int id igSampleHomeFreshItem 0x7f0a00f7
 int id igSellCategorySample 0x7f0a00f8
+int id igSplashLogo 0x7f0a0233
 int id ignore 0x7f0a00f9
 int id ignoreRequest 0x7f0a00fa
 int id image 0x7f0a00fb
@@ -2902,7 +2931,6 @@ int id imageView 0x7f0a00fc
 int id imageView2 0x7f0a00fd
 int id imageView3 0x7f0a00fe
 int id imageView4 0x7f0a00ff
-int id imgLogo 0x7f0a0100
 int id immediateStop 0x7f0a0101
 int id included 0x7f0a0102
 int id info 0x7f0a0103
@@ -2933,7 +2961,6 @@ int id linear 0x7f0a011b
 int id linearLayout 0x7f0a011c
 int id listMode 0x7f0a011d
 int id list_item 0x7f0a011e
-int id llConfirmationCode 0x7f0a011f
 int id mainBottomNav 0x7f0a0120
 int id masked 0x7f0a0121
 int id match_constraint 0x7f0a0122
@@ -3014,6 +3041,7 @@ int id notification_main_column_container 0x7f0a016a
 int id off 0x7f0a016b
 int id on 0x7f0a016c
 int id onInterceptTouchReturnSwipe 0x7f0a016d
+int id otpView 0x7f0a0234
 int id outline 0x7f0a016e
 int id outward 0x7f0a016f
 int id overshoot 0x7f0a0170
@@ -3275,7 +3303,6 @@ int layout abc_search_view 0x7f0d0019
 int layout abc_select_dialog_material 0x7f0d001a
 int layout abc_tooltip 0x7f0d001b
 int layout activity_main 0x7f0d001c
-int layout activity_splash_screen 0x7f0d001d
 int layout activity_user_login 0x7f0d001e
 int layout custom_dialog 0x7f0d001f
 int layout design_bottom_navigation_item 0x7f0d0020
@@ -3307,6 +3334,7 @@ int layout fragment_my_add 0x7f0d0037
 int layout fragment_phone_login 0x7f0d0038
 int layout fragment_sell 0x7f0d0039
 int layout fragment_sign_in 0x7f0d003a
+int layout fragment_splash 0x7f0d008d
 int layout home_category_sample 0x7f0d003b
 int layout home_freshitem_sample 0x7f0d003c
 int layout material_chip_input_combo 0x7f0d003d
@@ -5753,6 +5781,37 @@ int styleable OnSwipe_springStopThreshold 15
 int styleable OnSwipe_touchAnchorId 16
 int styleable OnSwipe_touchAnchorSide 17
 int styleable OnSwipe_touchRegionId 18
+int[] styleable OtpTextView { 0x01010098, 0x7f04019f, 0x7f0403eb, 0x7f0403ec, 0x7f0403ed, 0x7f0403ee, 0x7f0403ef, 0x7f0403f0, 0x7f0403f1, 0x7f0403f2, 0x7f0403f3, 0x7f0403f4, 0x7f0403f5, 0x7f0403f6, 0x7f0403f7, 0x7f0403f8, 0x7f0403f9, 0x7f0403fa, 0x7f0403fb, 0x7f0403fc, 0x7f0403fd, 0x7f0403fe, 0x7f0403ff, 0x7f040400, 0x7f040401, 0x7f040402, 0x7f040403, 0x7f040404, 0x7f040405, 0x7f040406 }
+int styleable OtpTextView_android_textColor 0
+int styleable OtpTextView_height 1
+int styleable OtpTextView_bar_active_color 2
+int styleable OtpTextView_bar_enabled 3
+int styleable OtpTextView_bar_error_color 4
+int styleable OtpTextView_bar_height 5
+int styleable OtpTextView_bar_inactive_color 6
+int styleable OtpTextView_bar_margin 7
+int styleable OtpTextView_bar_margin_bottom 8
+int styleable OtpTextView_bar_margin_left 9
+int styleable OtpTextView_bar_margin_right 10
+int styleable OtpTextView_bar_margin_top 11
+int styleable OtpTextView_bar_success_color 12
+int styleable OtpTextView_box_margin 13
+int styleable OtpTextView_box_margin_bottom 14
+int styleable OtpTextView_box_margin_left 15
+int styleable OtpTextView_box_margin_right 16
+int styleable OtpTextView_box_margin_top 17
+int styleable OtpTextView_hide_otp 18
+int styleable OtpTextView_hide_otp_drawable 19
+int styleable OtpTextView_length 20
+int styleable OtpTextView_otp 21
+int styleable OtpTextView_otp_box_background 22
+int styleable OtpTextView_otp_box_background_active 23
+int styleable OtpTextView_otp_box_background_error 24
+int styleable OtpTextView_otp_box_background_inactive 25
+int styleable OtpTextView_otp_box_background_success 26
+int styleable OtpTextView_otp_text_size 27
+int styleable OtpTextView_text_typeface 28
+int styleable OtpTextView_width 29
 int[] styleable PopupWindow { 0x01010176, 0x010102c9, 0x7f0402ae }
 int styleable PopupWindow_android_popupBackground 0
 int styleable PopupWindow_android_popupAnimationStyle 1

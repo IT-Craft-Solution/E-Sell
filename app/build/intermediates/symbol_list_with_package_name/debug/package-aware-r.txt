@@ -142,6 +142,17 @@ attr badgeGravity
 attr badgeStyle
 attr badgeTextColor
 attr barLength
+attr bar_active_color
+attr bar_enabled
+attr bar_error_color
+attr bar_height
+attr bar_inactive_color
+attr bar_margin
+attr bar_margin_bottom
+attr bar_margin_left
+attr bar_margin_right
+attr bar_margin_top
+attr bar_success_color
 attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr barrierMargin
@@ -176,6 +187,11 @@ attr boxStrokeColor
 attr boxStrokeErrorColor
 attr boxStrokeWidth
 attr boxStrokeWidthFocused
+attr box_margin
+attr box_margin_bottom
+attr box_margin_left
+attr box_margin_right
+attr box_margin_top
 attr brightness
 attr buttonBarButtonStyle
 attr buttonBarNegativeButtonStyle
@@ -487,6 +503,8 @@ attr hideAnimationBehavior
 attr hideMotionSpec
 attr hideOnContentScroll
 attr hideOnScroll
+attr hide_otp
+attr hide_otp_drawable
 attr hintAnimationEnabled
 attr hintEnabled
 attr hintTextAppearance
@@ -626,6 +644,7 @@ attr layout_optimizationLevel
 attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr layout_wrapBehaviorInParent
+attr length
 attr liftOnScroll
 attr liftOnScrollTargetViewId
 attr limitBoundsTo
@@ -749,6 +768,13 @@ attr onPositiveCross
 attr onShow
 attr onStateTransition
 attr onTouchUp
+attr otp
+attr otp_box_background
+attr otp_box_background_active
+attr otp_box_background_error
+attr otp_box_background_inactive
+attr otp_box_background_success
+attr otp_text_size
 attr overlapAnchor
 attr overlay
 attr paddingBottomNoButtons
@@ -968,6 +994,7 @@ attr textOutlineThickness
 attr textPanX
 attr textPanY
 attr textStartPadding
+attr text_typeface
 attr textureBlurFactor
 attr textureEffect
 attr textureHeight
@@ -1053,6 +1080,7 @@ attr wavePeriod
 attr wavePhase
 attr waveShape
 attr waveVariesBy
+attr width
 attr windowActionBar
 attr windowActionBarOverlay
 attr windowActionModeOverlay
@@ -1166,6 +1194,7 @@ color error_color_material_light
 color folroscent_green
 color foreground_material_dark
 color foreground_material_light
+color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
@@ -1272,6 +1301,7 @@ color purple_200
 color purple_500
 color purple_700
 color radiobutton_themeable_attribute_color
+color red
 color ripple_material_dark
 color ripple_material_light
 color sea_green
@@ -1291,6 +1321,7 @@ color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
 color tooltip_background_light
+color transparent
 color white
 dimen _100font_mdp
 dimen _100mdp
@@ -2560,6 +2591,7 @@ drawable abc_vector_test
 drawable autocar
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_pin
 drawable box
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2851,10 +2883,6 @@ id endToStart
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
-id etCode_1
-id etCode_2
-id etCode_3
-id etCode_4
 id etEnterCountryCode
 id etEnterPhoneNumber
 id exitUntilCollapsed
@@ -2896,6 +2924,7 @@ id igHomeCat
 id igSampleHomeCat
 id igSampleHomeFreshItem
 id igSellCategorySample
+id igSplashLogo
 id ignore
 id ignoreRequest
 id image
@@ -2903,7 +2932,6 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
-id imgLogo
 id immediateStop
 id included
 id info
@@ -2934,7 +2962,6 @@ id linear
 id linearLayout
 id listMode
 id list_item
-id llConfirmationCode
 id mainBottomNav
 id masked
 id match_constraint
@@ -3015,6 +3042,7 @@ id notification_main_column_container
 id off
 id on
 id onInterceptTouchReturnSwipe
+id otpView
 id outline
 id outward
 id overshoot
@@ -3276,7 +3304,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
-layout activity_splash_screen
 layout activity_user_login
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3308,6 +3335,7 @@ layout fragment_my_add
 layout fragment_phone_login
 layout fragment_sell
 layout fragment_sign_in
+layout fragment_splash
 layout home_category_sample
 layout home_freshitem_sample
 layout material_chip_input_combo
@@ -4347,6 +4375,7 @@ styleable NavigationRailView headerLayout menuGravity
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconSize itemIconTint itemMaxLines itemShapeAppearance itemShapeAppearanceOverlay itemShapeFillColor itemShapeInsetBottom itemShapeInsetEnd itemShapeInsetStart itemShapeInsetTop itemTextAppearance itemTextColor menu shapeAppearance shapeAppearanceOverlay
 styleable OnClick clickAction targetId
 styleable OnSwipe autoCompleteMode dragDirection dragScale dragThreshold limitBoundsTo maxAcceleration maxVelocity moveWhenScrollAtTop nestedScrollFlags onTouchUp rotationCenterId springBoundary springDamping springMass springStiffness springStopThreshold touchAnchorId touchAnchorSide touchRegionId
+styleable OtpTextView android_textColor height bar_active_color bar_enabled bar_error_color bar_height bar_inactive_color bar_margin bar_margin_bottom bar_margin_left bar_margin_right bar_margin_top bar_success_color box_margin box_margin_bottom box_margin_left box_margin_right box_margin_top hide_otp hide_otp_drawable length otp otp_box_background otp_box_background_active otp_box_background_error otp_box_background_inactive otp_box_background_success otp_text_size text_typeface width
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode

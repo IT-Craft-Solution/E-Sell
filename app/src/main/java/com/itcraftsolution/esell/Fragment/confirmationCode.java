@@ -28,37 +28,10 @@ public class confirmationCode extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_confirmation_code, container, false);
 
-        etCode1 = view.findViewById(R.id.etCode_1);
-        etCode2 = view.findViewById(R.id.etCode_2);
-        etCode3 = view.findViewById(R.id.etCode_3);
-        etCode4 = view.findViewById(R.id.etCode_4);
+
         btncontinue = view.findViewById(R.id.btnContinuePhone);
 
-        etCode1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                etCode1.setText("4");
-            }
-        });
-        etCode2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                etCode2.setText("7");
-            }
-        });
-        etCode3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                etCode3.setText("2");
-            }
-        });
-        etCode4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                etCode4.setText("9");
-                btncontinue.setVisibility(View.VISIBLE);
-            }
-        });
+
 
         btncontinue.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -55,7 +55,6 @@
         android:layout_margin="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_70mdp"
         android:backgroundTint="@color/marine_blue"
-        android:elevation="@dimen/_70mdp"
         app:layout_constraintEnd_toEndOf="@+id/tvLocationDetails"
         app:layout_constraintStart_toStartOf="@+id/tvLocationDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvLocationDetails">
@@ -64,17 +63,17 @@
             android:id="@+id/RelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/purple_500">
+            android:background="@color/lightblue">
 
             <TextView
                 android:id="@+id/NavigationBtnText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20mdp"
-                android:layout_marginTop="@dimen/_20mdp"
+                android:layout_marginTop="@dimen/_10mdp"
                 android:layout_marginEnd="@dimen/_20mdp"
-                android:layout_marginBottom="@dimen/_20mdp"
                 android:text="Around me"
+                android:layout_marginBottom="@dimen/_8mdp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -85,7 +84,7 @@
                 android:layout_width="@dimen/_25mdp"
                 android:layout_height="@dimen/_25mdp"
                 android:layout_marginStart="@dimen/_60mdp"
-                android:layout_marginTop="@dimen/_20mdp"
+                android:layout_marginTop="@dimen/_10mdp"
                 app:srcCompat="@drawable/ic_paper_plane" />
         </RelativeLayout>
 

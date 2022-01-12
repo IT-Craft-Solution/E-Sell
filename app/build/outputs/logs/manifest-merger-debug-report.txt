@@ -7,6 +7,7 @@ INJECTED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\s
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\Shadow\.gradle\caches\transforms-3\813345eb504f680a3545dd04c623c665\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Shadow\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.aabhasr1:OtpView:v1.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\9f0087d72ab40e5e35cf0ffe77d13fd9\transformed\jetified-OtpView-v1.1.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\Shadow\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\Shadow\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\7198bc9663cdd6bdfb0b0958cb77af92\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -102,27 +103,27 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shadow\.gradle\cac
 	android:theme
 		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:11:9-43
 activity#com.itcraftsolution.esell.UserLogin
-ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:12:9-16:20
+ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:12:9-20:20
 	android:exported
 		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:14:13-36
 	android:name
 		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:13:13-38
-activity#com.itcraftsolution.esell.MainActivity
-ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:17:9-25:20
-	android:exported
-		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:19:13-36
-	android:name
-		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:18:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:18:27-74
+activity#com.itcraftsolution.esell.MainActivity
+ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:21:9-25:20
+	android:exported
+		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:23:13-36
+	android:name
+		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:22:13-41
 meta-data#preloaded_fonts
 ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:26:9-28:57
 	android:resource
@@ -139,6 +140,8 @@ MERGED from [com.google.android.material:material:1.4.0] C:\Users\Shadow\.gradle
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Shadow\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.aabhasr1:OtpView:v1.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\9f0087d72ab40e5e35cf0ffe77d13fd9\transformed\jetified-OtpView-v1.1.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.aabhasr1:OtpView:v1.1.2] C:\Users\Shadow\.gradle\caches\transforms-3\9f0087d72ab40e5e35cf0ffe77d13fd9\transformed\jetified-OtpView-v1.1.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\Shadow\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\Shadow\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\Shadow\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:20:5-22:41

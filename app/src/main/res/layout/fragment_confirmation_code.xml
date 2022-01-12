@@ -97,72 +97,26 @@
         <ImageView
             android:id="@+id/ivEditPhoneNum"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/llConfirmationCode"
-        android:layout_width="match_parent"
+    <in.aabhasjindal.otptextview.OtpTextView
+        android:id="@+id/otpView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_60mdp"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:textColor="@color/black"
+        app:bar_enabled="true"
+        app:bar_height="2dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_8mdp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <EditText
-            android:id="@+id/etCode_1"
-            android:layout_width="@dimen/_50mdp"
-            android:layout_height="@dimen/_50mdp"
-            android:background="@drawable/box"
-            android:textAlignment="center"
-            android:textColorHighlight="@color/folroscent_green"
-            android:textColorHint="@color/black"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="241dp" />
-
-        <EditText
-            android:id="@+id/etCode_2"
-            android:layout_width="@dimen/_50mdp"
-            android:layout_height="@dimen/_50mdp"
-            android:layout_marginStart="@dimen/_20mdp"
-            android:background="@drawable/box"
-            android:textAlignment="center"
-            android:textColorHighlight="@color/folroscent_green"
-            android:textColorHint="@color/black"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="241dp" />
-
-        <EditText
-            android:id="@+id/etCode_3"
-            android:layout_width="@dimen/_50mdp"
-            android:layout_height="@dimen/_50mdp"
-            android:layout_marginStart="@dimen/_20mdp"
-            android:background="@drawable/box"
-            android:textAlignment="center"
-            android:textColorHighlight="@color/folroscent_green"
-            android:textColorHint="@color/black"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="241dp" />
-
-        <EditText
-            android:id="@+id/etCode_4"
-            android:layout_width="@dimen/_50mdp"
-            android:layout_height="@dimen/_50mdp"
-            android:layout_marginStart="@dimen/_20mdp"
-            android:background="@drawable/box"
-            android:textAlignment="center"
-            android:textColorHighlight="@color/folroscent_green"
-            android:textColorHint="@color/black"
-            android:textSize="22sp"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="241dp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:length="6"
+        app:otp_text_size="24dp"
+        app:width="40dp" />
 
     <TextView
         android:id="@+id/tvConfirmationLink"
@@ -174,9 +128,9 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/llConfirmationCode"
-        app:layout_constraintStart_toStartOf="@+id/llConfirmationCode"
-        app:layout_constraintTop_toBottomOf="@+id/llConfirmationCode" />
+        app:layout_constraintEnd_toEndOf="@+id/otpView"
+        app:layout_constraintStart_toStartOf="@+id/otpView"
+        app:layout_constraintTop_toBottomOf="@+id/otpView" />
 
     <Button
         android:id="@+id/btnContinuePhone"
@@ -185,13 +139,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="80dp"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="@color/lightblue"
         android:paddingTop="@dimen/_15mdp"
         android:paddingBottom="@dimen/_15mdp"
         android:text="Continue"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
