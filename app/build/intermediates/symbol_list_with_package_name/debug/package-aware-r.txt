@@ -2607,9 +2607,11 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_profile_icon
 drawable eselllogo
 drawable esellnav
 drawable ic_baseline_account_circle_24
+drawable ic_baseline_arrow_forward_ios_24
 drawable ic_baseline_keyboard_backspace_24
 drawable ic_baseline_location_on_24
 drawable ic_baseline_search_24
@@ -2620,6 +2622,7 @@ drawable ic_facebook
 drawable ic_google
 drawable ic_heart_unselected
 drawable ic_home
+drawable ic_information
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_car
 drawable ic_launcher_foreground
@@ -2631,6 +2634,8 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_paper_plane
 drawable ic_sell
 drawable ic_sell_fill
+drawable ic_shopping_bag
+drawable language
 drawable like
 drawable main_search_bg
 drawable material_cursor_drawable
@@ -2669,6 +2674,7 @@ drawable notify_panel_notification_icon_bg
 drawable phone_icon
 drawable properties
 drawable rectangle_bg
+drawable settings
 drawable test_custom_background
 drawable test_level_drawable
 drawable testing
@@ -2684,6 +2690,7 @@ id CTRL
 id ChatBuyingLinear
 id ChatSellingLinear
 id FUNCTION
+id IvUser
 id IvesellIcon
 id META
 id NO_DEBUG
@@ -2696,8 +2703,18 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id TvBuyPackages
+id TvEnglish
+id TvHelpAndSupport
+id TvHelpCenter
 id TvKeepMessages_selling
 id TvNoMessagesYet_selling
+id TvPackagesOrdersBilling
+id TvPrivacyAndLogout
+id TvSelectLanguage
+id TvSettings
+id TvSettingsProfileName
+id TvViewAndEdit
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2797,7 +2814,6 @@ id btnMyadsFav
 id btnNoBuyingChat
 id btnNoSellingChat
 id btnPhoneNumLogin
-id btnSignIn
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2873,8 +2889,6 @@ id easeIn
 id easeInOut
 id easeOut
 id east
-id edEmail
-id edPassword
 id editText
 id edit_query
 id elastic
@@ -2962,6 +2976,7 @@ id linear
 id linearLayout
 id listMode
 id list_item
+id llAccountPage
 id mainBottomNav
 id masked
 id match_constraint
@@ -3218,6 +3233,11 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id view_FullUnderLine
+id view_FullUnderLine1
+id view_FullUnderLine2
+id view_FullUnderLine3
+id view_UnderLine
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3334,7 +3354,6 @@ layout fragment_maps_and_location
 layout fragment_my_add
 layout fragment_phone_login
 layout fragment_sell
-layout fragment_sign_in
 layout fragment_splash
 layout home_category_sample
 layout home_freshitem_sample
@@ -4375,7 +4394,7 @@ styleable NavigationRailView headerLayout menuGravity
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconSize itemIconTint itemMaxLines itemShapeAppearance itemShapeAppearanceOverlay itemShapeFillColor itemShapeInsetBottom itemShapeInsetEnd itemShapeInsetStart itemShapeInsetTop itemTextAppearance itemTextColor menu shapeAppearance shapeAppearanceOverlay
 styleable OnClick clickAction targetId
 styleable OnSwipe autoCompleteMode dragDirection dragScale dragThreshold limitBoundsTo maxAcceleration maxVelocity moveWhenScrollAtTop nestedScrollFlags onTouchUp rotationCenterId springBoundary springDamping springMass springStiffness springStopThreshold touchAnchorId touchAnchorSide touchRegionId
-styleable OtpTextView android_textColor height bar_active_color bar_enabled bar_error_color bar_height bar_inactive_color bar_margin bar_margin_bottom bar_margin_left bar_margin_right bar_margin_top bar_success_color box_margin box_margin_bottom box_margin_left box_margin_right box_margin_top hide_otp hide_otp_drawable length otp otp_box_background otp_box_background_active otp_box_background_error otp_box_background_inactive otp_box_background_success otp_text_size text_typeface width
+styleable OtpTextView android_textColor bar_active_color bar_enabled bar_error_color bar_height bar_inactive_color bar_margin bar_margin_bottom bar_margin_left bar_margin_right bar_margin_top bar_success_color box_margin box_margin_bottom box_margin_left box_margin_right box_margin_top height hide_otp hide_otp_drawable length otp otp_box_background otp_box_background_active otp_box_background_error otp_box_background_inactive otp_box_background_success otp_text_size text_typeface width
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
