@@ -29,7 +29,6 @@ public class SplashScreen extends AppCompatActivity {
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         initViewsAndListener();
-
     }
 
     private void initViewsAndListener() {

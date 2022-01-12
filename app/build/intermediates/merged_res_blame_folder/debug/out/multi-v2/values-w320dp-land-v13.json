@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+            "outputFile": "C:\\Users\\Shadow\\AndroidStudioProjects\\AndroidRevise\\Esellmearge\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO SLIM\\.gradle\\caches\\transforms-3\\1508bc0f4d67cb1fb46dec23183d0585\\transformed\\material-1.4.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "source": "C:\\Users\\Shadow\\.gradle\\caches\\transforms-3\\1508bc0f4d67cb1fb46dec23183d0585\\transformed\\material-1.4.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

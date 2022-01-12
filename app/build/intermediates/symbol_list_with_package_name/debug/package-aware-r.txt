@@ -59,6 +59,10 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr SharedValue
 attr SharedValueId
 attr actionBarDivider
@@ -245,6 +249,10 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clearsTag
 attr clickAction
 attr clockFaceBackgroundColor
@@ -1097,6 +1105,7 @@ color background_material_light
 color black
 color blue
 color blue_grey
+color bottom_nav_bg
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1160,6 +1169,7 @@ color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
+color lightblack
 color lightblue
 color marine_blue
 color material_blue_grey_800
@@ -2547,6 +2557,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable autocar
 drawable avd_hide_password
 drawable avd_show_password
 drawable box
@@ -2558,6 +2569,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable category
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -2565,7 +2577,10 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable eselllogo
 drawable esellnav
-drawable ic_account
+drawable ic_baseline_account_circle_24
+drawable ic_baseline_keyboard_backspace_24
+drawable ic_baseline_location_on_24
+drawable ic_baseline_search_24
 drawable ic_chat_icon
 drawable ic_clock_black_24dp
 drawable ic_edit
@@ -2574,6 +2589,7 @@ drawable ic_google
 drawable ic_heart_unselected
 drawable ic_home
 drawable ic_keyboard_black_24dp
+drawable ic_launcher_car
 drawable ic_launcher_foreground
 drawable ic_man
 drawable ic_mtrl_checked_circle
@@ -2583,6 +2599,8 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_paper_plane
 drawable ic_sell
 drawable ic_sell_fill
+drawable like
+drawable main_search_bg
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2617,15 +2635,22 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable phone_icon
+drawable properties
 drawable rectangle_bg
 drawable test_custom_background
 drawable test_level_drawable
+drawable testing
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font roboto
+font roboto_bold
+font roboto_medium
 id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id ChatBuyingLinear
+id ChatSellingLinear
 id FUNCTION
 id IvesellIcon
 id META
@@ -2639,6 +2664,8 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id TvKeepMessages_selling
+id TvNoMessagesYet_selling
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2673,7 +2700,6 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
-id accountfrag
 id action0
 id actionDown
 id actionDownUp
@@ -2714,7 +2740,11 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id bAppbar
+id bNavAccount
+id bNavChat
+id bNavHome
+id bNavMyAds
+id bNavSell
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2730,6 +2760,8 @@ id btnContinuePhone
 id btnContinueWithGoogle
 id btnContinueWithPhone
 id btnLocation_navigation
+id btnNoBuyingChat
+id btnNoSellingChat
 id btnPhoneNumLogin
 id btnSignIn
 id buttonPanel
@@ -2738,6 +2770,8 @@ id callMeasure
 id cancel_action
 id cancel_button
 id cardView
+id cardView2
+id cardviewHome
 id carryVelocity
 id center
 id center_horizontal
@@ -2808,6 +2842,7 @@ id easeOut
 id east
 id edEmail
 id edPassword
+id editText
 id edit_query
 id elastic
 id end
@@ -2834,6 +2869,7 @@ id fixed
 id flip
 id floating
 id forever
+id frMainContainer
 id frUserDetailsContainer
 id fragment_container_view_tag
 id frost
@@ -2850,15 +2886,21 @@ id header_title
 id hideable
 id home
 id homeAsUp
-id homefrag
 id honorRequest
 id horizontal_only
 id icon
 id icon_group
 id ifRoom
+id igHomeCat
+id igSampleHomeCat
+id igSampleHomeFreshItem
 id ignore
 id ignoreRequest
 id image
+id imageView
+id imageView2
+id imageView3
+id imageView4
 id imgLogo
 id immediateStop
 id included
@@ -2884,7 +2926,6 @@ id layout
 id left
 id leftToRight
 id legacy
-id likesfrag
 id line1
 id line3
 id linear
@@ -2892,6 +2933,7 @@ id linearLayout
 id listMode
 id list_item
 id llConfirmationCode
+id mainBottomNav
 id masked
 id match_constraint
 id match_parent
@@ -2916,7 +2958,6 @@ id material_timepicker_view
 id material_value_index
 id media_actions
 id message
-id messagefrag
 id middle
 id mini
 id month_grid
@@ -2999,6 +3040,9 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvHomeCategory
+id rvHomeFreshItems
+id rvSellCategory
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3075,6 +3119,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id tbMainChat
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
@@ -3087,6 +3132,8 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3126,6 +3173,11 @@ id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
 id tvline
+id txHomecat
+id txSampleHomeCat
+id txSampleHomeFreshItemLocation
+id txSampleHomeFreshItemName
+id txSampleHomeFreshItemPrice
 id unchecked
 id uniform
 id unlabeled
@@ -3139,6 +3191,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id vpMainChat
 id west
 id withText
 id withinBounds
@@ -3234,11 +3287,20 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_account
+layout fragment_chat
+layout fragment_chat_buying
+layout fragment_chat_selling
 layout fragment_confirmation_code
+layout fragment_home
 layout fragment_login
 layout fragment_maps_and_location
+layout fragment_my_add
 layout fragment_phone_login
+layout fragment_sell
 layout fragment_sign_in
+layout home_category_sample
+layout home_freshitem_sample
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -3300,6 +3362,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sell_category_sample
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius
@@ -3320,8 +3383,12 @@ menu bottom_nav_menu
 menu example_menu
 menu example_menu2
 mipmap ic_launcher
+mipmap ic_launcher_adaptive_back
+mipmap ic_launcher_adaptive_fore
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
+mipmap ic_launcher_round_adaptive_back
+mipmap ic_launcher_round_adaptive_fore
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3359,6 +3426,7 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string city_name
 string clear_text_end_icon_content_description
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
@@ -3368,6 +3436,7 @@ string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string keep_messages
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection
@@ -3423,13 +3492,18 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string no_messages_yet
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string price
+string search_anything
 string search_menu_title
+string sell_keep_messages
 string status_bar_notification_info_overflow
+string your_location
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -4188,6 +4262,7 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

@@ -23,8 +23,6 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        getSupportActionBar().hide();
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frUserDetailsContainer , new login());
         fragmentTransaction.commit();

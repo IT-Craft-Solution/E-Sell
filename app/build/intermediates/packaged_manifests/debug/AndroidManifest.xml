@@ -19,7 +19,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Esell" >
         <activity
-            android:name="com.itcraftsolution.esell.SplashScreen"
+            android:name="com.itcraftsolution.esell.UserLogin"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +28,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.itcraftsolution.esell.UserLogin"
-            android:exported="false" >
-        </activity>
-        <activity
             android:name="com.itcraftsolution.esell.MainActivity"
-            android:exported="false" />
+            android:exported="true" >
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -4,6 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/It Craft Solution/E-sell/app/src/main/res/layout/activity_main.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/drawable/rectangle_bg.xml" value="0.290625" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/activity_splash_screen.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/activity_user_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/fragment_phone_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/fragment_sell.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/AndroidRevise/Esellmearge/app/src/main/res/layout/fragment_sign_in.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/ic_sell_fill.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_account.xml" value="0.290625" />

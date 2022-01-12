@@ -134,7 +134,7 @@
             android:layout_marginStart="@dimen/_15mdp"
             android:layout_marginEnd="@dimen/_15mdp"
             android:layout_marginBottom="60dp"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/lightblue"
             android:paddingTop="@dimen/_15mdp"
             android:paddingBottom="@dimen/_15mdp"
             android:text="Next"
