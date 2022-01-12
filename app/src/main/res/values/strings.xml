@@ -6,4 +6,8 @@
     <string name="city_name">City Name</string>
     <string name="your_location">Your Location</string>
     <string name="price">₹ 11.000.00</string>
+
+    <string name="no_messages_yet">No messages, yet?</string>
+    <string name="keep_messages">We will keep messages for any items you are trying to buy in here</string>
+    <string name="sell_keep_messages">We will keep messages for any items you are trying to Sell in here</string>
 </resources>

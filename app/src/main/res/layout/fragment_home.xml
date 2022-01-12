@@ -68,7 +68,6 @@
         android:layout_height="wrap_content"
         android:background="#05000000"
         android:elevation="@dimen/_30mdp"
-
         android:layout_marginTop="@dimen/_12mdp"
         app:cardCornerRadius="@dimen/_13mdp"
         app:layout_constraintStart_toStartOf="@+id/editText"
