@@ -19,7 +19,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Esell" >
         <activity
-            android:name="com.itcraftsolution.esell.UserLogin"
+            android:name="com.itcraftsolution.esell.SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +28,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.itcraftsolution.esell.MainActivity"
+            android:name="com.itcraftsolution.esell.UserLogin"
             android:exported="false" >
         </activity>
+        <activity
+            android:name="com.itcraftsolution.esell.MainActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

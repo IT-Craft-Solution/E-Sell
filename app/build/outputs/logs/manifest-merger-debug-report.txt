@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\7198bc9663cdd6bdfb0b0958cb77af92\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\3504aa656f9d00f9e2cadffb281d01d0\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -49,25 +50,25 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\b618f929228947d1fd03b4a852d85b00\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\70be178243629fefb8ce9adf6a292e12\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\b521f32a8ca2115704fce9eaa65230c1\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:5:5-30:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:9:5-20
@@ -96,28 +97,34 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\LENOVO SLIM\.gradl
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:11:9-43
-activity#com.itcraftsolution.esell.UserLogin
+activity#com.itcraftsolution.esell.SplashScreen
 ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:12:9-20:20
 	android:exported
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:14:13-36
 	android:name
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:13:13-38
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:13:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:15:9-19:25
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:16:13-65
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:16:21-62
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:18:13-73
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:18:23-70
-activity#com.itcraftsolution.esell.MainActivity
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:18:27-74
+activity#com.itcraftsolution.esell.UserLogin
 ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:22:9-25:20
 	android:exported
 		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:23:13-41
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:23:13-38
+activity#com.itcraftsolution.esell.MainActivity
+ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:27:9-29:40
+	android:exported
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml:28:13-41
 uses-sdk
 INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\LENOVO SLIM\AndroidStudioProjects\ICS\E-Sell\app\src\main\AndroidManifest.xml
@@ -126,6 +133,8 @@ MERGED from [com.google.android.material:material:1.4.0] C:\Users\LENOVO SLIM\.g
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dfc919b22745ddd932efee096f7114fd\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\7198bc9663cdd6bdfb0b0958cb77af92\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44

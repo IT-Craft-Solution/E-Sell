@@ -1,82 +1,182 @@
 [
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_eselllogo.png.flat",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\eselllogo.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_account.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_account.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_home.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_home.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_maps_and_location.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_maps_and_location.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_user_login.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\activity_user_login.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_phone_icon.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\phone_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_login.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\anim_top_animation.xml.flat",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\anim\\top_animation.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_icon.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_chat_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_heart_unselected.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_heart_unselected.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\anim_bottom_animation.xml.flat",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\anim\\bottom_animation.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_box.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\box.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_man.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_man.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_sell_fill.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_sell_fill.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_esellnav.jpg.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\esellnav.jpg"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_rectangle_bg.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\rectangle_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_sell.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_sell.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_splash_screen.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\activity_splash_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_user_login.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\activity_user_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_google.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_google.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_confirmation_code.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_confirmation_code.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_facebook.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_facebook.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_edit.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_sign_in.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_paper_plane.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\drawable\\ic_paper_plane.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_phone_login.xml.flat",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_phone_login.xml"
     }
 ]

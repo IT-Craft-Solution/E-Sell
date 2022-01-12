@@ -1,7 +1,31 @@
-com/itcraftsolution/esell/MainActivity.java
- com.itcraftsolution.esell.MainActivity
 com/itcraftsolution/esell/BuildConfig.java
  com.itcraftsolution.esell.BuildConfig
+com/itcraftsolution/esell/Fragments/confirmationCode.java
+ com.itcraftsolution.esell.Fragments.confirmationCode
+ com.itcraftsolution.esell.Fragments.confirmationCode$1
+ com.itcraftsolution.esell.Fragments.confirmationCode$2
+ com.itcraftsolution.esell.Fragments.confirmationCode$3
+ com.itcraftsolution.esell.Fragments.confirmationCode$4
+ com.itcraftsolution.esell.Fragments.confirmationCode$5
+com/itcraftsolution/esell/MainActivity.java
+ com.itcraftsolution.esell.MainActivity
+com/itcraftsolution/esell/SplashScreen.java
+ com.itcraftsolution.esell.SplashScreen
+ com.itcraftsolution.esell.SplashScreen$1
+com/itcraftsolution/esell/Fragments/mapsAndLocation.java
+ com.itcraftsolution.esell.Fragments.mapsAndLocation
+ com.itcraftsolution.esell.Fragments.mapsAndLocation$1
+ com.itcraftsolution.esell.Fragments.mapsAndLocation$2
+com/itcraftsolution/esell/Fragments/SignIn.java
+ com.itcraftsolution.esell.Fragments.SignIn
+ com.itcraftsolution.esell.Fragments.SignIn$1
 com/itcraftsolution/esell/UserLogin.java
  com.itcraftsolution.esell.UserLogin
- com.itcraftsolution.esell.UserLogin$1
+com/itcraftsolution/esell/Fragments/login.java
+ com.itcraftsolution.esell.Fragments.login
+ com.itcraftsolution.esell.Fragments.login$1
+ com.itcraftsolution.esell.Fragments.login$2
+com/itcraftsolution/esell/Fragments/phoneLogin.java
+ com.itcraftsolution.esell.Fragments.phoneLogin
+ com.itcraftsolution.esell.Fragments.phoneLogin$1
+ com.itcraftsolution.esell.Fragments.phoneLogin$2
