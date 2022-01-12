@@ -1,4 +1,4 @@
-package com.itcraftsolution.esell.Fragments;
+package com.itcraftsolution.esell.Fragment;
 
 import android.Manifest;
 import android.content.Intent;

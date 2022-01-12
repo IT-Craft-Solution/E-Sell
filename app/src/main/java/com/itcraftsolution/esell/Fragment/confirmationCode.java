@@ -1,6 +1,5 @@
-package com.itcraftsolution.esell.Fragments;
+package com.itcraftsolution.esell.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 
 public class confirmationCode extends Fragment {

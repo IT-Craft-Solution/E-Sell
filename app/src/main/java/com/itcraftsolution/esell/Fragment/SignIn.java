@@ -1,4 +1,4 @@
-package com.itcraftsolution.esell.Fragments;
+package com.itcraftsolution.esell.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,8 +43,6 @@ public class SignIn extends Fragment {
                 requireActivity().finishAffinity();
             }
         });
-
-
 
         return  view;
     }

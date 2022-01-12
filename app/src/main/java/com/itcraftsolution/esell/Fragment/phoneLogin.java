@@ -1,6 +1,5 @@
-package com.itcraftsolution.esell.Fragments;
+package com.itcraftsolution.esell.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
