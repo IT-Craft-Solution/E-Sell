@@ -12,4 +12,9 @@
 
     <color name="lightblue">#65A3E7</color>
     <color name="lightblack">#BF000000</color>
+    <color name="blue">#367FEE</color>
+    <color name="marine_blue">#003034</color>
+    <color name="sea_green">#5D797C</color>
+    <color name="blue_grey">#60787A</color>
+    <color name="folroscent_green">#8acbca</color>
 </resources>

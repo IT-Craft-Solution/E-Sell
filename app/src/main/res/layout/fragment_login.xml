@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".Fragments.login">
+
+    <ImageView
+        android:id="@+id/IvesellIcon"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        android:src="@drawable/eselllogo"
+        app:layout_constraintBottom_toTopOf="@id/btnContinueWithPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnContinueWithPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="@dimen/_40mdp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rectangle_bg"
+        android:backgroundTint="@color/purple_500"
+        android:drawableLeft="@drawable/phone_icon"
+        android:padding="@dimen/_10mdp"
+        android:text="Continue with Phone"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/btnContinueWithGoogle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IvesellIcon" />
+
+    <Button
+        android:id="@+id/btnContinueWithGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="@dimen/_20mdp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rectangle_bg"
+        android:drawableLeft="@drawable/ic_google"
+        android:padding="@dimen/_10mdp"
+        android:text="Continue With Google"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnContinueWithPhone"
+        app:layout_constraintStart_toStartOf="@+id/btnContinueWithPhone"
+        app:layout_constraintTop_toBottomOf="@id/btnContinueWithPhone" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20mdp"
+        android:gravity="center_horizontal"
+        android:text="If you continue, you are accepting  Terms and Conditions and Privacy Policy"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

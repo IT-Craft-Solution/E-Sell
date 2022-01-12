@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".Fragments.login">
+
+    <ImageView
+        android:id="@+id/IvesellIcon"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        android:src="@drawable/eselllogo"
+        app:layout_constraintBottom_toTopOf="@id/edEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/rectangle_bg"
+        android:padding="@dimen/_10mdp"
+        android:text="  Sing In  "
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:padding="@dimen/_10mdp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@drawable/rectangle_bg"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:hint=" UserName Or Email "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IvesellIcon" />
+
+    <EditText
+        android:id="@+id/edPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_bg"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint=" Password"
+        android:inputType="textPassword"
+        android:padding="@dimen/_10mdp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edEmail"
+        app:layout_constraintVertical_bias="0.418" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

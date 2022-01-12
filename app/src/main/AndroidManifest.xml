@@ -11,14 +11,13 @@
         android:theme="@style/Theme.Esell">
         <activity
             android:name=".UserLogin"
-            android:exported="true" >
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
