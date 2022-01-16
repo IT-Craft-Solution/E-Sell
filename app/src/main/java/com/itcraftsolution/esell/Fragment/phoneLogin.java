@@ -1,5 +1,7 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +26,6 @@ public class phoneLogin extends Fragment {
     private EditText etPhone;
     private Button btnNext;
     private ImageView ivBack;
-    private static final String PHONE = "PHONE";
 
 
     @Override
@@ -43,6 +44,8 @@ public class phoneLogin extends Fragment {
             @Override
             public void onClick(View v) {
                 if (checkPhoneNumber()) {
+
+                    StoreUserDetails("+91" , etPhone.getText().toString());
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frUserDetailsContainer, new confirmationCode());
                     fragmentTransaction.commit();
@@ -68,6 +71,15 @@ public class phoneLogin extends Fragment {
             condition = false;
         }
         return condition;
+    }
+    private SharedPreferences StoreUserDetails(String CountryCode , String PhoneNumber)
+    {
+        SharedPreferences spf = getContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = spf.edit();
+        editor.putString("CountryCode" , CountryCode);
+        editor.putString("PhoneNumber" , PhoneNumber);
+        editor.apply();
+        return spf;
     }
 
 }

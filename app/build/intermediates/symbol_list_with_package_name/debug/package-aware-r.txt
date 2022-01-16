@@ -3207,7 +3207,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvConfirmationLink
 id tvConfirmationLogin
 id tvConfirmationTitle
 id tvDetails

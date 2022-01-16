@@ -36,7 +36,7 @@
                 android:layout_marginEnd="@dimen/_10mdp"
                 android:drawablePadding="@dimen/_15mdp"
                 android:padding="@dimen/_10mdp"
-                android:text="Login"
+                android:text="OTP Verification"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -73,7 +73,7 @@
             android:id="@+id/tvMessageBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We Sent a 4-Digit Code"
+            android:text="We Sent a 6-Digit Code"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -118,37 +118,23 @@
         app:otp_text_size="24dp"
         app:width="40dp" />
 
-    <TextView
-        android:id="@+id/tvConfirmationLink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_25mdp"
-        android:layout_marginTop="@dimen/_50mdp"
-        android:text="Resend Code By call "
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/otpView"
-        app:layout_constraintStart_toStartOf="@+id/otpView"
-        app:layout_constraintTop_toBottomOf="@+id/otpView" />
-
     <Button
         android:id="@+id/btnContinuePhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="80dp"
         android:backgroundTint="@color/lightblue"
-        android:paddingTop="@dimen/_15mdp"
-        android:paddingBottom="@dimen/_15mdp"
+        android:paddingTop="@dimen/_10mdp"
+        android:paddingBottom="@dimen/_10mdp"
         android:text="Continue"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

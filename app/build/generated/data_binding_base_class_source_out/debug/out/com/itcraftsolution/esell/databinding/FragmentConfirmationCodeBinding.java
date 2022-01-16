@@ -43,9 +43,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
   public final OtpTextView otpView;
 
   @NonNull
-  public final TextView tvConfirmationLink;
-
-  @NonNull
   public final TextView tvConfirmationLogin;
 
   @NonNull
@@ -64,9 +61,9 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
       @NonNull Button btnContinuePhone, @NonNull CardView cardView,
       @NonNull ImageView ivConfirmationBackArrow, @NonNull ImageView ivEditPhoneNum,
       @NonNull LinearLayout linearLayout, @NonNull OtpTextView otpView,
-      @NonNull TextView tvConfirmationLink, @NonNull TextView tvConfirmationLogin,
-      @NonNull TextView tvConfirmationTitle, @NonNull TextView tvDisplayCountryCode,
-      @NonNull TextView tvDisplayPhoneNumber, @NonNull TextView tvMessageBody) {
+      @NonNull TextView tvConfirmationLogin, @NonNull TextView tvConfirmationTitle,
+      @NonNull TextView tvDisplayCountryCode, @NonNull TextView tvDisplayPhoneNumber,
+      @NonNull TextView tvMessageBody) {
     this.rootView = rootView;
     this.btnContinuePhone = btnContinuePhone;
     this.cardView = cardView;
@@ -74,7 +71,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
     this.ivEditPhoneNum = ivEditPhoneNum;
     this.linearLayout = linearLayout;
     this.otpView = otpView;
-    this.tvConfirmationLink = tvConfirmationLink;
     this.tvConfirmationLogin = tvConfirmationLogin;
     this.tvConfirmationTitle = tvConfirmationTitle;
     this.tvDisplayCountryCode = tvDisplayCountryCode;
@@ -145,12 +141,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvConfirmationLink;
-      TextView tvConfirmationLink = ViewBindings.findChildViewById(rootView, id);
-      if (tvConfirmationLink == null) {
-        break missingId;
-      }
-
       id = R.id.tvConfirmationLogin;
       TextView tvConfirmationLogin = ViewBindings.findChildViewById(rootView, id);
       if (tvConfirmationLogin == null) {
@@ -183,8 +173,8 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
 
       return new FragmentConfirmationCodeBinding((ConstraintLayout) rootView, btnContinuePhone,
           cardView, ivConfirmationBackArrow, ivEditPhoneNum, linearLayout, otpView,
-          tvConfirmationLink, tvConfirmationLogin, tvConfirmationTitle, tvDisplayCountryCode,
-          tvDisplayPhoneNumber, tvMessageBody);
+          tvConfirmationLogin, tvConfirmationTitle, tvDisplayCountryCode, tvDisplayPhoneNumber,
+          tvMessageBody);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

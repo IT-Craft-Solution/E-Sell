@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/IvesellIcon"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:src="@drawable/eselllogo"
         app:layout_constraintBottom_toTopOf="@id/btnContinueWithPhone"

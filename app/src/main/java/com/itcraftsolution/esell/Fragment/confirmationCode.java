@@ -1,5 +1,7 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,38 +12,57 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.itcraftsolution.esell.R;
+import com.itcraftsolution.esell.databinding.FragmentConfirmationCodeBinding;
 
 public class confirmationCode extends Fragment {
+
+    private SharedPreferences spf;
+    private FragmentConfirmationCodeBinding binding;
+    private String CountryCode , PhoneNumber;
 
     public confirmationCode() {
         // Required empty public constructor
     }
 
-    private EditText etCode1, etCode2, etCode3, etCode4;
-    private Button btncontinue;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_confirmation_code, container, false);
+        binding = FragmentConfirmationCodeBinding.inflate(getLayoutInflater());
 
+        spf = getContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
+        CountryCode = spf.getString("CountryCode" , null);
+        PhoneNumber = spf.getString("PhoneNumber" , null);
 
-        btncontinue = view.findViewById(R.id.btnContinuePhone);
+        binding.tvDisplayCountryCode.setText(CountryCode);
+        binding.tvDisplayPhoneNumber.setText(PhoneNumber);
 
-
-
-        btncontinue.setOnClickListener(new View.OnClickListener() {
+        binding.btnContinuePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frUserDetailsContainer,new mapsAndLocation());
-                fragmentTransaction.commit();
+                if(CheckOtp())
+                {
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer,new mapsAndLocation());
+                    fragmentTransaction.commit();
+                }
+
             }
         });
 
-        return  view;
+        return  binding.getRoot();
     }
+
+    private boolean CheckOtp() {
+        boolean condition = true;
+        if (binding.otpView.getOTP().length() != 6) {
+            Toast.makeText(getContext(), "Fill The OTP", Toast.LENGTH_SHORT).show();
+            condition = false;
+        }
+        return condition;
+    }
+
 }

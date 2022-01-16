@@ -44,7 +44,7 @@
         android:id="@+id/ivAvatarLogin"
         android:layout_width="@dimen/_83mdp"
         android:layout_height="@dimen/_90mdp"
-        android:layout_marginStart="@dimen/_30mdp"
+        android:layout_marginStart="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_10mdp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_man" />
@@ -53,7 +53,7 @@
         android:id="@+id/tvEnterPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_30mdp"
+        android:layout_marginStart="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_15mdp"
         android:layout_marginEnd="@dimen/_5mdp"
         android:text="Enter Your Phone Number "
@@ -65,7 +65,7 @@
         android:id="@+id/tvDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_30mdp"
+        android:layout_marginStart="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_10mdp"
         android:layout_marginEnd="@dimen/_5mdp"
         android:text="We will send confirmation code to your phone."
@@ -133,10 +133,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15mdp"
             android:layout_marginEnd="@dimen/_15mdp"
-            android:layout_marginBottom="60dp"
             android:backgroundTint="@color/lightblue"
-            android:paddingTop="@dimen/_15mdp"
-            android:paddingBottom="@dimen/_15mdp"
+            android:paddingTop="@dimen/_8mdp"
+            android:paddingBottom="@dimen/_8mdp"
             android:text="Next"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -144,7 +143,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

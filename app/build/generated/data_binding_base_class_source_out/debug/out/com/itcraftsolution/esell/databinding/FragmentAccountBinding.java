@@ -4,12 +4,12 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.itcraftsolution.esell.R;
@@ -19,7 +19,7 @@ import java.lang.String;
 
 public final class FragmentAccountBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final ImageView IvUser;
@@ -72,7 +72,7 @@ public final class FragmentAccountBinding implements ViewBinding {
   @NonNull
   public final View viewUnderLine;
 
-  private FragmentAccountBinding(@NonNull FrameLayout rootView, @NonNull ImageView IvUser,
+  private FragmentAccountBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView IvUser,
       @NonNull TextView TvBuyPackages, @NonNull TextView TvEnglish,
       @NonNull TextView TvHelpAndSupport, @NonNull TextView TvHelpCenter,
       @NonNull TextView TvPackagesOrdersBilling, @NonNull TextView TvPrivacyAndLogout,
@@ -103,7 +103,7 @@ public final class FragmentAccountBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -230,8 +230,8 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentAccountBinding((FrameLayout) rootView, IvUser, TvBuyPackages, TvEnglish,
-          TvHelpAndSupport, TvHelpCenter, TvPackagesOrdersBilling, TvPrivacyAndLogout,
+      return new FragmentAccountBinding((ConstraintLayout) rootView, IvUser, TvBuyPackages,
+          TvEnglish, TvHelpAndSupport, TvHelpCenter, TvPackagesOrdersBilling, TvPrivacyAndLogout,
           TvSelectLanguage, TvSettings, TvSettingsProfileName, TvViewAndEdit, llAccountPage,
           viewFullUnderLine, viewFullUnderLine1, viewFullUnderLine2, viewFullUnderLine3,
           viewUnderLine);
