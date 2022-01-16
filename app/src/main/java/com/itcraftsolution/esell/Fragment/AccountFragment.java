@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentAccountBinding;
 
@@ -17,7 +18,8 @@ public class AccountFragment extends Fragment {
         // Required empty public constructor
     }
 
-       FragmentAccountBinding  binding;
+       private FragmentAccountBinding  binding;
+       private FirebaseAuth auth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,8 +27,14 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAccountBinding.inflate(getLayoutInflater());
 
+        auth = FirebaseAuth.getInstance();
 
-
+    binding.TvSettings.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            auth.signOut();
+        }
+    });
 
 
 

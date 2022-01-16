@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "976776669815",
+    "project_id": "esell-d8fa2",
+    "storage_bucket": "esell-d8fa2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976776669815:android:d00f38165af3cf019e7472",
+        "android_client_info": {
+          "package_name": "com.itcraftsolution.esell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976776669815-e0qjheg7vaj1364co5bc4sr745qir2pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnFwyDl11SlcToj2f4MP-vMDd0sgfe9zE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976776669815-e0qjheg7vaj1364co5bc4sr745qir2pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

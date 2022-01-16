@@ -22,11 +22,11 @@ com/itcraftsolution/esell/databinding/FragmentAccountBinding.java
  com.itcraftsolution.esell.databinding.FragmentAccountBinding
 com/itcraftsolution/esell/Fragment/AccountFragment.java
  com.itcraftsolution.esell.Fragment.AccountFragment
+ com.itcraftsolution.esell.Fragment.AccountFragment$1
 com/itcraftsolution/esell/databinding/FragmentAdsBinding.java
  com.itcraftsolution.esell.databinding.FragmentAdsBinding
-com/itcraftsolution/esell/Fragment/SplashFragment.java
- com.itcraftsolution.esell.Fragment.SplashFragment
- com.itcraftsolution.esell.Fragment.SplashFragment$1
+com/itcraftsolution/esell/Model/SellCategory.java
+ com.itcraftsolution.esell.Model.SellCategory
 com/itcraftsolution/esell/Fragment/ChatBuyingFragment.java
  com.itcraftsolution.esell.Fragment.ChatBuyingFragment
 com/itcraftsolution/esell/databinding/FragmentFavoriteBinding.java
@@ -56,10 +56,10 @@ com/itcraftsolution/esell/Adapter/HomeCatRecyclerAdapter.java
  com.itcraftsolution.esell.Adapter.HomeCatRecyclerAdapter$viewHolder
 com/itcraftsolution/esell/databinding/FragmentPhoneLoginBinding.java
  com.itcraftsolution.esell.databinding.FragmentPhoneLoginBinding
-com/itcraftsolution/esell/databinding/FragmentLoginBinding.java
- com.itcraftsolution.esell.databinding.FragmentLoginBinding
 com/itcraftsolution/esell/Fragment/SellFragment.java
  com.itcraftsolution.esell.Fragment.SellFragment
+com/itcraftsolution/esell/databinding/FragmentLoginBinding.java
+ com.itcraftsolution.esell.databinding.FragmentLoginBinding
 com/itcraftsolution/esell/Fragment/MyAddFragment.java
  com.itcraftsolution.esell.Fragment.MyAddFragment
 com/itcraftsolution/esell/databinding/HomeCategorySampleBinding.java
@@ -82,19 +82,22 @@ com/itcraftsolution/esell/databinding/FragmentSplashBinding.java
  com.itcraftsolution.esell.databinding.FragmentSplashBinding
 com/itcraftsolution/esell/Model/HomeCategory.java
  com.itcraftsolution.esell.Model.HomeCategory
-com/itcraftsolution/esell/Fragment/phoneLogin.java
- com.itcraftsolution.esell.Fragment.phoneLogin
- com.itcraftsolution.esell.Fragment.phoneLogin$1
- com.itcraftsolution.esell.Fragment.phoneLogin$2
+com/itcraftsolution/esell/databinding/FragmentHomeBinding.java
+ com.itcraftsolution.esell.databinding.FragmentHomeBinding
 com/itcraftsolution/esell/databinding/FragmentChatBuyingBinding.java
  com.itcraftsolution.esell.databinding.FragmentChatBuyingBinding
 com/itcraftsolution/esell/Fragment/ChatSellingFragment.java
  com.itcraftsolution.esell.Fragment.ChatSellingFragment
-com/itcraftsolution/esell/databinding/FragmentHomeBinding.java
- com.itcraftsolution.esell.databinding.FragmentHomeBinding
-com/itcraftsolution/esell/Model/SellCategory.java
- com.itcraftsolution.esell.Model.SellCategory
+com/itcraftsolution/esell/Fragment/phoneLogin.java
+ com.itcraftsolution.esell.Fragment.phoneLogin
+ com.itcraftsolution.esell.Fragment.phoneLogin$1
+ com.itcraftsolution.esell.Fragment.phoneLogin$2
+com/itcraftsolution/esell/Fragment/SplashFragment.java
+ com.itcraftsolution.esell.Fragment.SplashFragment
+ com.itcraftsolution.esell.Fragment.SplashFragment$1
 com/itcraftsolution/esell/Fragment/login.java
  com.itcraftsolution.esell.Fragment.login
  com.itcraftsolution.esell.Fragment.login$1
  com.itcraftsolution.esell.Fragment.login$2
+ com.itcraftsolution.esell.Fragment.login$3
+ com.itcraftsolution.esell.Fragment.login$4
