@@ -6,11 +6,13 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationBarView;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
+import com.itcraftsolution.esell.Fragment.FavoriteFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
 import com.itcraftsolution.esell.Fragment.MyAddFragment;
 import com.itcraftsolution.esell.Fragment.SellFragment;
@@ -18,7 +20,10 @@ import com.itcraftsolution.esell.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-  private  ActivityMainBinding binding;
+   
+    private  ActivityMainBinding binding;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,5 +67,17 @@ public class MainActivity extends AppCompatActivity {
           FragmentTransaction firstFragment = getSupportFragmentManager().beginTransaction();
             firstFragment.replace(R.id.frMainContainer, new HomeFragment());
             firstFragment.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome)
+        {
+            super.onBackPressed();
+            finishAffinity();
+        }
+        else {
+            binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+        }
     }
 }

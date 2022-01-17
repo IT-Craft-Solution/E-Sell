@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.EditProfileFragment">
+
+        <ImageView
+           android:id="@+id/igEditToAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:padding="@dimen/_4mdp"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginEnd="@dimen/_12mdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textSize="@dimen/_18font_mdp"
+            app:layout_constraintBottom_toBottomOf="@+id/igEditToAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/igEditToAccount" />
+
+        <TextView
+            android:id="@+id/editProfileHead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Basic information"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_18font_mdp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@+id/igEditToAccount"
+            app:layout_constraintTop_toBottomOf="@+id/igEditToAccount" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/igProfileDp"
+            android:layout_width="@dimen/_100mdp"
+            android:layout_height="@dimen/_100mdp"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:src="@drawable/edit_profile_icon"
+            app:layout_constraintStart_toStartOf="@+id/igEditToAccount"
+            app:layout_constraintTop_toBottomOf="@+id/editProfileHead" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/_1mdp"
+            android:text="Edit"
+            android:textColor="@color/lightblack"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
+            app:layout_constraintEnd_toEndOf="@+id/igProfileDp"
+            app:layout_constraintStart_toStartOf="@+id/igProfileDp" />
+
+        <EditText
+            android:id="@+id/edProfileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5mdp"
+            android:autofillHints="true"
+            android:hint="Name"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/igProfileDp"
+            app:layout_constraintTop_toTopOf="@+id/igProfileDp" />
+
+        <EditText
+            android:id="@+id/edProfileAbout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="true"
+            android:hint="Somthing About You"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@+id/edProfileName"
+            app:layout_constraintStart_toStartOf="@+id/igProfileDp"
+            app:layout_constraintTop_toBottomOf="@+id/igProfileDp" />
+
+
+        <TextView
+            android:id="@+id/ContactInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_information"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_18font_mdp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_12mdp"
+            app:layout_constraintStart_toStartOf="@+id/edProfileAbout"
+            app:layout_constraintTop_toBottomOf="@+id/edProfileAbout" />
+
+        <TextView
+            android:id="@+id/epCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:text="@string/country"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_14font_mdp"
+            app:layout_constraintStart_toStartOf="@+id/ContactInfo"
+            app:layout_constraintTop_toBottomOf="@+id/ContactInfo" />
+
+        <TextView
+            android:id="@+id/epPhoneNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40mdp"
+            android:layout_marginTop="@dimen/_10mdp"
+            android:text="@string/phone_number"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_14font_mdp"
+            app:layout_constraintEnd_toEndOf="@id/ContactInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/epCountry"
+            app:layout_constraintTop_toBottomOf="@id/ContactInfo" />
+
+        <EditText
+            android:id="@+id/edCountryCode"
+            android:layout_width="@dimen/_60mdp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:hint="+91"
+            android:autofillHints="false"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/epCountry"
+            app:layout_constraintTop_toBottomOf="@+id/epCountry"
+             />
+
+        <EditText
+            android:id="@+id/edProfilePhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:inputType="phone"
+            android:text="9723816724"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/epPhoneNo"
+            app:layout_constraintTop_toBottomOf="@+id/epPhoneNo" />
+
+        <TextView
+            android:id="@+id/epPhoneDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10mdp"
+            android:text="This is the number for buyer contacts, reminders and other notifications."
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/edProfilePhoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/edProfilePhoneNumber" />
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginTop="@dimen/_12mdp"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_14font_mdp"
+            app:layout_constraintStart_toStartOf="@+id/edCountryCode"
+            app:layout_constraintTop_toBottomOf="@+id/epPhoneDetails" />
+
+        <EditText
+            android:id="@+id/edProfileEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:inputType="textEmailAddress"
+            android:hint="PrathvikSankaliya@gmail.com"
+            android:layout_marginTop="@dimen/_6mdp"
+            app:layout_constraintEnd_toEndOf="@+id/epPhoneDetails"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/verification"
+            android:textColor="@color/lightblack"
+
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintEnd_toEndOf="@+id/edProfileEmail"
+            app:layout_constraintStart_toStartOf="@+id/edProfileEmail"
+            app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
+</androidx.constraintlayout.widget.ConstraintLayout>
