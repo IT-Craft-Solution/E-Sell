@@ -45,10 +45,10 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final TextView textView;
 
   @NonNull
-  public final TextView textView2;
+  public final TextView textView3;
 
   @NonNull
-  public final TextView textView3;
+  public final TextView tvCityName;
 
   @NonNull
   public final TextView txHomecat;
@@ -56,7 +56,7 @@ public final class FragmentHomeBinding implements ViewBinding {
   private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cardviewHome,
       @NonNull EditText editText, @NonNull ImageView igHomeCat, @NonNull ImageView imageView,
       @NonNull RecyclerView rvHomeCategory, @NonNull RecyclerView rvHomeFreshItems,
-      @NonNull TextView textView, @NonNull TextView textView2, @NonNull TextView textView3,
+      @NonNull TextView textView, @NonNull TextView textView3, @NonNull TextView tvCityName,
       @NonNull TextView txHomecat) {
     this.rootView = rootView;
     this.cardviewHome = cardviewHome;
@@ -66,8 +66,8 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.rvHomeCategory = rvHomeCategory;
     this.rvHomeFreshItems = rvHomeFreshItems;
     this.textView = textView;
-    this.textView2 = textView2;
     this.textView3 = textView3;
+    this.tvCityName = tvCityName;
     this.txHomecat = txHomecat;
   }
 
@@ -140,15 +140,15 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
-        break missingId;
-      }
-
       id = R.id.textView3;
       TextView textView3 = ViewBindings.findChildViewById(rootView, id);
       if (textView3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvCityName;
+      TextView tvCityName = ViewBindings.findChildViewById(rootView, id);
+      if (tvCityName == null) {
         break missingId;
       }
 
@@ -159,7 +159,7 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((ConstraintLayout) rootView, cardviewHome, editText, igHomeCat,
-          imageView, rvHomeCategory, rvHomeFreshItems, textView, textView2, textView3, txHomecat);
+          imageView, rvHomeCategory, rvHomeFreshItems, textView, textView3, tvCityName, txHomecat);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

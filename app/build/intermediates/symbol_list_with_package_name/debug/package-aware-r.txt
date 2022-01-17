@@ -3232,7 +3232,6 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView2
 id textView3
 id text_input_end_icon
 id text_input_error_icon
@@ -3259,6 +3258,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvCityName
 id tvConfirmationLogin
 id tvConfirmationTitle
 id tvDetails
