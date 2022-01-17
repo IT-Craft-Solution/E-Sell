@@ -4,6 +4,7 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.itcraftsolution.esell.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,83 +24,77 @@ public final class FragmentAccountBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView IvUser;
+  public final Button btnEditProfile;
 
   @NonNull
-  public final TextView TvBuyPackages;
+  public final CircleImageView circleImageView;
 
   @NonNull
-  public final TextView TvEnglish;
+  public final ImageView imageView5;
 
   @NonNull
-  public final TextView TvHelpAndSupport;
+  public final ImageView imageView6;
 
   @NonNull
-  public final TextView TvHelpCenter;
+  public final ImageView imageView7;
 
   @NonNull
-  public final TextView TvPackagesOrdersBilling;
+  public final ImageView imageView8;
 
   @NonNull
-  public final TextView TvPrivacyAndLogout;
+  public final LinearLayout llAccountHelp;
 
   @NonNull
-  public final TextView TvSelectLanguage;
+  public final LinearLayout llAccountLogout;
 
   @NonNull
-  public final TextView TvSettings;
+  public final LinearLayout llAccountMyOrders;
 
   @NonNull
-  public final TextView TvSettingsProfileName;
+  public final LinearLayout llAccountSelectLang;
 
   @NonNull
-  public final TextView TvViewAndEdit;
+  public final TextView textView4;
 
   @NonNull
-  public final LinearLayout llAccountPage;
+  public final TextView textView5;
 
   @NonNull
-  public final View viewFullUnderLine;
+  public final View view;
 
   @NonNull
-  public final View viewFullUnderLine1;
+  public final View view2;
 
   @NonNull
-  public final View viewFullUnderLine2;
+  public final View view3;
 
   @NonNull
-  public final View viewFullUnderLine3;
+  public final View view4;
 
-  @NonNull
-  public final View viewUnderLine;
-
-  private FragmentAccountBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView IvUser,
-      @NonNull TextView TvBuyPackages, @NonNull TextView TvEnglish,
-      @NonNull TextView TvHelpAndSupport, @NonNull TextView TvHelpCenter,
-      @NonNull TextView TvPackagesOrdersBilling, @NonNull TextView TvPrivacyAndLogout,
-      @NonNull TextView TvSelectLanguage, @NonNull TextView TvSettings,
-      @NonNull TextView TvSettingsProfileName, @NonNull TextView TvViewAndEdit,
-      @NonNull LinearLayout llAccountPage, @NonNull View viewFullUnderLine,
-      @NonNull View viewFullUnderLine1, @NonNull View viewFullUnderLine2,
-      @NonNull View viewFullUnderLine3, @NonNull View viewUnderLine) {
+  private FragmentAccountBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnEditProfile,
+      @NonNull CircleImageView circleImageView, @NonNull ImageView imageView5,
+      @NonNull ImageView imageView6, @NonNull ImageView imageView7, @NonNull ImageView imageView8,
+      @NonNull LinearLayout llAccountHelp, @NonNull LinearLayout llAccountLogout,
+      @NonNull LinearLayout llAccountMyOrders, @NonNull LinearLayout llAccountSelectLang,
+      @NonNull TextView textView4, @NonNull TextView textView5, @NonNull View view,
+      @NonNull View view2, @NonNull View view3, @NonNull View view4) {
     this.rootView = rootView;
-    this.IvUser = IvUser;
-    this.TvBuyPackages = TvBuyPackages;
-    this.TvEnglish = TvEnglish;
-    this.TvHelpAndSupport = TvHelpAndSupport;
-    this.TvHelpCenter = TvHelpCenter;
-    this.TvPackagesOrdersBilling = TvPackagesOrdersBilling;
-    this.TvPrivacyAndLogout = TvPrivacyAndLogout;
-    this.TvSelectLanguage = TvSelectLanguage;
-    this.TvSettings = TvSettings;
-    this.TvSettingsProfileName = TvSettingsProfileName;
-    this.TvViewAndEdit = TvViewAndEdit;
-    this.llAccountPage = llAccountPage;
-    this.viewFullUnderLine = viewFullUnderLine;
-    this.viewFullUnderLine1 = viewFullUnderLine1;
-    this.viewFullUnderLine2 = viewFullUnderLine2;
-    this.viewFullUnderLine3 = viewFullUnderLine3;
-    this.viewUnderLine = viewUnderLine;
+    this.btnEditProfile = btnEditProfile;
+    this.circleImageView = circleImageView;
+    this.imageView5 = imageView5;
+    this.imageView6 = imageView6;
+    this.imageView7 = imageView7;
+    this.imageView8 = imageView8;
+    this.llAccountHelp = llAccountHelp;
+    this.llAccountLogout = llAccountLogout;
+    this.llAccountMyOrders = llAccountMyOrders;
+    this.llAccountSelectLang = llAccountSelectLang;
+    this.textView4 = textView4;
+    this.textView5 = textView5;
+    this.view = view;
+    this.view2 = view2;
+    this.view3 = view3;
+    this.view4 = view4;
   }
 
   @Override
@@ -128,113 +124,106 @@ public final class FragmentAccountBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.IvUser;
-      ImageView IvUser = ViewBindings.findChildViewById(rootView, id);
-      if (IvUser == null) {
+      id = R.id.btnEditProfile;
+      Button btnEditProfile = ViewBindings.findChildViewById(rootView, id);
+      if (btnEditProfile == null) {
         break missingId;
       }
 
-      id = R.id.TvBuyPackages;
-      TextView TvBuyPackages = ViewBindings.findChildViewById(rootView, id);
-      if (TvBuyPackages == null) {
+      id = R.id.circleImageView;
+      CircleImageView circleImageView = ViewBindings.findChildViewById(rootView, id);
+      if (circleImageView == null) {
         break missingId;
       }
 
-      id = R.id.TvEnglish;
-      TextView TvEnglish = ViewBindings.findChildViewById(rootView, id);
-      if (TvEnglish == null) {
+      id = R.id.imageView5;
+      ImageView imageView5 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView5 == null) {
         break missingId;
       }
 
-      id = R.id.TvHelpAndSupport;
-      TextView TvHelpAndSupport = ViewBindings.findChildViewById(rootView, id);
-      if (TvHelpAndSupport == null) {
+      id = R.id.imageView6;
+      ImageView imageView6 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView6 == null) {
         break missingId;
       }
 
-      id = R.id.TvHelpCenter;
-      TextView TvHelpCenter = ViewBindings.findChildViewById(rootView, id);
-      if (TvHelpCenter == null) {
+      id = R.id.imageView7;
+      ImageView imageView7 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView7 == null) {
         break missingId;
       }
 
-      id = R.id.TvPackagesOrdersBilling;
-      TextView TvPackagesOrdersBilling = ViewBindings.findChildViewById(rootView, id);
-      if (TvPackagesOrdersBilling == null) {
+      id = R.id.imageView8;
+      ImageView imageView8 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView8 == null) {
         break missingId;
       }
 
-      id = R.id.TvPrivacyAndLogout;
-      TextView TvPrivacyAndLogout = ViewBindings.findChildViewById(rootView, id);
-      if (TvPrivacyAndLogout == null) {
+      id = R.id.llAccountHelp;
+      LinearLayout llAccountHelp = ViewBindings.findChildViewById(rootView, id);
+      if (llAccountHelp == null) {
         break missingId;
       }
 
-      id = R.id.TvSelectLanguage;
-      TextView TvSelectLanguage = ViewBindings.findChildViewById(rootView, id);
-      if (TvSelectLanguage == null) {
+      id = R.id.llAccountLogout;
+      LinearLayout llAccountLogout = ViewBindings.findChildViewById(rootView, id);
+      if (llAccountLogout == null) {
         break missingId;
       }
 
-      id = R.id.TvSettings;
-      TextView TvSettings = ViewBindings.findChildViewById(rootView, id);
-      if (TvSettings == null) {
+      id = R.id.llAccountMyOrders;
+      LinearLayout llAccountMyOrders = ViewBindings.findChildViewById(rootView, id);
+      if (llAccountMyOrders == null) {
         break missingId;
       }
 
-      id = R.id.TvSettingsProfileName;
-      TextView TvSettingsProfileName = ViewBindings.findChildViewById(rootView, id);
-      if (TvSettingsProfileName == null) {
+      id = R.id.llAccountSelectLang;
+      LinearLayout llAccountSelectLang = ViewBindings.findChildViewById(rootView, id);
+      if (llAccountSelectLang == null) {
         break missingId;
       }
 
-      id = R.id.TvViewAndEdit;
-      TextView TvViewAndEdit = ViewBindings.findChildViewById(rootView, id);
-      if (TvViewAndEdit == null) {
+      id = R.id.textView4;
+      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
+      if (textView4 == null) {
         break missingId;
       }
 
-      id = R.id.llAccountPage;
-      LinearLayout llAccountPage = ViewBindings.findChildViewById(rootView, id);
-      if (llAccountPage == null) {
+      id = R.id.textView5;
+      TextView textView5 = ViewBindings.findChildViewById(rootView, id);
+      if (textView5 == null) {
         break missingId;
       }
 
-      id = R.id.view_FullUnderLine;
-      View viewFullUnderLine = ViewBindings.findChildViewById(rootView, id);
-      if (viewFullUnderLine == null) {
+      id = R.id.view;
+      View view = ViewBindings.findChildViewById(rootView, id);
+      if (view == null) {
         break missingId;
       }
 
-      id = R.id.view_FullUnderLine1;
-      View viewFullUnderLine1 = ViewBindings.findChildViewById(rootView, id);
-      if (viewFullUnderLine1 == null) {
+      id = R.id.view2;
+      View view2 = ViewBindings.findChildViewById(rootView, id);
+      if (view2 == null) {
         break missingId;
       }
 
-      id = R.id.view_FullUnderLine2;
-      View viewFullUnderLine2 = ViewBindings.findChildViewById(rootView, id);
-      if (viewFullUnderLine2 == null) {
+      id = R.id.view3;
+      View view3 = ViewBindings.findChildViewById(rootView, id);
+      if (view3 == null) {
         break missingId;
       }
 
-      id = R.id.view_FullUnderLine3;
-      View viewFullUnderLine3 = ViewBindings.findChildViewById(rootView, id);
-      if (viewFullUnderLine3 == null) {
+      id = R.id.view4;
+      View view4 = ViewBindings.findChildViewById(rootView, id);
+      if (view4 == null) {
         break missingId;
       }
 
-      id = R.id.view_UnderLine;
-      View viewUnderLine = ViewBindings.findChildViewById(rootView, id);
-      if (viewUnderLine == null) {
-        break missingId;
-      }
-
-      return new FragmentAccountBinding((ConstraintLayout) rootView, IvUser, TvBuyPackages,
-          TvEnglish, TvHelpAndSupport, TvHelpCenter, TvPackagesOrdersBilling, TvPrivacyAndLogout,
-          TvSelectLanguage, TvSettings, TvSettingsProfileName, TvViewAndEdit, llAccountPage,
-          viewFullUnderLine, viewFullUnderLine1, viewFullUnderLine2, viewFullUnderLine3,
-          viewUnderLine);
+      return new FragmentAccountBinding((ConstraintLayout) rootView, btnEditProfile,
+          circleImageView, imageView5, imageView6, imageView7, imageView8, llAccountHelp,
+          llAccountLogout, llAccountMyOrders, llAccountSelectLang, textView4, textView5, view,
+          view2, view3, view4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

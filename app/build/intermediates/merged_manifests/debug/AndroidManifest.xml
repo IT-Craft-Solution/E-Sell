@@ -22,10 +22,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.Esell" >
         <activity
-            android:name="com.itcraftsolution.esell.SplashScreen"
-            android:exported="false" >
-        </activity>
-        <activity
             android:name="com.itcraftsolution.esell.UserLogin"
             android:exported="true" >
             <intent-filter>
