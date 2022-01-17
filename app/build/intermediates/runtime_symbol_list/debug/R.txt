@@ -2680,6 +2680,7 @@ int drawable ic_sell_fill 0x7f080098
 int drawable ic_shopping_bag 0x7f080099
 int drawable language 0x7f08009a
 int drawable like 0x7f08009b
+int drawable logo 0x7f0800c7
 int drawable main_search_bg 0x7f08009c
 int drawable material_cursor_drawable 0x7f08009d
 int drawable material_ic_calendar_black_24dp 0x7f08009e

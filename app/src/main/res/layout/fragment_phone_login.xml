@@ -33,7 +33,7 @@
                 android:layout_marginEnd="@dimen/_10mdp"
                 android:drawablePadding="@dimen/_15mdp"
                 android:padding="@dimen/_10mdp"
-                android:text="Login"
+                android:text="Continue With Phone"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -120,7 +120,9 @@
             android:layout_marginStart="@dimen/_10mdp"
             android:layout_marginEnd="@dimen/_10mdp"
             android:inputType="number"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/lightblue"
+            android:textColorLink="@color/lightblue" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,7 +138,7 @@
             android:backgroundTint="@color/lightblue"
             android:paddingTop="@dimen/_8mdp"
             android:paddingBottom="@dimen/_8mdp"
-            android:text="Next"
+            android:text="Get OTP"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="22sp"

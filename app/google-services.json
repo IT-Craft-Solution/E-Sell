@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "976776669815-fie0faloa0egsc484djuin5ntk4h3tjj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itcraftsolution.esell",
+            "certificate_hash": "a9cdbcf4bbee9c7a0058b2561aa0b1c574bff1cd"
+          }
+        },
+        {
           "client_id": "976776669815-e0qjheg7vaj1364co5bc4sr745qir2pb.apps.googleusercontent.com",
           "client_type": 3
         }

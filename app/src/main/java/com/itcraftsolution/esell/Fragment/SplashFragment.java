@@ -1,5 +1,6 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSplashBinding;
 
@@ -26,7 +29,8 @@ public class SplashFragment extends Fragment {
 
     private FragmentSplashBinding binding;
     private Animation topAnim, bottomAnim;
-    private static int SPLASH_SCREEN = 2000;
+    private static int SPLASH_SCREEN = 1800;
+    private FirebaseAuth auth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +38,7 @@ public class SplashFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
 
+        auth = FirebaseAuth.getInstance();
 
         topAnim = AnimationUtils.loadAnimation(getContext(), R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bottom_animation);
@@ -48,9 +53,18 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frUserDetailsContainer, new login());
-                fragmentTransaction.commit();
+                if(auth.getCurrentUser() != null)
+                {
+                    Intent intent = new Intent(getContext() , MainActivity.class);
+                    startActivity(intent);
+                    requireActivity().finishAffinity();
+                }
+                else {
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer, new login());
+                    fragmentTransaction.commit();
+                }
+
             }
         }, SPLASH_SCREEN);
     }

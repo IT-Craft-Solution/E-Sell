@@ -50,16 +50,6 @@ public class login extends Fragment {
         // Required empty public constructor
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        if(auth.getCurrentUser() != null)
-//        {
-//            Intent intent = new Intent(getContext() , MainActivity.class);
-//            startActivity(intent);
-//            requireActivity().finishAffinity();
-//        }
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

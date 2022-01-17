@@ -2681,6 +2681,7 @@ drawable ic_sell_fill
 drawable ic_shopping_bag
 drawable language
 drawable like
+drawable logo
 drawable main_search_bg
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
