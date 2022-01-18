@@ -2991,6 +2991,7 @@ id ifRoom
 id igEditToAccount
 id igHelpBackToAccount
 id igHomeCat
+id igHomeCatShowImage
 id igMyOrdersToAccount
 id igProfileDp
 id igSampleHomeCat
@@ -3156,6 +3157,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rvHomeCatShow
 id rvHomeCategory
 id rvHomeFreshItems
 id rvSellCategory
@@ -3296,6 +3298,9 @@ id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
 id tvline
+id txHomeCatItemLocation
+id txHomeCatName
+id txHomeCatPrice
 id txHomecat
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
@@ -3435,12 +3440,14 @@ layout fragment_edit_profile
 layout fragment_expire_orders
 layout fragment_favorite
 layout fragment_home
+layout fragment_home_cat_show
 layout fragment_login
 layout fragment_maps_and_location
 layout fragment_my_add
 layout fragment_phone_login
 layout fragment_sell
 layout fragment_splash
+layout home_cat_show_sample
 layout home_category_sample
 layout home_freshitem_sample
 layout material_chip_input_combo
