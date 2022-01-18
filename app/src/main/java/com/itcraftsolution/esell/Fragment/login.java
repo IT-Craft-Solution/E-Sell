@@ -115,7 +115,6 @@ public class login extends Fragment {
         GoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
     }
 
-
     private void SignIn()
     {
         Intent intent = GoogleSignInClient.getSignInIntent();
@@ -131,9 +130,9 @@ public class login extends Fragment {
                 if(task.isSuccessful())
                 {
                     progressDialog.dismiss();
-                    Intent intent = new Intent(getContext() , MainActivity.class);
-                    startActivity(intent);
-                    requireActivity().finishAffinity();
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation());
+                    fragmentTransaction.commit();
                 }
                 else {
                     Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

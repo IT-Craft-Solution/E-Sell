@@ -71,15 +71,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
-        spf = requireContext().getSharedPreferences("UserDetails",Context.MODE_PRIVATE);
-        Lastlocation = spf.getString("UserLastLocation",null);
-        Presentlocation = spf.getString("UserPresentLocation",null);
-        if (Presentlocation.isEmpty()){
-            binding.tvCityName.setText(Lastlocation);
-
-        }else {
-            binding.tvCityName.setText(Presentlocation);
-        }
+//        spf = requireContext().getSharedPreferences("UserDetails",Context.MODE_PRIVATE);
+//        Lastlocation = spf.getString("UserLastLocation",null);
+//        Presentlocation = spf.getString("UserPresentLocation",null);
+//        if (Presentlocation == null){
+//            binding.tvCityName.setText(Lastlocation);
+//
+//        }else {
+//            binding.tvCityName.setText(Presentlocation);
+//        }
 
 
 

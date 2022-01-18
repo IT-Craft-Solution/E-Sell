@@ -13,9 +13,6 @@ import com.itcraftsolution.esell.R;
 
 public class EditProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-
-
     public EditProfileFragment() {
         // Required empty public constructor
     }

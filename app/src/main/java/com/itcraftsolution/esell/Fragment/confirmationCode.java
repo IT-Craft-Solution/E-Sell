@@ -38,7 +38,7 @@ public class confirmationCode extends Fragment {
     public confirmationCode() {
         // Required empty public constructor
     }
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
