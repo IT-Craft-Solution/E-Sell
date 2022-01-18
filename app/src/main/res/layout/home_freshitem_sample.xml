@@ -10,9 +10,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="@dimen/_16mdp"
-        android:elevation="@dimen/_48mdp"
         android:layout_margin="@dimen/_3mdp"
+        android:elevation="@dimen/_48mdp"
+        app:cardCornerRadius="@dimen/_16mdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,8 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#05000000"
-            >
+            android:backgroundTint="#05000000">
 
             <ImageView
                 android:id="@+id/igSampleHomeFreshItem"
@@ -77,9 +76,9 @@
                 android:layout_width="@dimen/_15mdp"
                 android:layout_height="@dimen/_15mdp"
                 android:layout_marginTop="@dimen/_3mdp"
+                android:layout_marginBottom="@dimen/_3mdp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_baseline_location_on_24"
-                android:layout_marginBottom="@dimen/_3mdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/txSampleHomeFreshItemName"
                 app:layout_constraintTop_toBottomOf="@+id/txSampleHomeFreshItemName" />
