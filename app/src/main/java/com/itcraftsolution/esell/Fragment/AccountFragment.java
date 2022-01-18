@@ -66,7 +66,7 @@ public class AccountFragment extends Fragment {
                             }
                         })
                         .setNegativeButton("No", null)
-                        .setIcon(R.drawable.ic_baseline_outlet_24)
+                        .setIcon(R.drawable .ic_baseline_outlet_24)
                         .show();
 
             }
