@@ -1,20 +1,21 @@
 package com.itcraftsolution.esell.Fragment;
 
-import static android.content.Context.LOCATION_SERVICE;
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Looper;
+import android.provider.Settings;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -22,13 +23,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Looper;
-import android.provider.Settings;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -39,14 +33,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Adapter.HomeCatRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.Model.HomeFreshItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentHomeBinding;
 
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -74,7 +66,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
         //to get location
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         getLastLocation();
 
 
@@ -109,6 +101,14 @@ public class HomeFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
         binding.rvHomeFreshItems.setLayoutManager(gridLayoutManager);
         binding.rvHomeFreshItems.setAdapter(homeFreshItemadapter);
+
+        binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getContext(), ""+binding.edHomeSearch.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
         return binding.getRoot();
     }
 
@@ -116,7 +116,6 @@ public class HomeFragment extends Fragment {
     private void getLastLocation() {
         // check if permissions are given
         if (checkPermissions()) {
-
             // check if location is enabled
             if (isLocationEnabled()) {
 
@@ -140,7 +139,7 @@ public class HomeFragment extends Fragment {
 
                                    Locality = addresses.get(0).getLocality();
                                    Sublocality = addresses.get(0).getSubLocality();
-                                   City = Sublocality +","+Locality;
+                                   City = Sublocality +", "+Locality;
                                    binding.tvCityName.setText(City);
 
 
@@ -178,7 +177,7 @@ public class HomeFragment extends Fragment {
 
         // setting LocationRequest
         // on FusedLocationClient
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
 
@@ -210,7 +209,7 @@ public class HomeFragment extends Fragment {
 
     // method to check for permissions
     private boolean checkPermissions() {
-        return ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        return ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
 
         // If we want background location
         // on Android 10.0 and higher,
@@ -220,7 +219,7 @@ public class HomeFragment extends Fragment {
 
     // method to request for permissions
     private void requestPermissions() {
-        ActivityCompat.requestPermissions(getActivity(), new String[]{
+        ActivityCompat.requestPermissions(requireActivity(), new String[]{
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_ID);
     }
@@ -228,7 +227,7 @@ public class HomeFragment extends Fragment {
     // method to check
     // if location is enabled
     private boolean isLocationEnabled() {
-        LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
@@ -251,16 +250,5 @@ public class HomeFragment extends Fragment {
         if (checkPermissions()) {
             getLastLocation();
         }
-    }
-
-    private SharedPreferences StoreLocationDetails(String lastlocation,String presentlocation)
-    {
-
-        SharedPreferences spf = getContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = spf.edit();
-        editor.putString("UserLastLocation" , lastlocation);
-        editor.putString("UserPresentLocation" , presentlocation);
-        editor.apply();
-        return spf;
     }
 }

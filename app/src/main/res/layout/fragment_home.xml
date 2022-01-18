@@ -6,29 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_13mdp"
-        android:layout_marginTop="@dimen/_6mdp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/your_location"
-        android:textColor="@color/lightblack"
-        android:textSize="@dimen/_15font_mdp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4mdp"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:layout_marginStart="@dimen/_10mdp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_baseline_location_on_24"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
         android:id="@+id/tvCityName"
@@ -36,24 +23,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4mdp"
         android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/lightblack"
         android:text="@string/city_name"
         android:textSize="@dimen/_13font_mdp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edHomeSearch"
         android:layout_width="0dp"
         android:layout_height="@dimen/_38mdp"
         android:layout_marginTop="@dimen/_6mdp"
         android:layout_marginEnd="@dimen/_13mdp"
         android:autofillHints="true"
         android:background="@drawable/main_search_bg"
-        android:drawableStart="@drawable/ic_baseline_search_24"
         android:drawablePadding="@dimen/_6mdp"
         android:elevation="@dimen/_13mdp"
         android:textSize="@dimen/_14font_mdp"
         android:fontFamily="@font/roboto"
+        android:drawableStart="@drawable/ic_baseline_search_24"
         android:hint="@string/search_anything"
         android:inputType="text"
         android:padding="@dimen/_8mdp"
@@ -61,6 +49,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewHome"
@@ -70,8 +60,8 @@
         android:elevation="@dimen/_30mdp"
         android:layout_marginTop="@dimen/_12mdp"
         app:cardCornerRadius="@dimen/_13mdp"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+        app:layout_constraintStart_toStartOf="@+id/edHomeSearch"
+        app:layout_constraintTop_toBottomOf="@+id/edHomeSearch">
 
         <ImageView
             android:id="@+id/igHomeCat"
@@ -106,9 +96,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8mdp"
         android:layout_marginStart="@dimen/_4mdp"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/edHomeSearch"
         app:layout_constraintStart_toEndOf="@+id/cardviewHome"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/edHomeSearch" />
 
     <TextView
         android:id="@+id/textView3"
@@ -126,8 +116,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHomeFreshItems"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
