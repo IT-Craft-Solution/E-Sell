@@ -12,7 +12,6 @@ import com.itcraftsolution.esell.Fragment.mapsAndLocation;
 public class UserLogin extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
