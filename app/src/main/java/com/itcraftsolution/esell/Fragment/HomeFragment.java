@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -107,6 +108,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 Toast.makeText(getContext(), ""+binding.edHomeSearch.getText().toString(), Toast.LENGTH_SHORT).show();
+
             }
         });
         return binding.getRoot();
