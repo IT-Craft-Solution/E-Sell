@@ -7,7 +7,7 @@
     tools:context=".Fragment.ItemDetailsFragment">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/igItemDetails"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_300mdp"
         android:scaleType="fitXY"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9">
+        app:layout_constraintTop_toBottomOf="@+id/igItemDetails">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/txItemDetailsPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12mdp"
@@ -47,24 +47,24 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/txItemDetailsName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3mdp"
                 android:text="iphone 11 pro max 256gb bisa TT"
                 android:textColor="@color/lightblack"
                 android:textSize="@dimen/_12font_mdp"
-                app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintStart_toStartOf="@+id/txItemDetailsPrice"
+                app:layout_constraintTop_toBottomOf="@+id/txItemDetailsPrice" />
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/igItemDetailsLike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_12mdp"
                 android:src="@drawable/like"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="@+id/txItemDetailsPrice" />
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -72,11 +72,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13mdp"
                 android:src="@drawable/ic_baseline_location_on_24"
-                app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintStart_toStartOf="@+id/txItemDetailsName"
+                app:layout_constraintTop_toBottomOf="@+id/txItemDetailsName" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/txItemDetailsLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8mdp"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5mdp"
                 android:text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. "
-                app:layout_constraintEnd_toEndOf="@+id/imageView11"
+                app:layout_constraintEnd_toEndOf="@+id/igItemDetailsLike"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
