@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
 import com.itcraftsolution.esell.Model.SellCategory;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.SellCategorySampleBinding;
@@ -38,6 +40,16 @@ public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCatego
 
     holder.binding.igSellCategorySample.setImageResource(sellCategory.getCat_img());
     holder.binding.txSellCategoryName.setText(sellCategory.getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frMainContainer , new HomeCatShowFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override

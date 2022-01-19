@@ -74,12 +74,12 @@ public class HomeFragment extends Fragment {
         homeCategories = new ArrayList<>();
         homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
         homeCategories.add(new HomeCategory(R.drawable.properties , "Properties"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Properties"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Properties"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Properties"));
+        homeCategories.add(new HomeCategory(R.drawable.autocar , "Mobiles"));
+        homeCategories.add(new HomeCategory(R.drawable.properties , "Bikes"));
+        homeCategories.add(new HomeCategory(R.drawable.autocar , "Electronics & Appliances"));
+        homeCategories.add(new HomeCategory(R.drawable.properties , "Furniture"));
+        homeCategories.add(new HomeCategory(R.drawable.autocar , "Fashion"));
+
 
         HomeCatRecyclerAdapter adapter = new HomeCatRecyclerAdapter(getContext() , homeCategories);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() , RecyclerView.HORIZONTAL ,false);
@@ -111,6 +111,17 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        binding.igHomeCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
         return binding.getRoot();
     }
 

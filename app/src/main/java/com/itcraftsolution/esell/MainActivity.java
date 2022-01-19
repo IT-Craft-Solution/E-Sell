@@ -13,6 +13,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
 import com.itcraftsolution.esell.Fragment.FavoriteFragment;
+import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
 import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Fragment.MyAddFragment;
@@ -23,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
    
     private  ActivityMainBinding binding;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new ChatFragment();
                         break;
                     case R.id.bNavSell:
-                        selectedFragment = new ItemDetailsFragment();
+                        selectedFragment = new SellFragment();
                         break;
                     case R.id.bNavMyAds:
                         selectedFragment = new MyAddFragment();
@@ -60,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 return  true;
             }
         });
-
-
     }
 
     private void defView() {
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome)
         {
             super.onBackPressed();
-            finishAffinity();
+//            finishAffinity();
         }
         else {
             binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);

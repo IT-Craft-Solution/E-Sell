@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Model.HomeFreshItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.HomeFreshitemSampleBinding;
@@ -41,6 +44,16 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
     holder.binding.txSampleHomeFreshItemName.setText(homeFreshItem.getItemName());
     holder.binding.txSampleHomeFreshItemPrice.setText(homeFreshItem.getItemPrice());
     holder.binding.txSampleHomeFreshItemLocation.setText(homeFreshItem.getItemLocation());
+
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frMainContainer , new ItemDetailsFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
+    });
     }
 
     @Override

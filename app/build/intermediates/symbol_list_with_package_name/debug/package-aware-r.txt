@@ -3322,6 +3322,7 @@ drawable ic_baseline_keyboard_backspace_24
 drawable ic_baseline_location_on_24
 drawable ic_baseline_outlet_24
 drawable ic_baseline_search_24
+drawable ic_baseline_share_24
 drawable ic_chat_icon
 drawable ic_clock_black_24dp
 drawable ic_edit
@@ -3666,7 +3667,12 @@ id ifRoom
 id igEditToAccount
 id igHelpBackToAccount
 id igHomeCat
+id igHomeCatShowBack
 id igHomeCatShowImage
+id igItemDetails
+id igItemDetailsBack
+id igItemDetailsLike
+id igItemDetailsShare
 id igMyOrdersToAccount
 id igProfileDp
 id igSampleHomeCat
@@ -3678,7 +3684,6 @@ id ignoreRequest
 id image
 id imageView
 id imageView10
-id imageView11
 id imageView2
 id imageView3
 id imageView4
@@ -3686,7 +3691,6 @@ id imageView5
 id imageView6
 id imageView7
 id imageView8
-id imageView9
 id immediateStop
 id included
 id info
@@ -3932,11 +3936,8 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView10
-id textView11
 id textView12
 id textView13
-id textView2
 id textView3
 id textView4
 id textView5
@@ -3987,6 +3988,9 @@ id txHomeCatItemLocation
 id txHomeCatName
 id txHomeCatPrice
 id txHomecat
+id txItemDetailsLocation
+id txItemDetailsName
+id txItemDetailsPrice
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
 id txSampleHomeFreshItemName

@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
@@ -33,20 +35,31 @@ public class HomeCatShowFragment extends Fragment {
 
 
         homeCatShows = new ArrayList<>();
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+
 
         HomeCatShowAdapter catShowAdapter = new HomeCatShowAdapter(getContext(),homeCatShows);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
         binding.rvHomeCatShow.setLayoutManager(gridLayoutManager);
         binding.rvHomeCatShow.setAdapter(catShowAdapter);
 
+        binding.igHomeCatShowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(HomeCatShowFragment.this);
+                fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment());
+                fragmentTransaction.commit();
+            }
+        });
 
 
         return binding.getRoot();

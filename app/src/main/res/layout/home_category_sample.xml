@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/txSampleHomeCat"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_14mdp"
+        android:layout_height="wrap_content"
         android:text="Auto car"
         android:gravity="center"
         android:textSize="@dimen/_8font_mdp"

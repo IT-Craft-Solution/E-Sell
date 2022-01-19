@@ -34,12 +34,11 @@ public class SellFragment extends Fragment {
 
         sellCategories.add(new SellCategory(R.drawable.autocar , "Auto Car"));
         sellCategories.add(new SellCategory(R.drawable.properties , "Properties"));
-        sellCategories.add(new SellCategory(R.drawable.autocar , "Auto Car"));
-        sellCategories.add(new SellCategory(R.drawable.properties , "Properties"));
-        sellCategories.add(new SellCategory(R.drawable.autocar , "Auto Car"));
-        sellCategories.add(new SellCategory(R.drawable.properties , "Properties"));
-        sellCategories.add(new SellCategory(R.drawable.autocar , "Auto Car"));
-        sellCategories.add(new SellCategory(R.drawable.properties , "Properties"));
+        sellCategories.add(new SellCategory(R.drawable.autocar , "Mobiles"));
+        sellCategories.add(new SellCategory(R.drawable.properties , "Bikes"));
+        sellCategories.add(new SellCategory(R.drawable.autocar , "Electronics & Appliances"));
+        sellCategories.add(new SellCategory(R.drawable.properties , "Furniture"));
+        sellCategories.add(new SellCategory(R.drawable.autocar , "Fashion"));
         sellCategories.add(new SellCategory(R.drawable.category , "More Category"));
 
         SellCategoryRecyclerAdapter adapter = new SellCategoryRecyclerAdapter(getContext() , sellCategories);
