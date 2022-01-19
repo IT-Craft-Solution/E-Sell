@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itcraftsolution.esell.Fragment.login;
 import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.HomeCategorySampleBinding;
@@ -39,6 +41,7 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
 
         holder.binding.igSampleHomeCat.setImageResource(homeCategory.getCat_Img());
         holder.binding.txSampleHomeCat.setText(homeCategory.getCat_Name());
+
     }
 
     @Override

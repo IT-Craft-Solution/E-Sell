@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.itcraftsolution.esell.R;
 
+
 public class ChatBuyingFragment extends Fragment {
 
 
@@ -17,6 +18,7 @@ public class ChatBuyingFragment extends Fragment {
     public ChatBuyingFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override
