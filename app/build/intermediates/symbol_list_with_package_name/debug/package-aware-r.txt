@@ -3677,6 +3677,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView10
+id imageView11
 id imageView2
 id imageView3
 id imageView4
@@ -3684,6 +3686,7 @@ id imageView5
 id imageView6
 id imageView7
 id imageView8
+id imageView9
 id immediateStop
 id included
 id info
@@ -3929,6 +3932,11 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView10
+id textView11
+id textView12
+id textView13
+id textView2
 id textView3
 id textView4
 id textView5
@@ -4136,6 +4144,7 @@ layout fragment_expire_orders
 layout fragment_favorite
 layout fragment_home
 layout fragment_home_cat_show
+layout fragment_item_details
 layout fragment_login
 layout fragment_maps_and_location
 layout fragment_my_add

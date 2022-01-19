@@ -1,20 +1,15 @@
 package com.itcraftsolution.esell.Fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.itcraftsolution.esell.Adapter.HomeCatRecyclerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
-import com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter;
 import com.itcraftsolution.esell.Model.HomeCatShow;
-import com.itcraftsolution.esell.Model.HomeCategory;
-import com.itcraftsolution.esell.Model.HomeFreshItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentHomeCatShowBinding;
 

@@ -26,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/igHomeCatShowImage"
-                android:layout_width="@dimen/_150mdp"
-                android:layout_height="@dimen/_140mdp"
+                android:layout_width="@dimen/_140mdp"
+                android:layout_height="@dimen/_130mdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/testing"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -53,12 +53,13 @@
                 android:id="@+id/txHomeCatName"
                 android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/roboto"
                 android:text="I Phone 11 Pro navpo aayo ae ho ala apple no"
                 android:textSize="@dimen/_11font_mdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/igHomeCatShowImage"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txHomeCatPrice"
                 app:layout_constraintTop_toBottomOf="@+id/txHomeCatPrice" />
 
             <ImageView
