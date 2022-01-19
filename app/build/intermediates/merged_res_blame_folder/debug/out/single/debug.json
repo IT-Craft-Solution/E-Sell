@@ -32,12 +32,12 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\font_roboto_bold.xml.flat",
-        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\font\\roboto_bold.xml"
-    },
-    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\anim_top_animation.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\anim\\top_animation.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\font_roboto_bold.xml.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\font\\roboto_bold.xml"
     },
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_user_login.xml.flat",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_adaptive_fore.png"
     },
     {
-        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_ads.xml.flat",
-        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_ads.xml"
-    },
-    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_google.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\drawable\\ic_google.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_ads.xml.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_ads.xml"
     },
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_adaptive_back.png.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\drawable\\box.xml"
     },
     {
-        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_active_orders.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_active_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
@@ -124,6 +124,10 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_sell_item_form.xml.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_sell_item_form.xml"
+    },
+    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_chat_icon.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\drawable\\ic_chat_icon.xml"
     },
@@ -136,12 +140,12 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\anim_bottom_animation.xml.flat",
-        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\anim\\bottom_animation.xml"
-    },
-    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_search_24.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\drawable\\ic_baseline_search_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\anim_bottom_animation.xml.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\anim\\bottom_animation.xml"
     },
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_adaptive_fore.png.flat",
@@ -338,6 +342,10 @@
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_maps_and_location.xml.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_maps_and_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\drawable_rupees.png.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\drawable\\rupees.png"
     },
     {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_chat_buying.xml.flat",

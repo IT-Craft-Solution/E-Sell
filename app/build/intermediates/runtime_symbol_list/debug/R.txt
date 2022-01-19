@@ -3391,6 +3391,7 @@ int drawable notify_panel_notification_icon_bg 0x7f0800c8
 int drawable phone_icon 0x7f0800c9
 int drawable properties 0x7f0800ca
 int drawable rectangle_bg 0x7f0800cb
+int drawable rupees 0x7f0800d3
 int drawable settings 0x7f0800cc
 int drawable test_custom_background 0x7f0800cd
 int drawable test_level_drawable 0x7f0800ce
@@ -3529,6 +3530,7 @@ int id btnMyadsFav 0x7f0a007d
 int id btnNoBuyingChat 0x7f0a007e
 int id btnNoSellingChat 0x7f0a007f
 int id btnPhoneNumLogin 0x7f0a0080
+int id btnSellItemFormNext 0x7f0a0285
 int id buttonPanel 0x7f0a0081
 int id cache_measures 0x7f0a0082
 int id callMeasure 0x7f0a0083
@@ -3614,6 +3616,9 @@ int id edProfileAbout 0x7f0a00d2
 int id edProfileEmail 0x7f0a00d3
 int id edProfileName 0x7f0a00d4
 int id edProfilePhoneNumber 0x7f0a00d5
+int id edSellItemFormDesc 0x7f0a027e
+int id edSellItemFormPrice 0x7f0a027f
+int id edSellItemFormTitle 0x7f0a0280
 int id editProfileHead 0x7f0a00d6
 int id edit_query 0x7f0a00d7
 int id elastic 0x7f0a00d8
@@ -3677,6 +3682,7 @@ int id igProfileDp 0x7f0a0111
 int id igSampleHomeCat 0x7f0a0112
 int id igSampleHomeFreshItem 0x7f0a0113
 int id igSellCategorySample 0x7f0a0114
+int id igSellItemBackCat 0x7f0a0276
 int id igSplashLogo 0x7f0a0115
 int id ignore 0x7f0a0116
 int id ignoreRequest 0x7f0a0117
@@ -3728,6 +3734,7 @@ int id llAccountLogout 0x7f0a0144
 int id llAccountMyOrders 0x7f0a0145
 int id llAccountRateUs 0x7f0a0146
 int id llAccountSelectLang 0x7f0a0147
+int id llSellItemFormCheckAccount 0x7f0a0281
 int id mainBottomNav 0x7f0a0148
 int id masked 0x7f0a0149
 int id match_constraint 0x7f0a014a
@@ -3930,6 +3937,9 @@ int id test_radiobutton_app_button_tint 0x7f0a020e
 int id text 0x7f0a020f
 int id text2 0x7f0a0210
 int id textEnd 0x7f0a0211
+int id textInputLayout 0x7f0a0278
+int id textInputLayout2 0x7f0a0279
+int id textInputLayout3 0x7f0a027a
 int id textSpacerNoButtons 0x7f0a0212
 int id textSpacerNoTitle 0x7f0a0213
 int id textStart 0x7f0a0214
@@ -3937,6 +3947,8 @@ int id textTop 0x7f0a0215
 int id textView 0x7f0a0216
 int id textView12 0x7f0a0217
 int id textView13 0x7f0a0218
+int id textView16 0x7f0a0283
+int id textView2 0x7f0a027d
 int id textView3 0x7f0a0219
 int id textView4 0x7f0a021a
 int id textView5 0x7f0a021b
@@ -3983,6 +3995,7 @@ int id tvMessageBody 0x7f0a0243
 int id tvNavigationTitle 0x7f0a0244
 int id tvSlogan 0x7f0a0245
 int id tvline 0x7f0a0246
+int id txFormLocationTouch 0x7f0a0284
 int id txHomeCatItemLocation 0x7f0a0247
 int id txHomeCatName 0x7f0a0248
 int id txHomeCatPrice 0x7f0a0249
@@ -3995,6 +4008,7 @@ int id txSampleHomeFreshItemLocation 0x7f0a024f
 int id txSampleHomeFreshItemName 0x7f0a0250
 int id txSampleHomeFreshItemPrice 0x7f0a0251
 int id txSellCategoryName 0x7f0a0252
+int id txSellItemFormLocation 0x7f0a0282
 int id unchecked 0x7f0a0253
 int id uniform 0x7f0a0254
 int id unlabeled 0x7f0a0255
@@ -4153,6 +4167,7 @@ int layout fragment_maps_and_location 0x7f0d0040
 int layout fragment_my_add 0x7f0d0041
 int layout fragment_phone_login 0x7f0d0042
 int layout fragment_sell 0x7f0d0043
+int layout fragment_sell_item_form 0x7f0d0099
 int layout fragment_splash 0x7f0d0044
 int layout home_cat_show_sample 0x7f0d0045
 int layout home_category_sample 0x7f0d0046

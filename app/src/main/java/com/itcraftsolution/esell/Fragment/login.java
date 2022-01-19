@@ -68,8 +68,8 @@ public class login extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frUserDetailsContainer , new phoneLogin());
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.frUserDetailsContainer , new phoneLogin())
+                        .addToBackStack(null).commit();
             }
         });
 
@@ -100,6 +100,9 @@ public class login extends Fragment {
                                 e.printStackTrace();
                             }
                         }
+                        else {
+                            progressDialog.dismiss();
+                        }
                     }
                 });
 
@@ -119,6 +122,7 @@ public class login extends Fragment {
     {
         Intent intent = GoogleSignInClient.getSignInIntent();
         SignInActivityResultLauncher.launch(intent);
+
     }
 
     private void SignInWithGoogle(GoogleSignInAccount account) {
@@ -131,10 +135,11 @@ public class login extends Fragment {
                 {
                     progressDialog.dismiss();
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation());
-                    fragmentTransaction.commit();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation())
+                            .addToBackStack(null).commit();
                 }
                 else {
+                    progressDialog.dismiss();
                     Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

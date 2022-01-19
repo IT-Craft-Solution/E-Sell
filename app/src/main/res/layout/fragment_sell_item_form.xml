@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SellItemFormFragment">
+
+    <ImageView
+        android:id="@+id/igSellItemBackCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12mdp"
+        android:layout_marginTop="@dimen/_12mdp"
+        android:padding="@dimen/_4mdp"
+        android:src="@drawable/ic_baseline_keyboard_backspace_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12mdp"
+        android:text="Item Details"
+        android:textColor="@color/lightblack"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="@dimen/_18font_mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/igSellItemBackCat"
+        app:layout_constraintStart_toEndOf="@+id/igSellItemBackCat"
+        app:layout_constraintTop_toTopOf="@+id/igSellItemBackCat" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_13mdp"
+        android:layout_marginTop="@dimen/_13mdp"
+        android:layout_marginEnd="@dimen/_13mdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/igSellItemBackCat">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edSellItemFormTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:hint="Title *"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8mdp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edSellItemFormDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:hint="Describe What you are Selling *"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5mdp"
+        android:text="* Required Fields"
+        android:textSize="@dimen/_9font_mdp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12mdp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:startIconDrawable="@drawable/rupees">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edSellItemFormPrice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:hint="Price"
+
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+
+        android:id="@+id/textView16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="*Price has been only Indian Currency"
+        android:textSize="@dimen/_9font_mdp"
+        android:layout_marginTop="@dimen/_5mdp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+    <LinearLayout
+        android:id="@+id/llSellItemFormCheckAccount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_12mdp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Review Your Account"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_15font_mdp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Move to CheckOut Your Profile Details"
+            android:textSize="@dimen/_11font_mdp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txFormLocationTouch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12mdp"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Confirm Your Location"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_15font_mdp"
+        app:layout_constraintEnd_toEndOf="@+id/llSellItemFormCheckAccount"
+        app:layout_constraintStart_toStartOf="@+id/llSellItemFormCheckAccount"
+        app:layout_constraintTop_toBottomOf="@+id/llSellItemFormCheckAccount" />
+
+    <TextView
+        android:id="@+id/txSellItemFormLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3mdp"
+        android:text="@string/city_name"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="@dimen/_14font_mdp"
+        app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
+        app:layout_constraintTop_toBottomOf="@+id/txFormLocationTouch" />
+
+
+    <Button
+        android:id="@+id/btnSellItemFormNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_12mdp"
+        android:background="@drawable/rectangle_bg"
+        android:text="Next"
+        android:elevation="@dimen/_30mdp"
+        android:textSize="@dimen/_13font_mdp"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="@dimen/_7mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txFormLocationTouch"
+        app:layout_constraintStart_toStartOf="@+id/txSellItemFormLocation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

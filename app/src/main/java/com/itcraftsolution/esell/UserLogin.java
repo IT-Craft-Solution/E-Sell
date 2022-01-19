@@ -20,6 +20,7 @@ public class UserLogin extends AppCompatActivity {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frUserDetailsContainer , new SplashFragment());
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
     }

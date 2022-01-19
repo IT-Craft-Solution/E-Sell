@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_sell_item_form.xml",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_sell_item_form.xml"
+    },
+    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\home_cat_show_sample.xml",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\home_cat_show_sample.xml"
     },

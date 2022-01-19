@@ -18,6 +18,7 @@ import com.itcraftsolution.esell.Fragment.HomeFragment;
 import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Fragment.MyAddFragment;
 import com.itcraftsolution.esell.Fragment.SellFragment;
+import com.itcraftsolution.esell.Fragment.SellItemFormFragment;
 import com.itcraftsolution.esell.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new SellFragment();
                         break;
                     case R.id.bNavMyAds:
-                        selectedFragment = new MyAddFragment();
+                        selectedFragment = new SellItemFormFragment();
                         break;
                     case R.id.bNavAccount:
                         selectedFragment = new AccountFragment();

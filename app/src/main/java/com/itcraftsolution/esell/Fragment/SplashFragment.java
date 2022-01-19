@@ -61,8 +61,8 @@ public class SplashFragment extends Fragment {
                 }
                 else {
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frUserDetailsContainer, new login());
-                    fragmentTransaction.commit();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer, new login())
+                    .addToBackStack(null).commit();
                 }
 
             }

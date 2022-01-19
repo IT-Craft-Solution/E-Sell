@@ -41,15 +41,15 @@ public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCatego
     holder.binding.igSellCategorySample.setImageResource(sellCategory.getCat_img());
     holder.binding.txSellCategoryName.setText(sellCategory.getName());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frMainContainer , new HomeCatShowFragment())
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.frMainContainer , new HomeCatShowFragment())
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
     }
 
     @Override

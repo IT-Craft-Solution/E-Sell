@@ -39,16 +39,14 @@ public class phoneLogin extends Fragment {
         btnNext = view.findViewById(R.id.btnPhoneNumLogin);
         ivBack = view.findViewById(R.id.ivphoneDetailsBackArrow);
 
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkPhoneNumber()) {
-
-                    StoreUserDetails("+91" , etPhone.getText().toString());
+                    StoreUserDetails(String.valueOf(+91) , etPhone.getText().toString());
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frUserDetailsContainer, new confirmationCode());
-                    fragmentTransaction.commit();
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer, new confirmationCode())
+                            .addToBackStack(null).commit();
                 }
             }
         });
@@ -56,8 +54,8 @@ public class phoneLogin extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frUserDetailsContainer, new login());
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.frUserDetailsContainer, new login())
+                .addToBackStack(null).commit();
             }
         });
         return view;
@@ -72,14 +70,13 @@ public class phoneLogin extends Fragment {
         }
         return condition;
     }
-    private SharedPreferences StoreUserDetails(String CountryCode , String PhoneNumber)
+    private void StoreUserDetails(String CountryCode , String PhoneNumber)
     {
-        SharedPreferences spf = getContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
+        SharedPreferences spf = requireContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();
         editor.putString("CountryCode" , CountryCode);
         editor.putString("PhoneNumber" , PhoneNumber);
         editor.apply();
-        return spf;
     }
 
 }

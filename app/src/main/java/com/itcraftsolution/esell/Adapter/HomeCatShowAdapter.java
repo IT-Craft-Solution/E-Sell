@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
+import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Model.HomeCatShow;
 import com.itcraftsolution.esell.Model.HomeFreshItem;
 import com.itcraftsolution.esell.R;
@@ -43,6 +45,17 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
         holder.binding.txHomeCatName.setText(homeCatShow.getItemName());
         holder.binding.txHomeCatPrice.setText(homeCatShow.getItemPrice());
         holder.binding.txHomeCatItemLocation.setText(homeCatShow.getItemLocation());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frMainContainer , new ItemDetailsFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
 
     }
 
