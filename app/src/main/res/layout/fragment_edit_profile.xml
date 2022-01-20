@@ -147,7 +147,6 @@
             android:autofillHints="false"
             android:inputType="phone"
             android:text="9723816724"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/epPhoneNo"
             app:layout_constraintTop_toBottomOf="@+id/epPhoneNo" />
@@ -199,4 +198,5 @@
             app:layout_constraintEnd_toEndOf="@+id/edProfileEmail"
             app:layout_constraintStart_toStartOf="@+id/edProfileEmail"
             app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

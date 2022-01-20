@@ -3948,8 +3948,6 @@ id textTop
 id textView
 id textView12
 id textView13
-id textView16
-id textView2
 id textView3
 id textView4
 id textView5
@@ -3996,7 +3994,10 @@ id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
 id tvline
+id txFormDescError
 id txFormLocationTouch
+id txFormPriceError
+id txFormTitleError
 id txHomeCatItemLocation
 id txHomeCatName
 id txHomeCatPrice
@@ -4326,6 +4327,7 @@ string contact_information
 string country
 string country_code
 string default_web_client_id
+string digit
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior

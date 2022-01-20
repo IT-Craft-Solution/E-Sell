@@ -3947,8 +3947,6 @@ int id textTop 0x7f0a0215
 int id textView 0x7f0a0216
 int id textView12 0x7f0a0217
 int id textView13 0x7f0a0218
-int id textView16 0x7f0a0283
-int id textView2 0x7f0a027d
 int id textView3 0x7f0a0219
 int id textView4 0x7f0a021a
 int id textView5 0x7f0a021b
@@ -3995,7 +3993,10 @@ int id tvMessageBody 0x7f0a0243
 int id tvNavigationTitle 0x7f0a0244
 int id tvSlogan 0x7f0a0245
 int id tvline 0x7f0a0246
+int id txFormDescError 0x7f0a0286
 int id txFormLocationTouch 0x7f0a0284
+int id txFormPriceError 0x7f0a0287
+int id txFormTitleError 0x7f0a0288
 int id txHomeCatItemLocation 0x7f0a0247
 int id txHomeCatName 0x7f0a0248
 int id txHomeCatPrice 0x7f0a0249
@@ -4325,6 +4326,7 @@ int string contact_information 0x7f110039
 int string country 0x7f11003a
 int string country_code 0x7f11003b
 int string default_web_client_id 0x7f11003c
+int string digit 0x7f1100ac
 int string error_icon_content_description 0x7f11003d
 int string exposed_dropdown_menu_content_description 0x7f11003e
 int string fab_transformation_scrim_behavior 0x7f11003f

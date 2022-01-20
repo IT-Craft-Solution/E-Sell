@@ -10,6 +10,7 @@
     <string name="contact_information">Contact information</string>
     <string name="country_code">+91</string>
     <string name="country">Country</string>
+    <string name="digit">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</string>
     <string name="phone_number">Phone Number</string>
     <string name="verification">You have verified your email. It\'s important to allow us to securely communicate with you.</string>
     <string name="no_messages_yet">No messages, yet?</string>
