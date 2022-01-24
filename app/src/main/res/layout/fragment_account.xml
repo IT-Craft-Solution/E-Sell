@@ -7,7 +7,7 @@
     tools:context=".Fragment.AccountFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
+        android:id="@+id/igProfileImage"
         android:layout_width="@dimen/_100mdp"
         android:layout_height="@dimen/_100mdp"
         android:layout_marginStart="@dimen/_12mdp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txUserName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8mdp"
@@ -27,11 +27,11 @@
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_18font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/circleImageView"
-        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+        app:layout_constraintStart_toEndOf="@+id/igProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/igProfileImage" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txUserAbout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8mdp"
@@ -39,9 +39,9 @@
         android:text="I am Android Developer At ICS"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_10font_mdp"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintEnd_toEndOf="@+id/txUserName"
+        app:layout_constraintStart_toStartOf="@+id/txUserName"
+        app:layout_constraintTop_toBottomOf="@+id/txUserName" />
 
     <Button
         android:id="@+id/btnEditProfile"
@@ -51,8 +51,8 @@
         android:background="@drawable/rectangle_bg"
         android:text="Edit Profile"
         android:textSize="@dimen/_8font_mdp"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintEnd_toEndOf="@+id/txUserAbout"
+        app:layout_constraintTop_toBottomOf="@+id/txUserAbout" />
 
 
     <ImageView
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_32mdp"
         android:src="@drawable/ic_shopping_bag"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
+        app:layout_constraintStart_toStartOf="@+id/igProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
 
     <LinearLayout

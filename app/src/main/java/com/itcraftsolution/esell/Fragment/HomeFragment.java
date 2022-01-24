@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -154,6 +155,7 @@ public class HomeFragment extends Fragment {
                                    Sublocality = addresses.get(0).getSubLocality();
                                    City = Sublocality +", "+Locality;
                                    binding.tvCityName.setText(City);
+                                   StoreUserLocation(City);
 
 
 
@@ -263,5 +265,13 @@ public class HomeFragment extends Fragment {
         if (checkPermissions()) {
             getLastLocation();
         }
+    }
+
+    private void StoreUserLocation(String UserLocation)
+    {
+        SharedPreferences spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = spf.edit();
+        editor.putString("UserLocation" , UserLocation);
+        editor.apply();
     }
 }

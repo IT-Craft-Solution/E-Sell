@@ -19,7 +19,7 @@ public class UserLogin extends AppCompatActivity {
         setContentView(R.layout.activity_user_login);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frUserDetailsContainer , new SplashFragment());
+        fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

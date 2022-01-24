@@ -1,7 +1,13 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
@@ -26,6 +33,7 @@ public class SellItemFormFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private SharedPreferences spf;
     private FragmentSellItemFormBinding binding;
 
 
@@ -49,6 +57,8 @@ public class SellItemFormFragment extends Fragment {
         binding.llSellItemFormCheckAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
                         .addToBackStack(null).commit();
@@ -59,6 +69,8 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
             //get User Current Location & Print it.
+                spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
+                 binding.txSellItemFormLocation.setText(spf.getString("UserLocation" , null));
             }
         });
 
@@ -91,8 +103,13 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormPrice.requestFocus();
                 }
+                else if (Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().isEmpty() && Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().matches("City Name")) {
+
+                }
                 else {
                 Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
+                    mGetContent.launch("image/*");
+
                 }
 
 
@@ -100,4 +117,14 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
+
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    // Handle the returned Uri
+
+
+                }
+            });
 }

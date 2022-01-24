@@ -65,7 +65,7 @@ public class phoneLogin extends Fragment {
     private boolean checkPhoneNumber() {
         boolean condition = true;
         if (etPhone.getText().toString().length() != 10) {
-            etPhone.setError("Phone number be 10 digits");
+            etPhone.setError("Phone number must be 10 digits");
             condition = false;
         }
         return condition;

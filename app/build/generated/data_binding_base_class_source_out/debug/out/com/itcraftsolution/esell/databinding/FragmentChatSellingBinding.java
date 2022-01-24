@@ -4,11 +4,10 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.itcraftsolution.esell.R;
@@ -21,16 +20,12 @@ public final class FragmentChatSellingBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout ChatSellingLinear;
-
-  @NonNull
-  public final Button btnNoSellingChat;
+  public final RecyclerView rvChatSelling;
 
   private FragmentChatSellingBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LinearLayout ChatSellingLinear, @NonNull Button btnNoSellingChat) {
+      @NonNull RecyclerView rvChatSelling) {
     this.rootView = rootView;
-    this.ChatSellingLinear = ChatSellingLinear;
-    this.btnNoSellingChat = btnNoSellingChat;
+    this.rvChatSelling = rvChatSelling;
   }
 
   @Override
@@ -60,20 +55,13 @@ public final class FragmentChatSellingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ChatSellingLinear;
-      LinearLayout ChatSellingLinear = ViewBindings.findChildViewById(rootView, id);
-      if (ChatSellingLinear == null) {
+      id = R.id.rvChatSelling;
+      RecyclerView rvChatSelling = ViewBindings.findChildViewById(rootView, id);
+      if (rvChatSelling == null) {
         break missingId;
       }
 
-      id = R.id.btnNoSellingChat;
-      Button btnNoSellingChat = ViewBindings.findChildViewById(rootView, id);
-      if (btnNoSellingChat == null) {
-        break missingId;
-      }
-
-      return new FragmentChatSellingBinding((ConstraintLayout) rootView, ChatSellingLinear,
-          btnNoSellingChat);
+      return new FragmentChatSellingBinding((ConstraintLayout) rootView, rvChatSelling);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
