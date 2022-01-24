@@ -1,14 +1,21 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.PagerTitleStrip;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +31,11 @@ public class EditProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-     private SharedPreferences spf;
+     private SharedPreferences spf,spf1;
     private FragmentEditProfileBinding binding;
     private String Name, About, MobileNumber, Email,Profile;
     private int Verify;
+    private  Uri PhotoUri;
 
 
     @Override
@@ -35,6 +43,25 @@ public class EditProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentEditProfileBinding.inflate(getLayoutInflater());
+
+//        spf1 = requireContext().getSharedPreferences("UserProfile",Context.MODE_PRIVATE);
+////        binding.igProfileDp.setImageURI(Uri.parse(spf1.getString("UserProfileImage",null)));
+//        Profile = spf1.getString("UserProfileImage",null);
+//        if (Profile==null){
+//            Toast.makeText(getContext(), "Image Not Found", Toast.LENGTH_SHORT).show();
+//        }
+//        else {
+//            binding.igProfileDp.setImageURI(Uri.parse(Profile));
+//            Toast.makeText(getContext(), "Image Found  "+ Profile, Toast.LENGTH_SHORT).show();
+//
+//        }
+        if (PhotoUri==null){
+            Toast.makeText(getContext(), "Image Not found "+PhotoUri, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getContext(), "image found   " + PhotoUri, Toast.LENGTH_SHORT).show();
+        }
+
 
         spf = requireContext().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         binding.edProfilePhoneNumber.setText(spf.getString("PhoneNumber", null));
@@ -61,7 +88,10 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                mGetContent.launch("image/*");
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                mGetContent.launch(intent);
             }
         });
 
@@ -106,9 +136,10 @@ public class EditProfileFragment extends Fragment {
 
                     Email = binding.edProfileEmail.getText().toString();
 
+                    Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
 
 
-                    StoreUserProfile(Name, About, MobileNumber, Email,Verify,Profile);
+                    StoreUserProfile(PhotoUri);
 
 
                 }
@@ -119,15 +150,15 @@ public class EditProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private void StoreUserProfile(String UserName, String UserAboutUs, String UserMobileNumber, String UserEmail,Integer UserVerify,String UserProfileImage) {
+    private void StoreUserProfile(Uri UserProfileImage) {
         SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();
-        editor.putString("UserName", UserName);
-        editor.putString("UserAboutUs", UserAboutUs);
-        editor.putString("UserMobileNumber", UserMobileNumber);
-        editor.putString("UserEmail", UserEmail);
-        editor.putInt("UserVerify",UserVerify);
-        editor.putString("UserProfileImage",UserProfileImage);
+//        editor.putString("UserName", UserName);
+//        editor.putString("UserAboutUs", UserAboutUs);
+//        editor.putString("UserMobileNumber", UserMobileNumber);
+//        editor.putString("UserEmail", UserEmail);
+//        editor.putInt("UserVerify",UserVerify);
+        editor.putString("UserProfileImage", String.valueOf(UserProfileImage));
         editor.apply();
     }
 
@@ -136,44 +167,62 @@ public class EditProfileFragment extends Fragment {
         int Verify;
         Uri uri1;
 
-        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
-        Name = spf.getString("UserName", null);
-        About = spf.getString("UserAboutUs", null);
-        Email = spf.getString("UserEmail", null);
-        MobileNumber = spf.getString("UserMobileNumber", null);
-        Verify = spf.getInt("UserVerify",0);
-        ProfileImage = spf.getString("UserProfileImage",null);
+//        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
+//        Name = spf.getString("UserName", null);
+//        About = spf.getString("UserAboutUs", null);
+//        Email = spf.getString("UserEmail", null);
+//        MobileNumber = spf.getString("UserMobileNumber", null);
+//        Verify = spf.getInt("UserVerify",0);
+//        ProfileImage = spf.getString("UserProfileImage",null);
 
 
 
-        binding.edProfileName.setText(Name);
-        binding.edProfileAbout.setText(About);
-        binding.edProfilePhoneNumber.setText(MobileNumber);
-        binding.edProfileEmail.setText(Email);
-        binding.igVerify.setVisibility(Verify);
-        binding.igProfileDp.setImageResource(Integer.parseInt(Profile));
+//        binding.edProfileName.setText(Name);
+//        binding.edProfileAbout.setText(About);
+//        binding.edProfilePhoneNumber.setText(MobileNumber);
+//        binding.edProfileEmail.setText(Email);
+//        binding.igVerify.setVisibility(Verify);
+
 //        uri1 = Uri.parse(ProfileImage);
-//        binding.igProfileDp.setImageURI(uri1);
+//        binding.igProfileDp.setImageURI(Uri.parse(Profile));
+
 
 
 
 
     }
 
-    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
-            new ActivityResultCallback<Uri>() {
+    ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
                 @Override
-                public void onActivityResult(Uri uri) {
-                    // Handle the returned Uri
-                     binding.igProfileDp.setImageURI(uri);
-
-
-
-                     Profile =uri.toString();
-                    binding.igProfileDp.setImageURI(Uri.parse(Profile));
-                    Toast.makeText(getContext(), ""+Profile, Toast.LENGTH_LONG).show();
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode()== Activity.RESULT_OK)
+                    {
+                        Intent Data = result.getData();
+                        if (Data != null){
+                            binding.igProfileDp.setImageURI(Data.getData());
+                            PhotoUri = Data.getData();
+                        }
+                    }
 
                 }
             });
+
+
+//    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+//            new ActivityResultCallback<Uri>() {
+//                @Override
+//                public void onActivityResult(Uri uri) {
+//                    // Handle the returned Uri
+//                     binding.igProfileDp.setImageURI(uri);
+//
+//
+//                           PhotoUri = uri;
+////                     Profile =uri.toString();
+////                    binding.igProfileDp.setImageURI(Uri.parse(Profile));
+//                    Toast.makeText(getContext(), "Launch  "+PhotoUri, Toast.LENGTH_LONG).show();
+//
+//                }
+//            });
 
 }
