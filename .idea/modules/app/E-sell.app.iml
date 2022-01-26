@@ -141,5 +141,6 @@
     <orderEntry type="library" name="Gradle: com.github.aabhasr1:OtpView:v1.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.MrNouri:DynamicSizes:1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dhaval2404:imagepicker:2.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.airbnb.android:lottie:4.2.2@aar" level="project" />
   </component>
 </module>

@@ -11,6 +11,7 @@ MERGED from [com.github.aabhasr1:OtpView:v1.1.2] C:\Users\LENOVO SLIM\.gradle\ca
 MERGED from [com.google.android.gms:play-services-cast-framework:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\8967357e66e4fef8fe5bf2c1a30fa1da\transformed\jetified-play-services-cast-framework-21.0.1\AndroidManifest.xml:2:1-26:12
 MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\b402cfabf65e2db24480de116c2d6e12\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.dhaval2404:imagepicker:2.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dbf9e2ad30e3ec815961db8e26201147\transformed\jetified-imagepicker-2.1\AndroidManifest.xml:2:1-42:12
+MERGED from [com.airbnb.android:lottie:4.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\18c6fa852c9c2696bb3d368427e2f551\transformed\jetified-lottie-4.2.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-cast:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\a64533d0db445c251031a284d770c0ec\transformed\jetified-play-services-cast-21.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.mediarouter:mediarouter:1.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\cd21bf7ab4c0e4c81f62f3e57b4d1df6\transformed\mediarouter-1.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.yalantis:ucrop:2.2.6] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\40153740878a4887093492bff0db0c75\transformed\jetified-ucrop-2.2.6\AndroidManifest.xml:2:1-11:12
@@ -132,6 +133,8 @@ MERGED from [com.google.android.gms:play-services-cast-framework:21.0.1] C:\User
 MERGED from [com.google.android.gms:play-services-cast-framework:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\8967357e66e4fef8fe5bf2c1a30fa1da\transformed\jetified-play-services-cast-framework-21.0.1\AndroidManifest.xml:12:5-24:19
 MERGED from [com.github.dhaval2404:imagepicker:2.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dbf9e2ad30e3ec815961db8e26201147\transformed\jetified-imagepicker-2.1\AndroidManifest.xml:21:5-40:19
 MERGED from [com.github.dhaval2404:imagepicker:2.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dbf9e2ad30e3ec815961db8e26201147\transformed\jetified-imagepicker-2.1\AndroidManifest.xml:21:5-40:19
+MERGED from [com.airbnb.android:lottie:4.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\18c6fa852c9c2696bb3d368427e2f551\transformed\jetified-lottie-4.2.2\AndroidManifest.xml:9:5-20
+MERGED from [com.airbnb.android:lottie:4.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\18c6fa852c9c2696bb3d368427e2f551\transformed\jetified-lottie-4.2.2\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-cast:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\a64533d0db445c251031a284d770c0ec\transformed\jetified-play-services-cast-21.0.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-cast:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\a64533d0db445c251031a284d770c0ec\transformed\jetified-play-services-cast-21.0.1\AndroidManifest.xml:22:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\830b059049797c348be2c7f4cdd57312\transformed\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
@@ -238,6 +241,8 @@ MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\c
 MERGED from [com.github.MrNouri:DynamicSizes:1.0] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\b402cfabf65e2db24480de116c2d6e12\transformed\jetified-DynamicSizes-1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.dhaval2404:imagepicker:2.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dbf9e2ad30e3ec815961db8e26201147\transformed\jetified-imagepicker-2.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.dhaval2404:imagepicker:2.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\dbf9e2ad30e3ec815961db8e26201147\transformed\jetified-imagepicker-2.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:4.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\18c6fa852c9c2696bb3d368427e2f551\transformed\jetified-lottie-4.2.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:4.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\18c6fa852c9c2696bb3d368427e2f551\transformed\jetified-lottie-4.2.2\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-cast:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\a64533d0db445c251031a284d770c0ec\transformed\jetified-play-services-cast-21.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-cast:21.0.1] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\a64533d0db445c251031a284d770c0ec\transformed\jetified-play-services-cast-21.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.mediarouter:mediarouter:1.2.2] C:\Users\LENOVO SLIM\.gradle\caches\transforms-3\cd21bf7ab4c0e4c81f62f3e57b4d1df6\transformed\mediarouter-1.2.2\AndroidManifest.xml:20:5-22:41

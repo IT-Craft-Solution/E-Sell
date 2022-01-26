@@ -48,6 +48,7 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
             @Override
             public void onClick(View v) {
                 ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                         .replace(R.id.frMainContainer , new HomeCatShowFragment())
                         .addToBackStack(null)
                         .commit();

@@ -31,11 +31,12 @@ public class EditProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-     private SharedPreferences spf,spf1;
+     private SharedPreferences spf;
     private FragmentEditProfileBinding binding;
-    private String Name, About, MobileNumber, Email,Profile;
+    private String Name, About, MobileNumber, Email;
     private int Verify;
-    private  Uri PhotoUri;
+    private Uri PhotoUri;
+
 
 
     @Override
@@ -54,13 +55,13 @@ public class EditProfileFragment extends Fragment {
 //            binding.igProfileDp.setImageURI(Uri.parse(Profile));
 //            Toast.makeText(getContext(), "Image Found  "+ Profile, Toast.LENGTH_SHORT).show();
 //
+////        }
+//        if (PhotoUri==null){
+//            Toast.makeText(getContext(), "Image Not found "+PhotoUri, Toast.LENGTH_SHORT).show();
 //        }
-        if (PhotoUri==null){
-            Toast.makeText(getContext(), "Image Not found "+PhotoUri, Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getContext(), "image found   " + PhotoUri, Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(getContext(), "image found   " + PhotoUri, Toast.LENGTH_SHORT).show();
+//        }
 
 
         spf = requireContext().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
@@ -71,6 +72,8 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(EditProfileFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer, new AccountFragment()).addToBackStack(null).commit();
             }
         });
@@ -79,6 +82,8 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(EditProfileFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer, new phoneLogin()).addToBackStack(null).commit();
 
             }
@@ -136,10 +141,7 @@ public class EditProfileFragment extends Fragment {
 
                     Email = binding.edProfileEmail.getText().toString();
 
-                    Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-
-
-                    StoreUserProfile(PhotoUri);
+                    StoreUserProfile(Name ,About , MobileNumber, Email,Verify,PhotoUri);
 
 
                 }
@@ -150,14 +152,14 @@ public class EditProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private void StoreUserProfile(Uri UserProfileImage) {
+    private void StoreUserProfile(String UserName,String UserAboutUs,String UserMobileNumber,String UserEmail,Integer UserVerify,Uri UserProfileImage) {
         SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();
-//        editor.putString("UserName", UserName);
-//        editor.putString("UserAboutUs", UserAboutUs);
-//        editor.putString("UserMobileNumber", UserMobileNumber);
-//        editor.putString("UserEmail", UserEmail);
-//        editor.putInt("UserVerify",UserVerify);
+        editor.putString("UserName", UserName);
+        editor.putString("UserAboutUs", UserAboutUs);
+        editor.putString("UserMobileNumber", UserMobileNumber);
+        editor.putString("UserEmail", UserEmail);
+        editor.putInt("UserVerify",UserVerify);
         editor.putString("UserProfileImage", String.valueOf(UserProfileImage));
         editor.apply();
     }
@@ -167,21 +169,21 @@ public class EditProfileFragment extends Fragment {
         int Verify;
         Uri uri1;
 
-//        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
-//        Name = spf.getString("UserName", null);
-//        About = spf.getString("UserAboutUs", null);
-//        Email = spf.getString("UserEmail", null);
-//        MobileNumber = spf.getString("UserMobileNumber", null);
-//        Verify = spf.getInt("UserVerify",0);
-//        ProfileImage = spf.getString("UserProfileImage",null);
+        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
+        Name = spf.getString("UserName", null);
+        About = spf.getString("UserAboutUs", null);
+        Email = spf.getString("UserEmail", null);
+        MobileNumber = spf.getString("UserMobileNumber", null);
+        Verify = spf.getInt("UserVerify",0);
+        ProfileImage = spf.getString("UserProfileImage",null);
 
 
 
-//        binding.edProfileName.setText(Name);
-//        binding.edProfileAbout.setText(About);
-//        binding.edProfilePhoneNumber.setText(MobileNumber);
-//        binding.edProfileEmail.setText(Email);
-//        binding.igVerify.setVisibility(Verify);
+        binding.edProfileName.setText(Name);
+        binding.edProfileAbout.setText(About);
+        binding.edProfilePhoneNumber.setText(MobileNumber);
+        binding.edProfileEmail.setText(Email);
+        binding.igVerify.setVisibility(Verify);
 
 //        uri1 = Uri.parse(ProfileImage);
 //        binding.igProfileDp.setImageURI(Uri.parse(Profile));

@@ -61,6 +61,8 @@ public class SplashFragment extends Fragment {
                 }
                 else {
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(SplashFragment.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frUserDetailsContainer, new login())
                     .addToBackStack(null).commit();
                 }

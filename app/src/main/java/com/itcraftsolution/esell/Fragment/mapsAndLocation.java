@@ -66,7 +66,7 @@ public class mapsAndLocation extends Fragment {
         {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(),MainActivity.class);
                 startActivity(intent);
                 requireActivity().finishAffinity();
             }

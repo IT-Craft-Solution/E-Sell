@@ -108,7 +108,7 @@
             android:id="@+id/epCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_10mdp"
             android:text="@string/country"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_14font_mdp"
@@ -129,14 +129,16 @@
             app:layout_constraintStart_toEndOf="@id/epCountry"
             app:layout_constraintTop_toBottomOf="@id/ContactInfo" />
 
-        <EditText
+        <TextView
             android:id="@+id/edCountryCode"
             android:layout_width="@dimen/_60mdp"
             android:layout_height="wrap_content"
             android:autofillHints="false"
+            android:layout_marginTop="@dimen/_8mdp"
             android:focusable="false"
             android:hint="+91"
-            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14font_mdp"
             app:layout_constraintStart_toStartOf="@+id/epCountry"
             app:layout_constraintTop_toBottomOf="@+id/epCountry" />
 
@@ -146,8 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:autofillHints="false"
-            android:inputType="phone"
-            android:text="Verify Your Number"
+            android:hint="Verify Your Number"
             android:textColor="@color/black"
             android:textSize="@dimen/_14font_mdp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6mdp"
             android:autofillHints="false"
-            android:hint="PrathvikSankaliya@gmail.com"
+            android:hint="Enter Your Email Address"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="@+id/epPhoneDetails"
             app:layout_constraintStart_toStartOf="@+id/textView9"

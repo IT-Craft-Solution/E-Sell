@@ -28,6 +28,7 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim enter_from_rigth
 anim fragment_fast_out_extra_slow_in
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
@@ -788,6 +789,24 @@ attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
 attr logo
 attr logoDescription
+attr lottieAnimationViewStyle
+attr lottie_autoPlay
+attr lottie_cacheComposition
+attr lottie_colorFilter
+attr lottie_enableMergePathsForKitKatAndAbove
+attr lottie_fallbackRes
+attr lottie_fileName
+attr lottie_ignoreDisabledSystemAnimations
+attr lottie_imageAssetsFolder
+attr lottie_loop
+attr lottie_progress
+attr lottie_rawRes
+attr lottie_renderMode
+attr lottie_repeatCount
+attr lottie_repeatMode
+attr lottie_scale
+attr lottie_speed
+attr lottie_url
 attr marginHorizontal
 attr materialAlertDialogBodyTextStyle
 attr materialAlertDialogButtonSpacerVisibility
@@ -3492,6 +3511,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable attachment
 drawable autocar
 drawable avd_hide_password
 drawable avd_show_password
@@ -3823,6 +3843,8 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable menu
+drawable microphone
 drawable mr_button_connected_dark
 drawable mr_button_connected_light
 drawable mr_button_connecting_dark
@@ -3967,8 +3989,6 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id TvKeepMessages_selling
-id TvNoMessagesYet_selling
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -4053,6 +4073,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id automatic
 id bNavAccount
 id bNavChat
 id bNavHome
@@ -4083,9 +4104,8 @@ id btnContinueWithPhone
 id btnEditImage
 id btnEditProfile
 id btnLocation_navigation
-id btnMyads
-id btnMyadsFav
 id btnPhoneNumLogin
+id btnPreviewAds
 id btnSellItemFormNext
 id btnVerify
 id button
@@ -4140,6 +4160,7 @@ id collapseActionView
 id compress
 id confirm_button
 id constraint
+id constraintLayout
 id container
 id container_all
 id container_current
@@ -4242,6 +4263,7 @@ id group_divider
 id grouping
 id groups
 id guideline
+id hardware
 id header_title
 id hideable
 id home
@@ -4253,6 +4275,10 @@ id icon_group
 id icon_only
 id icon_view
 id ifRoom
+id igChatAttachment
+id igChatMenu
+id igChatMicrophone
+id igChatScreenBack
 id igEditToAccount
 id igHelpBackToAccount
 id igHomeCat
@@ -4262,6 +4288,7 @@ id igItemDetails
 id igItemDetailsBack
 id igItemDetailsLike
 id igItemDetailsShare
+id igItemImage
 id igMyOrdersToAccount
 id igProfileDp
 id igProfileImage
@@ -4283,7 +4310,6 @@ id imageView5
 id imageView6
 id imageView7
 id imageView8
-id imageView9
 id image_view_crop
 id image_view_logo
 id image_view_state_aspect_ratio
@@ -4335,6 +4361,8 @@ id llAccountRateUs
 id llAccountSelectLang
 id llSellItemFormCheckAccount
 id loading_indicator
+id lottieCongressAnimation
+id lottie_layer_name
 id lytCameraPick
 id lytGalleryPick
 id mainBottomNav
@@ -4451,8 +4479,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id myAdsLinear
-id myadsFavLinear
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -4499,6 +4525,8 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id restart
+id reverse
 id reverseSawtooth
 id right
 id rightToLeft
@@ -4507,11 +4535,15 @@ id right_side
 id rotate_scroll_wheel
 id rounded
 id row_index_key
+id rvActiveOrdersItem
 id rvChatBuying
 id rvChatSelling
+id rvExpireOrdersItem
+id rvFavoriteItem
 id rvHomeCatShow
 id rvHomeCategory
 id rvHomeFreshItems
+id rvMyAdsItem
 id rvSellCategory
 id save_non_transition_alpha
 id save_overlay_view
@@ -4553,6 +4585,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id software
 id south
 id spacer
 id special_effects_controller_view_tag
@@ -4619,11 +4652,16 @@ id textStart
 id textTitle
 id textTop
 id textView
+id textView10
 id textView12
 id textView13
+id textView2
 id textView3
+id textView4
+id textView5
 id textView6
 id textView7
+id textView8
 id textView9
 id text_input_end_icon
 id text_input_error_icon
@@ -4673,9 +4711,14 @@ id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
 id tvline
-id txChatMessage
-id txChatName
+id txChatDate
+id txChatItemName
+id txChatItemPrice
 id txChatTime
+id txChatUserName
+id txDate
+id txDelete
+id txEdit
 id txFormDescError
 id txFormLocationTouch
 id txFormPriceError
@@ -4687,15 +4730,22 @@ id txHomecat
 id txItemDetailsLocation
 id txItemDetailsName
 id txItemDetailsPrice
+id txItemLocation
+id txItemName
+id txItemPrice
+id txLikes
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
 id txSampleHomeFreshItemName
 id txSampleHomeFreshItemPrice
 id txSave
+id txSelectImages
 id txSellCategoryName
 id txSellItemFormLocation
 id txUserAbout
+id txUserMessage
 id txUserName
+id txViews
 id ucrop
 id ucrop_frame
 id ucrop_photobox
@@ -4867,8 +4917,10 @@ layout fragment_active_orders
 layout fragment_ads
 layout fragment_chat
 layout fragment_chat_buying
+layout fragment_chat_screen
 layout fragment_chat_selling
 layout fragment_confirmation_code
+layout fragment_congress_screen
 layout fragment_edit_profile
 layout fragment_expire_orders
 layout fragment_favorite
@@ -4946,6 +4998,7 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
+layout myads_item_sample
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -5000,6 +5053,7 @@ mipmap ic_launcher_round
 mipmap ic_launcher_round_adaptive_back
 mipmap ic_launcher_round_adaptive_fore
 plurals mtrl_badge_content_description
+raw congratulation
 string FirebaseClientid
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -6403,6 +6457,7 @@ styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width 
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable LottieAnimationView lottie_autoPlay lottie_cacheComposition lottie_colorFilter lottie_enableMergePathsForKitKatAndAbove lottie_fallbackRes lottie_fileName lottie_ignoreDisabledSystemAnimations lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_renderMode lottie_repeatCount lottie_repeatMode lottie_scale lottie_speed lottie_url
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogButtonSpacerVisibility materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType

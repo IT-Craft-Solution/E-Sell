@@ -16,12 +16,16 @@
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_account.xml"
     },
     {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\home_freshitem_sample.xml",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\home_freshitem_sample.xml"
+    },
+    {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_account_myorders.xml",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_account_myorders.xml"
     },
     {
-        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\home_freshitem_sample.xml",
-        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\home_freshitem_sample.xml"
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chat_screen.xml",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_chat_screen.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\sell_category_sample.xml",
@@ -46,6 +50,10 @@
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home_cat_show.xml",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_home_cat_show.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_congress_screen.xml",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_congress_screen.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
@@ -94,6 +102,10 @@
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_my_add.xml",
         "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\fragment_my_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\myads_item_sample.xml",
+        "source": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\src\\main\\res\\layout\\myads_item_sample.xml"
     },
     {
         "merged": "C:\\Users\\LENOVO SLIM\\AndroidStudioProjects\\ICS\\E-Sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_sell.xml",

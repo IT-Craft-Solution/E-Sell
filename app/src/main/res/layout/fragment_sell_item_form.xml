@@ -148,9 +148,10 @@
             android:textSize="@dimen/_15font_mdp" />
 
               <ImageView
-                  android:id="@+id/imageView9"
+                  android:id="@+id/igVerify"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:visibility="invisible"
                   android:layout_marginTop="@dimen/_5mdp"
                   android:layout_marginLeft="@dimen/_15mdp"
                   android:src="@drawable/verify1" />
@@ -192,6 +193,19 @@
         app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
         app:layout_constraintTop_toBottomOf="@+id/txFormLocationTouch" />
 
+    <TextView
+        android:id="@+id/txSelectImages"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Select Your Images"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_15font_mdp"
+        app:layout_constraintEnd_toEndOf="@+id/txFormLocationTouch"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
+        app:layout_constraintTop_toBottomOf="@+id/txSellItemFormLocation" />
 
     <Button
         android:id="@+id/btnSellItemFormNext"
@@ -199,7 +213,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_12mdp"
         android:background="@drawable/rectangle_bg"
-        android:text="Next"
+        android:text="Post"
         android:elevation="@dimen/_30mdp"
         android:textSize="@dimen/_13font_mdp"
         android:fontFamily="@font/roboto_medium"

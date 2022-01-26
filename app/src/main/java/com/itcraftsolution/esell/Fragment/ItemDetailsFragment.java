@@ -34,6 +34,8 @@ public class ItemDetailsFragment extends Fragment {
             public void onClick(View v) {
 
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ItemDetailsFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment())
                         .addToBackStack(null).commit();
             }

@@ -2,17 +2,27 @@ package com.itcraftsolution.esell.Model;
 
 public class ChatBuying {
     private int ItemImage;
-    private String ItemName,ItemMessage, ItemTime;
+    private String UserName,ItemMessage, ItemTime,ItemName;
 
-    public ChatBuying(int itemImage, String itemName, String itemMessage, String itemTime) {
+    public ChatBuying(int itemImage, String userName, String itemMessage, String itemTime,String itemName) {
         ItemImage = itemImage;
-        ItemName = itemName;
+        UserName = userName;
         ItemMessage = itemMessage;
         ItemTime = itemTime;
+        ItemName = itemName;
+
     }
 
     public ChatBuying(){
 
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
     }
 
     public int getItemImage() {

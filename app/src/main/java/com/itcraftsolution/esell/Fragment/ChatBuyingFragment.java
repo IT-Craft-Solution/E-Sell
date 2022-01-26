@@ -36,17 +36,14 @@ public class ChatBuyingFragment extends Fragment {
         binding = FragmentChatBuyingBinding.inflate(getLayoutInflater());
 
         chatBuyings = new ArrayList<>();
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
-        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+
 
         ChatBuyingAdapter chatBuyingAdapter = new ChatBuyingAdapter(chatBuyings, getContext());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);

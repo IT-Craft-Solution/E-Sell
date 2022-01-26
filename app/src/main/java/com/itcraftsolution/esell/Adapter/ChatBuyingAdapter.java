@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itcraftsolution.esell.Fragment.ChatScreenFragment;
+import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Model.ChatBuying;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.ChatBuyingSampleBinding;
@@ -35,9 +38,22 @@ public class ChatBuyingAdapter extends  RecyclerView.Adapter<ChatBuyingAdapter.v
         ChatBuying chatBuying = chatBuyings.get(position);
 
         holder.binding.igProfileDp.setImageResource(chatBuying.getItemImage());
-        holder.binding.txChatName.setText(chatBuying.getItemName());
-        holder.binding.txChatMessage.setText(chatBuying.getItemMessage());
+        holder.binding.txUserName.setText(chatBuying.getUserName());
+        holder.binding.txUserMessage.setText(chatBuying.getItemMessage());
         holder.binding.txChatTime.setText(chatBuying.getItemTime());
+        holder.binding.txItemName.setText(chatBuying.getItemName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
+                        .replace(R.id.frMainContainer , new ChatScreenFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
 
     }
 

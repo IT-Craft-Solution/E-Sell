@@ -49,6 +49,8 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(SellItemFormFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
                         .addToBackStack(null).commit();
             }
@@ -57,11 +59,21 @@ public class SellItemFormFragment extends Fragment {
         binding.llSellItemFormCheckAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
+                binding.igVerify.setVisibility(spf.getInt("UserVerify",0));
 
 
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
-                        .addToBackStack(null).commit();
+                if(binding.igVerify.isShown()){
+                    Toast.makeText(getContext(), "Your Account Is Verified", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(SellItemFormFragment.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                    fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
+                            .addToBackStack(null).commit();
+                }
+
             }
         });
 
@@ -71,6 +83,13 @@ public class SellItemFormFragment extends Fragment {
             //get User Current Location & Print it.
                 spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
                  binding.txSellItemFormLocation.setText(spf.getString("UserLocation" , null));
+            }
+        });
+
+        binding.txSelectImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("image/*");
             }
         });
 
@@ -103,12 +122,21 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormPrice.requestFocus();
                 }
-                else if (Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().isEmpty() && Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().matches("City Name")) {
+                else if (!(binding.igVerify.isShown())){
+                    Toast.makeText(getContext(), "Please Verify Your Account ", Toast.LENGTH_SHORT).show();
+                }
+                else if (Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().matches("City Name")){
 
+                    Toast.makeText(getContext(), "Please Get Your Current Location", Toast.LENGTH_SHORT).show();
                 }
                 else {
                 Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
-                    mGetContent.launch("image/*");
+
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(SellItemFormFragment.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
+                            .addToBackStack(null).commit();
 
                 }
 

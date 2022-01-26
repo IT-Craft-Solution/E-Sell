@@ -45,6 +45,8 @@ public class phoneLogin extends Fragment {
                 if (checkPhoneNumber()) {
                     StoreUserDetails(String.valueOf(+91) , etPhone.getText().toString());
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(phoneLogin.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frUserDetailsContainer, new confirmationCode())
                             .addToBackStack(null).commit();
                 }
@@ -54,6 +56,8 @@ public class phoneLogin extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(phoneLogin.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frUserDetailsContainer, new login())
                 .addToBackStack(null).commit();
             }
