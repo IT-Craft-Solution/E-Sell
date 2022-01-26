@@ -15,19 +15,6 @@
 
     <!-- This permission is required to start foreground services in Android P. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
-    <queries>
-
-        <!-- Query Camera Packages -->
-        <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE" />
-        </intent>
-        <!-- Query Open Document -->
-        <intent>
-            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
-        </intent>
-    </queries>
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -71,25 +58,6 @@
         <service
             android:name="com.google.android.gms.cast.framework.ReconnectionService"
             android:exported="false" />
-
-        <activity
-            android:name="com.github.dhaval2404.imagepicker.ImagePickerActivity"
-            android:screenOrientation="unspecified"
-            android:theme="@style/Theme.Transparent.ImagePicker" />
-        <activity
-            android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <provider
-            android:name="com.github.dhaval2404.imagepicker.ImagePickerFileProvider"
-            android:authorities="com.itcraftsolution.esell.imagepicker.provider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/image_picker_provider_paths" />
-        </provider>
 
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

@@ -51,11 +51,11 @@
 
         <ImageView
             android:id="@+id/igChatMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_30mdp"
+            android:layout_height="@dimen/_25mdp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
-            android:src="@drawable/menu"
+            android:src="@drawable/menu1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +104,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30mdp"
+        android:layout_height="@dimen/_35mdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,6 @@
             android:id="@+id/edSellItemFormTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Type Here "
             android:inputType="text"
             android:layout_marginLeft="@dimen/_8mdp"
@@ -131,7 +130,7 @@
             android:layout_width="@dimen/_30mdp"
             android:layout_height="@dimen/_30mdp"
             android:layout_marginStart="2dp"
-            android:src="@drawable/attachment"
+            android:src="@drawable/attachmentblue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -139,8 +138,7 @@
             android:id="@+id/igChatMicrophone"
             android:layout_width="@dimen/_30mdp"
             android:layout_height="@dimen/_30mdp"
-            android:src="@drawable/microphone"
-            android:padding="@dimen/_4mdp"
+            android:src="@android:drawable/ic_btn_speak_now"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

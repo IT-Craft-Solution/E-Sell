@@ -47,7 +47,6 @@
             android:id="@+id/edSellItemFormTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Title *"
             android:inputType="text" />
 
@@ -78,7 +77,6 @@
             android:id="@+id/edSellItemFormDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Describe What you are Selling *"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -109,7 +107,6 @@
             android:id="@+id/edSellItemFormPrice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Price"
 
             android:inputType="number" />

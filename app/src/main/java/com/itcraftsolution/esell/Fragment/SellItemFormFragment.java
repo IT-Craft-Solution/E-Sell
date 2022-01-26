@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.github.dhaval2404.imagepicker.ImagePicker;
+
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;

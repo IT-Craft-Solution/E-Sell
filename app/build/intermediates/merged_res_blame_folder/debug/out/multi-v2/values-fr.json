@@ -125,23 +125,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\LENOVO SLIM\\.gradle\\caches\\transforms-3\\40153740878a4887093492bff0db0c75\\transformed\\jetified-ucrop-2.2.6\\res\\values-fr\\values-fr.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,124,182",
-                        "endColumns": "68,57,52",
-                        "endOffsets": "119,177,230"
-                    },
-                    "to": {
-                        "startLines": "175,176,177",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "15774,15843,15901",
-                        "endColumns": "68,57,52",
-                        "endOffsets": "15838,15896,15949"
-                    }
-                },
-                {
                     "source": "C:\\Users\\LENOVO SLIM\\.gradle\\caches\\transforms-3\\a64533d0db445c251031a284d770c0ec\\transformed\\jetified-play-services-cast-21.0.1\\res\\values-fr\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8",
