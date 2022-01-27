@@ -131,8 +131,6 @@ public class EditProfileFragment extends Fragment {
                     Toast.makeText(getContext(), "Profile Saved...", Toast.LENGTH_SHORT).show();
 
 
-                    Verify = binding.igVerify.getVisibility();
-
                     Name = binding.edProfileName.getText().toString();
 
                     About = binding.edProfileAbout.getText().toString();
@@ -141,12 +139,16 @@ public class EditProfileFragment extends Fragment {
 
                     Email = binding.edProfileEmail.getText().toString();
 
-                    StoreUserProfile(Name ,About , MobileNumber, Email,Verify,PhotoUri);
-
 
                 }
+
+                Verify = binding.igVerify.getVisibility();
+                StoreUserProfile(Name ,About , MobileNumber, Email,Verify,PhotoUri);
+
             }
         });
+
+
 
         LoadData();
         return binding.getRoot();
@@ -174,7 +176,7 @@ public class EditProfileFragment extends Fragment {
         About = spf.getString("UserAboutUs", null);
         Email = spf.getString("UserEmail", null);
         MobileNumber = spf.getString("UserMobileNumber", null);
-        Verify = spf.getInt("UserVerify",0);
+        Verify = spf.getInt("UserVerify",4);
         ProfileImage = spf.getString("UserProfileImage",null);
 
 
