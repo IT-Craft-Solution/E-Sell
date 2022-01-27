@@ -67,10 +67,16 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
-        //to get location
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
-        getLastLocation();
 
+        binding.tvCityName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //to get location
+
+                getLastLocation();
+            }
+        });
 
         homeCategories = new ArrayList<>();
         homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));

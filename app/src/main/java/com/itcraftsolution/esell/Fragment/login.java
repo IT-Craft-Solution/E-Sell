@@ -138,7 +138,7 @@ public class login extends Fragment {
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.remove(login.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                    fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation())
+                    fragmentTransaction.replace(R.id.frUserDetailsContainer , new UserProfileFragment())
                             .addToBackStack(null).commit();
                 }
                 else {
