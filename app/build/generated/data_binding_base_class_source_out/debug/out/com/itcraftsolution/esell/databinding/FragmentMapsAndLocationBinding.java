@@ -41,23 +41,16 @@ public final class FragmentMapsAndLocationBinding implements ViewBinding {
   public final ConstraintLayout navigationTitle;
 
   @NonNull
-  public final TextView tvLink;
-
-  @NonNull
   public final TextView tvLocationDetails;
 
   @NonNull
   public final TextView tvNavigationTitle;
 
-  @NonNull
-  public final TextView tvline;
-
   private FragmentMapsAndLocationBinding(@NonNull ConstraintLayout rootView,
       @NonNull TextView NavigationBtnText, @NonNull RelativeLayout RelativeLayout,
       @NonNull CardView btnLocationNavigation, @NonNull ImageView ivNavigation,
       @NonNull ImageView ivPlane, @NonNull ConstraintLayout navigationTitle,
-      @NonNull TextView tvLink, @NonNull TextView tvLocationDetails,
-      @NonNull TextView tvNavigationTitle, @NonNull TextView tvline) {
+      @NonNull TextView tvLocationDetails, @NonNull TextView tvNavigationTitle) {
     this.rootView = rootView;
     this.NavigationBtnText = NavigationBtnText;
     this.RelativeLayout = RelativeLayout;
@@ -65,10 +58,8 @@ public final class FragmentMapsAndLocationBinding implements ViewBinding {
     this.ivNavigation = ivNavigation;
     this.ivPlane = ivPlane;
     this.navigationTitle = navigationTitle;
-    this.tvLink = tvLink;
     this.tvLocationDetails = tvLocationDetails;
     this.tvNavigationTitle = tvNavigationTitle;
-    this.tvline = tvline;
   }
 
   @Override
@@ -130,12 +121,6 @@ public final class FragmentMapsAndLocationBinding implements ViewBinding {
 
       ConstraintLayout navigationTitle = (ConstraintLayout) rootView;
 
-      id = R.id.tvLink;
-      TextView tvLink = ViewBindings.findChildViewById(rootView, id);
-      if (tvLink == null) {
-        break missingId;
-      }
-
       id = R.id.tvLocationDetails;
       TextView tvLocationDetails = ViewBindings.findChildViewById(rootView, id);
       if (tvLocationDetails == null) {
@@ -148,15 +133,9 @@ public final class FragmentMapsAndLocationBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvline;
-      TextView tvline = ViewBindings.findChildViewById(rootView, id);
-      if (tvline == null) {
-        break missingId;
-      }
-
       return new FragmentMapsAndLocationBinding((ConstraintLayout) rootView, NavigationBtnText,
-          RelativeLayout, btnLocationNavigation, ivNavigation, ivPlane, navigationTitle, tvLink,
-          tvLocationDetails, tvNavigationTitle, tvline);
+          RelativeLayout, btnLocationNavigation, ivNavigation, ivPlane, navigationTitle,
+          tvLocationDetails, tvNavigationTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

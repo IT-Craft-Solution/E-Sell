@@ -4597,12 +4597,10 @@ id tvDisplayCountryCode
 id tvDisplayPhoneNumber
 id tvEnterPhone
 id tvEnterPhoneLogin
-id tvLink
 id tvLocationDetails
 id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
-id tvline
 id txChatDate
 id txChatItemName
 id txChatItemPrice

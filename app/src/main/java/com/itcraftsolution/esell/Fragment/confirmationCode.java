@@ -131,6 +131,13 @@ public class confirmationCode extends Fragment {
                 if(task.isSuccessful())
                 {
                     CheckOtpDialog.dismiss();
+
+                    SharedPreferences sharedPreferences = requireContext().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.clear();
+                    editor.putString("UserPhoneNumber", UserNumber);
+                    editor.apply();
+
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.remove(confirmationCode.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);

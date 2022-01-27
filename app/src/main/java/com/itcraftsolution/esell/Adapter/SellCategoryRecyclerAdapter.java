@@ -47,7 +47,7 @@ public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCatego
         @Override
         public void onClick(View view) {
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
+//                    .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                     .replace(R.id.frMainContainer , new SellItemFormFragment())
                     .addToBackStack(null)
                     .commit();
