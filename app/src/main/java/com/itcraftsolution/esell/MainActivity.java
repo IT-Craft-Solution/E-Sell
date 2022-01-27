@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new SellFragment();
                         break;
                     case R.id.bNavMyAds:
-                        selectedFragment = new SellItemFormFragment();
+                        selectedFragment = new MyAddFragment();
                         break;
                     case R.id.bNavAccount:
                         selectedFragment = new AccountFragment();
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void defView() {
           FragmentTransaction firstFragment = getSupportFragmentManager().beginTransaction();
+//          firstFragment.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
             firstFragment.replace(R.id.frMainContainer, new HomeFragment());
             firstFragment.commit();
     }

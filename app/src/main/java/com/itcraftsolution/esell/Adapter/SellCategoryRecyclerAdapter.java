@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
+import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
+import com.itcraftsolution.esell.Fragment.SellItemFormFragment;
 import com.itcraftsolution.esell.Model.SellCategory;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.SellCategorySampleBinding;
@@ -41,15 +43,16 @@ public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCatego
     holder.binding.igSellCategorySample.setImageResource(sellCategory.getCat_img());
     holder.binding.txSellCategoryName.setText(sellCategory.getName());
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.frMainContainer , new HomeCatShowFragment())
-//                        .addToBackStack(null)
-//                        .commit();
-//            }
-//        });
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
+                    .replace(R.id.frMainContainer , new SellItemFormFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
+    });
     }
 
     @Override

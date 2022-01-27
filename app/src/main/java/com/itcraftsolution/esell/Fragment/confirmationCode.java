@@ -132,6 +132,8 @@ public class confirmationCode extends Fragment {
                 {
                     CheckOtpDialog.dismiss();
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(confirmationCode.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frUserDetailsContainer,new mapsAndLocation());
                     fragmentTransaction.commit();
                 }

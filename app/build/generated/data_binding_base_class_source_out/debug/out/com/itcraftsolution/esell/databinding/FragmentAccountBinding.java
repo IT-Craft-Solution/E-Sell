@@ -27,7 +27,7 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final Button btnEditProfile;
 
   @NonNull
-  public final CircleImageView circleImageView;
+  public final CircleImageView igProfileImage;
 
   @NonNull
   public final ImageView imageView5;
@@ -54,10 +54,10 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final LinearLayout llAccountSelectLang;
 
   @NonNull
-  public final TextView textView4;
+  public final TextView txUserAbout;
 
   @NonNull
-  public final TextView textView5;
+  public final TextView txUserName;
 
   @NonNull
   public final View view;
@@ -72,15 +72,15 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final View view4;
 
   private FragmentAccountBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnEditProfile,
-      @NonNull CircleImageView circleImageView, @NonNull ImageView imageView5,
+      @NonNull CircleImageView igProfileImage, @NonNull ImageView imageView5,
       @NonNull ImageView imageView6, @NonNull ImageView imageView7, @NonNull ImageView imageView8,
       @NonNull LinearLayout llAccountHelp, @NonNull LinearLayout llAccountLogout,
       @NonNull LinearLayout llAccountMyOrders, @NonNull LinearLayout llAccountSelectLang,
-      @NonNull TextView textView4, @NonNull TextView textView5, @NonNull View view,
+      @NonNull TextView txUserAbout, @NonNull TextView txUserName, @NonNull View view,
       @NonNull View view2, @NonNull View view3, @NonNull View view4) {
     this.rootView = rootView;
     this.btnEditProfile = btnEditProfile;
-    this.circleImageView = circleImageView;
+    this.igProfileImage = igProfileImage;
     this.imageView5 = imageView5;
     this.imageView6 = imageView6;
     this.imageView7 = imageView7;
@@ -89,8 +89,8 @@ public final class FragmentAccountBinding implements ViewBinding {
     this.llAccountLogout = llAccountLogout;
     this.llAccountMyOrders = llAccountMyOrders;
     this.llAccountSelectLang = llAccountSelectLang;
-    this.textView4 = textView4;
-    this.textView5 = textView5;
+    this.txUserAbout = txUserAbout;
+    this.txUserName = txUserName;
     this.view = view;
     this.view2 = view2;
     this.view3 = view3;
@@ -130,9 +130,9 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.circleImageView;
-      CircleImageView circleImageView = ViewBindings.findChildViewById(rootView, id);
-      if (circleImageView == null) {
+      id = R.id.igProfileImage;
+      CircleImageView igProfileImage = ViewBindings.findChildViewById(rootView, id);
+      if (igProfileImage == null) {
         break missingId;
       }
 
@@ -184,15 +184,15 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView4;
-      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
-      if (textView4 == null) {
+      id = R.id.txUserAbout;
+      TextView txUserAbout = ViewBindings.findChildViewById(rootView, id);
+      if (txUserAbout == null) {
         break missingId;
       }
 
-      id = R.id.textView5;
-      TextView textView5 = ViewBindings.findChildViewById(rootView, id);
-      if (textView5 == null) {
+      id = R.id.txUserName;
+      TextView txUserName = ViewBindings.findChildViewById(rootView, id);
+      if (txUserName == null) {
         break missingId;
       }
 
@@ -220,10 +220,10 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentAccountBinding((ConstraintLayout) rootView, btnEditProfile,
-          circleImageView, imageView5, imageView6, imageView7, imageView8, llAccountHelp,
-          llAccountLogout, llAccountMyOrders, llAccountSelectLang, textView4, textView5, view,
-          view2, view3, view4);
+      return new FragmentAccountBinding((ConstraintLayout) rootView, btnEditProfile, igProfileImage,
+          imageView5, imageView6, imageView7, imageView8, llAccountHelp, llAccountLogout,
+          llAccountMyOrders, llAccountSelectLang, txUserAbout, txUserName, view, view2, view3,
+          view4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

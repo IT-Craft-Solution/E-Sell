@@ -19,7 +19,8 @@ public class UserLogin extends AppCompatActivity {
         setContentView(R.layout.activity_user_login);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frUserDetailsContainer , new SplashFragment());
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+        fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

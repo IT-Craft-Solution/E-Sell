@@ -3,64 +3,51 @@ package com.itcraftsolution.esell.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.itcraftsolution.esell.Adapter.ChatBuyingAdapter;
+import com.itcraftsolution.esell.Model.ChatBuying;
 import com.itcraftsolution.esell.R;
+import com.itcraftsolution.esell.databinding.ChatBuyingSampleBinding;
+import com.itcraftsolution.esell.databinding.FragmentChatSellingBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChatSellingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class ChatSellingFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public ChatSellingFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChatSellingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChatSellingFragment newInstance(String param1, String param2) {
-        ChatSellingFragment fragment = new ChatSellingFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private ArrayList<ChatBuying> chatBuyings;
+     private FragmentChatSellingBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat_selling, container, false);
+        binding = FragmentChatSellingBinding.inflate(getLayoutInflater());
+
+
+        chatBuyings = new ArrayList<>();
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+        chatBuyings.add(new ChatBuying(R.drawable.edit_profile_icon,"Karan desai","hii","Yesterday","Iphone13 Pro Max"));
+
+        ChatBuyingAdapter chatBuyingAdapter = new ChatBuyingAdapter(chatBuyings, getContext());
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);
+        binding.rvChatSelling.setLayoutManager(gridLayoutManager);
+        binding.rvChatSelling.setAdapter(chatBuyingAdapter);
+
+
+      return binding.getRoot();
     }
 }

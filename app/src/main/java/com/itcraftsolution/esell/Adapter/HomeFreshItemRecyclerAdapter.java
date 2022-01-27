@@ -49,6 +49,7 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
         @Override
         public void onClick(View v) {
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                     .replace(R.id.frMainContainer , new ItemDetailsFragment())
                     .addToBackStack(null)
                     .commit();

@@ -5,13 +5,13 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#000000</color>
 
 
 
     <color name="lightblue">#65A3E7</color>
-    <color name="lightblack">#BF000000</color>
+    <color name="lightblack">#000000</color>
+    <color name ="black">#000000</color>
     <color name="liteBlack">#4F000000</color>
     <color name="blue">#367FEE</color>
     <color name="marine_blue">#003034</color>

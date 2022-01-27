@@ -68,6 +68,7 @@ public class login extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frUserDetailsContainer , new phoneLogin())
                         .addToBackStack(null).commit();
             }
@@ -135,6 +136,8 @@ public class login extends Fragment {
                 {
                     progressDialog.dismiss();
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(login.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frUserDetailsContainer , new mapsAndLocation())
                             .addToBackStack(null).commit();
                 }

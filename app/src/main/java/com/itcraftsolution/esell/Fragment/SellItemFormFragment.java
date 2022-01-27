@@ -1,7 +1,13 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -11,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
@@ -26,6 +33,7 @@ public class SellItemFormFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private SharedPreferences spf;
     private FragmentSellItemFormBinding binding;
 
 
@@ -41,6 +49,8 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(SellItemFormFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
                         .addToBackStack(null).commit();
             }
@@ -49,9 +59,21 @@ public class SellItemFormFragment extends Fragment {
         binding.llSellItemFormCheckAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
-                        .addToBackStack(null).commit();
+                spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
+                binding.igVerify.setVisibility(spf.getInt("UserVerify",0));
+
+
+                if(binding.igVerify.isShown()){
+                    Toast.makeText(getContext(), "Your Account Is Verified", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(SellItemFormFragment.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                    fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
+                            .addToBackStack(null).commit();
+                }
+
             }
         });
 
@@ -59,6 +81,15 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
             //get User Current Location & Print it.
+                spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
+                 binding.txSellItemFormLocation.setText(spf.getString("UserLocation" , null));
+            }
+        });
+
+        binding.txSelectImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("image/*");
             }
         });
 
@@ -91,8 +122,22 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormPrice.requestFocus();
                 }
+                else if (!(binding.igVerify.isShown())){
+                    Toast.makeText(getContext(), "Please Verify Your Account ", Toast.LENGTH_SHORT).show();
+                }
+                else if (Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().matches("City Name")){
+
+                    Toast.makeText(getContext(), "Please Get Your Current Location", Toast.LENGTH_SHORT).show();
+                }
                 else {
                 Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
+
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.remove(SellItemFormFragment.this);
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
+                            .addToBackStack(null).commit();
+
                 }
 
 
@@ -100,4 +145,14 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
+
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    // Handle the returned Uri
+
+
+                }
+            });
 }

@@ -47,7 +47,6 @@
             android:id="@+id/edSellItemFormTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Title *"
             android:inputType="text" />
 
@@ -78,7 +77,6 @@
             android:id="@+id/edSellItemFormDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Describe What you are Selling *"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -109,7 +107,6 @@
             android:id="@+id/edSellItemFormPrice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:hint="Price"
 
             android:inputType="number" />
@@ -135,15 +132,27 @@
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/txFormPriceError">
-
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="@font/roboto_medium"
-            android:text="Review Your Account"
+            android:text="Verify Your Account"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp" />
+
+              <ImageView
+                  android:id="@+id/igVerify"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:visibility="invisible"
+                  android:layout_marginTop="@dimen/_5mdp"
+                  android:layout_marginLeft="@dimen/_15mdp"
+                  android:src="@drawable/verify1" />
+          </LinearLayout>
 
         <TextView
 
@@ -153,6 +162,8 @@
             android:text="Move to CheckOut Your Profile Details"
             android:textSize="@dimen/_11font_mdp" />
 
+
+
     </LinearLayout>
 
     <TextView
@@ -160,7 +171,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12mdp"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:fontFamily="@font/roboto_medium"
         android:text="Confirm Your Location"
         android:textColor="@color/lightblack"
@@ -180,6 +190,19 @@
         app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
         app:layout_constraintTop_toBottomOf="@+id/txFormLocationTouch" />
 
+    <TextView
+        android:id="@+id/txSelectImages"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Select Your Images"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_15font_mdp"
+        app:layout_constraintEnd_toEndOf="@+id/txFormLocationTouch"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
+        app:layout_constraintTop_toBottomOf="@+id/txSellItemFormLocation" />
 
     <Button
         android:id="@+id/btnSellItemFormNext"
@@ -187,7 +210,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_12mdp"
         android:background="@drawable/rectangle_bg"
-        android:text="Next"
+        android:text="Post"
         android:elevation="@dimen/_30mdp"
         android:textSize="@dimen/_13font_mdp"
         android:fontFamily="@font/roboto_medium"

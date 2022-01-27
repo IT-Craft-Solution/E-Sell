@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.EditProfileFragment">
 
         <ImageView
-           android:id="@+id/igEditToAccount"
+            android:id="@+id/igEditToAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_12mdp"
@@ -18,15 +18,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/txSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
             android:layout_marginEnd="@dimen/_12mdp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:fontFamily="serif"
+            android:text="Save"
+            android:textColor="@color/black"
             android:textSize="@dimen/_18font_mdp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/igEditToAccount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/igEditToAccount" />
@@ -35,8 +35,8 @@
             android:id="@+id/editProfileHead"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Basic information"
             android:layout_marginTop="@dimen/_12mdp"
+            android:text="Basic information"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_18font_mdp"
             android:textStyle="bold"
@@ -54,6 +54,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editProfileHead" />
 
         <TextView
+            android:id="@+id/btnEditImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -82,9 +83,9 @@
             android:id="@+id/edProfileAbout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8mdp"
             android:autofillHints="true"
             android:hint="Somthing About You"
-            android:layout_marginTop="@dimen/_8mdp"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="@+id/edProfileName"
             app:layout_constraintStart_toStartOf="@+id/igProfileDp"
@@ -95,11 +96,11 @@
             android:id="@+id/ContactInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12mdp"
             android:text="@string/contact_information"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_18font_mdp"
             android:textStyle="bold"
-            android:layout_marginTop="@dimen/_12mdp"
             app:layout_constraintStart_toStartOf="@+id/edProfileAbout"
             app:layout_constraintTop_toBottomOf="@+id/edProfileAbout" />
 
@@ -107,7 +108,7 @@
             android:id="@+id/epCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_10mdp"
             android:text="@string/country"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_14font_mdp"
@@ -118,7 +119,7 @@
             android:id="@+id/epPhoneNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_40mdp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="@dimen/_10mdp"
             android:text="@string/phone_number"
             android:textColor="@color/lightblack"
@@ -128,25 +129,28 @@
             app:layout_constraintStart_toEndOf="@id/epCountry"
             app:layout_constraintTop_toBottomOf="@id/ContactInfo" />
 
-        <EditText
+        <TextView
             android:id="@+id/edCountryCode"
             android:layout_width="@dimen/_60mdp"
             android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:layout_marginTop="@dimen/_8mdp"
             android:focusable="false"
             android:hint="+91"
-            android:autofillHints="false"
-            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14font_mdp"
             app:layout_constraintStart_toStartOf="@+id/epCountry"
-            app:layout_constraintTop_toBottomOf="@+id/epCountry"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/epCountry" />
 
-        <EditText
+        <TextView
             android:id="@+id/edProfilePhoneNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints="false"
-            android:inputType="phone"
-            android:text="9723816724"
+            android:hint="Verify Your Number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14font_mdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/epPhoneNo"
             app:layout_constraintTop_toBottomOf="@+id/epPhoneNo" />
@@ -155,6 +159,7 @@
             android:id="@+id/epPhoneDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/_10mdp"
             android:text="This is the number for buyer contacts, reminders and other notifications."
             android:textColor="@color/lightblack"
@@ -168,8 +173,8 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
             android:layout_marginTop="@dimen/_12mdp"
+            android:text="Email"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_14font_mdp"
             app:layout_constraintStart_toStartOf="@+id/edCountryCode"
@@ -179,10 +184,10 @@
             android:id="@+id/edProfileEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="false"
-            android:inputType="textEmailAddress"
-            android:hint="PrathvikSankaliya@gmail.com"
             android:layout_marginTop="@dimen/_6mdp"
+            android:autofillHints="false"
+            android:hint="Enter Your Email Address"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="@+id/epPhoneDetails"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -198,5 +203,30 @@
             app:layout_constraintEnd_toEndOf="@+id/edProfileEmail"
             app:layout_constraintStart_toStartOf="@+id/edProfileEmail"
             app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
+
+        <Button
+            android:id="@+id/btnVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Verify"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/epPhoneNo"
+            app:layout_constraintStart_toEndOf="@+id/epPhoneNo"
+            app:layout_constraintTop_toTopOf="@+id/epPhoneNo"
+            app:layout_constraintVertical_bias="0.565" />
+
+        <ImageView
+            android:id="@+id/igVerify"
+            android:layout_width="@dimen/_20mdp"
+            android:layout_height="@dimen/_29mdp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/verify1"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/editProfileHead"
+            app:layout_constraintStart_toEndOf="@+id/editProfileHead"
+            app:layout_constraintTop_toTopOf="@+id/editProfileHead"
+            app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,60 +6,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ChatSellingFragment">
 
-    <LinearLayout
-        android:id="@+id/ChatSellingLinear"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatSelling"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="@dimen/_32mdp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_32mdp"
-            android:gravity="center"
-            android:text="@string/no_messages_yet"
-            android:textSize="@dimen/_24font_mdp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/ChatSellingLinear"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_margin="@dimen/_32mdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <TextView
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/_32mdp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/no_messages_yet"-->
+<!--            android:textSize="@dimen/_24font_mdp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />-->
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10mdp"
-            android:gravity="center"
-            android:text="@string/sell_keep_messages"
-            android:textSize="@dimen/_15font_mdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvNoMessagesYet_selling" />
+<!--        <TextView-->
 
-        <Button
-            android:id="@+id/btnNoSellingChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/main_search_bg"
-            android:text="Start Selling"
-            android:layout_marginTop="@dimen/_8mdp"
-            android:gravity="center"
-            android:textColor="@color/lightblack"
-            android:textSize="@dimen/_16font_mdp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/TvKeepMessages_selling"
-            app:layout_constraintStart_toStartOf="@+id/TvKeepMessages_selling"
-            app:layout_constraintTop_toBottomOf="@+id/TvKeepMessages_selling" />
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/_10mdp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/sell_keep_messages"-->
+<!--            android:textSize="@dimen/_15font_mdp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/TvNoMessagesYet_selling" />-->
 
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/btnNoSellingChat"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/main_search_bg"-->
+<!--            android:text="Start Selling"-->
+<!--            android:layout_marginTop="@dimen/_8mdp"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/lightblack"-->
+<!--            android:textSize="@dimen/_16font_mdp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/TvKeepMessages_selling"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/TvKeepMessages_selling"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/TvKeepMessages_selling" />-->
+
+<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
