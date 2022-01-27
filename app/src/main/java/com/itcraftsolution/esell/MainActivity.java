@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frMainContainer , selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frMainContainer , selectedFragment).addToBackStack(null).commit();
                 return  true;
             }
         });
@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
             firstFragment.commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome)
-        {
-            super.onBackPressed();
+//    @Override
+//    public void onBackPressed() {
+//        if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome)
+//        {
+//            super.onBackPressed();
 //            finishAffinity();
-        }
-        else {
-            binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
-        }
-    }
+//        }
+//        else {
+//            binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+//        }
+//    }
 }

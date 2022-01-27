@@ -135,7 +135,7 @@ public class confirmationCode extends Fragment {
                     fragmentTransaction.remove(confirmationCode.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frUserDetailsContainer,new mapsAndLocation());
-                    fragmentTransaction.commit();
+                    fragmentTransaction.addToBackStack(null).commit();
                 }
                 else {
                     Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

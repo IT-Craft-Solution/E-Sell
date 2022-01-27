@@ -58,7 +58,7 @@ public class HomeCatShowFragment extends Fragment {
                 fragmentTransaction.remove(HomeCatShowFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment());
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
             }
         });
 
