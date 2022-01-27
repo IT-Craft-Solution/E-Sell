@@ -60,7 +60,7 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
-                binding.igVerify.setVisibility(spf.getInt("UserVerify",0));
+                binding.igVerify.setVisibility(spf.getInt("UserVerify",4));
 
 
                 if(binding.igVerify.isShown()){
