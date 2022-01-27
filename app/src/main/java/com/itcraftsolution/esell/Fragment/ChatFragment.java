@@ -3,10 +3,13 @@ package com.itcraftsolution.esell.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
 
 import com.itcraftsolution.esell.Adapter.ChatHomeViewPagerAdapter;
 import com.itcraftsolution.esell.R;
@@ -22,6 +25,7 @@ public class ChatFragment extends Fragment {
 
     FragmentChatBinding binding;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +34,9 @@ public class ChatFragment extends Fragment {
 
         binding.vpMainChat.setAdapter(new ChatHomeViewPagerAdapter(getParentFragmentManager()));
         binding.tbMainChat.setupWithViewPager(binding.vpMainChat);
+
+
+
 
         return binding.getRoot();
     }

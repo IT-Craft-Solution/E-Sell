@@ -198,7 +198,6 @@
             android:layout_marginTop="8dp"
             android:text="@string/verification"
             android:textColor="@color/lightblack"
-
             android:textSize="@dimen/_9font_mdp"
             app:layout_constraintEnd_toEndOf="@+id/edProfileEmail"
             app:layout_constraintStart_toStartOf="@+id/edProfileEmail"

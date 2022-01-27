@@ -39,7 +39,7 @@ public class AccountMyordersFragment extends Fragment {
                 fragmentTransaction.remove(AccountMyordersFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new AccountFragment());
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
             }
         });
         return binding.getRoot();

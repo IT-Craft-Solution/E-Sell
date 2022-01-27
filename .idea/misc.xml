@@ -48,13 +48,16 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_home_cat_show.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_item_details.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_maps_and_location.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_my_add.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_phone_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_sell_item_form.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_user_profile.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_cat_show_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_freshitem_sample.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/main_nav_graph.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/myads_item_sample.xml" value="0.4" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/sell_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
@@ -115,10 +118,8 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_my_add.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_phone_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sell.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sell_item_form.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sign_in.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_splash.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_user_profile.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/home_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/home_freshitem_sample.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/sell_category_sample.xml" value="0.27447916666666666" />

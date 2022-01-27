@@ -53,7 +53,7 @@ public class AccountFragment extends Fragment {
                 fragmentTransaction.remove(AccountFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new AccountMyordersFragment());
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
             }
         });
         binding.llAccountHelp.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class AccountFragment extends Fragment {
                 fragmentTransaction.remove(AccountFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new AccountHelpFragment());
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
             }
         });
         binding.llAccountLogout.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class AccountFragment extends Fragment {
                 fragmentTransaction.remove(AccountFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment());
-                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null).commit();
             }
         });
 
