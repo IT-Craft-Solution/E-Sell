@@ -74,7 +74,42 @@ public class MainActivity extends AppCompatActivity {
         if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome)
         {
             super.onBackPressed();
-//            finishAffinity();
+        }
+        else if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavSell)
+        {
+            super.onBackPressed();
+            binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+        }
+        else if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavChat)
+        {
+            if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavChat)
+            {
+                super.onBackPressed();
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+            }
+            else {
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavChat);
+            }
+        }
+        else if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavMyAds)
+        {
+            if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavMyAds)
+            {
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+            }
+            else {
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavMyAds);
+            }
+        }
+        else if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavAccount)
+        {
+            if(binding.mainBottomNav.getSelectedItemId() == R.id.bNavAccount)
+            {
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);
+            }
+            else {
+                binding.mainBottomNav.setSelectedItemId(R.id.bNavAccount);
+            }
         }
         else {
             binding.mainBottomNav.setSelectedItemId(R.id.bNavHome);

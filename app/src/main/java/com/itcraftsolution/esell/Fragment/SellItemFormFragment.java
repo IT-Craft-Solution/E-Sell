@@ -49,8 +49,7 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.remove(SellItemFormFragment.this);
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+//                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
                         .addToBackStack(null).commit();
             }
@@ -68,7 +67,6 @@ public class SellItemFormFragment extends Fragment {
                 }
                 else {
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(SellItemFormFragment.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
                             .addToBackStack(null).commit();
@@ -133,7 +131,6 @@ public class SellItemFormFragment extends Fragment {
                 Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
 
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.remove(SellItemFormFragment.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
                     fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
                             .addToBackStack(null).commit();

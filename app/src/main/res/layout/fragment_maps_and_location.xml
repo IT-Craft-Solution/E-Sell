@@ -90,30 +90,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvLink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Continue without Location"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnLocation_navigation"
-        app:layout_constraintStart_toStartOf="@+id/btnLocation_navigation"
-        app:layout_constraintTop_toBottomOf="@+id/btnLocation_navigation" />
-
-    <TextView
-        android:id="@+id/tvline"
-        android:layout_width="@dimen/_195mdp"
-        android:layout_height="@dimen/_1mdp"
-        android:background="@color/black"
-        android:backgroundTint="@color/marine_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/tvLink"
-        app:layout_constraintTop_toBottomOf="@+id/tvLink" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
