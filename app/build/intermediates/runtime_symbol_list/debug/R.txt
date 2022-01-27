@@ -4547,6 +4547,7 @@ int id textTitle 0x7f0a0293
 int id textTop 0x7f0a0294
 int id textView 0x7f0a0295
 int id textView10 0x7f0a0296
+int id textView11 0x7f0a030f
 int id textView12 0x7f0a0297
 int id textView13 0x7f0a0298
 int id textView2 0x7f0a0299
@@ -4812,6 +4813,7 @@ int layout fragment_phone_login 0x7f0d004b
 int layout fragment_sell 0x7f0d004c
 int layout fragment_sell_item_form 0x7f0d004d
 int layout fragment_splash 0x7f0d004e
+int layout fragment_user_profile 0x7f0d00b3
 int layout home_cat_show_sample 0x7f0d004f
 int layout home_category_sample 0x7f0d0050
 int layout home_freshitem_sample 0x7f0d0051

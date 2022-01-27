@@ -4548,6 +4548,7 @@ id textTitle
 id textTop
 id textView
 id textView10
+id textView11
 id textView12
 id textView13
 id textView2
@@ -4813,6 +4814,7 @@ layout fragment_phone_login
 layout fragment_sell
 layout fragment_sell_item_form
 layout fragment_splash
+layout fragment_user_profile
 layout home_cat_show_sample
 layout home_category_sample
 layout home_freshitem_sample
