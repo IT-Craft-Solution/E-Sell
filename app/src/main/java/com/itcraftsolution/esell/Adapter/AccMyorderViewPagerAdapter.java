@@ -3,47 +3,39 @@ package com.itcraftsolution.esell.Adapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.itcraftsolution.esell.Fragment.ActiveOrdersFragment;
+import com.itcraftsolution.esell.Fragment.ChatBuyingFragment;
+import com.itcraftsolution.esell.Fragment.ChatSellingFragment;
 import com.itcraftsolution.esell.Fragment.ExpireOrdersFragment;
 
-public class AccMyorderViewPagerAdapter extends FragmentPagerAdapter {
-    private static int Count = 2;
-    public AccMyorderViewPagerAdapter(@NonNull FragmentManager fm) {
-        super(fm);
+public class AccMyorderViewPagerAdapter extends FragmentStateAdapter {
+
+    private String[] titles = new String[]{"Active","Expire"};
+
+    public AccMyorderViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
-        switch (position) {
+    public Fragment createFragment(int position) {
+        switch (position)
+        {
+            case 0:
+                return new ActiveOrdersFragment();
             case 1:
                 return new ExpireOrdersFragment();
-
-            default:
-                return new ActiveOrdersFragment();
         }
+        return new ActiveOrdersFragment();
     }
 
     @Override
-    public int getCount() {
-        return Count;
-    }
-
-
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        String title = null;
-
-        if (position == 0) {
-            title = "Active";
-        } else if (position == 1) {
-            title = "Expire";
-        }
-
-        return title;
+    public int getItemCount() {
+        return titles.length;
     }
 }

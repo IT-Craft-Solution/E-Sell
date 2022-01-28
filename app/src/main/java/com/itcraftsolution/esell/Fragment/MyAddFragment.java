@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.itcraftsolution.esell.Adapter.ChatHomeViewPagerAdapter;
 import com.itcraftsolution.esell.Adapter.MyAddViewPagerAdapter;
 import com.itcraftsolution.esell.R;
@@ -25,6 +26,8 @@ public class MyAddFragment extends Fragment {
     }
 
     private FragmentMyAddBinding binding;
+    MyAddViewPagerAdapter myAddViewPagerAdapter;
+    private String[] titles = new String[]{"MyAds","Favourite"};
 
 
     @Override
@@ -32,8 +35,12 @@ public class MyAddFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentMyAddBinding.inflate(getLayoutInflater());
-        binding.vpMyAdd.setAdapter(new MyAddViewPagerAdapter(getParentFragmentManager()));
-        binding.tbMyAdd.setupWithViewPager(binding.vpMyAdd);
+
+        myAddViewPagerAdapter = new MyAddViewPagerAdapter(requireActivity());
+
+        binding.vpMyAdd.setAdapter(myAddViewPagerAdapter);
+
+        new TabLayoutMediator(binding.tbMyAdd,binding.vpMyAdd,(((tab, position) -> tab.setText(titles[position])))).attach();
 
         return binding.getRoot();
     }

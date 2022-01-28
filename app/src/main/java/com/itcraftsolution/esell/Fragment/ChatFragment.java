@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.itcraftsolution.esell.Adapter.ChatHomeViewPagerAdapter;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentChatBinding;
@@ -23,7 +25,9 @@ public class ChatFragment extends Fragment {
         // Required empty public constructor
     }
 
+    ChatHomeViewPagerAdapter chatHomeViewPagerAdapter;
     FragmentChatBinding binding;
+    private String[] titles = new String[]{"Buying","Selling"};
 
 
     @Override
@@ -32,11 +36,11 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(getLayoutInflater());
 
-        binding.vpMainChat.setAdapter(new ChatHomeViewPagerAdapter(getParentFragmentManager()));
-        binding.tbMainChat.setupWithViewPager(binding.vpMainChat);
+        chatHomeViewPagerAdapter = new ChatHomeViewPagerAdapter(requireActivity());
 
+           binding.vpMainChat.setAdapter(chatHomeViewPagerAdapter);
 
-
+           new TabLayoutMediator(binding.tbMainChat,binding.vpMainChat,((tab, position) ->tab.setText(titles[position]))).attach();
 
         return binding.getRoot();
     }

@@ -26,16 +26,7 @@
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/black" />
 
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        android:id="@+id/vpMainChat"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tbMainChat"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tbMainChat"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />-->
-
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpMainChat"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -43,6 +34,15 @@
         app:layout_constraintEnd_toEndOf="@+id/tbMainChat"
         app:layout_constraintStart_toStartOf="@+id/tbMainChat"
         app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />
+
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/vpMainChat"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tbMainChat"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tbMainChat"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

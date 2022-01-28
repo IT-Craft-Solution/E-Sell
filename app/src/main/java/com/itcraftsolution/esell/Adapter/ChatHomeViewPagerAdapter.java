@@ -3,6 +3,7 @@ package com.itcraftsolution.esell.Adapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.Lifecycle;
@@ -11,41 +12,30 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.itcraftsolution.esell.Fragment.ChatBuyingFragment;
 import com.itcraftsolution.esell.Fragment.ChatSellingFragment;
 
-public class ChatHomeViewPagerAdapter extends FragmentPagerAdapter {
+public class ChatHomeViewPagerAdapter extends FragmentStateAdapter{
 
-    private static int Count = 2;
-    public ChatHomeViewPagerAdapter(@NonNull FragmentManager fm) {
-        super(fm);
+    private String[] titles = new String[]{"Buying","Selling"};
+
+    public ChatHomeViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
+
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
-        switch (position) {
+    public Fragment createFragment(int position) {
+        switch (position)
+        {
+            case 0:
+                return new ChatBuyingFragment();
             case 1:
                 return new ChatSellingFragment();
-
-            default:
-                return new ChatBuyingFragment();
         }
+        return new ChatBuyingFragment();
     }
 
     @Override
-    public int getCount() {
-        return Count;
-    }
-
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-       String title = null;
-
-        if (position == 0) {
-            title = "Buying";
-        } else if (position == 1) {
-            title = "Selling";
-        }
-
-        return title;
+    public int getItemCount() {
+        return titles.length;
     }
 }

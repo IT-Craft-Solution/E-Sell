@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.itcraftsolution.esell.Adapter.AccMyorderViewPagerAdapter;
 
 import com.itcraftsolution.esell.R;
@@ -23,14 +24,21 @@ public class AccountMyordersFragment extends Fragment {
     }
 
     private FragmentAccountMyordersBinding binding;
+    AccMyorderViewPagerAdapter accMyorderViewPagerAdapter;
+    private String[] titles = new String[]{"Active","Expire"};
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAccountMyordersBinding.inflate(getLayoutInflater());
 
-        binding.vpAccount.setAdapter(new AccMyorderViewPagerAdapter(getParentFragmentManager()));
-        binding.tbAccountMyOrders.setupWithViewPager(binding.vpAccount);
+        accMyorderViewPagerAdapter = new AccMyorderViewPagerAdapter(requireActivity());
+
+        binding.vpAccount.setAdapter(accMyorderViewPagerAdapter);
+
+        new TabLayoutMediator(binding.tbAccountMyOrders,binding.vpAccount,(((tab, position) -> tab.setText(titles[position])))).attach();
+
 
         binding.igMyOrdersToAccount.setOnClickListener(new View.OnClickListener() {
             @Override

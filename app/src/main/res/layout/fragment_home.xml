@@ -25,6 +25,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textColor="@color/lightblack"
         android:text="@string/city_name"
+        android:hint="City Name"
         android:textSize="@dimen/_13font_mdp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
