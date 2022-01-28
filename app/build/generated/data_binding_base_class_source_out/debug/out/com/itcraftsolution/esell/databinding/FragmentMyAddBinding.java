@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.itcraftsolution.esell.R;
 import java.lang.NullPointerException;
@@ -24,10 +24,10 @@ public final class FragmentMyAddBinding implements ViewBinding {
   public final TabLayout tbMyAdd;
 
   @NonNull
-  public final ViewPager vpMyAdd;
+  public final ViewPager2 vpMyAdd;
 
   private FragmentMyAddBinding(@NonNull ConstraintLayout rootView, @NonNull TabLayout tbMyAdd,
-      @NonNull ViewPager vpMyAdd) {
+      @NonNull ViewPager2 vpMyAdd) {
     this.rootView = rootView;
     this.tbMyAdd = tbMyAdd;
     this.vpMyAdd = vpMyAdd;
@@ -67,7 +67,7 @@ public final class FragmentMyAddBinding implements ViewBinding {
       }
 
       id = R.id.vpMyAdd;
-      ViewPager vpMyAdd = ViewBindings.findChildViewById(rootView, id);
+      ViewPager2 vpMyAdd = ViewBindings.findChildViewById(rootView, id);
       if (vpMyAdd == null) {
         break missingId;
       }

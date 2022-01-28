@@ -23,7 +23,7 @@ public class ApiPostData {
     public void insertUser(Context context,String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
     {
 //        http://192.168.0.102:80/poetryapi/readpoetry.php
-        String url= "http://192.168.0.105:80/all/user/create_user.php";
+        String url= "http://192.168.0.102:80/all/user/create_user.php";
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 

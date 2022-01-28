@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.itcraftsolution.esell.R;
 import java.lang.NullPointerException;
@@ -24,10 +24,10 @@ public final class FragmentChatBinding implements ViewBinding {
   public final TabLayout tbMainChat;
 
   @NonNull
-  public final ViewPager vpMainChat;
+  public final ViewPager2 vpMainChat;
 
   private FragmentChatBinding(@NonNull ConstraintLayout rootView, @NonNull TabLayout tbMainChat,
-      @NonNull ViewPager vpMainChat) {
+      @NonNull ViewPager2 vpMainChat) {
     this.rootView = rootView;
     this.tbMainChat = tbMainChat;
     this.vpMainChat = vpMainChat;
@@ -67,7 +67,7 @@ public final class FragmentChatBinding implements ViewBinding {
       }
 
       id = R.id.vpMainChat;
-      ViewPager vpMainChat = ViewBindings.findChildViewById(rootView, id);
+      ViewPager2 vpMainChat = ViewBindings.findChildViewById(rootView, id);
       if (vpMainChat == null) {
         break missingId;
       }

@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -47,7 +48,10 @@ import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfLoginUserData;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -60,7 +64,7 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath;
+    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath,encodeImageString;
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
@@ -154,10 +158,10 @@ public class UserProfileFragment extends Fragment {
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
                     SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
-                    spfLoginUserData.setSpf(requireContext(), Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
-                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+ImagePath+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+                    spfLoginUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+encodeImageString+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
                     ApiPostData apiPostData = new ApiPostData();
-                    apiPostData.insertUser(requireContext(),Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
+                    apiPostData.insertUser(requireContext(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     Log.d("navuapp", "Name: "+Name+"About: "+About+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
 
                 }
@@ -348,10 +352,6 @@ public class UserProfileFragment extends Fragment {
             }
         }
 
-
-
-
-
     }
 
     ActivityResultLauncher<Intent> SendActivityintent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -365,8 +365,10 @@ public class UserProfileFragment extends Fragment {
                             uri = result.getData().getData();
                           ImagePath = getPath(uri);
                                 try {
-                                    bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(),uri);
+                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(uri);
+                                    bitmap = BitmapFactory.decodeStream(inputStream);
                                     binding.igProfileDp.setImageBitmap(bitmap);
+                                    encodeBitmapImage(bitmap);
                                     CheckImage = true;
                                 }catch (Exception e)
                                 {
@@ -381,6 +383,13 @@ public class UserProfileFragment extends Fragment {
 
                 }
             });
+
+    private void encodeBitmapImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArrayOutputStream);
+        byte[] bytesofimage = byteArrayOutputStream.toByteArray();
+        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+    }
 
     private String getPath(Uri uri) {
 
@@ -397,11 +406,4 @@ public class UserProfileFragment extends Fragment {
         return path;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (checkPermissions()) {
-            getLastLocation();
-        }
-    }
 }

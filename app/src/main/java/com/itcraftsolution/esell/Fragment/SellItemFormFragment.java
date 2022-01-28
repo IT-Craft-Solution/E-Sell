@@ -55,25 +55,25 @@ public class SellItemFormFragment extends Fragment {
             }
         });
 
-        binding.llSellItemFormCheckAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
-                binding.igVerify.setVisibility(spf.getInt("UserVerify",4));
-
-
-                if(binding.igVerify.isShown()){
-                    Toast.makeText(getContext(), "Your Account Is Verified", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                    fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
-                            .addToBackStack(null).commit();
-                }
-
-            }
-        });
+//        binding.llSellItemFormCheckAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
+//                binding.igVerify.setVisibility(spf.getInt("UserVerify",4));
+//
+//
+//                if(binding.igVerify.isShown()){
+//                    Toast.makeText(getContext(), "Your Account Is Verified", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+//                    fragmentTransaction.replace(R.id.frMainContainer , new EditProfileFragment())
+//                            .addToBackStack(null).commit();
+//                }
+//
+//            }
+//        });
 
         binding.txFormLocationTouch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,9 +120,9 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormPrice.requestFocus();
                 }
-                else if (!(binding.igVerify.isShown())){
-                    Toast.makeText(getContext(), "Please Verify Your Account ", Toast.LENGTH_SHORT).show();
-                }
+//                else if (!(binding.igVerify.isShown())){
+//                    Toast.makeText(getContext(), "Please Verify Your Account ", Toast.LENGTH_SHORT).show();
+//                }
                 else if (Objects.requireNonNull(binding.txSellItemFormLocation.getText()).toString().matches("City Name")){
 
                     Toast.makeText(getContext(), "Please Get Your Current Location", Toast.LENGTH_SHORT).show();
@@ -136,7 +136,6 @@ public class SellItemFormFragment extends Fragment {
                             .addToBackStack(null).commit();
 
                 }
-
 
             }
         });
