@@ -4075,6 +4075,7 @@ id closest
 id collapseActionView
 id compress
 id confirm_button
+id confirmlocation
 id constraint
 id constraintLayout
 id container
@@ -4632,6 +4633,11 @@ id txItemName
 id txItemPrice
 id txLikes
 id txLocationn
+id txProfileAboutError
+id txProfileEmailError
+id txProfileLocationError
+id txProfileNameError
+id txProfilePhoneError
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
 id txSampleHomeFreshItemName

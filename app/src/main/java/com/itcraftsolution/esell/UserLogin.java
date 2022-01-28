@@ -21,7 +21,7 @@ public class UserLogin extends AppCompatActivity {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-        fragmentTransaction.replace(R.id.frUserDetailsContainer , new SplashFragment());
+        fragmentTransaction.replace(R.id.frUserDetailsContainer , new UserProfileFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

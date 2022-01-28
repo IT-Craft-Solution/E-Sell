@@ -20,5 +20,11 @@ public class SpfLoginUserData {
         editor.apply();
 
     }
+    public SharedPreferences getSpf(Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("LoginUserDetails", Context.MODE_PRIVATE);
+
+        return sharedPreferences;
+    }
 
 }

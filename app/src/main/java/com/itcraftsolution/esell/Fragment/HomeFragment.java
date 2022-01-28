@@ -59,7 +59,6 @@ public class HomeFragment extends Fragment {
     private ArrayList<HomeFreshItem> homeFreshItems;
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
-    private SharedPreferences spf;
 
 
     @Override
@@ -68,21 +67,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
-
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
         binding.tvCityName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //to get location
-                mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
                 getLastLocation();
-
             }
         });
-
-        //get User Current Location & Print it.
-        spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
-        binding.tvCityName.setText(spf.getString("UserLocation" , null));
 
         homeCategories = new ArrayList<>();
         homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
@@ -273,13 +266,13 @@ public class HomeFragment extends Fragment {
         }
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (checkPermissions()) {
-//            getLastLocation();
-//        }
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (checkPermissions()) {
+            getLastLocation();
+        }
+    }
 
     private void StoreUserLocation(String UserLocation)
     {
