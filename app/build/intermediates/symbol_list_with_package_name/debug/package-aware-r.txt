@@ -4019,6 +4019,7 @@ id btnContinueWithPhone
 id btnEditImage
 id btnEditProfile
 id btnLocation_navigation
+id btnNextButton
 id btnPhoneNumLogin
 id btnPreviewAds
 id btnSellItemFormNext
@@ -4074,6 +4075,7 @@ id closest
 id collapseActionView
 id compress
 id confirm_button
+id confirmlocation
 id constraint
 id constraintLayout
 id container
@@ -4134,6 +4136,10 @@ id edProfilePhoneNumber
 id edSellItemFormDesc
 id edSellItemFormPrice
 id edSellItemFormTitle
+id edUserAboutUs
+id edUserEmail
+id edUserName
+id edUserPhoneNumber
 id editProfileHead
 id edit_query
 id elastic
@@ -4540,6 +4546,7 @@ id text
 id text2
 id textEnd
 id textInputLayout
+id textInputLayout1
 id textInputLayout2
 id textInputLayout3
 id textSpacerNoButtons
@@ -4625,6 +4632,12 @@ id txItemLocation
 id txItemName
 id txItemPrice
 id txLikes
+id txLocationn
+id txProfileAboutError
+id txProfileEmailError
+id txProfileLocationError
+id txProfileNameError
+id txProfilePhoneError
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
 id txSampleHomeFreshItemName
@@ -4634,6 +4647,7 @@ id txSelectImages
 id txSellCategoryName
 id txSellItemFormLocation
 id txUserAbout
+id txUserLocation
 id txUserMessage
 id txUserName
 id txViews

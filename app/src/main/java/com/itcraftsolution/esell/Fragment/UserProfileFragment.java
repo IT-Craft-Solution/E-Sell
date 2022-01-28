@@ -2,26 +2,34 @@ package com.itcraftsolution.esell.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -30,13 +38,15 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
+import com.itcraftsolution.esell.spf.SpfLoginUserData;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class UserProfileFragment extends Fragment {
 
@@ -45,9 +55,12 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City;
+    private String Sublocality,Locality,City, Name, Email, Phone, About, Location;
+    Drawable img;
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
+    Uri uri;
+    boolean CheckImage = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,28 +68,120 @@ public class UserProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentUserProfileBinding.inflate(getLayoutInflater());
 
+        LoadData();
+        binding.igProfileDp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                SendActivityintent.launch(intent);
+            }
+        });
+
         binding.btnNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-                requireActivity().finishAffinity();
+
+                if (Objects.requireNonNull(binding.edUserName.getText()).toString().length() < 4) {
+                    binding.txProfileNameError.setText("Name must be Minimum 4 characters");
+                    binding.txProfileNameError.setTextColor(getResources().getColor(R.color.red));
+                    binding.edUserName.requestFocus();
+                }
+                else if (!CheckImage){
+                    Toast.makeText(getContext(), "Please Set Your Profile Picture ", Toast.LENGTH_SHORT).show();
+                }
+                else if (Objects.requireNonNull(binding.edUserAboutUs.getText()).toString().length() < 8) {
+                    binding.txProfileAboutError.setText("About Us must be Minimum 8 characters");
+                    binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.red));
+                    binding.edUserAboutUs.requestFocus();
+                }
+                else if (Objects.requireNonNull(binding.edUserPhoneNumber.getText()).toString().length() != 10) {
+                    binding.txProfilePhoneError.setText("PhoneNumber must be Minimum 10 Digits");
+                    binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.red));
+                    binding.edUserPhoneNumber.requestFocus();
+                }
+                else if (!ValidEmail(Objects.requireNonNull(binding.edUserEmail.getText()).toString())) {
+                    binding.txProfileEmailError.setText("Please Enter Email In Valid Format");
+                    binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.red));
+                    binding.edUserEmail.requestFocus();
+
+                }
+                else if(binding.txLocationn.getText().toString().equals("CityName"))
+                {
+                    binding.txProfileLocationError.setText("Please Confirm Your Location");
+                    binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.red));
+                    binding.txUserLocation.requestFocus();
+                }
+                else
+                {
+                    binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
+
+                    binding.igVerify.setVisibility(View.VISIBLE);
+
+                    Toast.makeText(getContext(), "Profile Saved...", Toast.LENGTH_SHORT).show();
+
+                    Name = binding.edUserName.getText().toString();
+
+                    About = binding.edUserAboutUs.getText().toString();
+
+                    Phone = binding.edUserPhoneNumber.getText().toString();
+
+                    Email = binding.edUserEmail.getText().toString();
+                    Location = binding.txLocationn.getText().toString();
+                    SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+                    spfLoginUserData.setSpf(requireContext(), Phone, Email, String.valueOf(uri), Name,About, Locality, Sublocality, 1);
+//                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+uri+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+                    Log.d("navuapp", "Name: "+Name+"About: "+About+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+
+                }
+
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                startActivity(intent);
+//                requireActivity().finishAffinity();
             }
         });
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         binding.txUserLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //to get location
-
                 getLastLocation();
             }
         });
 
-
-
         return binding.getRoot();
+    }
+
+    private boolean ValidEmail(String email)
+    {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
+
+    private void LoadData()
+    {
+        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+        if(spfLoginUserData.getSpf(requireContext()).getInt("UserStatus", 0) == 0)
+        {
+            Toast.makeText(requireContext(), "is not login", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(requireContext(), "user login previous", Toast.LENGTH_SHORT).show();
+            binding.igProfileDp.setImageURI(Uri.parse(spfLoginUserData.getSpf(requireContext()).getString("UserImage", null)));
+            binding.edUserName.setText(spfLoginUserData.getSpf(requireContext()).getString("UserName", null));
+            binding.edUserAboutUs.setText(spfLoginUserData.getSpf(requireContext()).getString("UserBio", null));
+            binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
+            binding.edUserEmail.setText(spfLoginUserData.getSpf(requireContext()).getString("UserEmail", null));
+            binding.txLocationn.setText(spfLoginUserData.getSpf(requireContext()).getString("UserCity", null));
+        }
     }
 
     @SuppressLint("MissingPermission")
@@ -107,10 +212,9 @@ public class UserProfileFragment extends Fragment {
                                 Locality = addresses.get(0).getLocality();
                                 Sublocality = addresses.get(0).getSubLocality();
                                 City = Sublocality +", "+Locality;
+                                binding.txLocationn.setVisibility(View.VISIBLE);
+                                binding.txUserLocation.setVisibility(View.INVISIBLE);
                                 binding.txLocationn.setText(City);
-
-
-
 
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -177,12 +281,12 @@ public class UserProfileFragment extends Fragment {
 
     // method to check for permissions
     private boolean checkPermissions() {
-        return ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        return ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
 
         // If we want background location
         // on Android 10.0 and higher,
         // use:
-        // ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
+//         ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     // method to request for permissions
@@ -211,6 +315,27 @@ public class UserProfileFragment extends Fragment {
             }
         }
     }
+
+    ActivityResultLauncher<Intent> SendActivityintent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == Activity.RESULT_OK)
+                    {
+                        if(result.getData() != null)
+                        {
+                            uri = result.getData().getData();
+                            binding.igProfileDp.setImageURI(uri);
+                            CheckImage = true;
+                            Toast.makeText(requireContext(), ""+uri, Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    }
+
+                }
+            });
+
 
     @Override
     public void onResume() {
