@@ -150,7 +150,6 @@ public class mapsAndLocation extends Fragment {
             UserArea = "";
             UserStatus = 0;
 
-
             Log.d("myapp", UserPhone + " "+UserEmail + " "+UserImg + " "+UserName + " "+UserBio + " "+UserLocation + " "+UserArea + " "+UserStatus);
 
             spfLoginUserData = new SpfLoginUserData();

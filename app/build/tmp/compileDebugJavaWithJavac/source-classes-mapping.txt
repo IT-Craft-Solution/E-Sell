@@ -94,11 +94,8 @@ com/itcraftsolution/esell/databinding/ChatBuyingSampleBinding.java
  com.itcraftsolution.esell.databinding.ChatBuyingSampleBinding
 com/itcraftsolution/esell/databinding/FragmentEditProfileBinding.java
  com.itcraftsolution.esell.databinding.FragmentEditProfileBinding
-com/itcraftsolution/esell/Api/ApiPostData.java
- com.itcraftsolution.esell.Api.ApiPostData
- com.itcraftsolution.esell.Api.ApiPostData$1
- com.itcraftsolution.esell.Api.ApiPostData$2
- com.itcraftsolution.esell.Api.ApiPostData$3
+com/itcraftsolution/esell/Model/HomeCategory.java
+ com.itcraftsolution.esell.Model.HomeCategory
 com/itcraftsolution/esell/databinding/FragmentChatScreenBinding.java
  com.itcraftsolution.esell.databinding.FragmentChatScreenBinding
 com/itcraftsolution/esell/Fragment/EditProfileFragment.java
@@ -197,10 +194,19 @@ com/itcraftsolution/esell/databinding/FragmentActiveOrdersBinding.java
  com.itcraftsolution.esell.databinding.FragmentActiveOrdersBinding
 com/itcraftsolution/esell/Model/HomeCatShow.java
  com.itcraftsolution.esell.Model.HomeCatShow
-com/itcraftsolution/esell/Model/HomeCategory.java
- com.itcraftsolution.esell.Model.HomeCategory
 com/itcraftsolution/esell/UserLogin.java
  com.itcraftsolution.esell.UserLogin
+com/itcraftsolution/esell/Fragment/login.java
+ com.itcraftsolution.esell.Fragment.login
+ com.itcraftsolution.esell.Fragment.login$1
+ com.itcraftsolution.esell.Fragment.login$2
+ com.itcraftsolution.esell.Fragment.login$3
+ com.itcraftsolution.esell.Fragment.login$4
+com/itcraftsolution/esell/Fragment/confirmationCode.java
+ com.itcraftsolution.esell.Fragment.confirmationCode
+ com.itcraftsolution.esell.Fragment.confirmationCode$1
+ com.itcraftsolution.esell.Fragment.confirmationCode$2
+ com.itcraftsolution.esell.Fragment.confirmationCode$3
 com/itcraftsolution/esell/Fragment/UserProfileFragment.java
  com.itcraftsolution.esell.Fragment.UserProfileFragment
  com.itcraftsolution.esell.Fragment.UserProfileFragment$1
@@ -209,14 +215,8 @@ com/itcraftsolution/esell/Fragment/UserProfileFragment.java
  com.itcraftsolution.esell.Fragment.UserProfileFragment$4
  com.itcraftsolution.esell.Fragment.UserProfileFragment$5
  com.itcraftsolution.esell.Fragment.UserProfileFragment$6
-com/itcraftsolution/esell/Fragment/confirmationCode.java
- com.itcraftsolution.esell.Fragment.confirmationCode
- com.itcraftsolution.esell.Fragment.confirmationCode$1
- com.itcraftsolution.esell.Fragment.confirmationCode$2
- com.itcraftsolution.esell.Fragment.confirmationCode$3
-com/itcraftsolution/esell/Fragment/login.java
- com.itcraftsolution.esell.Fragment.login
- com.itcraftsolution.esell.Fragment.login$1
- com.itcraftsolution.esell.Fragment.login$2
- com.itcraftsolution.esell.Fragment.login$3
- com.itcraftsolution.esell.Fragment.login$4
+com/itcraftsolution/esell/Api/ApiPostData.java
+ com.itcraftsolution.esell.Api.ApiPostData
+ com.itcraftsolution.esell.Api.ApiPostData$1
+ com.itcraftsolution.esell.Api.ApiPostData$2
+ com.itcraftsolution.esell.Api.ApiPostData$3

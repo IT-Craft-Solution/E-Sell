@@ -20,9 +20,10 @@ public class ApiPostData {
 
     //Format Of DataBase Keys: phone,user_email,user_img,user_name,user_bio,user_location,user_area,user_status.
 
-    private void insertUser(Context context,int UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
+    public void insertUser(Context context,String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
     {
-        String url= "http://192.168.0.102:80//All/user/create_user.php";
+//        http://192.168.0.102:80/poetryapi/readpoetry.php
+        String url= "http://192.168.0.105:80/all/user/create_user.php";
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
@@ -46,7 +47,7 @@ public class ApiPostData {
                 Map<String, String> params = new HashMap<>();
 
                 //Format Of DataBase Keys: phone,user_email,user_img,user_name,user_bio,user_location,user_area,user_status.
-                params.put("phone", String.valueOf(UserPhone));
+                params.put("phone", UserPhone);
                 params.put("user_email", UserEmail);
                 params.put("user_img", UserImage);
                 params.put("user_name", UserName);
@@ -54,9 +55,10 @@ public class ApiPostData {
                 params.put("user_location", UserCity);
                 params.put("user_area", CityArea);
                 params.put("user_status", String.valueOf(UserStatus));
-
                 return params;
             }
         };
+
+        requestQueue.add(stringRequest);
     }
 }

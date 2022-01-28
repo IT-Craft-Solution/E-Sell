@@ -6,6 +6,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -29,6 +32,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -38,6 +42,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.itcraftsolution.esell.Api.ApiPostData;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfLoginUserData;
@@ -55,10 +60,10 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City, Name, Email, Phone, About, Location;
-    Drawable img;
+    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath;
     FusedLocationProviderClient mFusedLocationClient;
-    int PERMISSION_ID = 44;
+    private static final int PERMISSION_ID = 44;
+    private Bitmap bitmap;
     Uri uri;
     boolean CheckImage = false;
 
@@ -72,8 +77,18 @@ public class UserProfileFragment extends Fragment {
         binding.igProfileDp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            if(checkStoragePermission())
+            {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
                 SendActivityintent.launch(intent);
+
+            }else {
+                requestStoragePermission();
+            }
+
+
             }
         });
 
@@ -111,6 +126,10 @@ public class UserProfileFragment extends Fragment {
                 else if(binding.txLocationn.getText().toString().equals("CityName"))
                 {
                     binding.txProfileLocationError.setText("Please Confirm Your Location");
+                    binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.red));
                     binding.txUserLocation.requestFocus();
                 }
@@ -130,13 +149,15 @@ public class UserProfileFragment extends Fragment {
 
                     About = binding.edUserAboutUs.getText().toString();
 
-                    Phone = binding.edUserPhoneNumber.getText().toString();
+                    Phone = "+91"+binding.edUserPhoneNumber.getText().toString();
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
                     SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
-                    spfLoginUserData.setSpf(requireContext(), Phone, Email, String.valueOf(uri), Name,About, Locality, Sublocality, 1);
-//                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+uri+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+                    spfLoginUserData.setSpf(requireContext(), Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
+                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+ImagePath+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+                    ApiPostData apiPostData = new ApiPostData();
+                    apiPostData.insertUser(requireContext(),Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
                     Log.d("navuapp", "Name: "+Name+"About: "+About+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
 
                 }
@@ -166,6 +187,15 @@ public class UserProfileFragment extends Fragment {
         return pattern.matcher(email).matches();
     }
 
+    private void requestStoragePermission() {
+
+        ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_ID);
+        }
+
+        private boolean checkStoragePermission()
+        {
+            return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        }
     private void LoadData()
     {
         SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
@@ -175,7 +205,7 @@ public class UserProfileFragment extends Fragment {
         }
         else {
             Toast.makeText(requireContext(), "user login previous", Toast.LENGTH_SHORT).show();
-            binding.igProfileDp.setImageURI(Uri.parse(spfLoginUserData.getSpf(requireContext()).getString("UserImage", null)));
+            binding.igProfileDp.setImageBitmap(BitmapFactory.decodeFile(spfLoginUserData.getSpf(requireContext()).getString("UserImage", null)));
             binding.edUserName.setText(spfLoginUserData.getSpf(requireContext()).getString("UserName", null));
             binding.edUserAboutUs.setText(spfLoginUserData.getSpf(requireContext()).getString("UserBio", null));
             binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
@@ -303,7 +333,6 @@ public class UserProfileFragment extends Fragment {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
-
     // If everything is alright then
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -312,8 +341,17 @@ public class UserProfileFragment extends Fragment {
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation();
+                Toast.makeText(requireContext(), "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+            }
+             else {
+                Toast.makeText(requireContext(), "Oops you just denied the permission", Toast.LENGTH_LONG).show();
             }
         }
+
+
+
+
+
     }
 
     ActivityResultLauncher<Intent> SendActivityintent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -325,9 +363,17 @@ public class UserProfileFragment extends Fragment {
                         if(result.getData() != null)
                         {
                             uri = result.getData().getData();
-                            binding.igProfileDp.setImageURI(uri);
-                            CheckImage = true;
-                            Toast.makeText(requireContext(), ""+uri, Toast.LENGTH_SHORT).show();
+                          ImagePath = getPath(uri);
+                                try {
+                                    bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(),uri);
+                                    binding.igProfileDp.setImageBitmap(bitmap);
+                                    CheckImage = true;
+                                }catch (Exception e)
+                                {
+                                    Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
 
 
                         }
@@ -336,6 +382,20 @@ public class UserProfileFragment extends Fragment {
                 }
             });
 
+    private String getPath(Uri uri) {
+
+        Cursor cursor = requireContext().getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
+        cursor = requireContext().getContentResolver().query(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, MediaStore.Images.Media._ID + "=?", new String[]{document_id}, null
+        );
+        cursor.moveToFirst();
+            String path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+        cursor.close();
+        return path;
+    }
 
     @Override
     public void onResume() {

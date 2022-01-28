@@ -123,61 +123,16 @@
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
-    <LinearLayout
-        android:id="@+id/llSellItemFormCheckAccount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/_12mdp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/txFormPriceError">
-          <LinearLayout
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Verify Your Account"
-            android:textColor="@color/lightblack"
-            android:textSize="@dimen/_15font_mdp" />
-
-              <ImageView
-                  android:id="@+id/igVerify"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:visibility="invisible"
-                  android:layout_marginTop="@dimen/_5mdp"
-                  android:layout_marginLeft="@dimen/_15mdp"
-                  android:src="@drawable/verify1" />
-          </LinearLayout>
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Move to CheckOut Your Profile Details"
-            android:textSize="@dimen/_11font_mdp" />
-
-
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/txFormLocationTouch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12mdp"
         android:fontFamily="@font/roboto_medium"
         android:text="Confirm Your Location"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_15font_mdp"
-        app:layout_constraintEnd_toEndOf="@+id/llSellItemFormCheckAccount"
-        app:layout_constraintStart_toStartOf="@+id/llSellItemFormCheckAccount"
-        app:layout_constraintTop_toBottomOf="@+id/llSellItemFormCheckAccount" />
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/txFormPriceError" />
 
     <TextView
         android:id="@+id/txSellItemFormLocation"
