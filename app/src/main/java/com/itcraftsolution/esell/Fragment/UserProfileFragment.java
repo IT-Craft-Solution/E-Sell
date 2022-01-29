@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -49,9 +48,8 @@ import com.itcraftsolution.esell.Api.ApiPostData;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
-import com.itcraftsolution.esell.spf.SpfLoginUserData;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,7 +70,7 @@ public class UserProfileFragment extends Fragment {
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
     private ApiPostData apiPostData;
-    private SpfLoginUserData spfLoginUserData;
+    private SpfUserData spfUserData;
     private GoogleSignInAccount account;
     Uri uri;
     boolean CheckImage = false;
@@ -160,8 +158,8 @@ public class UserProfileFragment extends Fragment {
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
-                    spfLoginUserData = new SpfLoginUserData();
-                    spfLoginUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                    spfUserData = new SpfUserData();
+                    spfUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     apiPostData = new ApiPostData();
                     apiPostData.insertUser(requireContext(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     Intent intent = new Intent(getContext(), MainActivity.class);
@@ -204,12 +202,12 @@ public class UserProfileFragment extends Fragment {
         }
     private void LoadData()
     {
-        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+        SpfUserData spfUserData = new SpfUserData();
         GoogleSignIn.getLastSignedInAccount(requireContext());
         account = GoogleSignIn.getLastSignedInAccount(requireContext());
-        if(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null) != null)
+        if(spfUserData.getSpf(requireContext()).getString("UserPhone", null) != null)
         {
-            binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
+            binding.edUserPhoneNumber.setText(spfUserData.getSpf(requireContext()).getString("UserPhone", null));
             binding.edUserPhoneNumber.setInputType(InputType.TYPE_NULL);
             Toast.makeText(requireContext(), "Phone verify!", Toast.LENGTH_SHORT).show();
         }
@@ -382,7 +380,7 @@ public class UserProfileFragment extends Fragment {
                                     Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
-                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -392,7 +390,7 @@ public class UserProfileFragment extends Fragment {
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,70, byteArrayOutputStream);
-        Toast.makeText(requireContext(), ""+bitmap.getByteCount(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(requireContext(), ""+bitmap.getByteCount(), Toast.LENGTH_SHORT).show();
         binding.igProfileDp.setImageBitmap(bitmap);
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
         encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);

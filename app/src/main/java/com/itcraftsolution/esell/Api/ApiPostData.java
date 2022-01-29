@@ -23,7 +23,7 @@ public class ApiPostData {
     public void insertUser(Context context,String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
     {
 //        http://192.168.0.102:80/poetryapi/readpoetry.php
-        String url= "http://192.168.0.105:80/all/user/create_user.php";
+        String url= "http://192.168.0.102:80/all/user/create_user.php";
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
@@ -61,4 +61,48 @@ public class ApiPostData {
 
         requestQueue.add(stringRequest);
     }
+
+//cat_name,title,description,price,location,city_area,item_img,status
+    public void SellItem(Context context,String CategoryName, String ItemTitle, String ItemDescription, int ItemPrice, String ItemCity, String CityArea,String ItemImages, int ItemStatus)
+    {
+        String url= "http://192.168.0.102:80/all/post/create_post.php";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Toast.makeText(context, "Post Added Successfully ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(context, "Something went wrong!! "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @NonNull
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                //Format Of DataBase Keys: cat_name,title,description,price,location,city_area,item_img,status
+                params.put("cat_name", CategoryName);
+                params.put("title", ItemTitle);
+                params.put("description", ItemDescription);
+                params.put("price", String.valueOf(ItemPrice));
+                params.put("location", ItemCity);
+                params.put("city_area", CityArea);
+                params.put("item_img", ItemImages);
+                params.put("status", String.valueOf(ItemStatus));
+                return params;
+            }
+        };
+
+        requestQueue.add(stringRequest);
+    }
+
+
 }

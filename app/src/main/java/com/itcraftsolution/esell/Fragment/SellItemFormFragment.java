@@ -3,10 +3,11 @@ package com.itcraftsolution.esell.Fragment;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -19,13 +20,13 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Looper;
-import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,10 +40,14 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.itcraftsolution.esell.Api.ApiPostData;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -57,13 +62,12 @@ public class SellItemFormFragment extends Fragment {
     }
 
     private FragmentSellItemFormBinding binding;
-    private  String Name ,AboutUs,Price,Location,Sublocality,Locality,City;;
+    private  String Title, Desc,Price,Sublocality,Locality,City, Category,encodeImageString;
     FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Uri> ImageUris;
+    private Bitmap bitmap;
+    private boolean CheckImage = false;
     int PERMISSION_ID = 44;
-
-    private static final int PICK_IMAGES_CODE = 0;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -115,15 +119,15 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(Objects.requireNonNull(binding.edSellItemFormTitle.getText()).toString().length() <= 7)
+                if(Objects.requireNonNull(binding.edSellItemFormTitle.getText()).toString().length() <= 4)
                 {
-                    binding.txFormTitleError.setText("* Title must be Minimum 7 characters");
+                    binding.txFormTitleError.setText("* Title must be Minimum 5 characters");
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormTitle.requestFocus();
                 }
-                else if(Objects.requireNonNull(binding.edSellItemFormDesc.getText()).toString().length() <= 9)
+                else if(Objects.requireNonNull(binding.edSellItemFormDesc.getText()).toString().length() <= 7)
                 {
-                    binding.txFormDescError.setText("* Description must be Minimum 10 characters");
+                    binding.txFormDescError.setText("* Description must be Minimum 8 characters");
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -157,7 +161,7 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocation.requestFocus();
                 }
-                else if (ImageUris.size() ==0){
+                else if (!CheckImage){
                     binding.txSelectImagesError.setText("Please Select Item Images");
                     binding.txSelectImagesError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -166,15 +170,17 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                 }
                 else {
-                    Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
-
-                    Name = binding.edSellItemFormTitle.getText().toString();
-                    AboutUs = binding.edSellItemFormDesc.getText().toString();
+                    //cat_name,title,description,price,location,city_area,item_img,status
+                    SpfUserData spfUserData = new SpfUserData();
+                    Category = spfUserData.getSpfHome(requireContext()).getString("Category", null);
+                    Title = binding.edSellItemFormTitle.getText().toString();
+                    Desc = binding.edSellItemFormDesc.getText().toString();
                     Price = binding.edSellItemFormPrice.getText().toString();
-                    Location = binding.txFormLocation.getText().toString();
 
-                    binding.textView6.setText("Name = "+Name + " AboutUs = "+AboutUs+" Price = "+Price+" Location = "+Location);
-
+                    ApiPostData apiPostData = new ApiPostData();
+                    apiPostData.SellItem(requireContext(), Category, Title, Desc,Integer.parseInt(Price),Locality, Sublocality,encodeImageString,1);
+//                    binding.textView6.setText();
+//                    Log.d("checkappnow", "Name = "+Name + " AboutUs = "+AboutUs+" Price = "+Price+" Location = "+Location+" images "+ImageUris.toString());
 //                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
 //                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
 //                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
@@ -213,11 +219,21 @@ public class SellItemFormFragment extends Fragment {
 
                             } else {
                                 Uri imageUri = data.getData();
-                                ImageUris.add(imageUri);
+//                                ImageUris.add(imageUri);
 
-                                binding.imageView9.setImageURI(ImageUris.get(0));
+//                                binding.imageView9.setImageURI(ImageUris.get(0));
+
+                                try {
+                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
+                                    bitmap = BitmapFactory.decodeStream(inputStream);
+                                    encodeBitmapImage(bitmap);
+                                    CheckImage = true;
+                                }catch (Exception e)
+                                {
+                                    Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
-                            Toast.makeText(getContext(), ImageUris.size()+" Images Fetch", Toast.LENGTH_SHORT).show();
+
 
                         }
 
@@ -227,7 +243,13 @@ public class SellItemFormFragment extends Fragment {
             });
 
 
-
+    private void encodeBitmapImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,70, byteArrayOutputStream);
+        binding.imageView9.setImageBitmap(bitmap);
+        byte[] bytesofimage = byteArrayOutputStream.toByteArray();
+        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+    }
 
     @SuppressLint("MissingPermission")
     private void getLastLocation() {

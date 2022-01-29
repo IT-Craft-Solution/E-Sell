@@ -192,7 +192,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="* Select Maximum 4 Item Images"
+        android:text="* Select Minimum 1 Item Images"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/txSelectImages"
@@ -211,6 +211,27 @@
         app:layout_constraintEnd_toEndOf="@+id/btnVerify"
         app:layout_constraintTop_toTopOf="@+id/txSelectImages" />
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/_100mdp"
+        android:layout_height="@dimen/_80mdp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txSelectImagesError"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="@dimen/_100mdp"
+        android:layout_height="@dimen/_80mdp"
+        android:layout_marginStart="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        tools:src="@tools:sample/avatars" />
+
     <Button
         android:id="@+id/btnSellItemFormNext"
         android:layout_width="195dp"
@@ -227,24 +248,8 @@
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="@dimen/_100mdp"
-        android:layout_height="@dimen/_80mdp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txSelectImagesError"
-        tools:src="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="@dimen/_100mdp"
-        android:layout_height="@dimen/_80mdp"
-        android:layout_marginStart="26dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9"
-        tools:src="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+    -->

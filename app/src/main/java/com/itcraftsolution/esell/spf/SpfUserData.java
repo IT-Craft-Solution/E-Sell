@@ -3,7 +3,7 @@ package com.itcraftsolution.esell.spf;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SpfLoginUserData {
+public class SpfUserData {
 
     public void setSpf(Context context, String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
     {
@@ -23,6 +23,20 @@ public class SpfLoginUserData {
     public SharedPreferences getSpf(Context context)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginUserDetails", Context.MODE_PRIVATE);
+
+        return sharedPreferences;
+    }
+
+    public void setSpfHome(Context context,String Category)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Category", Category);
+        editor.apply();
+    }
+    public SharedPreferences getSpfHome(Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
 
         return sharedPreferences;
     }
