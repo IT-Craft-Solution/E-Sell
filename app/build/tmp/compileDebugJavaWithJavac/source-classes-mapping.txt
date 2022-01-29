@@ -5,11 +5,13 @@ com/itcraftsolution/esell/spf/SpfLoginUserData.java
  com.itcraftsolution.esell.spf.SpfLoginUserData
 com/itcraftsolution/esell/databinding/ActivityMainBinding.java
  com.itcraftsolution.esell.databinding.ActivityMainBinding
-com/itcraftsolution/esell/Fragment/confirmationCode.java
- com.itcraftsolution.esell.Fragment.confirmationCode
- com.itcraftsolution.esell.Fragment.confirmationCode$1
- com.itcraftsolution.esell.Fragment.confirmationCode$2
- com.itcraftsolution.esell.Fragment.confirmationCode$3
+com/itcraftsolution/esell/Fragment/AccountFragment.java
+ com.itcraftsolution.esell.Fragment.AccountFragment
+ com.itcraftsolution.esell.Fragment.AccountFragment$1
+ com.itcraftsolution.esell.Fragment.AccountFragment$2
+ com.itcraftsolution.esell.Fragment.AccountFragment$3
+ com.itcraftsolution.esell.Fragment.AccountFragment$3$1
+ com.itcraftsolution.esell.Fragment.AccountFragment$4
 com/itcraftsolution/esell/Adapter/MyAddViewPagerAdapter.java
  com.itcraftsolution.esell.Adapter.MyAddViewPagerAdapter
 com/itcraftsolution/esell/databinding/ActivityUserLoginBinding.java
@@ -75,10 +77,8 @@ com/itcraftsolution/esell/databinding/FragmentChatSellingBinding.java
  com.itcraftsolution.esell.databinding.FragmentChatSellingBinding
 com/itcraftsolution/esell/Model/ChatBuying.java
  com.itcraftsolution.esell.Model.ChatBuying
-com/itcraftsolution/esell/Fragment/phoneLogin.java
- com.itcraftsolution.esell.Fragment.phoneLogin
- com.itcraftsolution.esell.Fragment.phoneLogin$1
- com.itcraftsolution.esell.Fragment.phoneLogin$2
+com/itcraftsolution/esell/UserLogin.java
+ com.itcraftsolution.esell.UserLogin
 com/itcraftsolution/esell/Fragment/ChatSellingFragment.java
  com.itcraftsolution.esell.Fragment.ChatSellingFragment
 com/itcraftsolution/esell/databinding/FragmentChatBuyingBinding.java
@@ -212,12 +212,12 @@ com/itcraftsolution/esell/databinding/HomeCatShowSampleBinding.java
  com.itcraftsolution.esell.databinding.HomeCatShowSampleBinding
 com/itcraftsolution/esell/databinding/FragmentAccountHelpBinding.java
  com.itcraftsolution.esell.databinding.FragmentAccountHelpBinding
-com/itcraftsolution/esell/UserLogin.java
- com.itcraftsolution.esell.UserLogin
-com/itcraftsolution/esell/Fragment/AccountFragment.java
- com.itcraftsolution.esell.Fragment.AccountFragment
- com.itcraftsolution.esell.Fragment.AccountFragment$1
- com.itcraftsolution.esell.Fragment.AccountFragment$2
- com.itcraftsolution.esell.Fragment.AccountFragment$3
- com.itcraftsolution.esell.Fragment.AccountFragment$3$1
- com.itcraftsolution.esell.Fragment.AccountFragment$4
+com/itcraftsolution/esell/Fragment/confirmationCode.java
+ com.itcraftsolution.esell.Fragment.confirmationCode
+ com.itcraftsolution.esell.Fragment.confirmationCode$1
+ com.itcraftsolution.esell.Fragment.confirmationCode$2
+ com.itcraftsolution.esell.Fragment.confirmationCode$3
+com/itcraftsolution/esell/Fragment/phoneLogin.java
+ com.itcraftsolution.esell.Fragment.phoneLogin
+ com.itcraftsolution.esell.Fragment.phoneLogin$1
+ com.itcraftsolution.esell.Fragment.phoneLogin$2

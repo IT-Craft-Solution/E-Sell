@@ -128,7 +128,6 @@ public class confirmationCode extends Fragment {
                 if(task.isSuccessful())
                 {
                     CheckOtpDialog.dismiss();
-
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.remove(confirmationCode.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
