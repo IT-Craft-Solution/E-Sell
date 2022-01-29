@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -43,12 +44,15 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiPostData;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfLoginUserData;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -61,10 +65,10 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath;
+    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath,encodeImageString, loadimage;
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
-    private Bitmap bitmap;
+    private Bitmap bitmap, loadbpImage;
     Uri uri;
     boolean CheckImage = false;
 
@@ -102,7 +106,7 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserName.requestFocus();
                 }
-                else if (!CheckImage){
+                else if (!CheckImage || binding.igProfileDp.getDrawable() == null){
                     Toast.makeText(getContext(), "Please Set Your Profile Picture ", Toast.LENGTH_SHORT).show();
                 }
                 else if (Objects.requireNonNull(binding.edUserAboutUs.getText()).toString().length() < 8) {
@@ -155,19 +159,17 @@ public class UserProfileFragment extends Fragment {
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
                     SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
-                    spfLoginUserData.setSpf(requireContext(), Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
-//                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+ImagePath+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+                    spfLoginUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+encodeImageString+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
                     ApiPostData apiPostData = new ApiPostData();
-                    apiPostData.insertUser(requireContext(),Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
+                    apiPostData.insertUser(requireContext(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     Log.d("navuapp", "Name: "+Name+"About: "+About+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
 
-
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    requireActivity().finishAffinity();
                 }
 
-
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                startActivity(intent);
+//                requireActivity().finishAffinity();
             }
         });
 
@@ -208,12 +210,17 @@ public class UserProfileFragment extends Fragment {
         }
         else {
             Toast.makeText(requireContext(), "user login previous", Toast.LENGTH_SHORT).show();
-            binding.igProfileDp.setImageBitmap(BitmapFactory.decodeFile(spfLoginUserData.getSpf(requireContext()).getString("UserImage", null)));
+            loadimage = spfLoginUserData.getSpf(requireContext()).getString("UserImage", null);
+            byte[] imageasbyts = Base64.decode(loadimage,Base64.DEFAULT);
+            loadbpImage = BitmapFactory.decodeByteArray(imageasbyts, 0, imageasbyts.length);
+            binding.igProfileDp.setImageBitmap(loadbpImage);
             binding.edUserName.setText(spfLoginUserData.getSpf(requireContext()).getString("UserName", null));
             binding.edUserAboutUs.setText(spfLoginUserData.getSpf(requireContext()).getString("UserBio", null));
             binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
             binding.edUserEmail.setText(spfLoginUserData.getSpf(requireContext()).getString("UserEmail", null));
-            binding.txLocationn.setText(spfLoginUserData.getSpf(requireContext()).getString("UserCity", null));
+            binding.txLocationn.setVisibility(View.VISIBLE);
+            binding.txUserLocation.setVisibility(View.GONE);
+            binding.txLocationn.setText(spfLoginUserData.getSpf(requireContext()).getString("UserCity", null) + spfLoginUserData.getSpf(requireContext()).getString("UserCity", null));
         }
     }
 
@@ -351,10 +358,6 @@ public class UserProfileFragment extends Fragment {
             }
         }
 
-
-
-
-
     }
 
     ActivityResultLauncher<Intent> SendActivityintent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -368,8 +371,10 @@ public class UserProfileFragment extends Fragment {
                             uri = result.getData().getData();
                           ImagePath = getPath(uri);
                                 try {
-                                    bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(),uri);
+                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(uri);
+                                    bitmap = BitmapFactory.decodeStream(inputStream);
                                     binding.igProfileDp.setImageBitmap(bitmap);
+                                    encodeBitmapImage(bitmap);
                                     CheckImage = true;
                                 }catch (Exception e)
                                 {
@@ -377,13 +382,18 @@ public class UserProfileFragment extends Fragment {
                                 }
 
                             Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
-
-
                         }
                     }
 
                 }
             });
+
+    private void encodeBitmapImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArrayOutputStream);
+        byte[] bytesofimage = byteArrayOutputStream.toByteArray();
+        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+    }
 
     private String getPath(Uri uri) {
 
@@ -400,11 +410,4 @@ public class UserProfileFragment extends Fragment {
         return path;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (checkPermissions()) {
-            getLastLocation();
-        }
-    }
 }
