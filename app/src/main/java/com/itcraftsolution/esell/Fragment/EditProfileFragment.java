@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerTitleStrip;
@@ -23,6 +25,8 @@ import android.widget.Toast;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentEditProfileBinding;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EditProfileFragment extends Fragment {
@@ -196,16 +200,20 @@ public class EditProfileFragment extends Fragment {
 
     }
 
+
     ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode()== Activity.RESULT_OK)
                     {
+                        List<Bitmap>  bitmaps = new ArrayList<>();
                         Intent Data = result.getData();
                         if (Data != null){
-                            binding.igProfileDp.setImageURI(Data.getData());
-                            PhotoUri = Data.getData();
+//                            binding.igProfileDp.setImageURI(Data.getData());
+//                            PhotoUri = Data.getData();
+
+
                         }
                     }
 

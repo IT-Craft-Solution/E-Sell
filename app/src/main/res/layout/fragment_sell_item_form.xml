@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_12mdp"
+        android:fontFamily="@font/roboto_bold"
         android:text="Item Details"
         android:textColor="@color/lightblack"
-        android:fontFamily="@font/roboto_bold"
         android:textSize="@dimen/_18font_mdp"
         app:layout_constraintBottom_toBottomOf="@+id/igSellItemBackCat"
         app:layout_constraintStart_toEndOf="@+id/igSellItemBackCat"
@@ -36,7 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_13mdp"
-        android:layout_marginTop="@dimen/_13mdp"
+        android:layout_marginTop="@dimen/_16mdp"
         android:layout_marginEnd="@dimen/_13mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5mdp"
         android:text="* Your Item Title like (e.g. brand, model, Type)"
-        android:textSize="@dimen/_9font_mdp"
         android:textColor="@color/blue_grey"
+        android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/textInputLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12mdp"
+        android:layout_marginTop="@dimen/_16mdp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
@@ -87,8 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5mdp"
         android:text="* Include Condition, features and reason for selling"
-        android:textSize="@dimen/_9font_mdp"
         android:textColor="@color/blue_grey"
+        android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
@@ -97,7 +97,7 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12mdp"
+        android:layout_marginTop="@dimen/_16mdp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/txFormDescError"
         app:layout_constraintTop_toBottomOf="@+id/txFormDescError"
@@ -116,62 +116,115 @@
         android:id="@+id/txFormPriceError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Price has been only Indian Currency"
-        android:textSize="@dimen/_9font_mdp"
         android:layout_marginTop="@dimen/_5mdp"
+        android:text="* Price has been only Indian Currency"
         android:textColor="@color/blue_grey"
+        android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     <TextView
-        android:id="@+id/txFormLocationTouch"
+        android:id="@+id/txFormLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16mdp"
         android:fontFamily="@font/roboto_medium"
         android:text="Confirm Your Location"
         android:textColor="@color/lightblack"
-        android:textSize="@dimen/_15font_mdp"
+        android:textSize="@dimen/_13font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/txFormPriceError" />
 
+
     <TextView
-        android:id="@+id/txSellItemFormLocation"
+        android:id="@+id/txLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3mdp"
-        android:text="@string/city_name"
         android:fontFamily="@font/roboto_medium"
+        android:text="@string/city_name"
         android:textSize="@dimen/_14font_mdp"
-        app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
-        app:layout_constraintTop_toBottomOf="@+id/txFormLocationTouch" />
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/txFormLocation"
+        app:layout_constraintTop_toBottomOf="@+id/txFormLocation" />
+
+    <TextView
+        android:id="@+id/txFormLocationError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="* Confirm Your Present Location"
+        android:textColor="@color/blue_grey"
+        android:textSize="@dimen/_9font_mdp"
+        app:layout_constraintStart_toStartOf="@+id/txLocation"
+        app:layout_constraintTop_toBottomOf="@+id/txLocation" />
+
+    <Button
+        android:id="@+id/btnVerify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Verify Location"
+        android:textAllCaps="false"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_8font_mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/txFormLocation"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toTopOf="@+id/txFormLocation"
+        app:layout_constraintVertical_bias="0.346" />
 
     <TextView
         android:id="@+id/txSelectImages"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/_16mdp"
         android:fontFamily="@font/roboto_medium"
-        android:text="Select Your Images"
+        android:text="Choose Images"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_15font_mdp"
-        app:layout_constraintEnd_toEndOf="@+id/txFormLocationTouch"
+        app:layout_constraintEnd_toEndOf="@+id/txFormLocation"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txFormLocationTouch"
-        app:layout_constraintTop_toBottomOf="@+id/txSellItemFormLocation" />
+        app:layout_constraintStart_toStartOf="@+id/txFormLocation"
+        app:layout_constraintTop_toBottomOf="@+id/txFormLocationError" />
+
+    <TextView
+        android:id="@+id/tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="* Select Maximum 4 Item Images"
+        android:textColor="@color/blue_grey"
+        android:textSize="@dimen/_9font_mdp"
+        app:layout_constraintStart_toStartOf="@+id/txSelectImages"
+        app:layout_constraintTop_toBottomOf="@+id/txSelectImages" />
+
+    <Button
+        android:id="@+id/btnSelectImages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Select Images"
+        android:textAllCaps="false"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_8font_mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/txSelectImages"
+        app:layout_constraintEnd_toEndOf="@+id/btnVerify"
+        app:layout_constraintTop_toTopOf="@+id/txSelectImages" />
 
     <Button
         android:id="@+id/btnSellItemFormNext"
-        android:layout_width="0dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_12mdp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/rectangle_bg"
-        android:text="Post"
         android:elevation="@dimen/_30mdp"
-        android:textSize="@dimen/_13font_mdp"
         android:fontFamily="@font/roboto_medium"
         android:padding="@dimen/_7mdp"
+        android:text="Post"
+        android:textSize="@dimen/_13font_mdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txFormLocationTouch"
-        app:layout_constraintStart_toStartOf="@+id/txSellItemFormLocation" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

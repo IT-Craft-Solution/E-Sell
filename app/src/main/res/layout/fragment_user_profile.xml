@@ -187,7 +187,7 @@
         android:fontFamily="@font/roboto_medium"
         android:text="Confirm Your Location"
         android:textColor="@color/lightblack"
-        android:textSize="@dimen/_15font_mdp"
+        android:textSize="@dimen/_12font_mdp"
         android:layout_marginTop="@dimen/_8mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/txProfileEmailError" />
@@ -200,7 +200,7 @@
         android:textColor="@color/lightblack"
         android:textStyle="bold"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="@dimen/_12font_mdp"
+        android:textSize="@dimen/_11font_mdp"
         app:layout_constraintBottom_toBottomOf="@+id/confirmlocation"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
         app:layout_constraintTop_toTopOf="@+id/confirmlocation" />

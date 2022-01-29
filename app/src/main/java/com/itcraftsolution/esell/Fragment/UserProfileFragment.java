@@ -43,6 +43,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiPostData;
+import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfLoginUserData;
@@ -155,16 +156,18 @@ public class UserProfileFragment extends Fragment {
                     Location = binding.txLocationn.getText().toString();
                     SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
                     spfLoginUserData.setSpf(requireContext(), Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
-                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+ImagePath+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
+//                    binding.textView11.setText("Name: "+Name+"About: "+About+"img: "+ImagePath+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
                     ApiPostData apiPostData = new ApiPostData();
                     apiPostData.insertUser(requireContext(),Phone, Email, ImagePath, Name,About, Locality, Sublocality, 1);
                     Log.d("navuapp", "Name: "+Name+"About: "+About+"Phone: "+Phone+"Email: "+Email+"Location: "+Location);
 
+
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    requireActivity().finishAffinity();
                 }
 
-//                Intent intent = new Intent(getContext(), MainActivity.class);
-//                startActivity(intent);
-//                requireActivity().finishAffinity();
+
             }
         });
 

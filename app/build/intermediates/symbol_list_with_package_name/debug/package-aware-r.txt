@@ -4022,6 +4022,7 @@ id btnLocation_navigation
 id btnNextButton
 id btnPhoneNumLogin
 id btnPreviewAds
+id btnSelectImages
 id btnSellItemFormNext
 id btnVerify
 id button
@@ -4270,7 +4271,6 @@ id llAccountLogout
 id llAccountMyOrders
 id llAccountRateUs
 id llAccountSelectLang
-id llSellItemFormCheckAccount
 id loading_indicator
 id lottieCongressAnimation
 id lottie_layer_name
@@ -4609,6 +4609,7 @@ id tvLocationDetails
 id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
+id tx
 id txChatDate
 id txChatItemName
 id txChatItemPrice
@@ -4618,7 +4619,8 @@ id txDate
 id txDelete
 id txEdit
 id txFormDescError
-id txFormLocationTouch
+id txFormLocation
+id txFormLocationError
 id txFormPriceError
 id txFormTitleError
 id txHomeCatItemLocation
@@ -4632,6 +4634,7 @@ id txItemLocation
 id txItemName
 id txItemPrice
 id txLikes
+id txLocation
 id txLocationn
 id txProfileAboutError
 id txProfileEmailError
@@ -4645,7 +4648,6 @@ id txSampleHomeFreshItemPrice
 id txSave
 id txSelectImages
 id txSellCategoryName
-id txSellItemFormLocation
 id txUserAbout
 id txUserLocation
 id txUserMessage
