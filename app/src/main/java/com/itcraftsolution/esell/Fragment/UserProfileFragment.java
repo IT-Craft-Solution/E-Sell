@@ -52,6 +52,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -64,10 +65,10 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath,encodeImageString;
+    private String Sublocality,Locality,City, Name, Email, Phone, About, Location, ImagePath,encodeImageString, loadimage;
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
-    private Bitmap bitmap;
+    private Bitmap bitmap, loadbpImage;
     Uri uri;
     boolean CheckImage = false;
 
@@ -105,7 +106,7 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserName.requestFocus();
                 }
-                else if (!CheckImage){
+                else if (!CheckImage || binding.igProfileDp.getDrawable() == null){
                     Toast.makeText(getContext(), "Please Set Your Profile Picture ", Toast.LENGTH_SHORT).show();
                 }
                 else if (Objects.requireNonNull(binding.edUserAboutUs.getText()).toString().length() < 8) {
@@ -209,12 +210,17 @@ public class UserProfileFragment extends Fragment {
         }
         else {
             Toast.makeText(requireContext(), "user login previous", Toast.LENGTH_SHORT).show();
-            binding.igProfileDp.setImageBitmap(BitmapFactory.decodeFile(spfLoginUserData.getSpf(requireContext()).getString("UserImage", null)));
+            loadimage = spfLoginUserData.getSpf(requireContext()).getString("UserImage", null);
+            byte[] imageasbyts = Base64.decode(loadimage,Base64.DEFAULT);
+            loadbpImage = BitmapFactory.decodeByteArray(imageasbyts, 0, imageasbyts.length);
+            binding.igProfileDp.setImageBitmap(loadbpImage);
             binding.edUserName.setText(spfLoginUserData.getSpf(requireContext()).getString("UserName", null));
             binding.edUserAboutUs.setText(spfLoginUserData.getSpf(requireContext()).getString("UserBio", null));
             binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
             binding.edUserEmail.setText(spfLoginUserData.getSpf(requireContext()).getString("UserEmail", null));
-            binding.txLocationn.setText(spfLoginUserData.getSpf(requireContext()).getString("UserCity", null));
+            binding.txLocationn.setVisibility(View.VISIBLE);
+            binding.txUserLocation.setVisibility(View.GONE);
+            binding.txLocationn.setText(spfLoginUserData.getSpf(requireContext()).getString("UserCity", null) + spfLoginUserData.getSpf(requireContext()).getString("UserCity", null));
         }
     }
 
@@ -376,8 +382,6 @@ public class UserProfileFragment extends Fragment {
                                 }
 
                             Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
-
-
                         }
                     }
 
