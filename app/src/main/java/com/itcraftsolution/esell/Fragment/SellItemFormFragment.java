@@ -3,9 +3,9 @@ package com.itcraftsolution.esell.Fragment;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -18,13 +18,13 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Looper;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,10 +40,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.R;
-import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -59,15 +59,19 @@ public class SellItemFormFragment extends Fragment {
     private FragmentSellItemFormBinding binding;
     private  String Name ,AboutUs,Price,Location,Sublocality,Locality,City;;
     FusedLocationProviderClient mFusedLocationClient;
+    private ArrayList<Uri> ImageUris;
     int PERMISSION_ID = 44;
+
+    private static final int PICK_IMAGES_CODE = 0;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         binding = FragmentSellItemFormBinding.inflate(getLayoutInflater());
+
+        ImageUris = new ArrayList<>();
 
 
         binding.igSellItemBackCat.setOnClickListener(new View.OnClickListener() {
@@ -96,14 +100,16 @@ public class SellItemFormFragment extends Fragment {
             public void onClick(View view) {
 //                mGetContent.launch("image/*");
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                Intent intent = new Intent();
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                mGetContent.launch(intent);
-
+                mGetContent.launch(Intent.createChooser(intent,"Select Image(s)"));
 
             }
         });
+
+
 
         binding.btnSellItemFormNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +157,14 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocation.requestFocus();
                 }
+                else if (ImageUris.size() ==0){
+                    binding.txSelectImagesError.setText("Please Select Item Images");
+                    binding.txSelectImagesError.setTextColor(getResources().getColor(R.color.red));
+                    binding.txFormPriceError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
+                }
                 else {
                     Toast.makeText(getContext(), "All done !!!", Toast.LENGTH_SHORT).show();
 
@@ -180,11 +194,33 @@ public class SellItemFormFragment extends Fragment {
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode()== Activity.RESULT_OK)
                     {
-                        Intent Data = result.getData();
-                        if (Data != null){
-                            Toast.makeText(getContext(), "Image Fetch", Toast.LENGTH_SHORT).show();
+                        Intent data = result.getData();
+
+                        if(data != null){
+
+                            if (data.getClipData() !=null) {
+
+                                int Count = data.getClipData().getItemCount();
+                                for (int i = 0; i < Count; i++) {
+
+                                    Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                                    ImageUris.add(imageUri);
+
+                                }
+
+                                binding.imageView9.setImageURI(ImageUris.get(0));
+                                binding.imageView11.setImageURI(ImageUris.get(1));
+
+                            } else {
+                                Uri imageUri = data.getData();
+                                ImageUris.add(imageUri);
+
+                                binding.imageView9.setImageURI(ImageUris.get(0));
+                            }
+                            Toast.makeText(getContext(), ImageUris.size()+" Images Fetch", Toast.LENGTH_SHORT).show();
 
                         }
+
                     }
 
                 }

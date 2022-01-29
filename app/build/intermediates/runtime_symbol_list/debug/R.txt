@@ -4222,6 +4222,7 @@ int id ignoreRequest 0x7f0a014d
 int id image 0x7f0a014e
 int id imageView 0x7f0a014f
 int id imageView10 0x7f0a0150
+int id imageView11 0x7f0a0320
 int id imageView2 0x7f0a0151
 int id imageView3 0x7f0a0152
 int id imageView4 0x7f0a0153
@@ -4229,6 +4230,7 @@ int id imageView5 0x7f0a0154
 int id imageView6 0x7f0a0155
 int id imageView7 0x7f0a0156
 int id imageView8 0x7f0a0157
+int id imageView9 0x7f0a0321
 int id immediateStop 0x7f0a0158
 int id included 0x7f0a0159
 int id info 0x7f0a015a
@@ -4608,7 +4610,6 @@ int id tvLocationDetails 0x7f0a02cf
 int id tvMessageBody 0x7f0a02d0
 int id tvNavigationTitle 0x7f0a02d1
 int id tvSlogan 0x7f0a02d2
-int id tx 0x7f0a02d3
 int id txChatDate 0x7f0a02d4
 int id txChatItemName 0x7f0a02d5
 int id txChatItemPrice 0x7f0a02d6
@@ -4646,6 +4647,7 @@ int id txSampleHomeFreshItemName 0x7f0a02f5
 int id txSampleHomeFreshItemPrice 0x7f0a02f6
 int id txSave 0x7f0a02f7
 int id txSelectImages 0x7f0a02f8
+int id txSelectImagesError 0x7f0a0322
 int id txSellCategoryName 0x7f0a02f9
 int id txUserAbout 0x7f0a02fa
 int id txUserLocation 0x7f0a02fb
