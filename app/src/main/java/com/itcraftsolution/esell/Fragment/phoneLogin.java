@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.itcraftsolution.esell.R;
+import com.itcraftsolution.esell.spf.SpfLoginUserData;
 
 public class phoneLogin extends Fragment {
 
@@ -43,7 +44,7 @@ public class phoneLogin extends Fragment {
             @Override
             public void onClick(View v) {
                 if (checkPhoneNumber()) {
-                    StoreUserDetails(String.valueOf(+91) , etPhone.getText().toString());
+                    StoreUserDetails(etPhone.getText().toString());
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.remove(phoneLogin.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
@@ -74,13 +75,10 @@ public class phoneLogin extends Fragment {
         }
         return condition;
     }
-    private void StoreUserDetails(String CountryCode , String PhoneNumber)
+    private void StoreUserDetails(String PhoneNumber)
     {
-        SharedPreferences spf = requireContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = spf.edit();
-        editor.putString("CountryCode" , CountryCode);
-        editor.putString("PhoneNumber" , PhoneNumber);
-        editor.apply();
+        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+        spfLoginUserData.setSpf(requireContext(),PhoneNumber ,null,null,null,null,null,null,0);
     }
 
 }

@@ -24,14 +24,15 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentConfirmationCodeBinding;
+import com.itcraftsolution.esell.spf.SpfLoginUserData;
 
 import java.util.concurrent.TimeUnit;
 
 public class confirmationCode extends Fragment {
 
-    private SharedPreferences spf;
+
     private FragmentConfirmationCodeBinding binding;
-    private String CountryCode , PhoneNumber, UserNumber, VerifyId;
+    private String UserNumber, VerifyId, PhoneNumber;
     private FirebaseAuth auth;
     private ProgressDialog dialog, CheckOtpDialog;
 
@@ -53,15 +54,12 @@ public class confirmationCode extends Fragment {
         CheckOtpDialog.setMessage("Verify PhoneNumber & OTP ...");
 
         auth = FirebaseAuth.getInstance();
-        spf = requireContext().getSharedPreferences("UserDetails" , Context.MODE_PRIVATE);
-        CountryCode = spf.getString("CountryCode" , null);
-        PhoneNumber = spf.getString("PhoneNumber" , null);
 
-        binding.tvDisplayCountryCode.setText(CountryCode);
+        UserNumber = getspfData().getSpf(requireContext()).getString("UserPhone", null);
+        PhoneNumber = "+91"+UserNumber;
         binding.tvDisplayPhoneNumber.setText(PhoneNumber);
 
-        UserNumber = "+91"+PhoneNumber;
-        sendVerificationCode(UserNumber);
+        sendVerificationCode(PhoneNumber);
         dialog.show();
         binding.btnContinuePhone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +95,6 @@ public class confirmationCode extends Fragment {
             final String Code = phoneAuthCredential.getSmsCode();
             if(Code != null)
             {
-
             binding.otpView.setOTP(Code);
             verifyCode(Code);
             }
@@ -132,12 +129,6 @@ public class confirmationCode extends Fragment {
                 {
                     CheckOtpDialog.dismiss();
 
-                    SharedPreferences sharedPreferences = requireContext().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.clear();
-                    editor.putString("UserPhoneNumber", UserNumber);
-                    editor.apply();
-
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.remove(confirmationCode.this);
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
@@ -145,7 +136,7 @@ public class confirmationCode extends Fragment {
                     fragmentTransaction.addToBackStack(null).commit();
                 }
                 else {
-                    Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                     Toast.makeText(getContext(), "Please Try Again", Toast.LENGTH_LONG).show();
                 }
@@ -160,6 +151,13 @@ public class confirmationCode extends Fragment {
             condition = false;
         }
         return condition;
+    }
+
+    private SpfLoginUserData getspfData()
+    {
+        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+        spfLoginUserData.getSpf(requireContext());
+        return spfLoginUserData;
     }
 
 }

@@ -49,9 +49,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
   public final TextView tvConfirmationTitle;
 
   @NonNull
-  public final TextView tvDisplayCountryCode;
-
-  @NonNull
   public final TextView tvDisplayPhoneNumber;
 
   @NonNull
@@ -62,8 +59,7 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
       @NonNull ImageView ivConfirmationBackArrow, @NonNull ImageView ivEditPhoneNum,
       @NonNull LinearLayout linearLayout, @NonNull OtpTextView otpView,
       @NonNull TextView tvConfirmationLogin, @NonNull TextView tvConfirmationTitle,
-      @NonNull TextView tvDisplayCountryCode, @NonNull TextView tvDisplayPhoneNumber,
-      @NonNull TextView tvMessageBody) {
+      @NonNull TextView tvDisplayPhoneNumber, @NonNull TextView tvMessageBody) {
     this.rootView = rootView;
     this.btnContinuePhone = btnContinuePhone;
     this.cardView = cardView;
@@ -73,7 +69,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
     this.otpView = otpView;
     this.tvConfirmationLogin = tvConfirmationLogin;
     this.tvConfirmationTitle = tvConfirmationTitle;
-    this.tvDisplayCountryCode = tvDisplayCountryCode;
     this.tvDisplayPhoneNumber = tvDisplayPhoneNumber;
     this.tvMessageBody = tvMessageBody;
   }
@@ -153,12 +148,6 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvDisplayCountryCode;
-      TextView tvDisplayCountryCode = ViewBindings.findChildViewById(rootView, id);
-      if (tvDisplayCountryCode == null) {
-        break missingId;
-      }
-
       id = R.id.tvDisplayPhoneNumber;
       TextView tvDisplayPhoneNumber = ViewBindings.findChildViewById(rootView, id);
       if (tvDisplayPhoneNumber == null) {
@@ -173,8 +162,7 @@ public final class FragmentConfirmationCodeBinding implements ViewBinding {
 
       return new FragmentConfirmationCodeBinding((ConstraintLayout) rootView, btnContinuePhone,
           cardView, ivConfirmationBackArrow, ivEditPhoneNum, linearLayout, otpView,
-          tvConfirmationLogin, tvConfirmationTitle, tvDisplayCountryCode, tvDisplayPhoneNumber,
-          tvMessageBody);
+          tvConfirmationLogin, tvConfirmationTitle, tvDisplayPhoneNumber, tvMessageBody);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

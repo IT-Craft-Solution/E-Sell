@@ -78,15 +78,6 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvDisplayCountryCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5mdp"
-            android:textColor="@color/marine_blue"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tvDisplayPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

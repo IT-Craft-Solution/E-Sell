@@ -29,7 +29,7 @@ public class SplashFragment extends Fragment {
 
     private FragmentSplashBinding binding;
     private Animation topAnim, bottomAnim;
-    private static int SPLASH_SCREEN = 1800;
+    private static final int SPLASH_SCREEN = 1800;
     private FirebaseAuth auth;
 
     @Override

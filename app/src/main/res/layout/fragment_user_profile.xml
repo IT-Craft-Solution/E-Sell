@@ -134,6 +134,7 @@
             android:layout_height="match_parent"
             android:hint="Enter Your Phone Number"
             android:inputType="number"
+            android:textIsSelectable="true"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout2" />
