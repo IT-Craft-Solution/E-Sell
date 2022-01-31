@@ -1447,6 +1447,7 @@ color ic_launcher_background
 color lightblack
 color lightblue
 color liteBlack
+color litewhite
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -4024,6 +4025,7 @@ id btnPhoneNumLogin
 id btnPreviewAds
 id btnSelectImages
 id btnSellItemFormNext
+id btnSwitch
 id btnVerify
 id button
 id buttonPanel
@@ -4223,7 +4225,6 @@ id ignoreRequest
 id image
 id imageView
 id imageView10
-id imageView11
 id imageView2
 id imageView3
 id imageView4
@@ -4231,7 +4232,6 @@ id imageView5
 id imageView6
 id imageView7
 id imageView8
-id imageView9
 id immediateStop
 id included
 id info
@@ -4633,9 +4633,11 @@ id txItemDetailsPrice
 id txItemLocation
 id txItemName
 id txItemPrice
+id txLightMode
 id txLikes
 id txLocation
 id txLocationn
+id txLogout
 id txProfileAboutError
 id txProfileEmailError
 id txProfileLocationError
@@ -4811,6 +4813,7 @@ layout design_text_input_start_icon
 layout fragment_account
 layout fragment_account_help
 layout fragment_account_myorders
+layout fragment_account_setting_fargment
 layout fragment_active_orders
 layout fragment_ads
 layout fragment_chat
@@ -5185,6 +5188,7 @@ string project_id
 string search_anything
 string search_menu_title
 string sell_keep_messages
+string setting
 string status_bar_notification_info_overflow
 string verification
 string your_location

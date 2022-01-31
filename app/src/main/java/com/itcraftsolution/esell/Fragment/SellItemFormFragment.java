@@ -171,14 +171,14 @@ public class SellItemFormFragment extends Fragment {
                     Name = binding.edSellItemFormTitle.getText().toString();
                     AboutUs = binding.edSellItemFormDesc.getText().toString();
                     Price = binding.edSellItemFormPrice.getText().toString();
-                    Location = binding.txFormLocation.getText().toString();
+                    Location = binding.txLocation.getText().toString();
 
-                    binding.textView6.setText("Name = "+Name + " AboutUs = "+AboutUs+" Price = "+Price+" Location = "+Location);
+//                    binding.textView6.setText("Name = "+Name + " AboutUs = "+AboutUs+" Price = "+Price+" Location = "+Location);
 
-//                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-//                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
-//                            .addToBackStack(null).commit();
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
+                            .addToBackStack(null).commit();
 
                 }
 
@@ -208,14 +208,14 @@ public class SellItemFormFragment extends Fragment {
 
                                 }
 
-                                binding.imageView9.setImageURI(ImageUris.get(0));
-                                binding.imageView11.setImageURI(ImageUris.get(1));
+//                                binding.imageView9.setImageURI(ImageUris.get(0));
+//                                binding.imageView11.setImageURI(ImageUris.get(1));
 
                             } else {
                                 Uri imageUri = data.getData();
                                 ImageUris.add(imageUri);
 
-                                binding.imageView9.setImageURI(ImageUris.get(0));
+//                                binding.imageView9.setImageURI(ImageUris.get(0));
                             }
                             Toast.makeText(getContext(), ImageUris.size()+" Images Fetch", Toast.LENGTH_SHORT).show();
 

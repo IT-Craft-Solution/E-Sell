@@ -1,8 +1,11 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -32,6 +35,7 @@ public class SplashFragment extends Fragment {
     private static final int SPLASH_SCREEN = 1800;
     private FirebaseAuth auth;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class SplashFragment extends Fragment {
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
 
         auth = FirebaseAuth.getInstance();
+
 
         topAnim = AnimationUtils.loadAnimation(getContext(), R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bottom_animation);

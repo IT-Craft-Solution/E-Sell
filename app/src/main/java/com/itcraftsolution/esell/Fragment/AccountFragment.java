@@ -1,6 +1,7 @@
 package com.itcraftsolution.esell.Fragment;
 
 import android.app.AlertDialog;
+import android.app.AppComponentFactory;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,12 +10,15 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.R;
@@ -35,6 +39,7 @@ public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         binding = FragmentAccountBinding.inflate(getLayoutInflater());
 
@@ -44,7 +49,7 @@ public class AccountFragment extends Fragment {
         binding.txUserName.setText(spf.getString("UserName" , null));
         binding.txUserAbout.setText(spf.getString("UserAboutUs" , null));
        // uri = Uri.parse(spf.getString("UserProfileImage",null));
-        //binding.igProfileImage.setImageURI(uri);
+
 
         binding.llAccountMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,21 +74,27 @@ public class AccountFragment extends Fragment {
         binding.llAccountLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("Logout Account")
-                        .setMessage("Are Sure To Logout This Account ?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                auth.signOut();
-                                Intent intent = new Intent(getContext() , UserLogin.class);
-                                startActivity(intent);
-                                requireActivity().finishAffinity();
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .setIcon(R.drawable .ic_baseline_outlet_24)
-                        .show();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(AccountFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new AccountSettingFragment());
+                fragmentTransaction.addToBackStack(null).commit();
+
+//                new AlertDialog.Builder(getContext())
+//                        .setTitle("Logout Account")
+//                        .setMessage("Are Sure To Logout This Account ?")
+//                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                auth.signOut();
+//                                Intent intent = new Intent(getContext() , UserLogin.class);
+//                                startActivity(intent);
+//                                requireActivity().finishAffinity();
+//                            }
+//                        })
+//                        .setNegativeButton("No", null)
+//                        .setIcon(R.drawable .ic_baseline_outlet_24)
+//                        .show();
 
             }
         });
@@ -100,6 +111,4 @@ public class AccountFragment extends Fragment {
 
       return binding.getRoot();
     }
-
-
 }

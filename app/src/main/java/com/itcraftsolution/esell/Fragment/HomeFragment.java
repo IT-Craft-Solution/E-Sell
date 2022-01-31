@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -61,7 +62,6 @@ public class HomeFragment extends Fragment {
     int PERMISSION_ID = 44;
     private SharedPreferences spf;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment {
         //get User Current Location & Print it.
         spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
         binding.tvCityName.setText(spf.getString("UserLocation" , null));
+
 
         homeCategories = new ArrayList<>();
         homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));

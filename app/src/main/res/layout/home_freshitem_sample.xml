@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#05000000">
+            android:backgroundTint="@color/litewhite">
 
             <ImageView
                 android:id="@+id/igSampleHomeFreshItem"

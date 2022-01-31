@@ -11,8 +11,9 @@
 
     <color name="lightblue">#65A3E7</color>
     <color name="lightblack">#000000</color>
-    <color name="white1">#FFFFFF</color>
     <color name ="black">#000000</color>
+    <color name="white1">#FFFFFF</color>
+    <color name="litewhite">#656464</color>
     <color name="liteBlack">#4F000000</color>
     <color name="blue">#367FEE</color>
     <color name="marine_blue">#003034</color>

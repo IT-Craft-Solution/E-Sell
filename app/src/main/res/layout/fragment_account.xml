@@ -80,10 +80,10 @@
             android:layout_marginStart="@dimen/_16mdp"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:textStyle="bold"
             android:text="My Orders"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
 
             />
 
@@ -92,8 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
             android:text="Active Orders, Expire Orders"
-            android:textSize="@dimen/_9font_mdp"
-            android:textColor="@color/lightblack" />
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
@@ -134,9 +134,9 @@
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
             android:text="@string/help"
-            android:textStyle="bold"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
 
             />
 
@@ -145,8 +145,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
             android:text="Rate us, Invite Firends, Version"
-            android:textSize="@dimen/_9font_mdp"
-            android:textColor="@color/lightblack" />
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
@@ -187,17 +187,17 @@
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
             android:text="Settings"
-            android:textStyle="bold"
             android:textColor="@color/lightblack"
-            android:textSize="@dimen/_15font_mdp" />
+            android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
-            android:text="Logout"
-            android:textSize="@dimen/_9font_mdp"
-            android:textColor="@color/lightblack" />
+            android:text="Logout , Theme Mode"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
@@ -237,9 +237,9 @@
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
             android:text="Select Language"
-            android:textStyle="bold"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
 
             />
 
@@ -248,20 +248,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
             android:text="Default English"
-            android:textSize="@dimen/_9font_mdp"
-            android:textColor="@color/lightblack" />
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1mdp"
-        android:background="@color/liteBlack"
         android:layout_marginTop="@dimen/_8mdp"
+        android:background="@color/liteBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llAccountSelectLang" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

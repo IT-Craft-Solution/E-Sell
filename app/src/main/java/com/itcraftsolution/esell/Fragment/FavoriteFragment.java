@@ -36,15 +36,15 @@ public class FavoriteFragment extends Fragment {
 
 
         homeCatShows = new ArrayList<>();
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
 
 
         HomeCatShowAdapter catShowAdapter = new HomeCatShowAdapter(getContext(),homeCatShows);

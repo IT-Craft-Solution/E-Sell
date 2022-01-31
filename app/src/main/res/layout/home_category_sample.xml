@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="@dimen/_30mdp"
-        android:background="#05000000"
+        android:background="@color/litewhite"
         app:cardCornerRadius="@dimen/_13mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
