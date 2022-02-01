@@ -1,32 +1,36 @@
 package com.itcraftsolution.esell.Fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.PagerTitleStrip;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentEditProfileBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class EditProfileFragment extends Fragment {
@@ -37,9 +41,10 @@ public class EditProfileFragment extends Fragment {
 
      private SharedPreferences spf;
     private FragmentEditProfileBinding binding;
-    private String Name, About, MobileNumber, Email;
-    private int Verify;
+    private String Phone, Email;
+    private int Status;
     private Uri PhotoUri;
+
 
 
 
@@ -49,29 +54,8 @@ public class EditProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentEditProfileBinding.inflate(getLayoutInflater());
 
-//        spf1 = requireContext().getSharedPreferences("UserProfile",Context.MODE_PRIVATE);
-////        binding.igProfileDp.setImageURI(Uri.parse(spf1.getString("UserProfileImage",null)));
-//        Profile = spf1.getString("UserProfileImage",null);
-//        if (Profile==null){
-//            Toast.makeText(getContext(), "Image Not Found", Toast.LENGTH_SHORT).show();
-//        }
-//        else {
-//            binding.igProfileDp.setImageURI(Uri.parse(Profile));
-//            Toast.makeText(getContext(), "Image Found  "+ Profile, Toast.LENGTH_SHORT).show();
-//
-////        }
-//        if (PhotoUri==null){
-//            Toast.makeText(getContext(), "Image Not found "+PhotoUri, Toast.LENGTH_SHORT).show();
-//        }
-//        else {
-//            Toast.makeText(getContext(), "image found   " + PhotoUri, Toast.LENGTH_SHORT).show();
-//        }
 
-
-        spf = requireContext().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
-        binding.edProfilePhoneNumber.setText(spf.getString("PhoneNumber", null));
-        binding.edCountryCode.setText(spf.getString("CountryCode",null));
-
+        LoadData();
         binding.igEditToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,16 +66,7 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        binding.btnVerify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.remove(EditProfileFragment.this);
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new phoneLogin()).addToBackStack(null).commit();
 
-            }
-        });
 
        binding.btnEditImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,67 +110,64 @@ public class EditProfileFragment extends Fragment {
                     Toast.makeText(getContext(), "Profile Saved...", Toast.LENGTH_SHORT).show();
 
 
-                    Name = binding.edProfileName.getText().toString();
-
-                    About = binding.edProfileAbout.getText().toString();
-
-                    MobileNumber = binding.edProfilePhoneNumber.getText().toString();
-
-                    Email = binding.edProfileEmail.getText().toString();
+//                    Name = binding.edProfileName.getText().toString();
+//
+//                    About = binding.edProfileAbout.getText().toString();
+//
+//                    MobileNumber = binding.edProfilePhoneNumber.getText().toString();
+//
+//                    Email = binding.edProfileEmail.getText().toString();
 
 
                 }
 
-                Verify = binding.igVerify.getVisibility();
-                StoreUserProfile(Name ,About , MobileNumber, Email,Verify,PhotoUri);
+//                Verify = binding.igVerify.getVisibility();
+//                StoreUserProfile(Name ,About , MobileNumber, Email,Verify,PhotoUri);
 
             }
         });
 
-
-
-        LoadData();
         return binding.getRoot();
     }
 
-    private void StoreUserProfile(String UserName,String UserAboutUs,String UserMobileNumber,String UserEmail,Integer UserVerify,Uri UserProfileImage) {
-        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = spf.edit();
-        editor.putString("UserName", UserName);
-        editor.putString("UserAboutUs", UserAboutUs);
-        editor.putString("UserMobileNumber", UserMobileNumber);
-        editor.putString("UserEmail", UserEmail);
-        editor.putInt("UserVerify",UserVerify);
-        editor.putString("UserProfileImage", String.valueOf(UserProfileImage));
-        editor.apply();
-    }
-
     private void LoadData() {
-        String Name, About, MobileNumber, Email,ProfileImage;
-        int Verify;
-        Uri uri1;
-
-        SharedPreferences spf = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE);
-        Name = spf.getString("UserName", null);
-        About = spf.getString("UserAboutUs", null);
+        SpfUserData data = new SpfUserData();
+        spf =  data.getSpf(requireContext());
+        Phone = spf.getString("UserPhone", null);
         Email = spf.getString("UserEmail", null);
-        MobileNumber = spf.getString("UserMobileNumber", null);
-        Verify = spf.getInt("UserVerify",4);
-        ProfileImage = spf.getString("UserProfileImage",null);
+        Status = spf.getInt("UserStatus", 0);
 
+        ApiUtilities.apiInterface().ReadUser(Phone,Email).enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                UserModel model = response.body();
+                if(model != null)
+                {
+                    if(model.getMessage() == null)
+                    {
+                        binding.edProfileName.setText(model.getUser_name());
+                        binding.edProfileEmail.setText(model.getEmail());
+                        binding.edProfileAbout.setText(model.getUser_bio());
+                        binding.edProfilePhoneNumber.setText(model.getPhone());
+                        Glide.with(requireContext()).load("http://192.168.0.102:80/all/user/images/"+model.getUser_img())
+                                .into(binding.igProfileDp);
+                        data.setSpf(requireContext(), model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
+                    }
+                    else {
+                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                    }
 
+                }else {
+                    Toast.makeText(requireContext(), "Model empty!!", Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        binding.edProfileName.setText(Name);
-        binding.edProfileAbout.setText(About);
-        binding.edProfilePhoneNumber.setText(MobileNumber);
-        binding.edProfileEmail.setText(Email);
-        binding.igVerify.setVisibility(Verify);
-
-//        uri1 = Uri.parse(ProfileImage);
-//        binding.igProfileDp.setImageURI(Uri.parse(Profile));
-
-
-
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -220,21 +192,5 @@ public class EditProfileFragment extends Fragment {
                 }
             });
 
-
-//    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
-//            new ActivityResultCallback<Uri>() {
-//                @Override
-//                public void onActivityResult(Uri uri) {
-//                    // Handle the returned Uri
-//                     binding.igProfileDp.setImageURI(uri);
-//
-//
-//                           PhotoUri = uri;
-////                     Profile =uri.toString();
-////                    binding.igProfileDp.setImageURI(Uri.parse(Profile));
-//                    Toast.makeText(getContext(), "Launch  "+PhotoUri, Toast.LENGTH_LONG).show();
-//
-//                }
-//            });
 
 }

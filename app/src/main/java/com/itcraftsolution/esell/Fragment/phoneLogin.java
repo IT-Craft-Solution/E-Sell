@@ -76,7 +76,7 @@ public class phoneLogin extends Fragment {
     private void StoreUserDetails(String PhoneNumber)
     {
         SpfUserData spfUserData = new SpfUserData();
-        spfUserData.setSpf(requireContext(),PhoneNumber ,null,null,null,null,null,null,0);
+        spfUserData.setSpf(requireContext(),0,PhoneNumber ,null,null,null,null,null,null,0);
     }
 
 }

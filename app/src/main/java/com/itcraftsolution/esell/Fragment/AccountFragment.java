@@ -16,10 +16,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.UserLogin;
 import com.itcraftsolution.esell.databinding.FragmentAccountBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 public class AccountFragment extends Fragment {
 
@@ -27,10 +29,11 @@ public class AccountFragment extends Fragment {
         // Required empty public constructor
     }
 
-       private SharedPreferences spf;
+       private SpfUserData spf;
        private FragmentAccountBinding  binding;
+       private String Image,Name, About;
        private FirebaseAuth auth;
-       private Uri uri;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,12 +43,8 @@ public class AccountFragment extends Fragment {
 
         auth = FirebaseAuth.getInstance();
 
-        spf = requireContext().getSharedPreferences("UserProfile" , Context.MODE_PRIVATE);
-        binding.txUserName.setText(spf.getString("UserName" , null));
-        binding.txUserAbout.setText(spf.getString("UserAboutUs" , null));
-       // uri = Uri.parse(spf.getString("UserProfileImage",null));
-        //binding.igProfileImage.setImageURI(uri);
 
+        LoadData();
         binding.llAccountMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +98,18 @@ public class AccountFragment extends Fragment {
         });
 
       return binding.getRoot();
+    }
+    private void LoadData()
+    {
+        spf = new SpfUserData();
+       Image = spf.getSpf(requireContext()).getString("UserImage",null);
+       Name = spf.getSpf(requireContext()).getString("UserName",null);
+       About = spf.getSpf(requireContext()).getString("UserBio",null);
+
+       binding.txUserName.setText(Name);
+       binding.txUserAbout.setText(About);
+        Glide.with(requireContext()).load("http://192.168.0.102:80/all/user/images/"+Image)
+                .into(binding.igProfileImage);
     }
 
 

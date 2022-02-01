@@ -19,6 +19,7 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Shadow\.gradle\caches\
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\897632fd9af282258e59b23c4d20e4a3\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:17:1-40:12
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\3e8c8d897276edeaee0f27d0b3e470fe\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:17:1-83:12
 MERGED from [com.android.volley:volley:1.2.1] C:\Users\Shadow\.gradle\caches\transforms-3\579258d2598c42ea4df27ad6508fdf2d\transformed\jetified-volley-1.2.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\6590232179075db73db7af081f51c4c7\transformed\jetified-glide-4.12.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-location:19.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\2ac1ec445fb9bea5572638e0f58b5df4\transformed\jetified-play-services-location-19.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\Shadow\.gradle\caches\transforms-3\faded8ed388d6fa0264133ae8def9abf\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Shadow\.gradle\caches\transforms-3\92d514d2901f2a96fc5535e77f20a074\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:15:1-38:12
@@ -67,6 +68,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Shadow\.grad
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\1b6f12a86a42a0b317dc735600301a43\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\a0033f00b6499fd57f6eacac8720b1e5\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\843a2f995dd364ba416325e6b0865489\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\f3f199e25d25f9afc76ac8187c7a3f33\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Shadow\.gradle\caches\transforms-3\564553982e147582f398695eb4753a98\transformed\exifinterface-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Shadow\.gradle\caches\transforms-3\f50e19f0b758aa34c0f9c5dea87621bc\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\Shadow\.gradle\caches\transforms-3\9ab98797f4c3e957557f472d416345e2\transformed\jetified-transport-api-2.2.1\AndroidManifest.xml:15:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shadow\.gradle\caches\transforms-3\e463cd3c6b61f055c59cb5cf56cf08c6\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
@@ -148,6 +151,8 @@ MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\Shadow\.
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\897632fd9af282258e59b23c4d20e4a3\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\3e8c8d897276edeaee0f27d0b3e470fe\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:26:5-81:19
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\3e8c8d897276edeaee0f27d0b3e470fe\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:26:5-81:19
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\6590232179075db73db7af081f51c4c7\transformed\jetified-glide-4.12.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\6590232179075db73db7af081f51c4c7\transformed\jetified-glide-4.12.0\AndroidManifest.xml:10:5-20
 MERGED from [com.google.android.gms:play-services-location:19.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\2ac1ec445fb9bea5572638e0f58b5df4\transformed\jetified-play-services-location-19.0.1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:19.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\2ac1ec445fb9bea5572638e0f58b5df4\transformed\jetified-play-services-location-19.0.1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\Shadow\.gradle\caches\transforms-3\faded8ed388d6fa0264133ae8def9abf\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:28:5-36:19
@@ -174,6 +179,8 @@ MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shadow\.gradle\caches\transf
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\b2af1edf84156eeeb2fa5bf18dab98cc\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.core:core:1.7.0] C:\Users\Shadow\.gradle\caches\transforms-3\8fff248dbe0397cca10a959cecdafd82\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.7.0] C:\Users\Shadow\.gradle\caches\transforms-3\8fff248dbe0397cca10a959cecdafd82\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\f3f199e25d25f9afc76ac8187c7a3f33\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\f3f199e25d25f9afc76ac8187c7a3f33\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Shadow\.gradle\caches\transforms-3\f50e19f0b758aa34c0f9c5dea87621bc\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:25:5-39:19
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Shadow\.gradle\caches\transforms-3\f50e19f0b758aa34c0f9c5dea87621bc\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:25:5-39:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shadow\.gradle\caches\transforms-3\e463cd3c6b61f055c59cb5cf56cf08c6\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
@@ -270,6 +277,8 @@ MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Shadow\.gradle\c
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\3e8c8d897276edeaee0f27d0b3e470fe\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:21:5-44
 MERGED from [com.android.volley:volley:1.2.1] C:\Users\Shadow\.gradle\caches\transforms-3\579258d2598c42ea4df27ad6508fdf2d\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
 MERGED from [com.android.volley:volley:1.2.1] C:\Users\Shadow\.gradle\caches\transforms-3\579258d2598c42ea4df27ad6508fdf2d\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\6590232179075db73db7af081f51c4c7\transformed\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\6590232179075db73db7af081f51c4c7\transformed\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.gms:play-services-location:19.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\2ac1ec445fb9bea5572638e0f58b5df4\transformed\jetified-play-services-location-19.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:19.0.1] C:\Users\Shadow\.gradle\caches\transforms-3\2ac1ec445fb9bea5572638e0f58b5df4\transformed\jetified-play-services-location-19.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\Shadow\.gradle\caches\transforms-3\faded8ed388d6fa0264133ae8def9abf\transformed\jetified-firebase-database-20.0.3\AndroidManifest.xml:19:5-21:41
@@ -366,6 +375,10 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\a0033f00b6499fd57f6eacac8720b1e5\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\843a2f995dd364ba416325e6b0865489\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shadow\.gradle\caches\transforms-3\843a2f995dd364ba416325e6b0865489\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\f3f199e25d25f9afc76ac8187c7a3f33\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Shadow\.gradle\caches\transforms-3\f3f199e25d25f9afc76ac8187c7a3f33\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Shadow\.gradle\caches\transforms-3\564553982e147582f398695eb4753a98\transformed\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Shadow\.gradle\caches\transforms-3\564553982e147582f398695eb4753a98\transformed\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Shadow\.gradle\caches\transforms-3\f50e19f0b758aa34c0f9c5dea87621bc\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Shadow\.gradle\caches\transforms-3\f50e19f0b758aa34c0f9c5dea87621bc\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\Shadow\.gradle\caches\transforms-3\9ab98797f4c3e957557f472d416345e2\transformed\jetified-transport-api-2.2.1\AndroidManifest.xml:18:5-20:41

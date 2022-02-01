@@ -153,7 +153,7 @@ public class mapsAndLocation extends Fragment {
             Log.d("myapp", UserPhone + " "+UserEmail + " "+UserImg + " "+UserName + " "+UserBio + " "+UserLocation + " "+UserArea + " "+UserStatus);
 
             spfUserData = new SpfUserData();
-            spfUserData.setSpf(requireContext(),UserPhone,UserEmail, UserImg, UserName, UserBio,UserLocation,UserArea,UserStatus);
+            spfUserData.setSpf(requireContext(),0,UserPhone,UserEmail, UserImg, UserName, UserBio,UserLocation,UserArea,UserStatus);
         }
         else {
             Toast.makeText(requireContext(), "Something went wrong!!", Toast.LENGTH_SHORT).show();

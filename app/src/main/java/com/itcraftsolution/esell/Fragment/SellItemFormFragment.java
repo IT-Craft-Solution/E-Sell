@@ -41,6 +41,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiPostData;
+import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.MainActivity;
+import com.itcraftsolution.esell.Model.ResponceInsert;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -53,6 +56,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class SellItemFormFragment extends Fragment {
 
@@ -63,6 +70,7 @@ public class SellItemFormFragment extends Fragment {
 
     private FragmentSellItemFormBinding binding;
     private  String Title, Desc,Price,Sublocality,Locality,City, Category,encodeImageString;
+    private int UserId;
     FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
@@ -173,22 +181,35 @@ public class SellItemFormFragment extends Fragment {
                     //cat_name,title,description,price,location,city_area,item_img,status
                     SpfUserData spfUserData = new SpfUserData();
                     Category = spfUserData.getSpfHome(requireContext()).getString("Category", null);
+                    UserId = spfUserData.getSpf(requireContext()).getInt("UserId",0);
                     Title = binding.edSellItemFormTitle.getText().toString();
                     Desc = binding.edSellItemFormDesc.getText().toString();
                     Price = binding.edSellItemFormPrice.getText().toString();
 
-                    ApiPostData apiPostData = new ApiPostData();
-                    apiPostData.SellItem(requireContext(), Category, Title, Desc,Integer.parseInt(Price),Locality, Sublocality,encodeImageString,1);
-//                    binding.textView6.setText();
-//                    Log.d("checkappnow", "Name = "+Name + " AboutUs = "+AboutUs+" Price = "+Price+" Location = "+Location+" images "+ImageUris.toString());
-//                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-//                    fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
-//                            .addToBackStack(null).commit();
+                    ApiUtilities.apiInterface().InsertSellItem(UserId,Category,Title,Desc,Integer.parseInt(Price),Locality, Sublocality,encodeImageString,1)
+                            .enqueue(new Callback<ResponceInsert>() {
+                                @Override
+                                public void onResponse(Call<ResponceInsert> call, Response<ResponceInsert> response) {
+                                    ResponceInsert responceInsert = response.body();
+                                    if(responceInsert != null)
+                                    {
+                                        Toast.makeText(requireActivity(), ""+responceInsert.getMessage(), Toast.LENGTH_SHORT).show();
+                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                                        fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
+                                                .addToBackStack(null).commit();
 
+                                    }else {
+                                        Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponceInsert> call, Throwable t) {
+                                    Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                 }
-
-
             }
         });
         return binding.getRoot();

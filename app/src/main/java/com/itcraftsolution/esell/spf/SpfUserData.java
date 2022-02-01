@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 public class SpfUserData {
 
-    public void setSpf(Context context, String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
+    public void setSpf(Context context, int UserId,String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginUserDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -17,9 +17,11 @@ public class SpfUserData {
         editor.putString("UserCity", UserCity);
         editor.putString("CityArea", CityArea);
         editor.putInt("UserStatus", UserStatus);
+        editor.putInt("UserId", UserId);
         editor.apply();
 
     }
+
     public SharedPreferences getSpf(Context context)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginUserDetails", Context.MODE_PRIVATE);

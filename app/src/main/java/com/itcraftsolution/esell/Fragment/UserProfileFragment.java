@@ -45,7 +45,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiPostData;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.MainActivity;
+import com.itcraftsolution.esell.Model.ResponceInsert;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -57,6 +59,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserProfileFragment extends Fragment {
 
@@ -159,18 +165,34 @@ public class UserProfileFragment extends Fragment {
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
                     spfUserData = new SpfUserData();
-                    spfUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                    spfUserData.setSpf(requireContext(), 0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     apiPostData = new ApiPostData();
-                    apiPostData.insertUser(requireContext(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    requireActivity().finishAffinity();
+                    ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
+                            .enqueue(new Callback<ResponceInsert>() {
+                                @Override
+                                public void onResponse(Call<ResponceInsert> call, Response<ResponceInsert> response) {
+                                    ResponceInsert responceInsert = response.body();
+                                    if(responceInsert != null)
+                                    {
+                                        Toast.makeText(requireActivity(), ""+responceInsert.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        requireActivity().finishAffinity();
+
+                                    }else {
+                                        Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponceInsert> call, Throwable t) {
+                                    Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                 }
-
-
             }
         });
-
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         binding.txUserLocation.setOnClickListener(new View.OnClickListener() {
