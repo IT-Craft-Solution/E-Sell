@@ -32,6 +32,10 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_congress_screen.xml"
     },
     {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activeorder_sample.xml",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\activeorder_sample.xml"
+    },
+    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_ads.xml",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\fragment_ads.xml"
     },

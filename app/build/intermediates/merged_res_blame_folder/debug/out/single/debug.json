@@ -196,6 +196,10 @@
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round_adaptive_fore.png"
     },
     {
+        "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\layout_activeorder_sample.xml.flat",
+        "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\layout\\activeorder_sample.xml"
+    },
+    {
         "merged": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_adaptive_fore.png.flat",
         "source": "C:\\Users\\Shadow\\AndroidStudioProjects\\ITCraftSolution\\E-sell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_adaptive_fore.png"
     },

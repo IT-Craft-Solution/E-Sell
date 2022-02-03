@@ -44,7 +44,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.itcraftsolution.esell.Api.ApiPostData;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.ResponceInsert;
@@ -75,7 +74,6 @@ public class UserProfileFragment extends Fragment {
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
-    private ApiPostData apiPostData;
     private SpfUserData spfUserData;
     private GoogleSignInAccount account;
     Uri uri;
@@ -166,7 +164,6 @@ public class UserProfileFragment extends Fragment {
                     Location = binding.txLocationn.getText().toString();
                     spfUserData = new SpfUserData();
                     spfUserData.setSpf(requireContext(), 0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                    apiPostData = new ApiPostData();
                     ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
                             .enqueue(new Callback<ResponceInsert>() {
                                 @Override

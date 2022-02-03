@@ -3,6 +3,8 @@ package com.itcraftsolution.esell.spf;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.itcraftsolution.esell.Fragment.AdsFragment;
+
 public class SpfUserData {
 
     public void setSpf(Context context, int UserId,String UserPhone, String UserEmail, String UserImage, String UserName, String UserBio , String UserCity, String CityArea, int UserStatus)
@@ -42,5 +44,23 @@ public class SpfUserData {
 
         return sharedPreferences;
     }
+    public void setItemDetail(Context context,String Img,String Price,String Title,String Location,String Desc)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("ItemDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("ItemImg", Img);
+        editor.putString("ItemPrice", Price);
+        editor.putString("ItemTitle", Title);
+        editor.putString("ItemLocation", Location);
+        editor.putString("ItemDesc", Desc);
+        editor.apply();
+    }
+    public SharedPreferences getItemDetails(Context context)
+    {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("ItemDetails", Context.MODE_PRIVATE);
+
+        return sharedPreferences;
+    }
+
 
 }

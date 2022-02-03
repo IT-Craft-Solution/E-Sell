@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.UserLogin;
 import com.itcraftsolution.esell.databinding.FragmentAccountBinding;
@@ -108,7 +109,7 @@ public class AccountFragment extends Fragment {
 
        binding.txUserName.setText(Name);
        binding.txUserAbout.setText(About);
-        Glide.with(requireContext()).load("http://192.168.0.102:80/all/user/images/"+Image)
+        Glide.with(requireContext()).load(ApiUtilities.UserImage +Image)
                 .into(binding.igProfileImage);
     }
 

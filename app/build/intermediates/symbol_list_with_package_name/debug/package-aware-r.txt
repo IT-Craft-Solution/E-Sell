@@ -4214,6 +4214,7 @@ id igProfileDp
 id igProfileImage
 id igSampleHomeCat
 id igSampleHomeFreshItem
+id igSampleImage
 id igSellCategorySample
 id igSellItemBackCat
 id igSplashLogo
@@ -4261,6 +4262,7 @@ id line1
 id line3
 id linear
 id linearLayout
+id linearLayout2
 id linearLayout3
 id listMode
 id list_item
@@ -4560,14 +4562,12 @@ id textView
 id textView10
 id textView11
 id textView12
-id textView13
 id textView2
 id textView3
 id textView4
 id textView5
 id textView6
 id textView7
-id textView8
 id textView9
 id text_input_end_icon
 id text_input_error_icon
@@ -4616,7 +4616,7 @@ id txChatItemPrice
 id txChatTime
 id txChatUserName
 id txDate
-id txDelete
+id txDesc
 id txEdit
 id txFormDescError
 id txFormLocation
@@ -4627,6 +4627,7 @@ id txHomeCatItemLocation
 id txHomeCatName
 id txHomeCatPrice
 id txHomecat
+id txItemDesc
 id txItemDetailsLocation
 id txItemDetailsName
 id txItemDetailsPrice
@@ -4641,10 +4642,14 @@ id txProfileEmailError
 id txProfileLocationError
 id txProfileNameError
 id txProfilePhoneError
+id txSampleDesc
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
 id txSampleHomeFreshItemName
 id txSampleHomeFreshItemPrice
+id txSampleLocation
+id txSampleName
+id txSamplePrice
 id txSave
 id txSelectImages
 id txSelectImagesError
@@ -4653,7 +4658,6 @@ id txUserAbout
 id txUserLocation
 id txUserMessage
 id txUserName
-id txViews
 id unchecked
 id uniform
 id unlabeled
@@ -4781,6 +4785,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activeorder_sample
 layout activity_main
 layout activity_user_login
 layout browser_actions_context_menu_page

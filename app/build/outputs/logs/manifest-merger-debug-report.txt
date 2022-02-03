@@ -198,7 +198,7 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shadow\.gradle\cac
 	android:label
 		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:18:9-41
 	android:hardwareAccelerated
-		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:20:9-44
+		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:20:9-43
 	android:roundIcon
 		ADDED from C:\Users\Shadow\AndroidStudioProjects\ITCraftSolution\E-sell\app\src\main\AndroidManifest.xml:19:9-54
 	tools:targetApi

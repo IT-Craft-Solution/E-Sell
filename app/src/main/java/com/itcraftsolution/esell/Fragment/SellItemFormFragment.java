@@ -40,9 +40,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.itcraftsolution.esell.Api.ApiPostData;
 import com.itcraftsolution.esell.Api.ApiUtilities;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.ResponceInsert;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
@@ -203,7 +201,6 @@ public class SellItemFormFragment extends Fragment {
                                         Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-
                                 @Override
                                 public void onFailure(Call<ResponceInsert> call, Throwable t) {
                                     Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();

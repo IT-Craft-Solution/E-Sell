@@ -1,5 +1,6 @@
 package com.itcraftsolution.esell.Api;
 
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.Model.ResponceInsert;
 import com.itcraftsolution.esell.Model.UserModel;
 
@@ -39,4 +40,12 @@ public interface ApiInterface {
             @Field("city_area") String city_area, @Field("item_img") String item_img,
             @Field("status") int status
     );
+
+    @FormUrlEncoded
+    @POST("post/read_post.php")
+    Call<List<MyAdsItem>> ReadSellItem(
+            @Field("user_id") int user_id
+    );
+
+
 }

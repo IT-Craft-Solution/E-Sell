@@ -11,8 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 public class ItemDetailsFragment extends Fragment {
 
@@ -23,12 +26,15 @@ public class ItemDetailsFragment extends Fragment {
     }
 
    private  FragmentItemDetailsBinding binding;
+    private SpfUserData spf;
+    private String ItemImg,ItemPrice,ItemDesc,ItemTitle,ItemLocation;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentItemDetailsBinding.inflate(getLayoutInflater());
 
+        LoadData();
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,12 +52,27 @@ public class ItemDetailsFragment extends Fragment {
             public void onClick(View v) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "I've found this on #E-Sell. What do you think? (Item Name pass & link passout)");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "I've found this on #E-Sell. What do you think?" +ItemTitle +" ,"+ItemDesc+" "+ApiUtilities.SellItemImage+ItemImg);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
         });
 
         return binding.getRoot();
+    }
+    private void LoadData()
+    {
+        spf = new SpfUserData();
+        ItemImg = spf.getItemDetails(requireContext()).getString("ItemImg",null);
+        ItemPrice = spf.getItemDetails(requireContext()).getString("ItemPrice",null);
+        ItemTitle = spf.getItemDetails(requireContext()).getString("ItemTitle",null);
+        ItemDesc = spf.getItemDetails(requireContext()).getString("ItemDesc",null);
+        ItemLocation = spf.getItemDetails(requireContext()).getString("ItemLocation",null);
+
+        Glide.with(requireContext()).load(ApiUtilities.SellItemImage+ItemImg).into(binding.igItemDetails);
+        binding.txItemDetailsLocation.setText(ItemLocation);
+        binding.txItemDetailsName.setText(ItemTitle);
+        binding.txItemDetailsPrice.setText(ItemPrice);
+        binding.txItemDesc.setText(ItemDesc);
     }
 }

@@ -1,77 +1,117 @@
 package com.itcraftsolution.esell.Model;
 
 public class MyAdsItem {
-    private int ItemImage;
-    private String ItemName,ItemPrice,Date,ItemLocation,ItemViews,ItemLikes;
+ private int id,user_id,price,status;
+ private String cat_name,title,description,location, city_area,item_img,date,message;
 
-    public MyAdsItem(int itemImage, String itemName, String itemPrice, String date, String itemLocation, String itemViews, String itemLikes) {
-        ItemImage = itemImage;
-        ItemViews = itemViews;
-        ItemLikes = itemLikes;
-        ItemName = itemName;
-        ItemPrice = itemPrice;
-        Date = date;
-        ItemLocation = itemLocation;
+    public MyAdsItem(int id, int user_id, int price, int status, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message) {
+        this.id = id;
+        this.user_id = user_id;
+        this.price = price;
+        this.status = status;
+        this.cat_name = cat_name;
+        this.title = title;
+        this.description = description;
+        this.location = location;
+        this.city_area = city_area;
+        this.item_img = item_img;
+        this.date = date;
+        this.message = message;
     }
 
-    public MyAdsItem(){
-
+    public int getId() {
+        return id;
     }
 
-    public int getItemImage() {
-        return ItemImage;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setItemImage(int itemImage) {
-        ItemImage = itemImage;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public String getItemViews() {
-        return ItemViews;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setItemViews(String itemViews) {
-        ItemViews = itemViews;
+    public int getPrice() {
+        return price;
     }
 
-    public String getItemLikes() {
-        return ItemLikes;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setItemLikes(String itemLikes) {
-        ItemLikes = itemLikes;
+    public int getStatus() {
+        return status;
     }
 
-    public String getItemName() {
-        return ItemName;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public void setItemName(String itemName) {
-        ItemName = itemName;
+    public String getCat_name() {
+        return cat_name;
     }
 
-    public String getItemPrice() {
-        return ItemPrice;
+    public void setCat_name(String cat_name) {
+        this.cat_name = cat_name;
     }
 
-    public void setItemPrice(String itemPrice) {
-        ItemPrice = itemPrice;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCity_area() {
+        return city_area;
+    }
+
+    public void setCity_area(String city_area) {
+        this.city_area = city_area;
+    }
+
+    public String getItem_img() {
+        return item_img;
+    }
+
+    public void setItem_img(String item_img) {
+        this.item_img = item_img;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
-
-    public String getItemLocation() {
-        return ItemLocation;
-    }
-
-    public void setItemLocation(String itemLocation) {
-        ItemLocation = itemLocation;
-    }
-
 }
