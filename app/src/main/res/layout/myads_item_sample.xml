@@ -32,7 +32,7 @@
                 android:layout_marginStart="8dp"
                 android:text="Date : "
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12font_mdp"
+                android:textSize="@dimen/_10font_mdp"
                 app:layout_constraintBottom_toTopOf="@+id/igItemImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="25 Jan 2022"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12font_mdp"
+                android:textSize="@dimen/_10font_mdp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView2"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
                 app:layout_constraintTop_toTopOf="@+id/textView2"
@@ -56,27 +56,11 @@
                 android:layout_height="wrap_content"
                 android:text="Edit"
                 android:textColor="#4CAF50"
-                android:textSize="@dimen/_14font_mdp"
+                android:textSize="@dimen/_13font_mdp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/txDelete"
-                app:layout_constraintEnd_toStartOf="@+id/txDelete"
-                app:layout_constraintHorizontal_bias="0.865"
-                app:layout_constraintStart_toEndOf="@+id/txDate"
-                app:layout_constraintTop_toTopOf="@+id/txDelete"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/txDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="Delete"
-                android:textColor="@color/red"
-                android:textSize="@dimen/_14font_mdp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/txItemLocation"
+                app:layout_constraintEnd_toEndOf="@+id/txLikes"
+                app:layout_constraintTop_toTopOf="@+id/txItemLocation" />
 
             <ImageView
                 android:id="@+id/igItemImage"
@@ -91,7 +75,7 @@
                 android:id="@+id/txItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_12mdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/price"
                 android:textColor="@color/black"
@@ -103,86 +87,73 @@
 
             <TextView
                 android:id="@+id/txItemName"
-                android:layout_width="146dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="@font/roboto"
+                android:layout_marginStart="@dimen/_12mdp"
+                android:fontFamily="@font/roboto_bold"
                 android:text="IPhone 11 Pro "
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16font_mdp"
-                app:layout_constraintBottom_toTopOf="@+id/txItemPrice"
+                android:textSize="@dimen/_15font_mdp"
+                app:layout_constraintEnd_toEndOf="@+id/txLikes"
                 app:layout_constraintStart_toEndOf="@+id/igItemImage"
-                app:layout_constraintTop_toTopOf="@+id/igItemImage" />
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="@dimen/_15mdp"
                 android:layout_height="@dimen/_15mdp"
-                android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_baseline_location_on_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/igItemImage" />
+                app:layout_constraintStart_toStartOf="@+id/txDesc" />
 
             <TextView
                 android:id="@+id/txItemLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_4mdp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_1mdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Limbdi"
+                android:gravity="center_vertical"
                 android:textSize="@dimen/_9font_mdp"
                 android:textStyle="bold"
+                android:maxLines="1"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toStartOf="@+id/txEdit"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:text="View : "
+                android:id="@+id/txDesc"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:text="Description "
+                android:layout_marginBottom="@dimen/_4mdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10font_mdp"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
-                app:layout_constraintEnd_toEndOf="@+id/textView10"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/textView10" />
+                app:layout_constraintBottom_toTopOf="@+id/txItemLocation"
+                app:layout_constraintEnd_toEndOf="@+id/txLikes"
+                app:layout_constraintStart_toStartOf="@+id/txItemPrice"
+                app:layout_constraintTop_toBottomOf="@+id/txItemPrice" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="12dp"
                 android:text="Likes : "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10font_mdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/txLikes" />
-
-            <TextView
-                android:id="@+id/txViews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10font_mdp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView8"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintEnd_toStartOf="@+id/txLikes"
+                app:layout_constraintTop_toTopOf="@+id/txDate" />
 
             <TextView
                 android:id="@+id/txLikes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="@dimen/_12mdp"
                 android:text="0"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10font_mdp"
@@ -191,14 +162,6 @@
                 app:layout_constraintTop_toTopOf="@+id/textView10"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <!--            <ImageView-->
-            <!--                android:id="@+id/imageView4"-->
-            <!--                android:layout_width="@dimen/_24mdp"-->
-            <!--                android:layout_height="@dimen/_24mdp"-->
-            <!--                android:padding="@dimen/_4mdp"-->
-            <!--                android:src="@drawable/like"-->
-            <!--                tools:layout_editor_absoluteX="330dp"-->
-            <!--                tools:layout_editor_absoluteY="63dp" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

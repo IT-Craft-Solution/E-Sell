@@ -1,8 +1,6 @@
 package com.itcraftsolution.esell.Fragment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,7 +22,7 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentConfirmationCodeBinding;
-import com.itcraftsolution.esell.spf.SpfLoginUserData;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -152,11 +150,11 @@ public class confirmationCode extends Fragment {
         return condition;
     }
 
-    private SpfLoginUserData getspfData()
+    private SpfUserData getspfData()
     {
-        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
-        spfLoginUserData.getSpf(requireContext());
-        return spfLoginUserData;
+        SpfUserData spfUserData = new SpfUserData();
+        spfUserData.getSpf(requireContext());
+        return spfUserData;
     }
 
 }

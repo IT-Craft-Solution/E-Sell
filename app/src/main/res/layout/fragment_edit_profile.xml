@@ -104,56 +104,31 @@
             app:layout_constraintStart_toStartOf="@+id/edProfileAbout"
             app:layout_constraintTop_toBottomOf="@+id/edProfileAbout" />
 
-        <TextView
-            android:id="@+id/epCountry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10mdp"
-            android:text="@string/country"
-            android:textColor="@color/lightblack"
-            android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintStart_toStartOf="@+id/ContactInfo"
-            app:layout_constraintTop_toBottomOf="@+id/ContactInfo" />
 
         <TextView
             android:id="@+id/epPhoneNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
             android:layout_marginTop="@dimen/_10mdp"
             android:text="@string/phone_number"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintEnd_toEndOf="@id/ContactInfo"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/epCountry"
+            app:layout_constraintStart_toStartOf="@+id/ContactInfo"
             app:layout_constraintTop_toBottomOf="@id/ContactInfo" />
 
-        <TextView
-            android:id="@+id/edCountryCode"
-            android:layout_width="@dimen/_60mdp"
-            android:layout_height="wrap_content"
-            android:autofillHints="false"
-            android:layout_marginTop="@dimen/_8mdp"
-            android:focusable="false"
-            android:hint="+91"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintStart_toStartOf="@+id/epCountry"
-            app:layout_constraintTop_toBottomOf="@+id/epCountry" />
-
-        <TextView
+        <EditText
             android:id="@+id/edProfilePhoneNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:autofillHints="false"
-            android:hint="Verify Your Number"
+            android:hint="Enter Your Number"
             android:textColor="@color/black"
             android:textSize="@dimen/_14font_mdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/epPhoneNo"
-            app:layout_constraintTop_toBottomOf="@+id/epPhoneNo" />
+            app:layout_constraintTop_toBottomOf="@+id/epPhoneNo"
+            android:inputType="phone" />
 
         <TextView
             android:id="@+id/epPhoneDetails"
@@ -177,7 +152,7 @@
             android:text="Email"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintStart_toStartOf="@+id/edCountryCode"
+            app:layout_constraintStart_toStartOf="@+id/epPhoneNo"
             app:layout_constraintTop_toBottomOf="@+id/epPhoneDetails" />
 
         <EditText
@@ -203,17 +178,7 @@
             app:layout_constraintStart_toStartOf="@+id/edProfileEmail"
             app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
 
-        <Button
-            android:id="@+id/btnVerify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Verify"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="@+id/epPhoneNo"
-            app:layout_constraintStart_toEndOf="@+id/epPhoneNo"
-            app:layout_constraintTop_toTopOf="@+id/epPhoneNo"
-            app:layout_constraintVertical_bias="0.565" />
+
 
         <ImageView
             android:id="@+id/igVerify"

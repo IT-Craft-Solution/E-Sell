@@ -1,7 +1,5 @@
 package com.itcraftsolution.esell.Fragment;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.itcraftsolution.esell.R;
-import com.itcraftsolution.esell.spf.SpfLoginUserData;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 public class phoneLogin extends Fragment {
 
@@ -77,8 +75,8 @@ public class phoneLogin extends Fragment {
     }
     private void StoreUserDetails(String PhoneNumber)
     {
-        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
-        spfLoginUserData.setSpf(requireContext(),PhoneNumber ,null,null,null,null,null,null,0);
+        SpfUserData spfUserData = new SpfUserData();
+        spfUserData.setSpf(requireContext(),0,PhoneNumber ,null,null,null,null,null,null,0);
     }
 
 }

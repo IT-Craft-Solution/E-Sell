@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -45,13 +44,13 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.itcraftsolution.esell.Api.ApiPostData;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.MainActivity;
+import com.itcraftsolution.esell.Model.ResponceInsert;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
-import com.itcraftsolution.esell.spf.SpfLoginUserData;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,6 +58,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserProfileFragment extends Fragment {
 
@@ -71,8 +74,7 @@ public class UserProfileFragment extends Fragment {
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
-    private ApiPostData apiPostData;
-    private SpfLoginUserData spfLoginUserData;
+    private SpfUserData spfUserData;
     private GoogleSignInAccount account;
     Uri uri;
     boolean CheckImage = false;
@@ -160,19 +162,34 @@ public class UserProfileFragment extends Fragment {
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
-                    spfLoginUserData = new SpfLoginUserData();
-                    spfLoginUserData.setSpf(requireContext(), Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                    apiPostData = new ApiPostData();
-                    apiPostData.insertUser(requireContext(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    requireActivity().finishAffinity();
+                    spfUserData = new SpfUserData();
+                    spfUserData.setSpf(requireContext(), 0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                    ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
+                            .enqueue(new Callback<ResponceInsert>() {
+                                @Override
+                                public void onResponse(Call<ResponceInsert> call, Response<ResponceInsert> response) {
+                                    ResponceInsert responceInsert = response.body();
+                                    if(responceInsert != null)
+                                    {
+                                        Toast.makeText(requireActivity(), ""+responceInsert.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        requireActivity().finishAffinity();
+
+                                    }else {
+                                        Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponceInsert> call, Throwable t) {
+                                    Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                 }
-
-
             }
         });
-
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         binding.txUserLocation.setOnClickListener(new View.OnClickListener() {
@@ -204,12 +221,12 @@ public class UserProfileFragment extends Fragment {
         }
     private void LoadData()
     {
-        SpfLoginUserData spfLoginUserData = new SpfLoginUserData();
+        SpfUserData spfUserData = new SpfUserData();
         GoogleSignIn.getLastSignedInAccount(requireContext());
         account = GoogleSignIn.getLastSignedInAccount(requireContext());
-        if(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null) != null)
+        if(spfUserData.getSpf(requireContext()).getString("UserPhone", null) != null)
         {
-            binding.edUserPhoneNumber.setText(spfLoginUserData.getSpf(requireContext()).getString("UserPhone", null));
+            binding.edUserPhoneNumber.setText(spfUserData.getSpf(requireContext()).getString("UserPhone", null));
             binding.edUserPhoneNumber.setInputType(InputType.TYPE_NULL);
             Toast.makeText(requireContext(), "Phone verify!", Toast.LENGTH_SHORT).show();
         }
@@ -382,7 +399,7 @@ public class UserProfileFragment extends Fragment {
                                     Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
-                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -392,7 +409,7 @@ public class UserProfileFragment extends Fragment {
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,70, byteArrayOutputStream);
-        Toast.makeText(requireContext(), ""+bitmap.getByteCount(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(requireContext(), ""+bitmap.getByteCount(), Toast.LENGTH_SHORT).show();
         binding.igProfileDp.setImageBitmap(bitmap);
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
         encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);

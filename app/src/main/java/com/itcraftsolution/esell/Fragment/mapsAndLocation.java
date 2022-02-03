@@ -30,7 +30,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.itcraftsolution.esell.databinding.FragmentMapsAndLocationBinding;
-import com.itcraftsolution.esell.spf.SpfLoginUserData;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 
 
@@ -47,7 +47,7 @@ public class mapsAndLocation extends Fragment {
     private String  UserEmail, UserImg, UserName, UserBio, UserLocation, UserArea,UserPhone;
     private int  UserStatus;
     private GoogleSignInAccount account;
-    private  SpfLoginUserData spfLoginUserData;
+    private SpfUserData spfUserData;
     Uri uri;
 
 
@@ -152,8 +152,8 @@ public class mapsAndLocation extends Fragment {
 
             Log.d("myapp", UserPhone + " "+UserEmail + " "+UserImg + " "+UserName + " "+UserBio + " "+UserLocation + " "+UserArea + " "+UserStatus);
 
-            spfLoginUserData = new SpfLoginUserData();
-            spfLoginUserData.setSpf(requireContext(),UserPhone,UserEmail, UserImg, UserName, UserBio,UserLocation,UserArea,UserStatus);
+            spfUserData = new SpfUserData();
+            spfUserData.setSpf(requireContext(),0,UserPhone,UserEmail, UserImg, UserName, UserBio,UserLocation,UserArea,UserStatus);
         }
         else {
             Toast.makeText(requireContext(), "Something went wrong!!", Toast.LENGTH_SHORT).show();

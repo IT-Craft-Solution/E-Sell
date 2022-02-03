@@ -8,8 +8,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/igProfileImage"
-        android:layout_width="@dimen/_100mdp"
-        android:layout_height="@dimen/_100mdp"
+        android:layout_width="@dimen/_80mdp"
+        android:layout_height="@dimen/_80mdp"
         android:layout_marginStart="@dimen/_12mdp"
         android:layout_marginTop="@dimen/_24mdp"
         android:src="@drawable/edit_profile_icon"
@@ -25,7 +25,7 @@
         android:fontFamily="serif"
         android:text="Prathvik Sankaliya"
         android:textColor="@color/lightblack"
-        android:textSize="@dimen/_18font_mdp"
+        android:textSize="@dimen/_16font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/igProfileImage"
         app:layout_constraintTop_toTopOf="@+id/igProfileImage" />
@@ -38,7 +38,7 @@
         android:fontFamily="serif"
         android:text="I am Android Developer At ICS"
         android:textColor="@color/lightblack"
-        android:textSize="@dimen/_10font_mdp"
+        android:textSize="@dimen/_9font_mdp"
         app:layout_constraintEnd_toEndOf="@+id/txUserName"
         app:layout_constraintStart_toStartOf="@+id/txUserName"
         app:layout_constraintTop_toBottomOf="@+id/txUserName" />

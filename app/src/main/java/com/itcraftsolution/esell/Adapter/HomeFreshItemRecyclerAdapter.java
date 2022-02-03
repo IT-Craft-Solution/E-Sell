@@ -10,19 +10,25 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Model.HomeFreshItem;
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.HomeFreshitemSampleBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFreshItemRecyclerAdapter.viewHolder> {
 
     Context context;
-    ArrayList<HomeFreshItem> homeFreshItems;
+    List<MyAdsItem> homeFreshItems;
+    SpfUserData spf;
 
-    public HomeFreshItemRecyclerAdapter(Context context, ArrayList<HomeFreshItem> homeFreshItems) {
+    public HomeFreshItemRecyclerAdapter(Context context, List<MyAdsItem> homeFreshItems) {
         this.context = context;
         this.homeFreshItems = homeFreshItems;
     }
@@ -38,16 +44,19 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-    HomeFreshItem homeFreshItem = homeFreshItems.get(position);
+        MyAdsItem model = homeFreshItems.get(position);
 
-    holder.binding.igSampleHomeFreshItem.setImageResource(homeFreshItem.getItemImage());
-    holder.binding.txSampleHomeFreshItemName.setText(homeFreshItem.getItemName());
-    holder.binding.txSampleHomeFreshItemPrice.setText(homeFreshItem.getItemPrice());
-    holder.binding.txSampleHomeFreshItemLocation.setText(homeFreshItem.getItemLocation());
+    Glide.with(context).load(ApiUtilities.SellItemImage+model.getItem_img()).into(holder.binding.igSampleHomeFreshItem);
+    holder.binding.txSampleHomeFreshItemName.setText(model.getTitle());
+    holder.binding.txSampleHomeFreshItemPrice.setText(String.valueOf("₹ "+model.getPrice()));
+    holder.binding.txSampleHomeFreshItemLocation.setText(String.valueOf(model.getCity_area()+" ,"+model.getLocation()));
 
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            spf = new SpfUserData();
+            spf.setItemDetail(context, model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
+            ,model.getDescription());
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                     .replace(R.id.frMainContainer , new ItemDetailsFragment())

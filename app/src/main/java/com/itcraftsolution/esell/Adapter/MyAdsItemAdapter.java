@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.MyadsItemSampleBinding;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.viewHolder>{
     Context context;
-    ArrayList<MyAdsItem> myAdsItems;
+    List<MyAdsItem> myAdsItems;
 
-    public MyAdsItemAdapter(Context context, ArrayList<MyAdsItem> myAdsItems) {
+    public MyAdsItemAdapter(Context context, List<MyAdsItem> myAdsItems) {
         this.context = context;
         this.myAdsItems = myAdsItems;
     }
@@ -34,13 +35,12 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         MyAdsItem myAdsItem = myAdsItems.get(position);
 
-        holder.binding.igItemImage.setImageResource(myAdsItem.getItemImage());
-        holder.binding.txItemName.setText(myAdsItem.getItemName());
-        holder.binding.txItemPrice.setText(myAdsItem.getItemPrice());
-        holder.binding.txItemLocation.setText(myAdsItem.getItemLocation());
+        Glide.with(context).load(ApiUtilities.SellItemImage+myAdsItem.getItem_img()).into(holder.binding.igItemImage);
+        holder.binding.txItemName.setText(myAdsItem.getTitle());
+        holder.binding.txItemPrice.setText(String.valueOf("₹ "+myAdsItem.getPrice()));
+        holder.binding.txDesc.setText(myAdsItem.getDescription());
+        holder.binding.txItemLocation.setText(String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()));
         holder.binding.txDate.setText(myAdsItem.getDate());
-        holder.binding.txViews.setText(myAdsItem.getItemViews());
-        holder.binding.txLikes.setText(myAdsItem.getItemLikes());
 
     }
 

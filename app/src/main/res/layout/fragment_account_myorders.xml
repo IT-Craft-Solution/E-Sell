@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.AccountMyordersFragment">
 
-
     <ImageView
         android:id="@+id/igMyOrdersToAccount"
         android:layout_width="wrap_content"

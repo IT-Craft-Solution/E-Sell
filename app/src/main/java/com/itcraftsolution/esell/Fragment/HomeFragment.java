@@ -2,6 +2,7 @@ package com.itcraftsolution.esell.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,15 +37,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Adapter.HomeCatRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Model.HomeCategory;
-import com.itcraftsolution.esell.Model.HomeFreshItem;
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentHomeBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment {
@@ -57,9 +64,12 @@ public class HomeFragment extends Fragment {
     private String Sublocality,Locality,City;
     private FragmentHomeBinding binding;
     private ArrayList<HomeCategory> homeCategories;
-    private ArrayList<HomeFreshItem> homeFreshItems;
+    private HomeFreshItemRecyclerAdapter homeFreshitem;
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
+    private SpfUserData spfdata;
+    private ProgressDialog dialog;
+    private int UserId;
     private SharedPreferences spf;
 
     @Override
@@ -67,8 +77,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
+        dialog = new ProgressDialog(requireContext());
+        dialog.setCancelable(false);
+        dialog.setMessage("Data Updating....");
+        dialog.show();
 
-
+        FetchData();
 
         binding.tvCityName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,22 +113,6 @@ public class HomeFragment extends Fragment {
         binding.rvHomeCategory.setLayoutManager(linearLayoutManager);
         binding.rvHomeCategory.setAdapter(adapter);
 
-        homeFreshItems = new ArrayList<>();
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "I Phone 11 Pro navpo aayo ae ho" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-        homeFreshItems.add(new HomeFreshItem(R.drawable.testing , "Iphone 11 Pro" , "11.00.000" , "Limbdi"));
-
-        HomeFreshItemRecyclerAdapter homeFreshItemadapter = new HomeFreshItemRecyclerAdapter(getContext() , homeFreshItems);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
-        binding.rvHomeFreshItems.setLayoutManager(gridLayoutManager);
-        binding.rvHomeFreshItems.setAdapter(homeFreshItemadapter);
 
         binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +137,38 @@ public class HomeFragment extends Fragment {
 
         return binding.getRoot();
     }
+    private void FetchData()
+    {
+        spfdata = new SpfUserData();
+        UserId = spfdata.getSpf(requireContext()).getInt("UserId",0);
+
+        ApiUtilities.apiInterface().ReadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
+            @Override
+            public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
+                List<MyAdsItem> list = response.body();
+                if(list != null)
+                {
+                    if(list.get(0).getMessage() == null)
+                    {
+                        homeFreshitem = new HomeFreshItemRecyclerAdapter(requireContext(),list);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
+                        binding.rvHomeFreshItems.setLayoutManager(gridLayoutManager);
+                        dialog.dismiss();
+                        binding.rvHomeFreshItems.setAdapter(homeFreshitem);
+                    }else {
+
+                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
+                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
