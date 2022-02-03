@@ -33,6 +33,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -41,7 +42,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiUtilities;
-import com.itcraftsolution.esell.Model.ResponceInsert;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
+import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -67,13 +69,15 @@ public class SellItemFormFragment extends Fragment {
     }
 
     private FragmentSellItemFormBinding binding;
-    private  String Title, Desc,Price,Sublocality,Locality,City, Category,encodeImageString;
-    private int UserId;
+    private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice;
+    private int UserId, Insert, Update;
     FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
+    private LoadingDialog loadingDialog;
     private boolean CheckImage = false;
     int PERMISSION_ID = 44;
+    private SpfUserData spf;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -81,6 +85,17 @@ public class SellItemFormFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSellItemFormBinding.inflate(getLayoutInflater());
 
+        loadingDialog = new LoadingDialog(requireActivity());
+        spf = new SpfUserData();
+        Category = spf.getSpfHome(requireContext()).getString("Category", null);
+        Insert = spf.getSpfHome(requireContext()).getInt("Insert", 0);
+        Update = spf.getSpfHome(requireContext()).getInt("Update", 0);
+        if (Update == 1) {
+            loadingDialog.StartLoadingDialog();
+            LoadData();
+            loadingDialog.StopLoadingDialog();
+            Toast.makeText(requireContext(), "Update", Toast.LENGTH_SHORT).show();
+        }
         ImageUris = new ArrayList<>();
 
 
@@ -88,12 +103,11 @@ public class SellItemFormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer, new MyAddFragment())
                         .addToBackStack(null).commit();
             }
         });
-
 
 
         binding.btnVerify.setOnClickListener(new View.OnClickListener() {
@@ -111,28 +125,24 @@ public class SellItemFormFragment extends Fragment {
 //                mGetContent.launch("image/*");
 
                 Intent intent = new Intent();
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                mGetContent.launch(Intent.createChooser(intent,"Select Image(s)"));
+                mGetContent.launch(Intent.createChooser(intent, "Select Image(s)"));
 
             }
         });
-
 
 
         binding.btnSellItemFormNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(Objects.requireNonNull(binding.edSellItemFormTitle.getText()).toString().length() <= 4)
-                {
+                if (Objects.requireNonNull(binding.edSellItemFormTitle.getText()).toString().length() <= 4) {
                     binding.txFormTitleError.setText("* Title must be Minimum 5 characters");
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.red));
                     binding.edSellItemFormTitle.requestFocus();
-                }
-                else if(Objects.requireNonNull(binding.edSellItemFormDesc.getText()).toString().length() <= 7)
-                {
+                } else if (Objects.requireNonNull(binding.edSellItemFormDesc.getText()).toString().length() <= 7) {
                     binding.txFormDescError.setText("* Description must be Minimum 8 characters");
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -140,89 +150,131 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.edSellItemFormDesc.requestFocus();
 
-                }
-                else if(Objects.requireNonNull(binding.edSellItemFormPrice.getText()).toString().isEmpty())
-                {
+                } else if (Objects.requireNonNull(binding.edSellItemFormPrice.getText()).toString().isEmpty()) {
                     binding.txFormPriceError.setText("* Price Must be in Indian Currency");
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.edSellItemFormPrice.requestFocus();
-                }
-                else if(Integer.parseInt(binding.edSellItemFormPrice.getText().toString()) <= 150)
-                {
+                } else if (Integer.parseInt(binding.edSellItemFormPrice.getText().toString()) <= 150) {
                     binding.txFormPriceError.setText("* Price must be Minimum 150 Rupees");
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.edSellItemFormPrice.requestFocus();
-                }
-                else if(binding.txLocation.getText().toString().equals("CityName")){
+                } else if (binding.txLocation.getText().toString().equals("CityName")) {
                     binding.txFormLocationError.setText("Please Confirm Your Location");
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocation.requestFocus();
-                }
-                else if (!CheckImage){
+                } else if (!CheckImage) {
                     binding.txSelectImagesError.setText("Please Select Item Images");
                     binding.txSelectImagesError.setTextColor(getResources().getColor(R.color.red));
                     binding.txFormPriceError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormTitleError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormDescError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
-                }
-                else {
-                    //cat_name,title,description,price,location,city_area,item_img,status
-                    SpfUserData spfUserData = new SpfUserData();
-                    Category = spfUserData.getSpfHome(requireContext()).getString("Category", null);
-                    UserId = spfUserData.getSpf(requireContext()).getInt("UserId",0);
-                    Title = binding.edSellItemFormTitle.getText().toString();
-                    Desc = binding.edSellItemFormDesc.getText().toString();
-                    Price = binding.edSellItemFormPrice.getText().toString();
+                } else {
 
-                    ApiUtilities.apiInterface().InsertSellItem(UserId,Category,Title,Desc,Integer.parseInt(Price),Locality, Sublocality,encodeImageString,1)
-                            .enqueue(new Callback<ResponceInsert>() {
-                                @Override
-                                public void onResponse(Call<ResponceInsert> call, Response<ResponceInsert> response) {
-                                    ResponceInsert responceInsert = response.body();
-                                    if(responceInsert != null)
-                                    {
-                                        Toast.makeText(requireActivity(), ""+responceInsert.getMessage(), Toast.LENGTH_SHORT).show();
-                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                                        fragmentTransaction.replace(R.id.frMainContainer , new CongressScreenFragment())
-                                                .addToBackStack(null).commit();
+                    if (Update == 1) {
+                        loadingDialog.StartLoadingDialog();
+                        Update = 0;
+                        UserId = spf.getSpf(requireContext()).getInt("UserId", 0);
+                        Category = spf.getSpfHome(requireContext()).getString("Category", null);
+                        Title = binding.edSellItemFormTitle.getText().toString();
+                        Desc = binding.edSellItemFormDesc.getText().toString();
+                        Price = binding.edSellItemFormPrice.getText().toString();
 
-                                    }else {
+                        ApiUtilities.apiInterface().UpdateSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+                                .enqueue(new Callback<ResponceModel>() {
+                                    @Override
+                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                        ResponceModel responceModel = response.body();
+                                        if (responceModel != null) {
+                                            loadingDialog.StopLoadingDialog();
+                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+                                                    .addToBackStack(null).commit();
+                                        } else {
+                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
                                         Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                     }
-                                }
-                                @Override
-                                public void onFailure(Call<ResponceInsert> call, Throwable t) {
-                                    Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                });
+                    }
+                    else {
+                        loadingDialog.StartLoadingDialog();
+                        //cat_name,title,description,price,location,city_area,item_img,status
+                        SpfUserData spfUserData = new SpfUserData();
+                        Category = spfUserData.getSpfHome(requireContext()).getString("Category", null);
+                        UserId = spfUserData.getSpf(requireContext()).getInt("UserId", 0);
+                        Title = binding.edSellItemFormTitle.getText().toString();
+                        Desc = binding.edSellItemFormDesc.getText().toString();
+                        Price = binding.edSellItemFormPrice.getText().toString();
+
+                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+                                .enqueue(new Callback<ResponceModel>() {
+                                    @Override
+                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                        ResponceModel responceModel = response.body();
+                                        if (responceModel != null) {
+                                            loadingDialog.StopLoadingDialog();
+                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+                                                    .addToBackStack(null).commit();
+
+                                        } else {
+                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                        Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
                 }
             }
         });
         return binding.getRoot();
     }
 
+    private void LoadData() {
+
+        OldTitle = spf.getSpfHome(requireContext()).getString("Title", null);
+        OldDesc = spf.getSpfHome(requireContext()).getString("Desc", null);
+        OldPrice = spf.getSpfHome(requireContext()).getString("Price", null);
+
+        binding.edSellItemFormTitle.setText(OldTitle);
+        binding.edSellItemFormDesc.setText(OldDesc);
+        binding.edSellItemFormPrice.setText(OldPrice);
+        if(Update == 1)
+        {
+            binding.btnSellItemFormNext.setText("Update Post");
+        }
+    }
+
     ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode()== Activity.RESULT_OK)
-                    {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
 
-                        if(data != null){
+                        if (data != null) {
 
-                            if (data.getClipData() !=null) {
+                            if (data.getClipData() != null) {
 
                                 int Count = data.getClipData().getItemCount();
                                 for (int i = 0; i < Count; i++) {
@@ -246,9 +298,8 @@ public class SellItemFormFragment extends Fragment {
                                     bitmap = BitmapFactory.decodeStream(inputStream);
                                     encodeBitmapImage(bitmap);
                                     CheckImage = true;
-                                }catch (Exception e)
-                                {
-                                    Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                } catch (Exception e) {
+                                    Toast.makeText(requireContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -263,7 +314,7 @@ public class SellItemFormFragment extends Fragment {
 
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,70, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);
         binding.imageView9.setImageBitmap(bitmap);
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
         encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
@@ -296,7 +347,7 @@ public class SellItemFormFragment extends Fragment {
 
                                 Locality = addresses.get(0).getLocality();
                                 Sublocality = addresses.get(0).getSubLocality();
-                                City = Sublocality +", "+Locality;
+                                City = Sublocality + ", " + Locality;
                                 binding.txLocation.setVisibility(View.VISIBLE);
                                 binding.btnVerify.setVisibility(View.INVISIBLE);
                                 binding.txLocation.setText(City);
@@ -352,14 +403,13 @@ public class SellItemFormFragment extends Fragment {
 
                 Locality = addresses.get(0).getLocality();
                 Sublocality = addresses.get(0).getSubLocality();
-                City = Sublocality +","+Locality;
+                City = Sublocality + "," + Locality;
                 binding.txLocation.setText(City);
 
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
 
         }
@@ -393,7 +443,7 @@ public class SellItemFormFragment extends Fragment {
     // If everything is alright then
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -401,7 +451,6 @@ public class SellItemFormFragment extends Fragment {
             }
         }
     }
-
 
 
 //    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),

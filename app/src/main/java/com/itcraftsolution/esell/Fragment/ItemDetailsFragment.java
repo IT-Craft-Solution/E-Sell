@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -28,6 +29,7 @@ public class ItemDetailsFragment extends Fragment {
    private  FragmentItemDetailsBinding binding;
     private SpfUserData spf;
     private String ItemImg,ItemPrice,ItemDesc,ItemTitle,ItemLocation;
+    private int ItemId;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class ItemDetailsFragment extends Fragment {
         ItemTitle = spf.getItemDetails(requireContext()).getString("ItemTitle",null);
         ItemDesc = spf.getItemDetails(requireContext()).getString("ItemDesc",null);
         ItemLocation = spf.getItemDetails(requireContext()).getString("ItemLocation",null);
-
+        ItemId = spf.getItemDetails(requireContext()).getInt("ItemId", 0);
         Glide.with(requireContext()).load(ApiUtilities.SellItemImage+ItemImg).into(binding.igItemDetails);
         binding.txItemDetailsLocation.setText(ItemLocation);
         binding.txItemDetailsName.setText(ItemTitle);

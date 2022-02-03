@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.itcraftsolution.esell.Adapter.MyAdsItemAdapter;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentAdsBinding;
@@ -38,7 +39,7 @@ public class AdsFragment extends Fragment {
     private SpfUserData spf;
     private MyAdsItemAdapter adapter;
     private int UserId;
-    private ProgressDialog dialog;
+    private LoadingDialog loadingDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,14 +47,10 @@ public class AdsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAdsBinding.inflate(getLayoutInflater());
 
-        dialog = new ProgressDialog(requireContext());
-        dialog.setCancelable(false);
-        dialog.setMessage("Data Updating....");
-        dialog.show();
+        loadingDialog = new LoadingDialog(requireActivity());
+        loadingDialog.StartLoadingDialog();
 
         FetchData();
-
-
 
         return binding.getRoot();
     }
@@ -74,10 +71,10 @@ public class AdsFragment extends Fragment {
                   adapter = new MyAdsItemAdapter(requireContext(),list);
                   GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
                   binding.rvMyAdsItem.setLayoutManager(gridLayoutManager);
-                  dialog.dismiss();
+                  loadingDialog.StopLoadingDialog();
                   binding.rvMyAdsItem.setAdapter(adapter);
               }else {
-
+                  loadingDialog.StopLoadingDialog();
                   Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
               }
             }

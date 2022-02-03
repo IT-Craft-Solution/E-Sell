@@ -1,9 +1,9 @@
 package com.itcraftsolution.esell.Model;
 
-public class ResponceInsert {
+public class ResponceModel {
     private String message ;
 
-    public ResponceInsert(String message) {
+    public ResponceModel(String message) {
         this.message = message;
     }
 

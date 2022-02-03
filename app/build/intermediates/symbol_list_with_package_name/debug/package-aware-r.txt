@@ -4846,6 +4846,7 @@ layout fragment_user_profile
 layout home_cat_show_sample
 layout home_category_sample
 layout home_freshitem_sample
+layout loadingdialog
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

@@ -46,7 +46,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.MainActivity;
-import com.itcraftsolution.esell.Model.ResponceInsert;
+import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -165,13 +165,13 @@ public class UserProfileFragment extends Fragment {
                     spfUserData = new SpfUserData();
                     spfUserData.setSpf(requireContext(), 0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
                     ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
-                            .enqueue(new Callback<ResponceInsert>() {
+                            .enqueue(new Callback<ResponceModel>() {
                                 @Override
-                                public void onResponse(Call<ResponceInsert> call, Response<ResponceInsert> response) {
-                                    ResponceInsert responceInsert = response.body();
-                                    if(responceInsert != null)
+                                public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                    ResponceModel responceModel = response.body();
+                                    if(responceModel != null)
                                     {
-                                        Toast.makeText(requireActivity(), ""+responceInsert.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(requireActivity(), ""+ responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getContext(), MainActivity.class);
                                         startActivity(intent);
                                         requireActivity().finishAffinity();
@@ -182,7 +182,7 @@ public class UserProfileFragment extends Fragment {
                                 }
 
                                 @Override
-                                public void onFailure(Call<ResponceInsert> call, Throwable t) {
+                                public void onFailure(Call<ResponceModel> call, Throwable t) {
                                     Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });

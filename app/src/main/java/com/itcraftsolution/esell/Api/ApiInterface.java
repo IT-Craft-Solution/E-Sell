@@ -1,7 +1,7 @@
 package com.itcraftsolution.esell.Api;
 
 import com.itcraftsolution.esell.Model.MyAdsItem;
-import com.itcraftsolution.esell.Model.ResponceInsert;
+import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.Model.UserModel;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("user/create_user.php")
-    Call<ResponceInsert> InsertUser(
+    Call<ResponceModel> InsertUser(
             @Field("phone") String phone,
             @Field("user_email") String email, @Field("user_img") String user_img,
             @Field("user_name") String user_name, @Field("user_bio") String user_bio,
@@ -33,7 +33,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("post/create_post.php")
-    Call<ResponceInsert> InsertSellItem(
+    Call<ResponceModel> InsertSellItem(
             @Field("user_id") int user_id, @Field("cat_name") String cat_name,
             @Field("title") String title, @Field("description") String description,
             @Field("price") int price, @Field("location") String location,
@@ -46,6 +46,23 @@ public interface ApiInterface {
     Call<List<MyAdsItem>> ReadSellItem(
             @Field("user_id") int user_id
     );
+
+    @FormUrlEncoded
+    @POST("post/update_post.php")
+    Call<ResponceModel> UpdateSellItem(
+            @Field("id") int id, @Field("cat_name") String cat_name,
+            @Field("title") String title, @Field("description") String description,
+            @Field("price") int price, @Field("location") String location,
+            @Field("city_area") String city_area, @Field("item_img") String item_img,
+            @Field("status") int status
+    );
+
+    @FormUrlEncoded
+    @POST("post/delete_post.php")
+    Call<ResponceModel> DeleteSellItem(
+            @Field("id") int id
+    );
+
 
 
 }

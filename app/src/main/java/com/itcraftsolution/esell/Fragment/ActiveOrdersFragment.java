@@ -15,6 +15,7 @@ import com.itcraftsolution.esell.Adapter.ActiveOrderRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
 import com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.HomeCatShow;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
@@ -41,18 +42,15 @@ public class ActiveOrdersFragment extends Fragment {
     private ProgressDialog dialog;
     private int UserId;
     private ActiveOrderRecyclerAdapter adapter;
-
+    private LoadingDialog loadingDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentActiveOrdersBinding.inflate(getLayoutInflater());
 
-        dialog = new ProgressDialog(requireContext());
-        dialog.setCancelable(false);
-        dialog.setMessage("Data Updating....");
-        dialog.show();
-
+        loadingDialog = new LoadingDialog(requireActivity());
+        loadingDialog.StartLoadingDialog();
         FetchData();
 
 
@@ -75,10 +73,10 @@ public class ActiveOrdersFragment extends Fragment {
                         adapter= new ActiveOrderRecyclerAdapter(requireContext(),list);
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
                         binding.rvActiveOrdersItem.setLayoutManager(gridLayoutManager);
-                        dialog.dismiss();
+                        loadingDialog.StopLoadingDialog();
                         binding.rvActiveOrdersItem.setAdapter(adapter);
                     }else {
-
+                        loadingDialog.StopLoadingDialog();
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
                 }

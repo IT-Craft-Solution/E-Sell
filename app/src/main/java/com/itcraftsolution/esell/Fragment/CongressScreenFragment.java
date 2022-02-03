@@ -35,7 +35,7 @@ public class CongressScreenFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(CongressScreenFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment())
+                fragmentTransaction.replace(R.id.frMainContainer , new MyAddFragment())
                         .addToBackStack(null).commit();
             }
         });

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSplashBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 
 public class SplashFragment extends Fragment {
@@ -34,6 +35,7 @@ public class SplashFragment extends Fragment {
     private Animation topAnim, bottomAnim;
     private static final int SPLASH_SCREEN = 1800;
     private FirebaseAuth auth;
+    private int UserStatus;
 
 
     @Override
@@ -58,7 +60,9 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(auth.getCurrentUser() != null)
+                SpfUserData spfUserData = new SpfUserData();
+                UserStatus = spfUserData.getSpf(requireContext()).getInt("UserStatus",0);
+                if(auth.getCurrentUser() != null && UserStatus == 1)
                 {
                     Intent intent = new Intent(getContext() , MainActivity.class);
                     startActivity(intent);

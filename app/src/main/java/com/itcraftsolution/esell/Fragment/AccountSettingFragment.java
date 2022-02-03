@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.UserLogin;
 import com.itcraftsolution.esell.databinding.FragmentAccountSettingFargmentBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 
 public class AccountSettingFragment extends Fragment {
@@ -30,6 +31,7 @@ public class AccountSettingFragment extends Fragment {
    private FragmentAccountSettingFargmentBinding binding;
     private FirebaseAuth auth;
     private SharedPreferences spf;
+    private boolean isDelete = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,10 +74,16 @@ public class AccountSettingFragment extends Fragment {
                       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                           @Override
                           public void onClick(DialogInterface dialog, int which) {
-                              auth.signOut();
-                              Intent intent = new Intent(getContext() , UserLogin.class);
-                              startActivity(intent);
-                              requireActivity().finishAffinity();
+                              SpfUserData spfUserData = new SpfUserData();
+                               isDelete = spfUserData.RemoveAllSpf(requireContext());
+                               if(isDelete)
+                               {
+                                   auth.signOut();
+                                   Intent intent = new Intent(getContext() , UserLogin.class);
+                                   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                   startActivity(intent);
+                                   requireActivity().finish();
+                               }
                           }
                       })
                       .setNegativeButton("No", null)

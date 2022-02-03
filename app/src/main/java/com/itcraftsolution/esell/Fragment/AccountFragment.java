@@ -69,21 +69,11 @@ public class AccountFragment extends Fragment {
         binding.llAccountLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("Logout Account")
-                        .setMessage("Are Sure To Logout This Account ?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                auth.signOut();
-                                Intent intent = new Intent(getContext() , UserLogin.class);
-                                startActivity(intent);
-                                requireActivity().finishAffinity();
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .setIcon(R.drawable .ic_baseline_outlet_24)
-                        .show();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(AccountFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new AccountSettingFragment());
+                fragmentTransaction.addToBackStack(null).commit();
 
             }
         });

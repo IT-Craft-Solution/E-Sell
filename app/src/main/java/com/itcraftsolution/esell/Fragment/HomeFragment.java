@@ -2,7 +2,6 @@ package com.itcraftsolution.esell.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,6 +36,7 @@ import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Adapter.HomeCatRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
@@ -68,8 +67,8 @@ public class HomeFragment extends Fragment {
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
     private SpfUserData spfdata;
-    private ProgressDialog dialog;
     private int UserId;
+    private LoadingDialog loadingDialog;
     private SharedPreferences spf;
 
     @Override
@@ -77,10 +76,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
-        dialog = new ProgressDialog(requireContext());
-        dialog.setCancelable(false);
-        dialog.setMessage("Data Updating....");
-        dialog.show();
+        loadingDialog = new LoadingDialog(requireActivity());
+        loadingDialog.StartLoadingDialog();
+
 
         FetchData();
 
@@ -153,10 +151,10 @@ public class HomeFragment extends Fragment {
                         homeFreshitem = new HomeFreshItemRecyclerAdapter(requireContext(),list);
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
                         binding.rvHomeFreshItems.setLayoutManager(gridLayoutManager);
-                        dialog.dismiss();
+                        loadingDialog.StopLoadingDialog();
                         binding.rvHomeFreshItems.setAdapter(homeFreshitem);
                     }else {
-
+                        loadingDialog.StopLoadingDialog();
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
                 }
