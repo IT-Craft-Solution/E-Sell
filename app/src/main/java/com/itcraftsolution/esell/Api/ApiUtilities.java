@@ -8,9 +8,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiUtilities {
-    private static final String BASE_URL= "http://192.168.0.102:80/all/";
-    public static final String UserImage ="http://192.168.0.102:80/all/user/images/";
-    public static final String SellItemImage ="http://192.168.0.102:80/all/post/images/";
+    private static final String BASE_URL= "https://esell.co.in/esell_api/";
+    public static final String UserImage ="https://esell.co.in/esell_api/user/images/";
+    public static final String SellItemImage ="https://esell.co.in/esell_api/post/images/";
     public static Retrofit retrofit = null;
 
     public static ApiInterface apiInterface()

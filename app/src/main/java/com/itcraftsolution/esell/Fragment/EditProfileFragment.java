@@ -149,7 +149,7 @@ public class EditProfileFragment extends Fragment {
                         binding.edProfileEmail.setText(model.getEmail());
                         binding.edProfileAbout.setText(model.getUser_bio());
                         binding.edProfilePhoneNumber.setText(model.getPhone());
-                        Glide.with(requireContext()).load("http://192.168.0.102:80/all/user/images/"+model.getUser_img())
+                        Glide.with(requireContext()).load(ApiUtilities.UserImage+model.getUser_img())
                                 .into(binding.igProfileDp);
                         data.setSpf(requireContext(), model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
                                 model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
@@ -184,8 +184,6 @@ public class EditProfileFragment extends Fragment {
                         if (Data != null){
 //                            binding.igProfileDp.setImageURI(Data.getData());
 //                            PhotoUri = Data.getData();
-
-
                         }
                     }
 
