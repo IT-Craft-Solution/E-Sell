@@ -39,7 +39,6 @@ public class ActiveOrdersFragment extends Fragment {
 
     private FragmentActiveOrdersBinding binding;
     private SpfUserData spfdata;
-    private ProgressDialog dialog;
     private int UserId;
     private ActiveOrderRecyclerAdapter adapter;
     private LoadingDialog loadingDialog;
@@ -62,7 +61,7 @@ public class ActiveOrdersFragment extends Fragment {
         spfdata = new SpfUserData();
         UserId = spfdata.getSpf(requireContext()).getInt("UserId",0);
 
-        ApiUtilities.apiInterface().ReadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
+        ApiUtilities.apiInterface().MyadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
                 List<MyAdsItem> list = response.body();

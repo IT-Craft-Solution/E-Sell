@@ -52,7 +52,7 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
     holder.binding.txSampleHomeFreshItemLocation.setText(String.valueOf(model.getCity_area()+" ,"+model.getLocation()));
         spf = new SpfUserData();
         spf.setItemDetail(context, model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
-                ,model.getDescription(),model.getId());
+                ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name());
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

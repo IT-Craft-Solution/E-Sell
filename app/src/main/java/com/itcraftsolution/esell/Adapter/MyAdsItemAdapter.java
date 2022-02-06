@@ -60,8 +60,8 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
         holder.binding.txItemLocation.setText(String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()));
         holder.binding.txDate.setText(myAdsItem.getDate());
         SpfUserData spf = new SpfUserData();
-        spf.setSpfHome(context,myAdsItem.getCat_name(),0,1,myAdsItem.getTitle(),myAdsItem.getDescription(),String.valueOf(myAdsItem.getPrice())
-                ,String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()),myAdsItem.getItem_img());
+        spf.setItemDetail(context,myAdsItem.getItem_img(),String.valueOf(myAdsItem.getPrice()),myAdsItem.getTitle(),String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()),
+                myAdsItem.getDescription(),myAdsItem.getId(),myAdsItem.getUser_id(),0,1,myAdsItem.getCat_name());
         holder.binding.txEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

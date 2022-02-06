@@ -79,6 +79,19 @@
             app:layout_constraintStart_toEndOf="@+id/igProfileDp"
             app:layout_constraintTop_toTopOf="@+id/igProfileDp" />
 
+        <TextView
+            android:id="@+id/txerrorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3mdp"
+            android:text="Fill Your Good Name"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintEnd_toEndOf="@+id/edProfileName"
+            app:layout_constraintStart_toEndOf="@+id/igProfileDp"
+            app:layout_constraintStart_toStartOf="@+id/edProfileName"
+            app:layout_constraintTop_toBottomOf="@+id/edProfileName" />
+
         <EditText
             android:id="@+id/edProfileAbout"
             android:layout_width="0dp"
@@ -91,18 +104,29 @@
             app:layout_constraintStart_toStartOf="@+id/igProfileDp"
             app:layout_constraintTop_toBottomOf="@+id/igProfileDp" />
 
+        <TextView
+            android:id="@+id/txerrorAbout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3mdp"
+            android:text="Filling Something About YourSelf"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintEnd_toEndOf="@+id/edProfileAbout"
+            app:layout_constraintStart_toStartOf="@+id/edProfileAbout"
+            app:layout_constraintTop_toBottomOf="@+id/edProfileAbout" />
 
         <TextView
             android:id="@+id/ContactInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12mdp"
             android:text="@string/contact_information"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_18font_mdp"
+            android:layout_marginTop="@dimen/_6mdp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/edProfileAbout"
-            app:layout_constraintTop_toBottomOf="@+id/edProfileAbout" />
+            app:layout_constraintTop_toBottomOf="@+id/txerrorAbout" />
 
 
         <TextView
@@ -179,16 +203,14 @@
             app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
 
 
-
         <ImageView
             android:id="@+id/igVerify"
             android:layout_width="@dimen/_20mdp"
             android:layout_height="@dimen/_29mdp"
-            android:layout_marginStart="16dp"
             android:src="@drawable/verify1"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/editProfileHead"
-            app:layout_constraintStart_toEndOf="@+id/editProfileHead"
+            app:layout_constraintEnd_toEndOf="@+id/txSave"
             app:layout_constraintTop_toTopOf="@+id/editProfileHead"
             app:layout_constraintVertical_bias="0.0" />
 

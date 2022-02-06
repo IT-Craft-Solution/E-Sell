@@ -32,6 +32,12 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
+    @POST("user/update_user.php")
+    Call<ResponceModel> UpdateUser(
+            @Field("id") int id, @Field("user_img") String user_img,
+            @Field("user_name")String username,@Field("user_bio")String userbio
+    );
+    @FormUrlEncoded
     @POST("post/create_post.php")
     Call<ResponceModel> InsertSellItem(
             @Field("user_id") int user_id, @Field("cat_name") String cat_name,
@@ -42,10 +48,14 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
-    @POST("post/read_post.php")
-    Call<List<MyAdsItem>> ReadSellItem(
+    @POST("post/myad_post.php")
+    Call<List<MyAdsItem>> MyadSellItem(
             @Field("user_id") int user_id
     );
+
+    @POST("post/read_post.php")
+    Call<List<MyAdsItem>> ReadSellItem();
+
 
     @FormUrlEncoded
     @POST("post/update_post.php")
@@ -56,6 +66,7 @@ public interface ApiInterface {
             @Field("city_area") String city_area, @Field("item_img") String item_img,
             @Field("status") int status
     );
+
 
     @FormUrlEncoded
     @POST("post/delete_post.php")

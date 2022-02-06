@@ -97,6 +97,7 @@ public class AccountFragment extends Fragment {
        Name = spf.getSpf(requireContext()).getString("UserName",null);
        About = spf.getSpf(requireContext()).getString("UserBio",null);
 
+
        binding.txUserName.setText(Name);
        binding.txUserAbout.setText(About);
         Glide.with(requireContext()).load(ApiUtilities.UserImage +Image)

@@ -34,36 +34,40 @@ public class SpfUserData {
         return sharedPreferences;
     }
 
-    public void setSpfHome(Context context,String Category,int Insert, int Update,String Title,String Desc, String Price,String Location, String Img)
-    {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Category", Category);
-        editor.putInt("Insert", Insert);
-        editor.putInt("Update", Update);
-        editor.putString("Title", Title);
-        editor.putString("Desc", Desc);
-        editor.putString("Price", Price);
-        editor.putString("Location", Location);
-        editor.putString("Img", Img);
-        editor.apply();
-    }
-    public SharedPreferences getSpfHome(Context context)
-    {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
-
-        return sharedPreferences;
-    }
-    public void setItemDetail(Context context,String Img,String Price,String Title,String Location,String Desc,int Id)
+//    public void setSpfHome(Context context,String Category,int Insert, int Update,String Title,String Desc, String Price,String Location, String Img)
+//    {
+//        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString("Category", Category);
+//        editor.putInt("Insert", Insert);
+//        editor.putInt("Update", Update);
+//        editor.putString("Title", Title);
+//        editor.putString("Desc", Desc);
+//        editor.putString("Price", Price);
+//        editor.putString("Location", Location);
+//        editor.putString("Img", Img);
+//        editor.apply();
+//    }
+//    public SharedPreferences getSpfHome(Context context)
+//    {
+//        SharedPreferences sharedPreferences = context.getSharedPreferences("UserHomeDetails", Context.MODE_PRIVATE);
+//
+//        return sharedPreferences;
+//    }
+    public void setItemDetail(Context context,String Img,String Price,String Title,String Location,String Desc,int Id, int UserId ,int Insert, int Update,String Category)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ItemDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("ItemId", Id);
+        editor.putInt("UserId", UserId);
         editor.putString("ItemImg", Img);
         editor.putString("ItemPrice", Price);
         editor.putString("ItemTitle", Title);
         editor.putString("ItemLocation", Location);
         editor.putString("ItemDesc", Desc);
+        editor.putString("Category", Category);
+        editor.putInt("Insert", Insert);
+        editor.putInt("Update", Update);
         editor.apply();
     }
     public SharedPreferences getItemDetails(Context context)

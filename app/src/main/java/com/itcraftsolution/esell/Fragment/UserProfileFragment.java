@@ -45,6 +45,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.R;
@@ -75,6 +76,7 @@ public class UserProfileFragment extends Fragment {
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
     private SpfUserData spfUserData;
+    private LoadingDialog loadingDialog;
     private GoogleSignInAccount account;
     Uri uri;
     boolean CheckImage = false;
@@ -85,6 +87,7 @@ public class UserProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentUserProfileBinding.inflate(getLayoutInflater());
 
+        loadingDialog = new LoadingDialog(requireActivity());
         LoadData();
         binding.igProfileDp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +149,7 @@ public class UserProfileFragment extends Fragment {
                 }
                 else
                 {
+                    loadingDialog.StartLoadingDialog();
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -171,18 +175,27 @@ public class UserProfileFragment extends Fragment {
                                     ResponceModel responceModel = response.body();
                                     if(responceModel != null)
                                     {
-                                        Toast.makeText(requireActivity(), ""+ responceModel.getMessage(), Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getContext(), MainActivity.class);
-                                        startActivity(intent);
-                                        requireActivity().finishAffinity();
+                                        if(responceModel.getMessage().equals("fail"))
+                                        {
+                                            Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getContext(), MainActivity.class);
+                                            startActivity(intent);
+                                            requireActivity().finishAffinity();
+                                        }
+
 
                                     }else {
                                         Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                     }
+                                    loadingDialog.StopLoadingDialog();
                                 }
 
                                 @Override
                                 public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                    loadingDialog.StopLoadingDialog();
                                     Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -413,21 +426,6 @@ public class UserProfileFragment extends Fragment {
         binding.igProfileDp.setImageBitmap(bitmap);
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();
         encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
-    }
-
-    private String getPath(Uri uri) {
-
-        Cursor cursor = requireContext().getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        String document_id = cursor.getString(0);
-        document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
-        cursor = requireContext().getContentResolver().query(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, MediaStore.Images.Media._ID + "=?", new String[]{document_id}, null
-        );
-        cursor.moveToFirst();
-            String path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
-        cursor.close();
-        return path;
     }
 
 }

@@ -14,6 +14,13 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
+import android.provider.Settings;
+import android.util.Base64;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -24,16 +31,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Looper;
-import android.provider.Settings;
-import android.util.Base64;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-
-import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -70,7 +67,7 @@ public class SellItemFormFragment extends Fragment {
 
     private FragmentSellItemFormBinding binding;
     private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice;
-    private int UserId, Insert, Update;
+    private int UserId, Insert, Update,Id;
     FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
@@ -87,9 +84,9 @@ public class SellItemFormFragment extends Fragment {
 
         loadingDialog = new LoadingDialog(requireActivity());
         spf = new SpfUserData();
-        Category = spf.getSpfHome(requireContext()).getString("Category", null);
-        Insert = spf.getSpfHome(requireContext()).getInt("Insert", 0);
-        Update = spf.getSpfHome(requireContext()).getInt("Update", 0);
+        Category = spf.getItemDetails(requireContext()).getString("Category", null);
+        Insert = spf.getItemDetails(requireContext()).getInt("Insert", 0);
+        Update = spf.getItemDetails(requireContext()).getInt("Update", 0);
         if (Update == 1) {
             loadingDialog.StartLoadingDialog();
             LoadData();
@@ -97,7 +94,6 @@ public class SellItemFormFragment extends Fragment {
             Toast.makeText(requireContext(), "Update", Toast.LENGTH_SHORT).show();
         }
         ImageUris = new ArrayList<>();
-
 
         binding.igSellItemBackCat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,13 +179,13 @@ public class SellItemFormFragment extends Fragment {
                     if (Update == 1) {
                         loadingDialog.StartLoadingDialog();
                         Update = 0;
-                        UserId = spf.getSpf(requireContext()).getInt("UserId", 0);
-                        Category = spf.getSpfHome(requireContext()).getString("Category", null);
+                        Category = spf.getItemDetails(requireContext()).getString("Category", null);
+                        Id = spf.getItemDetails(requireContext()).getInt("ItemId", 0);
                         Title = binding.edSellItemFormTitle.getText().toString();
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
 
-                        ApiUtilities.apiInterface().UpdateSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+                        ApiUtilities.apiInterface().UpdateSellItem(Id, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
                                 .enqueue(new Callback<ResponceModel>() {
                                     @Override
                                     public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
@@ -201,13 +197,15 @@ public class SellItemFormFragment extends Fragment {
                                             fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
                                                     .addToBackStack(null).commit();
                                         } else {
-                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(requireActivity(), "Something went Wrong! model khali", Toast.LENGTH_SHORT).show();
                                         }
+                                        loadingDialog.StopLoadingDialog();
                                     }
 
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
-                                        Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                        loadingDialog.StopLoadingDialog();
+                                        Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     }
@@ -215,7 +213,7 @@ public class SellItemFormFragment extends Fragment {
                         loadingDialog.StartLoadingDialog();
                         //cat_name,title,description,price,location,city_area,item_img,status
                         SpfUserData spfUserData = new SpfUserData();
-                        Category = spfUserData.getSpfHome(requireContext()).getString("Category", null);
+                        Category = spfUserData.getItemDetails(requireContext()).getString("Category", null);
                         UserId = spfUserData.getSpf(requireContext()).getInt("UserId", 0);
                         Title = binding.edSellItemFormTitle.getText().toString();
                         Desc = binding.edSellItemFormDesc.getText().toString();
@@ -234,12 +232,14 @@ public class SellItemFormFragment extends Fragment {
                                                     .addToBackStack(null).commit();
 
                                         } else {
+                                            loadingDialog.StopLoadingDialog();
                                             Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                        loadingDialog.StopLoadingDialog();
                                         Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -252,9 +252,9 @@ public class SellItemFormFragment extends Fragment {
 
     private void LoadData() {
 
-        OldTitle = spf.getSpfHome(requireContext()).getString("Title", null);
-        OldDesc = spf.getSpfHome(requireContext()).getString("Desc", null);
-        OldPrice = spf.getSpfHome(requireContext()).getString("Price", null);
+        OldTitle = spf.getItemDetails(requireContext()).getString("ItemTitle", null);
+        OldDesc = spf.getItemDetails(requireContext()).getString("ItemDesc", null);
+        OldPrice = spf.getItemDetails(requireContext()).getString("ItemPrice", null);
 
         binding.edSellItemFormTitle.setText(OldTitle);
         binding.edSellItemFormDesc.setText(OldDesc);
@@ -289,9 +289,6 @@ public class SellItemFormFragment extends Fragment {
 
                             } else {
                                 Uri imageUri = data.getData();
-//                                ImageUris.add(imageUri);
-
-//                                binding.imageView9.setImageURI(ImageUris.get(0));
 
                                 try {
                                     InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
@@ -302,7 +299,6 @@ public class SellItemFormFragment extends Fragment {
                                     Toast.makeText(requireContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
-
 
                         }
 

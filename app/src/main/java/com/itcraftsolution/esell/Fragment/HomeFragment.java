@@ -64,8 +64,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private ArrayList<HomeCategory> homeCategories;
     private HomeFreshItemRecyclerAdapter homeFreshitem;
-    FusedLocationProviderClient mFusedLocationClient;
-    int PERMISSION_ID = 44;
+    private FusedLocationProviderClient mFusedLocationClient;
+    private int PERMISSION_ID = 44;
     private SpfUserData spfdata;
     private int UserId;
     private LoadingDialog loadingDialog;
@@ -88,7 +88,6 @@ public class HomeFragment extends Fragment {
                 //to get location
                 mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
                 getLastLocation();
-
             }
         });
         //get User Current Location & Print it.
@@ -140,7 +139,7 @@ public class HomeFragment extends Fragment {
         spfdata = new SpfUserData();
         UserId = spfdata.getSpf(requireContext()).getInt("UserId",0);
 
-        ApiUtilities.apiInterface().ReadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
+        ApiUtilities.apiInterface().ReadSellItem().enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
                 List<MyAdsItem> list = response.body();
@@ -162,6 +161,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
+                loadingDialog.StopLoadingDialog();
                 Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -300,14 +300,6 @@ public class HomeFragment extends Fragment {
             }
         }
     }
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (checkPermissions()) {
-//            getLastLocation();
-//        }
-//    }
 
     private void StoreUserLocation(String UserLocation)
     {

@@ -40,7 +40,6 @@ public class AccountSettingFragment extends Fragment {
       binding = FragmentAccountSettingFargmentBinding .inflate(getLayoutInflater());
 
         auth = FirebaseAuth.getInstance();
-
         spf = requireContext().getSharedPreferences("ThemeMode" , Context.MODE_PRIVATE);
         binding.btnSwitch.setChecked(spf.getBoolean("ThemeMode",false));
 
