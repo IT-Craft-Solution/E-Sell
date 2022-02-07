@@ -53,8 +53,8 @@ public class AdsFragment extends Fragment {
 
     private  void FetchData()
     {
-        spf = new SpfUserData();
-        UserId = spf.getSpf(requireContext()).getInt("UserId",0);
+        spf = new SpfUserData(requireContext());
+        UserId = spf.getSpf().getInt("UserId",0);
 
         ApiUtilities.apiInterface().MyadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
             @Override

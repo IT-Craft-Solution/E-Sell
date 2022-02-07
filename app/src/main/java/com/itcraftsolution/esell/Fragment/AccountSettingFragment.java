@@ -14,12 +14,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
+import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.UserLogin;
 import com.itcraftsolution.esell.databinding.FragmentAccountSettingFargmentBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class AccountSettingFragment extends Fragment {
@@ -32,6 +40,8 @@ public class AccountSettingFragment extends Fragment {
     private FirebaseAuth auth;
     private SharedPreferences spf;
     private boolean isDelete = false;
+    private int UserId;
+    private LoadingDialog loadingDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,16 +83,42 @@ public class AccountSettingFragment extends Fragment {
                       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                           @Override
                           public void onClick(DialogInterface dialog, int which) {
-                              SpfUserData spfUserData = new SpfUserData();
-                               isDelete = spfUserData.RemoveAllSpf(requireContext());
-                               if(isDelete)
-                               {
-                                   auth.signOut();
-                                   Intent intent = new Intent(getContext() , UserLogin.class);
-                                   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                   startActivity(intent);
-                                   requireActivity().finish();
-                               }
+                              SpfUserData spfUserData = new SpfUserData(requireContext());
+                              UserId =spfUserData.getSpf().getInt("UserId",0);
+                              loadingDialog = new LoadingDialog(requireActivity());
+                              loadingDialog.StartLoadingDialog();
+                              ApiUtilities.apiInterface().LastUpdateUser(UserId,0)
+                              .enqueue(new Callback<ResponceModel>() {
+                                  @Override
+                                  public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                      ResponceModel responceModel = response.body();
+                                      if(responceModel != null) {
+                                          if (responceModel.getMessage().equals("fail")) {
+                                              loadingDialog.StopLoadingDialog();
+                                              Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                          } else {
+                                              loadingDialog.StopLoadingDialog();
+                                              Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                              isDelete = spfUserData.RemoveAllSpf(requireContext());
+                                              if(isDelete)
+                                              {
+                                                  auth.signOut();
+                                                  Intent intent = new Intent(getContext() , UserLogin.class);
+                                                  intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                  startActivity(intent);
+                                                  requireActivity().finish();
+                                              }
+                                          }
+                                      }
+                                  }
+
+                                  @Override
+                                  public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                      loadingDialog.StopLoadingDialog();
+                                      Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                  }
+                              });
+
                           }
                       })
                       .setNegativeButton("No", null)

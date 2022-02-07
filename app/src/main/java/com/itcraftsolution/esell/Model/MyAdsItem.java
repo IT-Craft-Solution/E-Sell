@@ -1,14 +1,15 @@
 package com.itcraftsolution.esell.Model;
 
 public class MyAdsItem {
- private int id,user_id,price,status;
+ private int id,user_id,price,status,fav;
  private String cat_name,title,description,location, city_area,item_img,date,message;
 
-    public MyAdsItem(int id, int user_id, int price, int status, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message) {
+    public MyAdsItem(int id, int user_id, int price, int status,int fav, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message) {
         this.id = id;
         this.user_id = user_id;
         this.price = price;
         this.status = status;
+        this.fav = fav;
         this.cat_name = cat_name;
         this.title = title;
         this.description = description;
@@ -41,6 +42,14 @@ public class MyAdsItem {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getFav() {
+        return fav;
+    }
+
+    public void setFav(int fav) {
+        this.fav = fav;
     }
 
     public int getStatus() {

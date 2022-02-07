@@ -38,7 +38,6 @@ public class SplashFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
-
         auth = FirebaseAuth.getInstance();
 
 
@@ -55,8 +54,8 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SpfUserData spfUserData = new SpfUserData();
-                UserStatus = spfUserData.getSpf(requireContext()).getInt("UserStatus",0);
+                SpfUserData spfUserData = new SpfUserData(requireContext());
+                UserStatus = spfUserData.getSpf().getInt("UserStatus",0);
                 if(auth.getCurrentUser() != null && UserStatus == 1)
                 {
                     Intent intent = new Intent(getContext() , MainActivity.class);

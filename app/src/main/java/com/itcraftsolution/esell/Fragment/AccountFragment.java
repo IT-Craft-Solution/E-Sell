@@ -92,10 +92,10 @@ public class AccountFragment extends Fragment {
     }
     private void LoadData()
     {
-        spf = new SpfUserData();
-       Image = spf.getSpf(requireContext()).getString("UserImage",null);
-       Name = spf.getSpf(requireContext()).getString("UserName",null);
-       About = spf.getSpf(requireContext()).getString("UserBio",null);
+        spf = new SpfUserData(requireContext());
+       Image = spf.getSpf().getString("UserImage",null);
+       Name = spf.getSpf().getString("UserName",null);
+       About = spf.getSpf().getString("UserBio",null);
 
 
        binding.txUserName.setText(Name);

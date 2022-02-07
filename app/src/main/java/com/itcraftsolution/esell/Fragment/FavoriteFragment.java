@@ -8,17 +8,28 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.itcraftsolution.esell.Adapter.ActiveOrderRecyclerAdapter;
+import com.itcraftsolution.esell.Adapter.FavRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
+import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.HomeCatShow;
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentFavoriteBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class FavoriteFragment extends Fragment {
-
 
 
     public FavoriteFragment() {
@@ -26,33 +37,46 @@ public class FavoriteFragment extends Fragment {
     }
 
     private FragmentFavoriteBinding binding;
-    private ArrayList<HomeCatShow> homeCatShows;
+    private FavRecyclerAdapter adapter;
+    private LoadingDialog loadingDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       binding = FragmentFavoriteBinding.inflate(getLayoutInflater());
+        binding = FragmentFavoriteBinding.inflate(getLayoutInflater());
+        FetchData();
 
 
-        homeCatShows = new ArrayList<>();
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro  " , "Rp. 11.00.000" , "Limbdi"));
+        return binding.getRoot();
+    }
 
+    private void FetchData() {
+        loadingDialog = new LoadingDialog(requireActivity());
+        loadingDialog.StartLoadingDialog();
+        ApiUtilities.apiInterface().ReadLike(1).enqueue(new Callback<List<MyAdsItem>>() {
+            @Override
+            public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
+                List<MyAdsItem> list = response.body();
+                if (list != null) {
+                    if (list.get(0).getMessage() == null) {
+                        adapter = new FavRecyclerAdapter(requireContext(), list);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
+                        binding.rvFavoriteItem.setLayoutManager(gridLayoutManager);
+                        loadingDialog.StopLoadingDialog();
+                        binding.rvFavoriteItem.setAdapter(adapter);
+                    } else {
+                        loadingDialog.StopLoadingDialog();
+                        Toast.makeText(requireContext(), "No Record Found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
 
-        HomeCatShowAdapter catShowAdapter = new HomeCatShowAdapter(getContext(),homeCatShows);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
-        binding.rvFavoriteItem.setLayoutManager(gridLayoutManager);
-        binding.rvFavoriteItem.setAdapter(catShowAdapter);
-
-
-       return binding.getRoot();
+            @Override
+            public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
+                loadingDialog.StopLoadingDialog();
+                Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

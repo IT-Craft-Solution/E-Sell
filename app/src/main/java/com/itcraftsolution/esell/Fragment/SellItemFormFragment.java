@@ -83,10 +83,10 @@ public class SellItemFormFragment extends Fragment {
         binding = FragmentSellItemFormBinding.inflate(getLayoutInflater());
 
         loadingDialog = new LoadingDialog(requireActivity());
-        spf = new SpfUserData();
-        Category = spf.getItemDetails(requireContext()).getString("Category", null);
-        Insert = spf.getItemDetails(requireContext()).getInt("Insert", 0);
-        Update = spf.getItemDetails(requireContext()).getInt("Update", 0);
+        spf = new SpfUserData(requireContext());
+        Category = spf.getItemDetails().getString("Category", null);
+        Insert = spf.getItemDetails().getInt("Insert", 0);
+        Update = spf.getItemDetails().getInt("Update", 0);
         if (Update == 1) {
             loadingDialog.StartLoadingDialog();
             LoadData();
@@ -179,8 +179,8 @@ public class SellItemFormFragment extends Fragment {
                     if (Update == 1) {
                         loadingDialog.StartLoadingDialog();
                         Update = 0;
-                        Category = spf.getItemDetails(requireContext()).getString("Category", null);
-                        Id = spf.getItemDetails(requireContext()).getInt("ItemId", 0);
+                        Category = spf.getItemDetails().getString("Category", null);
+                        Id = spf.getItemDetails().getInt("ItemId", 0);
                         Title = binding.edSellItemFormTitle.getText().toString();
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
@@ -212,9 +212,9 @@ public class SellItemFormFragment extends Fragment {
                     else {
                         loadingDialog.StartLoadingDialog();
                         //cat_name,title,description,price,location,city_area,item_img,status
-                        SpfUserData spfUserData = new SpfUserData();
-                        Category = spfUserData.getItemDetails(requireContext()).getString("Category", null);
-                        UserId = spfUserData.getSpf(requireContext()).getInt("UserId", 0);
+                        SpfUserData spfUserData = new SpfUserData(requireContext());
+                        Category = spfUserData.getItemDetails().getString("Category", null);
+                        UserId = spfUserData.getSpf().getInt("UserId", 0);
                         Title = binding.edSellItemFormTitle.getText().toString();
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
@@ -252,9 +252,9 @@ public class SellItemFormFragment extends Fragment {
 
     private void LoadData() {
 
-        OldTitle = spf.getItemDetails(requireContext()).getString("ItemTitle", null);
-        OldDesc = spf.getItemDetails(requireContext()).getString("ItemDesc", null);
-        OldPrice = spf.getItemDetails(requireContext()).getString("ItemPrice", null);
+        OldTitle = spf.getItemDetails().getString("ItemTitle", null);
+        OldDesc = spf.getItemDetails().getString("ItemDesc", null);
+        OldPrice = spf.getItemDetails().getString("ItemPrice", null);
 
         binding.edSellItemFormTitle.setText(OldTitle);
         binding.edSellItemFormDesc.setText(OldDesc);

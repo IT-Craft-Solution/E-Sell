@@ -21,13 +21,13 @@ public final class HomeFreshitemSampleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageView igHomeLike;
+
+  @NonNull
   public final ImageView igSampleHomeFreshItem;
 
   @NonNull
   public final ImageView imageView3;
-
-  @NonNull
-  public final ImageView imageView4;
 
   @NonNull
   public final TextView txSampleHomeFreshItemLocation;
@@ -39,13 +39,13 @@ public final class HomeFreshitemSampleBinding implements ViewBinding {
   public final TextView txSampleHomeFreshItemPrice;
 
   private HomeFreshitemSampleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView igSampleHomeFreshItem, @NonNull ImageView imageView3,
-      @NonNull ImageView imageView4, @NonNull TextView txSampleHomeFreshItemLocation,
+      @NonNull ImageView igHomeLike, @NonNull ImageView igSampleHomeFreshItem,
+      @NonNull ImageView imageView3, @NonNull TextView txSampleHomeFreshItemLocation,
       @NonNull TextView txSampleHomeFreshItemName, @NonNull TextView txSampleHomeFreshItemPrice) {
     this.rootView = rootView;
+    this.igHomeLike = igHomeLike;
     this.igSampleHomeFreshItem = igSampleHomeFreshItem;
     this.imageView3 = imageView3;
-    this.imageView4 = imageView4;
     this.txSampleHomeFreshItemLocation = txSampleHomeFreshItemLocation;
     this.txSampleHomeFreshItemName = txSampleHomeFreshItemName;
     this.txSampleHomeFreshItemPrice = txSampleHomeFreshItemPrice;
@@ -78,6 +78,12 @@ public final class HomeFreshitemSampleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.igHomeLike;
+      ImageView igHomeLike = ViewBindings.findChildViewById(rootView, id);
+      if (igHomeLike == null) {
+        break missingId;
+      }
+
       id = R.id.igSampleHomeFreshItem;
       ImageView igSampleHomeFreshItem = ViewBindings.findChildViewById(rootView, id);
       if (igSampleHomeFreshItem == null) {
@@ -87,12 +93,6 @@ public final class HomeFreshitemSampleBinding implements ViewBinding {
       id = R.id.imageView3;
       ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
       if (imageView3 == null) {
-        break missingId;
-      }
-
-      id = R.id.imageView4;
-      ImageView imageView4 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView4 == null) {
         break missingId;
       }
 
@@ -114,9 +114,9 @@ public final class HomeFreshitemSampleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new HomeFreshitemSampleBinding((ConstraintLayout) rootView, igSampleHomeFreshItem,
-          imageView3, imageView4, txSampleHomeFreshItemLocation, txSampleHomeFreshItemName,
-          txSampleHomeFreshItemPrice);
+      return new HomeFreshitemSampleBinding((ConstraintLayout) rootView, igHomeLike,
+          igSampleHomeFreshItem, imageView3, txSampleHomeFreshItemLocation,
+          txSampleHomeFreshItemName, txSampleHomeFreshItemPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

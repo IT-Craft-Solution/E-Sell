@@ -53,7 +53,7 @@ public class confirmationCode extends Fragment {
 
         auth = FirebaseAuth.getInstance();
 
-        UserNumber = getspfData().getSpf(requireContext()).getString("UserPhone", null);
+        UserNumber = getspfData().getSpf().getString("UserPhone", null);
         PhoneNumber = "+91"+UserNumber;
         binding.tvDisplayPhoneNumber.setText(PhoneNumber);
 
@@ -152,8 +152,8 @@ public class confirmationCode extends Fragment {
 
     private SpfUserData getspfData()
     {
-        SpfUserData spfUserData = new SpfUserData();
-        spfUserData.getSpf(requireContext());
+        SpfUserData spfUserData = new SpfUserData(requireContext());
+        spfUserData.getSpf();
         return spfUserData;
     }
 

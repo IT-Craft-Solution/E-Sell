@@ -59,8 +59,8 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
         holder.binding.txDesc.setText(myAdsItem.getDescription());
         holder.binding.txItemLocation.setText(String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()));
         holder.binding.txDate.setText(myAdsItem.getDate());
-        SpfUserData spf = new SpfUserData();
-        spf.setItemDetail(context,myAdsItem.getItem_img(),String.valueOf(myAdsItem.getPrice()),myAdsItem.getTitle(),String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()),
+        SpfUserData spf = new SpfUserData(context);
+        spf.setItemDetail(myAdsItem.getItem_img(),String.valueOf(myAdsItem.getPrice()),myAdsItem.getTitle(),String.valueOf(myAdsItem.getCity_area()+" ,"+myAdsItem.getLocation()),
                 myAdsItem.getDescription(),myAdsItem.getId(),myAdsItem.getUser_id(),0,1,myAdsItem.getCat_name());
         holder.binding.txEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +83,10 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                SpfUserData spf = new SpfUserData();
-                                ItemId = spf.getItemDetails(context).getInt("ItemId", 0);
-                                ApiUtilities.apiInterface().DeleteSellItem(ItemId)
+                                SpfUserData spf = new SpfUserData(context);
+                                ItemId = spf.getItemDetails().getInt("ItemId", 0);
+
+                                ApiUtilities.apiInterface().DeleteSellItem(ItemId,0)
                                         .enqueue(new Callback<ResponceModel>() {
                                             @Override
                                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {

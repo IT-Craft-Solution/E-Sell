@@ -58,8 +58,8 @@ public class ActiveOrdersFragment extends Fragment {
     }
     private void FetchData()
     {
-        spfdata = new SpfUserData();
-        UserId = spfdata.getSpf(requireContext()).getInt("UserId",0);
+        spfdata = new SpfUserData(requireContext());
+        UserId = spfdata.getSpf().getInt("UserId",0);
 
         ApiUtilities.apiInterface().MyadSellItem(UserId).enqueue(new Callback<List<MyAdsItem>>() {
             @Override

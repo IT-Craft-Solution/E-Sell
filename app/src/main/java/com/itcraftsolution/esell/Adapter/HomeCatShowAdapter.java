@@ -42,7 +42,7 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
         HomeCatShow homeCatShow = homeCatShows.get(position);
 
         holder.binding.igHomeCatShowImage.setImageResource(homeCatShow.getItemImage());
-        holder.binding.txHomeCatName.setText(homeCatShow.getItemName());
+        holder.binding.txHomeCatDesc.setText(homeCatShow.getItemName());
         holder.binding.txHomeCatPrice.setText(homeCatShow.getItemPrice());
         holder.binding.txHomeCatItemLocation.setText(homeCatShow.getItemLocation());
 
@@ -65,7 +65,7 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
         return homeCatShows.size();
     }
 
-    public class viewHolder extends RecyclerView.ViewHolder {
+    public static class viewHolder extends RecyclerView.ViewHolder {
 
         HomeCatShowSampleBinding binding;
         public viewHolder(@NonNull View itemView) {

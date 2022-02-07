@@ -29,17 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/igItemDetailsShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_share_24"
-        android:layout_marginEnd="@dimen/_8mdp"
-        android:padding="@dimen/_5mdp"
-        app:layout_constraintBottom_toBottomOf="@+id/igItemDetailsBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/igItemDetailsBack" />
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -74,24 +63,24 @@
                 android:id="@+id/txItemDetailsName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3mdp"
+                android:maxLines="2"
                 android:text="iphone 11 pro max 256gb bisa TT"
                 android:textColor="@color/lightblack"
                 android:textSize="@dimen/_14font_mdp"
                 android:textStyle="bold"
-                android:maxLines="2"
-                app:layout_constraintEnd_toEndOf="@+id/igItemDetailsLike"
+                android:layout_marginTop="@dimen/_3mdp"
+                app:layout_constraintEnd_toEndOf="@+id/igItemDetailsShare"
                 app:layout_constraintStart_toStartOf="@+id/txItemDetailsPrice"
-                app:layout_constraintTop_toBottomOf="@+id/txItemDetailsPrice" />
+                app:layout_constraintTop_toBottomOf="@+id/igItemDetailsShare" />
 
-            <ImageView
-                android:id="@+id/igItemDetailsLike"
-                android:layout_width="@dimen/_20mdp"
-                android:layout_height="@dimen/_20mdp"
-                android:layout_marginEnd="@dimen/_12mdp"
-                android:src="@drawable/like"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txItemDetailsPrice" />
+<!--            <ImageView-->
+<!--                android:id="@+id/igItemDetailsLike"-->
+<!--                android:layout_width="@dimen/_20mdp"-->
+<!--                android:layout_height="@dimen/_20mdp"-->
+<!--                android:layout_marginEnd="@dimen/_12mdp"-->
+<!--                android:src="@drawable/like"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/txItemDetailsPrice" />-->
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -135,7 +124,7 @@
                 android:layout_marginTop="@dimen/_5mdp"
                 android:text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. "
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-                app:layout_constraintEnd_toEndOf="@+id/igItemDetailsLike"
+                app:layout_constraintEnd_toEndOf="@+id/txItemDetailsName"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -172,6 +161,17 @@
                     android:text="Calls"
                     android:textSize="@dimen/_12font_mdp" />
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/igItemDetailsShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5mdp"
+                android:layout_marginEnd="@dimen/_10mdp"
+                android:src="@drawable/ic_baseline_share_24"
+                app:layout_constraintBottom_toBottomOf="@+id/txItemDetailsPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txItemDetailsPrice" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

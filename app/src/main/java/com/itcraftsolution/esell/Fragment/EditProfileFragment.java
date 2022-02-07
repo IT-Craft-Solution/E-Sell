@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -25,7 +24,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
@@ -36,9 +34,6 @@ import com.yalantis.ucrop.UCrop;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import retrofit2.Call;
@@ -54,7 +49,7 @@ public class EditProfileFragment extends Fragment {
 
     private SharedPreferences spf;
     private FragmentEditProfileBinding binding;
-    private String Phone, Email, destpath, Name, About, encodeImageString;
+    private String Phone, Email, destpath, Name, About, encodeImageString,Locality,Sublocality;
     private int Status,UserId;
     private Uri PhotoUri;
     private Bitmap bitmap;
@@ -133,12 +128,14 @@ public class EditProfileFragment extends Fragment {
                     binding.igVerify.setVisibility(View.VISIBLE);
                     binding.txerrorAbout.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txerrorName.setTextColor(getResources().getColor(R.color.blue_grey));
-                    SpfUserData spfUserData= new SpfUserData();
-                    UserId = spfUserData.getSpf(requireContext()).getInt("UserId", 0);
+                    SpfUserData spfUserData= new SpfUserData(requireContext());
+                    UserId = spfUserData.getSpf().getInt("UserId", 0);
+                    Locality = spfUserData.getSpf().getString("UserCity", null);
+                    Sublocality = spfUserData.getSpf().getString("CityArea", null);
                     Name = binding.edProfileName.getText().toString();
                     About = binding.edProfileAbout.getText().toString();
 
-                    ApiUtilities.apiInterface().UpdateUser(UserId,encodeImageString,Name,About)
+                    ApiUtilities.apiInterface().UpdateUser(UserId,encodeImageString,Name,About,Locality,Sublocality,1)
                             .enqueue(new Callback<ResponceModel>() {
                                 @Override
                                 public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
@@ -203,8 +200,8 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void LoadData() {
-        SpfUserData data = new SpfUserData();
-        spf = data.getSpf(requireContext());
+        SpfUserData data = new SpfUserData(requireContext());
+        spf = data.getSpf();
         Phone = spf.getString("UserPhone", null);
         Email = spf.getString("UserEmail", null);
         Status = spf.getInt("UserStatus", 0);
@@ -223,7 +220,7 @@ public class EditProfileFragment extends Fragment {
                         binding.edProfilePhoneNumber.setInputType(InputType.TYPE_NULL);
                         Glide.with(requireContext()).load(ApiUtilities.UserImage + model.getUser_img())
                                 .into(binding.igProfileDp);
-                        data.setSpf(requireContext(), model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
+                        data.setSpf( model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
                                 model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
                     } else {
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();

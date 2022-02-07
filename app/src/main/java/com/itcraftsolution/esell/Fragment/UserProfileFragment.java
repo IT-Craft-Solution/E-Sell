@@ -34,6 +34,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -48,6 +49,7 @@ import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.ResponceModel;
+import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -75,6 +77,7 @@ public class UserProfileFragment extends Fragment {
     FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
+    private int Status;
     private SpfUserData spfUserData;
     private LoadingDialog loadingDialog;
     private GoogleSignInAccount account;
@@ -102,8 +105,6 @@ public class UserProfileFragment extends Fragment {
             }else {
                 requestStoragePermission();
             }
-
-
             }
         });
 
@@ -166,40 +167,93 @@ public class UserProfileFragment extends Fragment {
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
-                    spfUserData = new SpfUserData();
-                    spfUserData.setSpf(requireContext(), 0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                    ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
-                            .enqueue(new Callback<ResponceModel>() {
+                    loadingDialog.StartLoadingDialog();
+                    ApiUtilities.apiInterface().ReadUser(Phone,Email)
+                            .enqueue(new Callback<UserModel>() {
                                 @Override
-                                public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
-                                    ResponceModel responceModel = response.body();
-                                    if(responceModel != null)
-                                    {
-                                        if(responceModel.getMessage().equals("fail"))
-                                        {
-                                            Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                                        }
-                                        else {
-                                            Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getContext(), MainActivity.class);
-                                            startActivity(intent);
-                                            requireActivity().finishAffinity();
-                                        }
+                                public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                                    UserModel model = response.body();
+                                    if (model != null) {
+                                        if (model.getMessage() == null) {
+                                           Status = model.getStatus();
+                                            if(Status == 0)
+                                            {
+                                                ApiUtilities.apiInterface().UpdateUser(model.getId(),encodeImageString,Name,About,Locality,Sublocality,1)
+                                                        .enqueue(new Callback<ResponceModel>() {
+                                                            @Override
+                                                            public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                                                ResponceModel responceModel = response.body();
+                                                                if(responceModel != null)
+                                                                {
+                                                                    if(responceModel.getMessage().equals("fail"))
+                                                                    {
+                                                                        loadingDialog.StopLoadingDialog();
+                                                                        Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                    else {
+                                                                        loadingDialog.StopLoadingDialog();
+                                                                        Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                        spfUserData = new SpfUserData(requireContext());
+                                                                        spfUserData.setSpf( model.getId(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                                                                        Intent intent = new Intent(getContext(), MainActivity.class);
+                                                                        startActivity(intent);
+                                                                        requireActivity().finishAffinity();
+                                                                    }
+                                                                }
+                                                            }
 
+                                                            @Override
+                                                            public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                                                loadingDialog.StopLoadingDialog();
+                                                                Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                            }else {
+                                                Toast.makeText(requireContext(), "Status 1: Already Chhe", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } else {
+                                            //msg malo chhe record nathi malto
+                                            spfUserData = new SpfUserData(requireContext());
+                                            spfUserData.setSpf(0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
+                                                    .enqueue(new Callback<ResponceModel>() {
+                                                        @Override
+                                                        public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                                            ResponceModel responceModel = response.body();
+                                                            if(responceModel != null)
+                                                            {
+                                                                if(responceModel.getMessage().equals("fail"))
+                                                                {
+                                                                    Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                                else {
+                                                                    Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                    Intent intent = new Intent(getContext(), MainActivity.class);
+                                                                    startActivity(intent);
+                                                                    requireActivity().finishAffinity();
+                                                                }
+                                                            }else {
+                                                                Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                            loadingDialog.StopLoadingDialog();
+                                                        }
 
-                                    }else {
-                                        Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                                        @Override
+                                                        public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                                            loadingDialog.StopLoadingDialog();
+                                                            Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                        }
                                     }
-                                    loadingDialog.StopLoadingDialog();
                                 }
 
                                 @Override
-                                public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                public void onFailure(Call<UserModel> call, Throwable t) {
                                     loadingDialog.StopLoadingDialog();
                                     Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
-
                 }
             }
         });
@@ -232,14 +286,15 @@ public class UserProfileFragment extends Fragment {
             Toast.makeText(requireContext(), "select image less then 1 mb", Toast.LENGTH_SHORT).show();
             return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
         }
+
     private void LoadData()
     {
-        SpfUserData spfUserData = new SpfUserData();
+        SpfUserData spfUserData = new SpfUserData(requireContext());
         GoogleSignIn.getLastSignedInAccount(requireContext());
         account = GoogleSignIn.getLastSignedInAccount(requireContext());
-        if(spfUserData.getSpf(requireContext()).getString("UserPhone", null) != null)
+        if(spfUserData.getSpf().getString("UserPhone", null) != null)
         {
-            binding.edUserPhoneNumber.setText(spfUserData.getSpf(requireContext()).getString("UserPhone", null));
+            binding.edUserPhoneNumber.setText(spfUserData.getSpf().getString("UserPhone", null));
             binding.edUserPhoneNumber.setInputType(InputType.TYPE_NULL);
             Toast.makeText(requireContext(), "Phone verify!", Toast.LENGTH_SHORT).show();
         }

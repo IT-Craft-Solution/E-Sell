@@ -35,8 +35,17 @@ public interface ApiInterface {
     @POST("user/update_user.php")
     Call<ResponceModel> UpdateUser(
             @Field("id") int id, @Field("user_img") String user_img,
-            @Field("user_name")String username,@Field("user_bio")String userbio
+            @Field("user_name")String username,@Field("user_bio")String userbio,
+            @Field("location")String location,@Field("city_area")String cite_area,
+            @Field("status") int status
     );
+
+    @FormUrlEncoded
+    @POST("user/lastupdate_user.php")
+    Call<ResponceModel> LastUpdateUser(
+            @Field("id") int id, @Field("status") int status
+    );
+
     @FormUrlEncoded
     @POST("post/create_post.php")
     Call<ResponceModel> InsertSellItem(
@@ -53,6 +62,8 @@ public interface ApiInterface {
             @Field("user_id") int user_id
     );
 
+
+
     @POST("post/read_post.php")
     Call<List<MyAdsItem>> ReadSellItem();
 
@@ -67,11 +78,22 @@ public interface ApiInterface {
             @Field("status") int status
     );
 
+    @FormUrlEncoded
+    @POST("post/fav_post.php")
+    Call<ResponceModel> UpdateLike(
+            @Field("id") int id, @Field("fav") int fav
+    );
+
+    @FormUrlEncoded
+    @POST("post/fav_read_post.php")
+    Call<List<MyAdsItem>> ReadLike(
+            @Field("fav") int fav
+    );
 
     @FormUrlEncoded
     @POST("post/delete_post.php")
     Call<ResponceModel> DeleteSellItem(
-            @Field("id") int id
+            @Field("id") int id,@Field("status") int status
     );
 
 

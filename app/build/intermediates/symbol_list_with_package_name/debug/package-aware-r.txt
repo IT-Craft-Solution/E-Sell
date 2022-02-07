@@ -3823,6 +3823,7 @@ drawable ic_vol_type_tv_light
 drawable ic_vol_unmute
 drawable language
 drawable like
+drawable liked
 drawable logo
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
@@ -4292,9 +4293,9 @@ id igHelpBackToAccount
 id igHomeCat
 id igHomeCatShowBack
 id igHomeCatShowImage
+id igHomeLike
 id igItemDetails
 id igItemDetailsBack
-id igItemDetailsLike
 id igItemDetailsShare
 id igItemImage
 id igMyOrdersToAccount
@@ -4315,7 +4316,6 @@ id imageView10
 id imageView11
 id imageView2
 id imageView3
-id imageView4
 id imageView5
 id imageView6
 id imageView7
@@ -4730,8 +4730,8 @@ id txFormLocation
 id txFormLocationError
 id txFormPriceError
 id txFormTitleError
+id txHomeCatDesc
 id txHomeCatItemLocation
-id txHomeCatName
 id txHomeCatPrice
 id txHomecat
 id txItemDesc
@@ -4933,6 +4933,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout favorite_sample
 layout fragment_account
 layout fragment_account_help
 layout fragment_account_myorders

@@ -64,17 +64,19 @@ public class ItemDetailsFragment extends Fragment {
     }
     private void LoadData()
     {
-        spf = new SpfUserData();
-        ItemImg = spf.getItemDetails(requireContext()).getString("ItemImg",null);
-        ItemPrice = spf.getItemDetails(requireContext()).getString("ItemPrice",null);
-        ItemTitle = spf.getItemDetails(requireContext()).getString("ItemTitle",null);
-        ItemDesc = spf.getItemDetails(requireContext()).getString("ItemDesc",null);
-        ItemLocation = spf.getItemDetails(requireContext()).getString("ItemLocation",null);
-        ItemId = spf.getItemDetails(requireContext()).getInt("ItemId", 0);
+        spf = new SpfUserData(requireContext());
+        ItemImg = spf.getItemDetails().getString("ItemImg",null);
+        ItemPrice = spf.getItemDetails().getString("ItemPrice",null);
+        ItemTitle = spf.getItemDetails().getString("ItemTitle",null);
+        ItemDesc = spf.getItemDetails().getString("ItemDesc",null);
+        ItemLocation = spf.getItemDetails().getString("ItemLocation",null);
+        ItemId = spf.getItemDetails().getInt("ItemId", 0);
         Glide.with(requireContext()).load(ApiUtilities.SellItemImage+ItemImg).into(binding.igItemDetails);
         binding.txItemDetailsLocation.setText(ItemLocation);
         binding.txItemDetailsName.setText(ItemTitle);
         binding.txItemDetailsPrice.setText(ItemPrice);
         binding.txItemDesc.setText(ItemDesc);
+
+
     }
 }

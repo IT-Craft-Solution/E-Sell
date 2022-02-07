@@ -45,19 +45,19 @@
                 android:textColor="@color/lightblack"
                 android:textSize="@dimen/_13font_mdp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintBottom_toBottomOf="@+id/igHomeLike"
                 app:layout_constraintStart_toEndOf="@+id/igHomeCatShowImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txHomeCatName"
-                android:layout_width="146dp"
+                android:id="@+id/txHomeCatDesc"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/roboto"
                 android:text="I Phone 11 Pro navpo aayo ae ho ala apple no"
                 android:textSize="@dimen/_11font_mdp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="@+id/igHomeLike"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/txHomeCatPrice"
                 app:layout_constraintTop_toBottomOf="@+id/txHomeCatPrice" />
@@ -71,8 +71,8 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_baseline_location_on_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/txHomeCatName"
-                app:layout_constraintTop_toBottomOf="@+id/txHomeCatName"
+                app:layout_constraintStart_toStartOf="@+id/txHomeCatDesc"
+                app:layout_constraintTop_toBottomOf="@+id/txHomeCatDesc"
                 app:layout_constraintVertical_bias="0.789" />
 
             <TextView
@@ -89,7 +89,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/igHomeLike"
                 android:layout_width="@dimen/_24mdp"
                 android:layout_height="@dimen/_24mdp"
                 android:layout_marginTop="16dp"

@@ -35,11 +35,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/igHomeLike"
                 android:layout_width="@dimen/_24mdp"
                 android:layout_height="@dimen/_24mdp"
-                android:layout_marginEnd="@dimen/_6mdp"
-                android:padding="@dimen/_4mdp"
+                android:layout_marginEnd="@dimen/_3mdp"
+                android:padding="@dimen/_2mdp"
                 android:src="@drawable/like"
                 app:layout_constraintBottom_toBottomOf="@+id/txSampleHomeFreshItemLocation"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +65,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4mdp"
                 android:fontFamily="@font/roboto"
+                android:layout_marginEnd="@dimen/_2mdp"
                 android:text="I Phone 11 Pro navpo aayo ae ho ala apple no"
                 android:textSize="@dimen/_11font_mdp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                android:maxLines="2"
+                app:layout_constraintEnd_toStartOf="@+id/igHomeLike"
                 app:layout_constraintStart_toStartOf="@+id/txSampleHomeFreshItemPrice"
                 app:layout_constraintTop_toBottomOf="@+id/txSampleHomeFreshItemPrice" />
 
@@ -94,7 +96,7 @@
                 android:textSize="@dimen/_9font_mdp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                app:layout_constraintEnd_toStartOf="@+id/igHomeLike"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>

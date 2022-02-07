@@ -8,25 +8,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationBarView;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
-import com.itcraftsolution.esell.Fragment.FavoriteFragment;
-import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
-import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Fragment.MyAddFragment;
 import com.itcraftsolution.esell.Fragment.SellFragment;
-import com.itcraftsolution.esell.Fragment.SellItemFormFragment;
 import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.databinding.ActivityMainBinding;
-import com.itcraftsolution.esell.databinding.FragmentEditProfileBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
 import retrofit2.Call;
@@ -88,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void LoadData() {
         dialog.StartLoadingDialog();
-        SpfUserData data = new SpfUserData();
-        spf = data.getSpf(this);
+        SpfUserData data = new SpfUserData(this);
+        spf = data.getSpf();
         Phone = spf.getString("UserPhone", null);
         Email = spf.getString("UserEmail", null);
         Status = spf.getInt("UserStatus", 0);
@@ -101,16 +94,13 @@ public class MainActivity extends AppCompatActivity {
                 if (model != null) {
                     if (model.getMessage() == null) {
                         dialog.StopLoadingDialog();
-                        data.setSpf(MainActivity.this, model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
+                        data.setSpf(model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
                                 model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
 
                     } else {
                         dialog.StopLoadingDialog();
                         Toast.makeText(MainActivity.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    dialog.StopLoadingDialog();
-                    Toast.makeText(MainActivity.this, "Model empty!!", Toast.LENGTH_SHORT).show();
                 }
             }
 

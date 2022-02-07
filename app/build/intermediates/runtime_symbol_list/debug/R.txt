@@ -3822,6 +3822,7 @@ int drawable ic_vol_type_tv_light 0x7f080189
 int drawable ic_vol_unmute 0x7f08018a
 int drawable language 0x7f08018b
 int drawable like 0x7f08018c
+int drawable liked 0x7f080220
 int drawable logo 0x7f08018d
 int drawable m3_appbar_background 0x7f08018e
 int drawable m3_popupmenu_background_overlay 0x7f08018f
@@ -4291,9 +4292,9 @@ int id igHelpBackToAccount 0x7f0a013c
 int id igHomeCat 0x7f0a013d
 int id igHomeCatShowBack 0x7f0a013e
 int id igHomeCatShowImage 0x7f0a013f
+int id igHomeLike 0x7f0a0346
 int id igItemDetails 0x7f0a0140
 int id igItemDetailsBack 0x7f0a0141
-int id igItemDetailsLike 0x7f0a0142
 int id igItemDetailsShare 0x7f0a0143
 int id igItemImage 0x7f0a0144
 int id igMyOrdersToAccount 0x7f0a0145
@@ -4314,7 +4315,6 @@ int id imageView10 0x7f0a0153
 int id imageView11 0x7f0a0154
 int id imageView2 0x7f0a0155
 int id imageView3 0x7f0a0156
-int id imageView4 0x7f0a0157
 int id imageView5 0x7f0a0158
 int id imageView6 0x7f0a0159
 int id imageView7 0x7f0a015a
@@ -4729,8 +4729,8 @@ int id txFormLocation 0x7f0a02f2
 int id txFormLocationError 0x7f0a02f3
 int id txFormPriceError 0x7f0a02f4
 int id txFormTitleError 0x7f0a02f5
+int id txHomeCatDesc 0x7f0a0347
 int id txHomeCatItemLocation 0x7f0a02f6
-int id txHomeCatName 0x7f0a02f7
 int id txHomeCatPrice 0x7f0a02f8
 int id txHomecat 0x7f0a02f9
 int id txItemDesc 0x7f0a02fa
@@ -4932,6 +4932,7 @@ int layout design_navigation_menu 0x7f0d0034
 int layout design_navigation_menu_item 0x7f0d0035
 int layout design_text_input_end_icon 0x7f0d0036
 int layout design_text_input_start_icon 0x7f0d0037
+int layout favorite_sample 0x7f0d00be
 int layout fragment_account 0x7f0d0038
 int layout fragment_account_help 0x7f0d0039
 int layout fragment_account_myorders 0x7f0d003a

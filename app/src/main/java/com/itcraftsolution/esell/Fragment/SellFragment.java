@@ -39,10 +39,9 @@ public class SellFragment extends Fragment {
         sellCategories.add(new SellCategory(R.drawable.autocar , "Electronics & Appliances"));
         sellCategories.add(new SellCategory(R.drawable.properties , "Furniture"));
         sellCategories.add(new SellCategory(R.drawable.autocar , "Fashion"));
-        sellCategories.add(new SellCategory(R.drawable.category , "More Category"));
 
         SellCategoryRecyclerAdapter adapter = new SellCategoryRecyclerAdapter(getContext() , sellCategories);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() ,1);
         binding.rvSellCategory.setLayoutManager(gridLayoutManager);
         binding.rvSellCategory.setAdapter(adapter);
 
