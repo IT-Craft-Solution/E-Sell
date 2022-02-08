@@ -3,6 +3,7 @@ package com.itcraftsolution.esell.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -30,6 +31,17 @@ public class SellFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSellBinding.inflate(getLayoutInflater());
+
+        binding.imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(SellFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
         sellCategories = new ArrayList<>();
 
         sellCategories.add(new SellCategory(R.drawable.autocar , "Auto Car"));

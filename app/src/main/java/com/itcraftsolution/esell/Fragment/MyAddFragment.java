@@ -9,13 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.itcraftsolution.esell.Adapter.ChatHomeViewPagerAdapter;
 import com.itcraftsolution.esell.Adapter.MyAddViewPagerAdapter;
-import com.itcraftsolution.esell.R;
-import com.itcraftsolution.esell.databinding.FragmentAdsBinding;
 import com.itcraftsolution.esell.databinding.FragmentMyAddBinding;
-
-import java.util.ArrayList;
 
 
 public class MyAddFragment extends Fragment {

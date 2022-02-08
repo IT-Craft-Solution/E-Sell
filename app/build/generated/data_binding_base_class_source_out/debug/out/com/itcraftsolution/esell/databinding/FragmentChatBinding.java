@@ -4,13 +4,14 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import androidx.viewpager2.widget.ViewPager2;
-import com.google.android.material.tabs.TabLayout;
 import com.itcraftsolution.esell.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,16 +22,20 @@ public final class FragmentChatBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TabLayout tbMainChat;
+  public final ImageView igBackToHome;
 
   @NonNull
-  public final ViewPager2 vpMainChat;
+  public final RecyclerView rvChatBuying;
 
-  private FragmentChatBinding(@NonNull ConstraintLayout rootView, @NonNull TabLayout tbMainChat,
-      @NonNull ViewPager2 vpMainChat) {
+  @NonNull
+  public final TextView textView8;
+
+  private FragmentChatBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView igBackToHome,
+      @NonNull RecyclerView rvChatBuying, @NonNull TextView textView8) {
     this.rootView = rootView;
-    this.tbMainChat = tbMainChat;
-    this.vpMainChat = vpMainChat;
+    this.igBackToHome = igBackToHome;
+    this.rvChatBuying = rvChatBuying;
+    this.textView8 = textView8;
   }
 
   @Override
@@ -60,19 +65,26 @@ public final class FragmentChatBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tbMainChat;
-      TabLayout tbMainChat = ViewBindings.findChildViewById(rootView, id);
-      if (tbMainChat == null) {
+      id = R.id.igBackToHome;
+      ImageView igBackToHome = ViewBindings.findChildViewById(rootView, id);
+      if (igBackToHome == null) {
         break missingId;
       }
 
-      id = R.id.vpMainChat;
-      ViewPager2 vpMainChat = ViewBindings.findChildViewById(rootView, id);
-      if (vpMainChat == null) {
+      id = R.id.rvChatBuying;
+      RecyclerView rvChatBuying = ViewBindings.findChildViewById(rootView, id);
+      if (rvChatBuying == null) {
         break missingId;
       }
 
-      return new FragmentChatBinding((ConstraintLayout) rootView, tbMainChat, vpMainChat);
+      id = R.id.textView8;
+      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
+      if (textView8 == null) {
+        break missingId;
+      }
+
+      return new FragmentChatBinding((ConstraintLayout) rootView, igBackToHome, rvChatBuying,
+          textView8);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

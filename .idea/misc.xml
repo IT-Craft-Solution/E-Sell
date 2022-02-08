@@ -101,6 +101,9 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_splash_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_user_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chat_buying_sample.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chatrecive_sample.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chatsend_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/favorite_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account_help.xml" value="0.27447916666666666" />
@@ -110,6 +113,7 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_ads.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_buying.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_selling.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_confirmation_code.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_congress_screen.xml" value="0.27447916666666666" />

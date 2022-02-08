@@ -38,6 +38,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.ResponceModel;
@@ -219,7 +220,7 @@ public class SellItemFormFragment extends Fragment {
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
 
-                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
                                 .enqueue(new Callback<ResponceModel>() {
                                     @Override
                                     public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
@@ -236,7 +237,6 @@ public class SellItemFormFragment extends Fragment {
                                             Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
-
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
                                         loadingDialog.StopLoadingDialog();

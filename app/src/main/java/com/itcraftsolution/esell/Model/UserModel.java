@@ -2,9 +2,9 @@ package com.itcraftsolution.esell.Model;
 
 public class UserModel {
     private int id,status;
-    private String phone,email,user_img,user_name,user_bio, date,location,city_area, message;
+    private String phone,email,user_img,user_name,user_bio, date,location,city_area, message,authid;
 
-    public UserModel(int id, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area, String message,int status) {
+    public UserModel(int id, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area, String message,int status,String authid) {
         this.id = id;
         this.phone = phone;
         this.email = email;
@@ -16,6 +16,23 @@ public class UserModel {
         this.city_area = city_area;
         this.message = message;
         this.status = status;
+        this.authid = authid;
+    }
+
+    public UserModel(int id, int status, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area) {
+        this.id = id;
+        this.status = status;
+        this.phone = phone;
+        this.email = email;
+        this.user_img = user_img;
+        this.user_name = user_name;
+        this.user_bio = user_bio;
+        this.date = date;
+        this.location = location;
+        this.city_area = city_area;
+    }
+
+    public UserModel() {
     }
 
     public int getId() {
@@ -24,6 +41,14 @@ public class UserModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getAuthid() {
+        return authid;
+    }
+
+    public void setAuthid(String authid) {
+        this.authid = authid;
     }
 
     public String getPhone() {

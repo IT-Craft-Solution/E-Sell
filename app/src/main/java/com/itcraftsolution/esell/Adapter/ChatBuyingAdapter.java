@@ -9,20 +9,25 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Fragment.ChatScreenFragment;
-import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
-import com.itcraftsolution.esell.Model.ChatBuying;
+import com.itcraftsolution.esell.Model.ChatMessage;
+import com.itcraftsolution.esell.Model.ChatModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.ChatBuyingSampleBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChatBuyingAdapter extends  RecyclerView.Adapter<ChatBuyingAdapter.viewHolder>{
-    ArrayList<ChatBuying> chatBuyings;
+    List<ChatModel> list;
     Context context;
+    SpfUserData spf;
 
-    public ChatBuyingAdapter(ArrayList<ChatBuying> chatBuyings, Context context) {
-        this.chatBuyings = chatBuyings;
+    public ChatBuyingAdapter(List<ChatModel> list, Context context) {
+        this.list = list;
         this.context = context;
     }
 
@@ -35,14 +40,15 @@ public class ChatBuyingAdapter extends  RecyclerView.Adapter<ChatBuyingAdapter.v
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        ChatBuying chatBuying = chatBuyings.get(position);
+        ChatModel model = list.get(position);
 
-        holder.binding.igProfileDp.setImageResource(chatBuying.getItemImage());
-        holder.binding.txUserName.setText(chatBuying.getUserName());
-        holder.binding.txUserMessage.setText(chatBuying.getItemMessage());
-        holder.binding.txChatTime.setText(chatBuying.getItemTime());
-        holder.binding.txItemName.setText(chatBuying.getItemName());
+        Glide.with(context).load(ApiUtilities.UserImage+model.getUser_img()).into(holder.binding.igProfileDp);
+        holder.binding.txUserName.setText(model.getUser_name());
+        holder.binding.txItemName.setText(model.getItem_title());
+        holder.binding.txUserLocation.setText(model.getItem_location());
 
+        spf = new SpfUserData(context);
+        spf.setCreateChat(model.getUser_name(), model.getUser_img(), model.getItem_title(), model.getItem_location(), model.getReceiver_id(),1);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +65,7 @@ public class ChatBuyingAdapter extends  RecyclerView.Adapter<ChatBuyingAdapter.v
 
     @Override
     public int getItemCount() {
-        return chatBuyings.size();
+        return list.size();
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{

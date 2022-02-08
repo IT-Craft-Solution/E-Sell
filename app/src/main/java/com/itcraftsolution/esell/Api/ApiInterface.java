@@ -1,5 +1,6 @@
 package com.itcraftsolution.esell.Api;
 
+import com.itcraftsolution.esell.Model.ChatModel;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.Model.UserModel;
@@ -20,15 +21,37 @@ public interface ApiInterface {
             @Field("user_email") String email, @Field("user_img") String user_img,
             @Field("user_name") String user_name, @Field("user_bio") String user_bio,
             @Field("user_location") String location, @Field("user_area") String city_area,
-            @Field("user_status") int status
+            @Field("user_status") int status, @Field("auth_id") String auth_id
     );
 
+    @FormUrlEncoded
+    @POST("chat/create_chat.php")
+    Call<ResponceModel> CreateChat(
+            @Field("user_name") String user_name,
+            @Field("user_img") String user_img, @Field("item_location") String item_location,
+            @Field("item_title") String item_title, @Field("receiver_id") String receiver_id,
+            @Field("status") int status
+    );
 
     @FormUrlEncoded
     @POST("user/read_user.php")
     Call<UserModel> ReadUser(
             @Field("phone") String phone,
             @Field("email") String email
+    );
+
+    @FormUrlEncoded
+    @POST("user/read_user_id.php")
+    Call<UserModel> ReadUserId(
+            @Field("id") int id
+
+    );
+
+    @FormUrlEncoded
+    @POST("chat/read_chat_user.php")
+    Call<List<ChatModel>> ReadChatUser(
+            @Field("receiver_id") String receiver_id,@Field("user_name") String user_name
+
     );
 
     @FormUrlEncoded
@@ -46,6 +69,7 @@ public interface ApiInterface {
             @Field("id") int id, @Field("status") int status
     );
 
+
     @FormUrlEncoded
     @POST("post/create_post.php")
     Call<ResponceModel> InsertSellItem(
@@ -53,7 +77,7 @@ public interface ApiInterface {
             @Field("title") String title, @Field("description") String description,
             @Field("price") int price, @Field("location") String location,
             @Field("city_area") String city_area, @Field("item_img") String item_img,
-            @Field("status") int status
+            @Field("status") int status, @Field("auth_id") String auth_id
     );
 
     @FormUrlEncoded

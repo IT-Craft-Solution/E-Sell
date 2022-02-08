@@ -63,9 +63,6 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
         clicked = false;
     }
     holder.binding.txSampleHomeFreshItemLocation.setText(String.valueOf(model.getCity_area()+" ,"+model.getLocation()));
-        spf = new SpfUserData(context);
-        spf.setItemDetail( model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
-                ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name());
 
         holder.binding.igHomeLike.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +113,10 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
     holder.binding.igSampleHomeFreshItem.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            spf = new SpfUserData(context);
+            spf.setItemDetail(model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
+                    ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name(),model.getAuth_id());
+
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                     .replace(R.id.frMainContainer , new ItemDetailsFragment())

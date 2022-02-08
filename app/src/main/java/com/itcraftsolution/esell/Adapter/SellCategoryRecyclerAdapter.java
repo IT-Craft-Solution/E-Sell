@@ -46,7 +46,7 @@ public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCatego
         @Override
         public void onClick(View view) {
             SpfUserData spfUserData = new SpfUserData(context);
-            spfUserData.setItemDetail(null,null,null,null,null,0,0,1,0,sellCategory.getName());
+            spfUserData.setItemDetail(null,null,null,null,null,0,0,1,0,sellCategory.getName(),null);
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                     .replace(R.id.frMainContainer , new SellItemFormFragment())

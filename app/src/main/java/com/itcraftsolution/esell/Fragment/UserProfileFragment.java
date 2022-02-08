@@ -45,6 +45,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.MainActivity;
@@ -194,7 +195,7 @@ public class UserProfileFragment extends Fragment {
                                                                         loadingDialog.StopLoadingDialog();
                                                                         Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                                                         spfUserData = new SpfUserData(requireContext());
-                                                                        spfUserData.setSpf( model.getId(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
+                                                                        spfUserData.setSpf( model.getId(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1,FirebaseAuth.getInstance().getUid());
                                                                         Intent intent = new Intent(getContext(), MainActivity.class);
                                                                         startActivity(intent);
                                                                         requireActivity().finishAffinity();
@@ -214,8 +215,8 @@ public class UserProfileFragment extends Fragment {
                                         } else {
                                             //msg malo chhe record nathi malto
                                             spfUserData = new SpfUserData(requireContext());
-                                            spfUserData.setSpf(0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1);
-                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1)
+                                            spfUserData.setSpf(0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1,FirebaseAuth.getInstance().getUid());
+                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid())
                                                     .enqueue(new Callback<ResponceModel>() {
                                                         @Override
                                                         public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {

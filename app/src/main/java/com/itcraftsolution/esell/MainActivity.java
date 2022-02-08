@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         dialog = new LoadingDialog(this);
 
+
         LoadData();
         defView();
         binding.mainBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     if (model.getMessage() == null) {
                         dialog.StopLoadingDialog();
                         data.setSpf(model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
-                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuthid());
 
                     } else {
                         dialog.StopLoadingDialog();
@@ -110,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     @Override

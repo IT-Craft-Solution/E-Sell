@@ -2,9 +2,9 @@ package com.itcraftsolution.esell.Model;
 
 public class MyAdsItem {
  private int id,user_id,price,status,fav;
- private String cat_name,title,description,location, city_area,item_img,date,message;
+ private String cat_name,title,description,location, city_area,item_img,date,message,auth_id;
 
-    public MyAdsItem(int id, int user_id, int price, int status,int fav, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message) {
+    public MyAdsItem(int id, int user_id, int price, int status,int fav, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message,String auth_id) {
         this.id = id;
         this.user_id = user_id;
         this.price = price;
@@ -18,6 +18,7 @@ public class MyAdsItem {
         this.item_img = item_img;
         this.date = date;
         this.message = message;
+        this.auth_id = auth_id;
     }
 
     public int getId() {
@@ -26,6 +27,14 @@ public class MyAdsItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getAuth_id() {
+        return auth_id;
+    }
+
+    public void setAuth_id(String auth_id) {
+        this.auth_id = auth_id;
     }
 
     public int getUser_id() {

@@ -221,7 +221,7 @@ public class EditProfileFragment extends Fragment {
                         Glide.with(requireContext()).load(ApiUtilities.UserImage + model.getUser_img())
                                 .into(binding.igProfileDp);
                         data.setSpf( model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
-                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus());
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(), model.getAuthid());
                     } else {
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }

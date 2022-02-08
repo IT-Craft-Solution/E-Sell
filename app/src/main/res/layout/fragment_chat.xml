@@ -6,43 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ChatFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tbMainChat"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_48mdp"
+    <ImageView
+        android:id="@+id/igBackToHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8mdp"
         android:layout_marginTop="@dimen/_8mdp"
-        android:layout_marginEnd="@dimen/_8mdp"
-        android:background="@drawable/main_search_bg"
-        android:backgroundTint="#05000000"
-        android:elevation="@dimen/_4mdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:padding="@dimen/_4mdp"
+        android:src="@drawable/ic_baseline_keyboard_backspace_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/lightblue"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/black" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpMainChat"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Users Chat"
+        android:textColor="@color/lightblack"
+        android:textSize="@dimen/_18font_mdp"
+        android:layout_marginStart="@dimen/_8mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/igBackToHome"
+        app:layout_constraintStart_toEndOf="@+id/igBackToHome"
+        app:layout_constraintTop_toTopOf="@+id/igBackToHome" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatBuying"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tbMainChat"
-        app:layout_constraintStart_toStartOf="@+id/tbMainChat"
-        app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />
-
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/vpMainChat"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tbMainChat"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tbMainChat"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tbMainChat" />-->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

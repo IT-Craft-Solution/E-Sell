@@ -1,16 +1,11 @@
 package com.itcraftsolution.esell.Adapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.itcraftsolution.esell.Fragment.ActiveOrdersFragment;
-import com.itcraftsolution.esell.Fragment.ChatBuyingFragment;
-import com.itcraftsolution.esell.Fragment.ChatSellingFragment;
 import com.itcraftsolution.esell.Fragment.ExpireOrdersFragment;
 
 public class AccMyorderViewPagerAdapter extends FragmentStateAdapter {

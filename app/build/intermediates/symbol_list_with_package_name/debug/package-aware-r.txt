@@ -4100,6 +4100,8 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnCall
+id btnChat
 id btnContinuePhone
 id btnContinueWithGoogle
 id btnContinueWithPhone
@@ -4167,6 +4169,7 @@ id confirm_button
 id confirmlocation
 id constraint
 id constraintLayout
+id constraintLayout2
 id container
 id container_all
 id container_current
@@ -4219,6 +4222,7 @@ id easeInOut
 id easeOut
 id east
 id edHomeSearch
+id edMessageBox
 id edProfileAbout
 id edProfileEmail
 id edProfileName
@@ -4284,9 +4288,8 @@ id icon_group
 id icon_only
 id icon_view
 id ifRoom
-id igChatAttachment
-id igChatMenu
-id igChatMicrophone
+id igAttechment
+id igBackToHome
 id igChatScreenBack
 id igEditToAccount
 id igHelpBackToAccount
@@ -4306,6 +4309,7 @@ id igSampleHomeFreshItem
 id igSampleImage
 id igSellCategorySample
 id igSellItemBackCat
+id igSendMSg
 id igSplashLogo
 id igVerify
 id ignore
@@ -4316,6 +4320,7 @@ id imageView10
 id imageView11
 id imageView2
 id imageView3
+id imageView4
 id imageView5
 id imageView6
 id imageView7
@@ -4546,7 +4551,7 @@ id rounded
 id row_index_key
 id rvActiveOrdersItem
 id rvChatBuying
-id rvChatSelling
+id rvChatDetails
 id rvExpireOrdersItem
 id rvFavoriteItem
 id rvHomeCatShow
@@ -4643,7 +4648,6 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
 id tbAccountMyOrders
-id tbMainChat
 id tbMyAdd
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -4671,6 +4675,7 @@ id textView4
 id textView5
 id textView6
 id textView7
+id textView8
 id textView9
 id text_input_end_icon
 id text_input_error_icon
@@ -4717,10 +4722,8 @@ id tvLocationDetails
 id tvMessageBody
 id tvNavigationTitle
 id tvSlogan
-id txChatDate
 id txChatItemName
 id txChatItemPrice
-id txChatTime
 id txChatUserName
 id txDate
 id txDesc
@@ -4751,6 +4754,7 @@ id txProfileEmailError
 id txProfileLocationError
 id txProfileNameError
 id txProfilePhoneError
+id txReceiverMsg
 id txSampleDesc
 id txSampleHomeCat
 id txSampleHomeFreshItemLocation
@@ -4763,9 +4767,9 @@ id txSave
 id txSelectImages
 id txSelectImagesError
 id txSellCategoryName
+id txSendMSg
 id txUserAbout
 id txUserLocation
-id txUserMessage
 id txUserName
 id txerrorAbout
 id txerrorName
@@ -4794,7 +4798,6 @@ id visible
 id visible_removing_fragment_view_tag
 id volume_item_container
 id vpAccount
-id vpMainChat
 id vpMyAdd
 id west
 id wide
@@ -4917,6 +4920,8 @@ layout cast_mini_controller
 layout cast_tracks_chooser_dialog_layout
 layout cast_tracks_chooser_dialog_row_layout
 layout chat_buying_sample
+layout chatrecive_sample
+layout chatsend_sample
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4941,9 +4946,7 @@ layout fragment_account_setting_fargment
 layout fragment_active_orders
 layout fragment_ads
 layout fragment_chat
-layout fragment_chat_buying
 layout fragment_chat_screen
-layout fragment_chat_selling
 layout fragment_confirmation_code
 layout fragment_congress_screen
 layout fragment_edit_profile
@@ -5613,6 +5616,7 @@ style CastExpandedController
 style CastIntroOverlay
 style CastMiniController
 style CustomCastTheme
+style Dexter_Internal_Theme_Transparent
 style EmptyTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Body_Text
