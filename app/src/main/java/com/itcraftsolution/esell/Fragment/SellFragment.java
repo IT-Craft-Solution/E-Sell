@@ -53,7 +53,7 @@ public class SellFragment extends Fragment {
             }
         });
 
-        ApiUtilities.apiInterface().ReadCategory().enqueue(new Callback<List<HomeCategory>>() {
+        ApiUtilities.apiInterface().ReadCategory(1).enqueue(new Callback<List<HomeCategory>>() {
             @Override
             public void onResponse(Call<List<HomeCategory>> call, Response<List<HomeCategory>> response) {
                 List<HomeCategory> list = response.body();

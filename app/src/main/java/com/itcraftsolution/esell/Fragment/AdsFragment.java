@@ -24,9 +24,6 @@ import retrofit2.Response;
 
 public class AdsFragment extends Fragment {
 
-
-
-
     public AdsFragment() {
         // Required empty public constructor
     }
@@ -71,6 +68,8 @@ public class AdsFragment extends Fragment {
                   binding.rvMyAdsItem.setAdapter(adapter);
               }else {
                   loadingDialog.StopLoadingDialog();
+                  binding.rvMyAdsItem.setVisibility(View.GONE);
+                  binding.llNoDataFound.setVisibility(View.VISIBLE);
                   Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
               }
             }

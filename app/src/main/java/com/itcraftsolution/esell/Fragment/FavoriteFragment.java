@@ -10,18 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.itcraftsolution.esell.Adapter.ActiveOrderRecyclerAdapter;
 import com.itcraftsolution.esell.Adapter.FavRecyclerAdapter;
-import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
-import com.itcraftsolution.esell.Model.HomeCatShow;
 import com.itcraftsolution.esell.Model.MyAdsItem;
-import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentFavoriteBinding;
-import com.itcraftsolution.esell.spf.SpfUserData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

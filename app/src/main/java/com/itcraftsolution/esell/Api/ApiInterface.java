@@ -88,13 +88,17 @@ public interface ApiInterface {
     );
 
 
-
+    @FormUrlEncoded
     @POST("post/read_post.php")
-    Call<List<MyAdsItem>> ReadSellItem();
+    Call<List<MyAdsItem>> ReadSellItem(
+            @Field("status") int status
+    );
 
-
+    @FormUrlEncoded
     @POST("category/read_category.php")
-    Call<List<HomeCategory>> ReadCategory();
+    Call<List<HomeCategory>> ReadCategory(
+            @Field("status") int status
+    );
 
 
     @FormUrlEncoded

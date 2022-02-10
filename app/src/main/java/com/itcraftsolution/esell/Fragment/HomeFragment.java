@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private String Sublocality,Locality,City;
+    private String Sublocality, Locality, City;
     private FragmentHomeBinding binding;
     private HomeFreshItemRecyclerAdapter homeFreshitem;
     private FusedLocationProviderClient mFusedLocationClient;
@@ -78,7 +78,6 @@ public class HomeFragment extends Fragment {
         loadingDialog = new LoadingDialog(requireActivity());
 
 
-
         FetchData();
 
         binding.tvCityName.setOnClickListener(new View.OnClickListener() {
@@ -90,14 +89,14 @@ public class HomeFragment extends Fragment {
             }
         });
         //get User Current Location & Print it.
-        spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
-        binding.tvCityName.setText(spf.getString("UserLocation" , null));
+        spf = requireContext().getSharedPreferences("UserLocation", Context.MODE_PRIVATE);
+        binding.tvCityName.setText(spf.getString("UserLocation", null));
 
         binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getContext(), ""+binding.edHomeSearch.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "" + binding.edHomeSearch.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -106,8 +105,8 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(HomeFragment.this);
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer , new SellFragment())
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer, new SellFragment())
                         .addToBackStack(null)
                         .commit();
             }
@@ -116,26 +115,24 @@ public class HomeFragment extends Fragment {
 
         return binding.getRoot();
     }
-    private void FetchData()
-    {
+
+    private void FetchData() {
         loadingDialog.StartLoadingDialog();
         spfdata = new SpfUserData(requireContext());
-        UserId = spfdata.getSpf().getInt("UserId",0);
+        UserId = spfdata.getSpf().getInt("UserId", 0);
 
-        ApiUtilities.apiInterface().ReadCategory().enqueue(new Callback<List<HomeCategory>>() {
+        ApiUtilities.apiInterface().ReadCategory(1).enqueue(new Callback<List<HomeCategory>>() {
             @Override
             public void onResponse(Call<List<HomeCategory>> call, Response<List<HomeCategory>> response) {
                 List<HomeCategory> list = response.body();
-                if(list != null)
-                {
-                    if(list.get(0).getMessage() == null)
-                    {
-                        HomeCatRecyclerAdapter adapter = new HomeCatRecyclerAdapter(getContext() , list);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() , RecyclerView.HORIZONTAL ,false);
+                if (list != null) {
+                    if (list.get(0).getMessage() == null) {
+                        HomeCatRecyclerAdapter adapter = new HomeCatRecyclerAdapter(getContext(), list);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
                         binding.rvHomeCategory.setLayoutManager(linearLayoutManager);
                         loadingDialog.StopLoadingDialog();
                         binding.rvHomeCategory.setAdapter(adapter);
-                    }else {
+                    } else {
                         loadingDialog.StopLoadingDialog();
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
@@ -148,21 +145,22 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
             }
         });
-        ApiUtilities.apiInterface().ReadSellItem().enqueue(new Callback<List<MyAdsItem>>() {
+
+        ApiUtilities.apiInterface().ReadSellItem(1).enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
                 List<MyAdsItem> list = response.body();
-                if(list != null)
-                {
-                    if(list.get(0).getMessage() == null)
-                    {
-                        homeFreshitem = new HomeFreshItemRecyclerAdapter(requireContext(),list);
-                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 2);
+                if (list != null) {
+                    if (list.get(0).getMessage() == null) {
+                        homeFreshitem = new HomeFreshItemRecyclerAdapter(requireContext(), list);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
                         binding.rvHomeFreshItems.setLayoutManager(gridLayoutManager);
                         loadingDialog.StopLoadingDialog();
                         binding.rvHomeFreshItems.setAdapter(homeFreshitem);
-                    }else {
+                    } else {
                         loadingDialog.StopLoadingDialog();
+                        binding.llNoDataFound.setVisibility(View.VISIBLE);
+                        binding.rvHomeFreshItems.setVisibility(View.GONE);
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -171,7 +169,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
                 loadingDialog.StopLoadingDialog();
-                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         loadingDialog.StopLoadingDialog();
@@ -185,10 +183,6 @@ public class HomeFragment extends Fragment {
             // check if location is enabled
             if (isLocationEnabled()) {
 
-                // getting last
-                // location from
-                // FusedLocationClient
-                // object
                 mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
@@ -201,21 +195,16 @@ public class HomeFragment extends Fragment {
                                 Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
                                 List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 
-                                  // binding.tvCityName.setText(String.valueOf(addresses.get(0).getSubLocality()));
+                                // binding.tvCityName.setText(String.valueOf(addresses.get(0).getSubLocality()));
 
-                                   Locality = addresses.get(0).getLocality();
-                                   Sublocality = addresses.get(0).getSubLocality();
-                                   City = Sublocality +", "+Locality;
-                                   binding.tvCityName.setText(City);
-                                   StoreUserLocation(City);
-
-
-
+                                Locality = addresses.get(0).getLocality();
+                                Sublocality = addresses.get(0).getSubLocality();
+                                City = Sublocality + ", " + Locality;
+                                binding.tvCityName.setText(City);
+                                StoreUserLocation(City);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-
-
                         }
                     }
                 });
@@ -261,14 +250,13 @@ public class HomeFragment extends Fragment {
 
                 Locality = addresses.get(0).getLocality();
                 Sublocality = addresses.get(0).getSubLocality();
-                City = Sublocality +","+Locality;
+                City = Sublocality + "," + Locality;
                 binding.tvCityName.setText(City);
 
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
 
         }
@@ -302,7 +290,7 @@ public class HomeFragment extends Fragment {
     // If everything is alright then
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -311,11 +299,10 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void StoreUserLocation(String UserLocation)
-    {
-        SharedPreferences spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
+    private void StoreUserLocation(String UserLocation) {
+        SharedPreferences spf = requireContext().getSharedPreferences("UserLocation", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();
-        editor.putString("UserLocation" , UserLocation);
+        editor.putString("UserLocation", UserLocation);
         editor.apply();
     }
 }

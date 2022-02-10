@@ -79,6 +79,7 @@ public class DiscussFragment extends Fragment {
                         }).check();
             }
         });
+
         binding.cvDiscussEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

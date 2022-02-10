@@ -10,19 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.itcraftsolution.esell.Api.ApiUtilities;
-import com.itcraftsolution.esell.Model.HomeCatShow;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.ActiveorderSampleBinding;
 
 import java.util.List;
 
-public class ActiveOrderRecyclerAdapter extends RecyclerView.Adapter<ActiveOrderRecyclerAdapter.viewHolder> {
+public class AccountMyordersRecyclerAdapter extends RecyclerView.Adapter<AccountMyordersRecyclerAdapter.viewHolder> {
 
     Context context;
     List<MyAdsItem> list;
 
-    public ActiveOrderRecyclerAdapter(Context context, List<MyAdsItem> list) {
+    public AccountMyordersRecyclerAdapter(Context context, List<MyAdsItem> list) {
         this.context = context;
         this.list = list;
     }
