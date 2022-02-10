@@ -83,11 +83,17 @@ public class DiscussFragment extends Fragment {
         binding.cvDiscussEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                intent.putExtra(Intent.EXTRA_EMAIL, UserEmail);
-                intent.putExtra(Intent.EXTRA_SUBJECT, "I've found this on #E-Sell. are You Sell this item?" +ItemTitle +" ,"+ItemDesc+" "+ApiUtilities.SellItemImage+ItemImg);
-                    startActivity(intent);
+
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{UserEmail});
+                i.putExtra(Intent.EXTRA_SUBJECT, "Are you Sell this item?");
+                i.putExtra(Intent.EXTRA_TEXT   , "I've found this on #E-Sell. are You Sell this item?" +ItemTitle +" ,"+ItemDesc+" ,"+ApiUtilities.SellItemImage+ItemImg);
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(requireContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
+                }
             }
         });
         return binding.getRoot();

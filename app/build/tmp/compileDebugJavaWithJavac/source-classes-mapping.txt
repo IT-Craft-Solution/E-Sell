@@ -94,11 +94,10 @@ com/itcraftsolution/esell/Fragment/mapsAndLocation.java
  com.itcraftsolution.esell.Fragment.mapsAndLocation$3
 com/itcraftsolution/esell/databinding/ChatBuyingSampleBinding.java
  com.itcraftsolution.esell.databinding.ChatBuyingSampleBinding
-com/itcraftsolution/esell/Fragment/ItemDetailsFragment.java
- com.itcraftsolution.esell.Fragment.ItemDetailsFragment
- com.itcraftsolution.esell.Fragment.ItemDetailsFragment$1
- com.itcraftsolution.esell.Fragment.ItemDetailsFragment$2
- com.itcraftsolution.esell.Fragment.ItemDetailsFragment$3
+com/itcraftsolution/esell/Fragment/ChatFragment.java
+ com.itcraftsolution.esell.Fragment.ChatFragment
+ com.itcraftsolution.esell.Fragment.ChatFragment$1
+ com.itcraftsolution.esell.Fragment.ChatFragment$2
 com/itcraftsolution/esell/Adapter/FavRecyclerAdapter.java
  com.itcraftsolution.esell.Adapter.FavRecyclerAdapter
  com.itcraftsolution.esell.Adapter.FavRecyclerAdapter$viewHolder
@@ -182,12 +181,10 @@ com/itcraftsolution/esell/Fragment/SellFragment.java
  com.itcraftsolution.esell.Fragment.SellFragment
  com.itcraftsolution.esell.Fragment.SellFragment$1
  com.itcraftsolution.esell.Fragment.SellFragment$2
-com/itcraftsolution/esell/Fragment/DiscussFragment.java
- com.itcraftsolution.esell.Fragment.DiscussFragment
- com.itcraftsolution.esell.Fragment.DiscussFragment$1
- com.itcraftsolution.esell.Fragment.DiscussFragment$1$1
- com.itcraftsolution.esell.Fragment.DiscussFragment$2
- com.itcraftsolution.esell.Fragment.DiscussFragment$3
+com/itcraftsolution/esell/Fragment/AccountMyordersFragment.java
+ com.itcraftsolution.esell.Fragment.AccountMyordersFragment
+ com.itcraftsolution.esell.Fragment.AccountMyordersFragment$1
+ com.itcraftsolution.esell.Fragment.AccountMyordersFragment$2
 com/itcraftsolution/esell/Fragment/SellItemFormFragment.java
  com.itcraftsolution.esell.Fragment.SellItemFormFragment
  com.itcraftsolution.esell.Fragment.SellItemFormFragment$1
@@ -257,15 +254,18 @@ com/itcraftsolution/esell/Adapter/MyAdsItemAdapter.java
  com.itcraftsolution.esell.Adapter.MyAdsItemAdapter$2$1
  com.itcraftsolution.esell.Adapter.MyAdsItemAdapter$2$1$1
  com.itcraftsolution.esell.Adapter.MyAdsItemAdapter$viewHolder
-com/itcraftsolution/esell/Fragment/ChatFragment.java
- com.itcraftsolution.esell.Fragment.ChatFragment
- com.itcraftsolution.esell.Fragment.ChatFragment$1
- com.itcraftsolution.esell.Fragment.ChatFragment$2
+com/itcraftsolution/esell/Fragment/DiscussFragment.java
+ com.itcraftsolution.esell.Fragment.DiscussFragment
+ com.itcraftsolution.esell.Fragment.DiscussFragment$1
+ com.itcraftsolution.esell.Fragment.DiscussFragment$1$1
+ com.itcraftsolution.esell.Fragment.DiscussFragment$2
+ com.itcraftsolution.esell.Fragment.DiscussFragment$3
 com/itcraftsolution/esell/MainActivity.java
  com.itcraftsolution.esell.MainActivity
  com.itcraftsolution.esell.MainActivity$1
  com.itcraftsolution.esell.MainActivity$2
-com/itcraftsolution/esell/Fragment/AccountMyordersFragment.java
- com.itcraftsolution.esell.Fragment.AccountMyordersFragment
- com.itcraftsolution.esell.Fragment.AccountMyordersFragment$1
- com.itcraftsolution.esell.Fragment.AccountMyordersFragment$2
+com/itcraftsolution/esell/Fragment/ItemDetailsFragment.java
+ com.itcraftsolution.esell.Fragment.ItemDetailsFragment
+ com.itcraftsolution.esell.Fragment.ItemDetailsFragment$1
+ com.itcraftsolution.esell.Fragment.ItemDetailsFragment$2
+ com.itcraftsolution.esell.Fragment.ItemDetailsFragment$3

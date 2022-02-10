@@ -4382,6 +4382,7 @@ id llAccountLogout
 id llAccountMyOrders
 id llAccountRateUs
 id llAccountSelectLang
+id llNoDataFound
 id llNotFoundDiscuss
 id loading_indicator
 id lottieCongressAnimation
@@ -4559,7 +4560,6 @@ id row_index_key
 id rvActiveOrdersItem
 id rvChatBuying
 id rvChatDetails
-id rvExpireOrdersItem
 id rvFavoriteItem
 id rvHomeCatShow
 id rvHomeCategory
@@ -4654,7 +4654,6 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
-id tbAccountMyOrders
 id tbMyAdd
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -4813,7 +4812,6 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id volume_item_container
-id vpAccount
 id vpMyAdd
 id west
 id wide
@@ -4959,7 +4957,6 @@ layout fragment_account
 layout fragment_account_help
 layout fragment_account_myorders
 layout fragment_account_setting_fargment
-layout fragment_active_orders
 layout fragment_ads
 layout fragment_chat
 layout fragment_chat_screen
@@ -4967,7 +4964,6 @@ layout fragment_confirmation_code
 layout fragment_congress_screen
 layout fragment_discuss
 layout fragment_edit_profile
-layout fragment_expire_orders
 layout fragment_favorite
 layout fragment_home
 layout fragment_home_cat_show

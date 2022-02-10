@@ -4,6 +4,7 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,11 +21,15 @@ public final class FragmentAdsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final LinearLayout llNoDataFound;
+
+  @NonNull
   public final RecyclerView rvMyAdsItem;
 
   private FragmentAdsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView rvMyAdsItem) {
+      @NonNull LinearLayout llNoDataFound, @NonNull RecyclerView rvMyAdsItem) {
     this.rootView = rootView;
+    this.llNoDataFound = llNoDataFound;
     this.rvMyAdsItem = rvMyAdsItem;
   }
 
@@ -55,13 +60,19 @@ public final class FragmentAdsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.llNoDataFound;
+      LinearLayout llNoDataFound = ViewBindings.findChildViewById(rootView, id);
+      if (llNoDataFound == null) {
+        break missingId;
+      }
+
       id = R.id.rvMyAdsItem;
       RecyclerView rvMyAdsItem = ViewBindings.findChildViewById(rootView, id);
       if (rvMyAdsItem == null) {
         break missingId;
       }
 
-      return new FragmentAdsBinding((ConstraintLayout) rootView, rvMyAdsItem);
+      return new FragmentAdsBinding((ConstraintLayout) rootView, llNoDataFound, rvMyAdsItem);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

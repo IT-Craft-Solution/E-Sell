@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +37,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
+  public final LinearLayout llNoDataFound;
+
+  @NonNull
   public final RecyclerView rvHomeCategory;
 
   @NonNull
@@ -52,13 +56,15 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cardviewHome,
       @NonNull EditText edHomeSearch, @NonNull ImageView igHomeCat, @NonNull ImageView imageView,
-      @NonNull RecyclerView rvHomeCategory, @NonNull RecyclerView rvHomeFreshItems,
-      @NonNull TextView textView3, @NonNull TextView tvCityName, @NonNull TextView txHomecat) {
+      @NonNull LinearLayout llNoDataFound, @NonNull RecyclerView rvHomeCategory,
+      @NonNull RecyclerView rvHomeFreshItems, @NonNull TextView textView3,
+      @NonNull TextView tvCityName, @NonNull TextView txHomecat) {
     this.rootView = rootView;
     this.cardviewHome = cardviewHome;
     this.edHomeSearch = edHomeSearch;
     this.igHomeCat = igHomeCat;
     this.imageView = imageView;
+    this.llNoDataFound = llNoDataFound;
     this.rvHomeCategory = rvHomeCategory;
     this.rvHomeFreshItems = rvHomeFreshItems;
     this.textView3 = textView3;
@@ -117,6 +123,12 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.llNoDataFound;
+      LinearLayout llNoDataFound = ViewBindings.findChildViewById(rootView, id);
+      if (llNoDataFound == null) {
+        break missingId;
+      }
+
       id = R.id.rvHomeCategory;
       RecyclerView rvHomeCategory = ViewBindings.findChildViewById(rootView, id);
       if (rvHomeCategory == null) {
@@ -148,7 +160,8 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((ConstraintLayout) rootView, cardviewHome, edHomeSearch,
-          igHomeCat, imageView, rvHomeCategory, rvHomeFreshItems, textView3, tvCityName, txHomecat);
+          igHomeCat, imageView, llNoDataFound, rvHomeCategory, rvHomeFreshItems, textView3,
+          tvCityName, txHomecat);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
