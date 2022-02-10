@@ -62,7 +62,6 @@ public class HomeFragment extends Fragment {
 
     private String Sublocality,Locality,City;
     private FragmentHomeBinding binding;
-    private ArrayList<HomeCategory> homeCategories;
     private HomeFreshItemRecyclerAdapter homeFreshitem;
     private FusedLocationProviderClient mFusedLocationClient;
     private int PERMISSION_ID = 44;
@@ -77,7 +76,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         loadingDialog = new LoadingDialog(requireActivity());
-        loadingDialog.StartLoadingDialog();
+
 
 
         FetchData();
@@ -93,23 +92,6 @@ public class HomeFragment extends Fragment {
         //get User Current Location & Print it.
         spf = requireContext().getSharedPreferences("UserLocation" , Context.MODE_PRIVATE);
         binding.tvCityName.setText(spf.getString("UserLocation" , null));
-
-
-        homeCategories = new ArrayList<>();
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Auto Car"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Properties"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Mobiles"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Bikes"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Electronics & Appliances"));
-        homeCategories.add(new HomeCategory(R.drawable.properties , "Furniture"));
-        homeCategories.add(new HomeCategory(R.drawable.autocar , "Fashion"));
-
-
-        HomeCatRecyclerAdapter adapter = new HomeCatRecyclerAdapter(getContext() , homeCategories);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() , RecyclerView.HORIZONTAL ,false);
-        binding.rvHomeCategory.setLayoutManager(linearLayoutManager);
-        binding.rvHomeCategory.setAdapter(adapter);
-
 
         binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,9 +118,36 @@ public class HomeFragment extends Fragment {
     }
     private void FetchData()
     {
+        loadingDialog.StartLoadingDialog();
         spfdata = new SpfUserData(requireContext());
         UserId = spfdata.getSpf().getInt("UserId",0);
 
+        ApiUtilities.apiInterface().ReadCategory().enqueue(new Callback<List<HomeCategory>>() {
+            @Override
+            public void onResponse(Call<List<HomeCategory>> call, Response<List<HomeCategory>> response) {
+                List<HomeCategory> list = response.body();
+                if(list != null)
+                {
+                    if(list.get(0).getMessage() == null)
+                    {
+                        HomeCatRecyclerAdapter adapter = new HomeCatRecyclerAdapter(getContext() , list);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() , RecyclerView.HORIZONTAL ,false);
+                        binding.rvHomeCategory.setLayoutManager(linearLayoutManager);
+                        loadingDialog.StopLoadingDialog();
+                        binding.rvHomeCategory.setAdapter(adapter);
+                    }else {
+                        loadingDialog.StopLoadingDialog();
+                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<HomeCategory>> call, Throwable t) {
+                loadingDialog.StopLoadingDialog();
+                Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+            }
+        });
         ApiUtilities.apiInterface().ReadSellItem().enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
@@ -165,6 +174,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        loadingDialog.StopLoadingDialog();
     }
 
 

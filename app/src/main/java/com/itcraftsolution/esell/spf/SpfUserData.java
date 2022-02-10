@@ -34,7 +34,7 @@ public class SpfUserData {
         return sharedPreferences;
     }
 
-    public void setItemDetail(String Img,String Price,String Title,String Location,String Desc,int Id, int UserId ,int Insert, int Update,String Category,String auth_id)
+    public void setItemDetail(String Img,String Price,String Title,String Location,String Desc,int Id, int UserId ,int Insert, int Update,String Category,String auth_id,int Discuss)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ItemDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -49,6 +49,7 @@ public class SpfUserData {
         editor.putString("Auth_Id", auth_id);
         editor.putInt("Insert", Insert);
         editor.putInt("Update", Update);
+        editor.putInt("Discuss", Discuss);
         editor.apply();
     }
 

@@ -3615,7 +3615,10 @@ drawable googleg_standard_color_18
 drawable ic_audiotrack_dark
 drawable ic_audiotrack_light
 drawable ic_baseline_account_circle_24
+drawable ic_baseline_add_a_photo_24
 drawable ic_baseline_arrow_forward_ios_24
+drawable ic_baseline_call_24
+drawable ic_baseline_email_24
 drawable ic_baseline_keyboard_backspace_24
 drawable ic_baseline_location_on_24
 drawable ic_baseline_outlet_24
@@ -3981,6 +3984,7 @@ id ContactInfo
 id FUNCTION
 id IvesellIcon
 id META
+id MainDiscussLayout
 id NO_DEBUG
 id NavigationBtnText
 id RelativeLayout
@@ -4100,11 +4104,10 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id btnCall
-id btnChat
 id btnContinuePhone
 id btnContinueWithGoogle
 id btnContinueWithPhone
+id btnDiscuss
 id btnEditImage
 id btnEditProfile
 id btnLocation_navigation
@@ -4187,6 +4190,8 @@ id currentState
 id custom
 id customPanel
 id cut
+id cvDiscussCall
+id cvDiscussEmail
 id dark
 id date_picker_actions
 id decelerate
@@ -4291,6 +4296,7 @@ id ifRoom
 id igAttechment
 id igBackToHome
 id igChatScreenBack
+id igDiscussBackHome
 id igEditToAccount
 id igHelpBackToAccount
 id igHomeCat
@@ -4376,6 +4382,7 @@ id llAccountLogout
 id llAccountMyOrders
 id llAccountRateUs
 id llAccountSelectLang
+id llNotFoundDiscuss
 id loading_indicator
 id lottieCongressAnimation
 id lottie_layer_name
@@ -4669,7 +4676,12 @@ id textView
 id textView10
 id textView11
 id textView12
+id textView14
+id textView15
+id textView17
+id textView19
 id textView2
+id textView20
 id textView3
 id textView4
 id textView5
@@ -4727,6 +4739,10 @@ id txChatItemPrice
 id txChatUserName
 id txDate
 id txDesc
+id txDiscussItemLoc
+id txDiscussItemName
+id txDiscussItemPrice
+id txDiscussUserName
 id txEdit
 id txFormDescError
 id txFormLocation
@@ -4949,6 +4965,7 @@ layout fragment_chat
 layout fragment_chat_screen
 layout fragment_confirmation_code
 layout fragment_congress_screen
+layout fragment_discuss
 layout fragment_edit_profile
 layout fragment_expire_orders
 layout fragment_favorite

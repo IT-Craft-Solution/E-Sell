@@ -132,6 +132,7 @@ public class ChatScreenFragment extends Fragment {
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
                 fragmentTransaction.replace(R.id.frMainContainer, new ChatFragment())
                         .addToBackStack(null).commit();
+
             }
         });
 

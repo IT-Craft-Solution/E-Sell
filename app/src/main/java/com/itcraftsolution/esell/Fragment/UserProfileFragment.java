@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Address;
@@ -16,7 +15,6 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.InputType;
 import android.util.Base64;
@@ -26,15 +24,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -54,13 +51,16 @@ import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentUserProfileBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import retrofit2.Call;
@@ -74,15 +74,16 @@ public class UserProfileFragment extends Fragment {
     }
 
     private FragmentUserProfileBinding binding;
-    private String Sublocality,Locality,City, Name, Email, Phone, About, Location,encodeImageString;
-    FusedLocationProviderClient mFusedLocationClient;
+    private String Sublocality, Locality, City, Name, Email, Phone, About, Location, encodeImageString, destpath;
+    private FusedLocationProviderClient mFusedLocationClient;
     private static final int PERMISSION_ID = 44;
     private Bitmap bitmap;
+    private ActivityResultLauncher<String> mGetContent;
     private int Status;
+    private Uri PhotoUri;
     private SpfUserData spfUserData;
     private LoadingDialog loadingDialog;
     private GoogleSignInAccount account;
-    Uri uri;
     boolean CheckImage = false;
 
     @Override
@@ -96,16 +97,12 @@ public class UserProfileFragment extends Fragment {
         binding.igProfileDp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if(checkStoragePermission())
-            {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                SendActivityintent.launch(intent);
+                if (checkStoragePermission()) {
+                    mGetContent.launch("image/*");
 
-            }else {
-                requestStoragePermission();
-            }
+                } else {
+                    requestStoragePermission();
+                }
             }
         });
 
@@ -117,30 +114,24 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfileNameError.setText("Name must be Minimum 4 characters");
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserName.requestFocus();
-                }
-                else if (!CheckImage || binding.igProfileDp.getDrawable() == null){
+                } else if (!CheckImage || binding.igProfileDp.getDrawable() == null) {
                     Toast.makeText(getContext(), "Please Set Your Profile Picture ", Toast.LENGTH_SHORT).show();
-                }
-                else if (Objects.requireNonNull(binding.edUserAboutUs.getText()).toString().length() < 8) {
+                } else if (Objects.requireNonNull(binding.edUserAboutUs.getText()).toString().length() < 8) {
                     binding.txProfileAboutError.setText("About Us must be Minimum 8 characters");
                     binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserAboutUs.requestFocus();
-                }
-                else if (Objects.requireNonNull(binding.edUserPhoneNumber.getText()).toString().length() != 10) {
+                } else if (Objects.requireNonNull(binding.edUserPhoneNumber.getText()).toString().length() != 10) {
                     binding.txProfilePhoneError.setText("PhoneNumber must be Minimum 10 Digits");
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserPhoneNumber.requestFocus();
-                }
-                else if (!ValidEmail(Objects.requireNonNull(binding.edUserEmail.getText()).toString())) {
+                } else if (!ValidEmail(Objects.requireNonNull(binding.edUserEmail.getText()).toString())) {
                     binding.txProfileEmailError.setText("Please Enter Email In Valid Format");
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.red));
                     binding.edUserEmail.requestFocus();
-                }
-                else if(binding.txLocationn.getText().toString().equals("CityName"))
-                {
+                } else if (binding.txLocationn.getText().toString().equals("CityName")) {
                     binding.txProfileLocationError.setText("Please Confirm Your Location");
                     binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -148,9 +139,7 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.red));
                     binding.txUserLocation.requestFocus();
-                }
-                else
-                {
+                } else {
                     loadingDialog.StartLoadingDialog();
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileAboutError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -164,38 +153,34 @@ public class UserProfileFragment extends Fragment {
 
                     About = binding.edUserAboutUs.getText().toString();
 
-                    Phone = "+91"+binding.edUserPhoneNumber.getText().toString();
+                    Phone = "+91" + binding.edUserPhoneNumber.getText().toString();
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
                     loadingDialog.StartLoadingDialog();
-                    ApiUtilities.apiInterface().ReadUser(Phone,Email)
+                    ApiUtilities.apiInterface().ReadUser(Phone, Email)
                             .enqueue(new Callback<UserModel>() {
                                 @Override
                                 public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                                     UserModel model = response.body();
                                     if (model != null) {
                                         if (model.getMessage() == null) {
-                                           Status = model.getStatus();
-                                            if(Status == 0)
-                                            {
-                                                ApiUtilities.apiInterface().UpdateUser(model.getId(),encodeImageString,Name,About,Locality,Sublocality,1)
+                                            Status = model.getStatus();
+                                            if (Status == 0) {
+                                                ApiUtilities.apiInterface().UpdateUser(model.getId(), encodeImageString, Name, About, Locality, Sublocality, 1)
                                                         .enqueue(new Callback<ResponceModel>() {
                                                             @Override
                                                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
                                                                 ResponceModel responceModel = response.body();
-                                                                if(responceModel != null)
-                                                                {
-                                                                    if(responceModel.getMessage().equals("fail"))
-                                                                    {
+                                                                if (responceModel != null) {
+                                                                    if (responceModel.getMessage().equals("fail")) {
                                                                         loadingDialog.StopLoadingDialog();
                                                                         Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                    else {
+                                                                    } else {
                                                                         loadingDialog.StopLoadingDialog();
-                                                                        Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                        Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                                                         spfUserData = new SpfUserData(requireContext());
-                                                                        spfUserData.setSpf( model.getId(),Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1,FirebaseAuth.getInstance().getUid());
+                                                                        spfUserData.setSpf(model.getId(), Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid());
                                                                         Intent intent = new Intent(getContext(), MainActivity.class);
                                                                         startActivity(intent);
                                                                         requireActivity().finishAffinity();
@@ -206,34 +191,31 @@ public class UserProfileFragment extends Fragment {
                                                             @Override
                                                             public void onFailure(Call<ResponceModel> call, Throwable t) {
                                                                 loadingDialog.StopLoadingDialog();
-                                                                Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
-                                            }else {
+                                            } else {
                                                 Toast.makeText(requireContext(), "Status 1: Already Chhe", Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
                                             //msg malo chhe record nathi malto
                                             spfUserData = new SpfUserData(requireContext());
-                                            spfUserData.setSpf(0,Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1,FirebaseAuth.getInstance().getUid());
-                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name,About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid())
+                                            spfUserData.setSpf(0, Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid());
+                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid())
                                                     .enqueue(new Callback<ResponceModel>() {
                                                         @Override
                                                         public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
                                                             ResponceModel responceModel = response.body();
-                                                            if(responceModel != null)
-                                                            {
-                                                                if(responceModel.getMessage().equals("fail"))
-                                                                {
+                                                            if (responceModel != null) {
+                                                                if (responceModel.getMessage().equals("fail")) {
                                                                     Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                                                                }
-                                                                else {
-                                                                    Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                } else {
+                                                                    Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                                                     Intent intent = new Intent(getContext(), MainActivity.class);
                                                                     startActivity(intent);
                                                                     requireActivity().finishAffinity();
                                                                 }
-                                                            }else {
+                                                            } else {
                                                                 Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                                             }
                                                             loadingDialog.StopLoadingDialog();
@@ -242,7 +224,7 @@ public class UserProfileFragment extends Fragment {
                                                         @Override
                                                         public void onFailure(Call<ResponceModel> call, Throwable t) {
                                                             loadingDialog.StopLoadingDialog();
-                                                            Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                         }
@@ -252,7 +234,7 @@ public class UserProfileFragment extends Fragment {
                                 @Override
                                 public void onFailure(Call<UserModel> call, Throwable t) {
                                     loadingDialog.StopLoadingDialog();
-                                    Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
@@ -268,11 +250,34 @@ public class UserProfileFragment extends Fragment {
             }
         });
 
+        mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                if (result.getPath() != null) {
+                    PhotoUri = result;
+                    destpath = UUID.randomUUID().toString() + ".png";
+
+                    UCrop.Options options = new UCrop.Options();
+                    options.setCompressionQuality(70);
+                    options.setCircleDimmedLayer(true);
+                    options.setCompressionFormat(Bitmap.CompressFormat.PNG);
+
+
+                    UCrop.of(PhotoUri, Uri.fromFile(new File(requireContext().getCacheDir(), destpath)))
+                            .withOptions(options)
+                            .withAspectRatio(0, 0)
+                            .useSourceImageAspectRatio()
+                            .withMaxResultSize(1080, 720)
+                            .start(requireContext(), UserProfileFragment.this);
+
+                }
+
+            }
+        });
         return binding.getRoot();
     }
 
-    private boolean ValidEmail(String email)
-    {
+    private boolean ValidEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();
     }
@@ -280,36 +285,48 @@ public class UserProfileFragment extends Fragment {
     private void requestStoragePermission() {
 
         ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_ID);
-        }
+    }
 
-        private boolean checkStoragePermission()
-        {
-            Toast.makeText(requireContext(), "select image less then 1 mb", Toast.LENGTH_SHORT).show();
-            return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-        }
+    private boolean checkStoragePermission() {
+        Toast.makeText(requireContext(), "select image less then 1 mb", Toast.LENGTH_SHORT).show();
+        return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+    }
 
-    private void LoadData()
-    {
+    private void LoadData() {
         SpfUserData spfUserData = new SpfUserData(requireContext());
         GoogleSignIn.getLastSignedInAccount(requireContext());
         account = GoogleSignIn.getLastSignedInAccount(requireContext());
-        if(spfUserData.getSpf().getString("UserPhone", null) != null)
-        {
+        if (spfUserData.getSpf().getString("UserPhone", null) != null) {
             binding.edUserPhoneNumber.setText(spfUserData.getSpf().getString("UserPhone", null));
             binding.edUserPhoneNumber.setInputType(InputType.TYPE_NULL);
             Toast.makeText(requireContext(), "Phone verify!", Toast.LENGTH_SHORT).show();
-        }
-        else if(account != null)
-        {
-                binding.edUserEmail.setText(account.getEmail());
-                binding.edUserEmail.setInputType(InputType.TYPE_NULL);
-                binding.edUserAboutUs.setText(account.getGivenName());
-                binding.edUserName.setText(account.getDisplayName());
-                Toast.makeText(requireContext(), "Google verify!", Toast.LENGTH_SHORT).show();
+        } else if (account != null) {
+            binding.edUserEmail.setText(account.getEmail());
+            binding.edUserEmail.setInputType(InputType.TYPE_NULL);
+            binding.edUserAboutUs.setText(account.getGivenName());
+            binding.edUserName.setText(account.getDisplayName());
+            Toast.makeText(requireContext(), "Google verify!", Toast.LENGTH_SHORT).show();
 
-        }
-        else {
+        } else {
             Toast.makeText(requireContext(), "Phone & Google not verify!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+
+            assert data != null;
+            final Uri resulturi = UCrop.getOutput(data);
+            try {
+                InputStream inputStream = requireContext().getContentResolver().openInputStream(resulturi);
+                bitmap = BitmapFactory.decodeStream(inputStream);
+                encodeBitmapImage(bitmap);
+                CheckImage = true;
+            } catch (Exception e) {
+                Toast.makeText(requireContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -340,7 +357,7 @@ public class UserProfileFragment extends Fragment {
 
                                 Locality = addresses.get(0).getLocality();
                                 Sublocality = addresses.get(0).getSubLocality();
-                                City = Sublocality +", "+Locality;
+                                City = Sublocality + ", " + Locality;
                                 binding.txLocationn.setVisibility(View.VISIBLE);
                                 binding.txUserLocation.setVisibility(View.INVISIBLE);
                                 binding.txLocationn.setText(City);
@@ -395,14 +412,13 @@ public class UserProfileFragment extends Fragment {
 
                 Locality = addresses.get(0).getLocality();
                 Sublocality = addresses.get(0).getSubLocality();
-                City = Sublocality +","+Locality;
+                City = Sublocality + "," + Locality;
                 binding.txLocationn.setText(City);
 
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
 
         }
@@ -435,49 +451,23 @@ public class UserProfileFragment extends Fragment {
     // If everything is alright then
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation();
                 Toast.makeText(requireContext(), "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
-            }
-             else {
+            } else {
                 Toast.makeText(requireContext(), "Oops you just denied the permission", Toast.LENGTH_LONG).show();
             }
         }
 
     }
 
-    ActivityResultLauncher<Intent> SendActivityintent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK)
-                    {
-                        if(result.getData() != null)
-                        {
-                            uri = result.getData().getData();
-                                try {
-                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(uri);
-                                    bitmap = BitmapFactory.decodeStream(inputStream);
-                                    encodeBitmapImage(bitmap);
-                                    CheckImage = true;
-                                }catch (Exception e)
-                                {
-                                    Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-
-//                            Toast.makeText(requireContext(), ""+bitmap, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                }
-            });
 
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,70, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);
 //        Toast.makeText(requireContext(), ""+bitmap.getByteCount(), Toast.LENGTH_SHORT).show();
         binding.igProfileDp.setImageBitmap(bitmap);
         byte[] bytesofimage = byteArrayOutputStream.toByteArray();

@@ -1,6 +1,7 @@
 package com.itcraftsolution.esell.Api;
 
 import com.itcraftsolution.esell.Model.ChatModel;
+import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.Model.UserModel;
@@ -90,6 +91,10 @@ public interface ApiInterface {
 
     @POST("post/read_post.php")
     Call<List<MyAdsItem>> ReadSellItem();
+
+
+    @POST("category/read_category.php")
+    Call<List<HomeCategory>> ReadCategory();
 
 
     @FormUrlEncoded

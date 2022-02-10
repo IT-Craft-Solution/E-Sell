@@ -9,7 +9,7 @@
        />
 
     <item android:id="@+id/bNavChat"
-        android:title="Chats"
+        android:title="Discuss"
         android:icon="@drawable/ic_chat_icon"
         android:menuCategory="secondary"
         />

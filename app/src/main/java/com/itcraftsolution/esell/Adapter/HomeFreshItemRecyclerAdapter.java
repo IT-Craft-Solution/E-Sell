@@ -115,7 +115,7 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
         public void onClick(View v) {
             spf = new SpfUserData(context);
             spf.setItemDetail(model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
-                    ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name(),model.getAuth_id());
+                    ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name(),model.getAuth_id(),0);
 
             ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)

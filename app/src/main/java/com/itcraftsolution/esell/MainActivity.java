@@ -15,6 +15,7 @@ import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
+import com.itcraftsolution.esell.Fragment.DiscussFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
 import com.itcraftsolution.esell.Fragment.MyAddFragment;
 import com.itcraftsolution.esell.Fragment.SellFragment;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new HomeFragment();
                         break;
                     case R.id.bNavChat:
-                        selectedFragment = new ChatFragment();
+                        selectedFragment = new DiscussFragment();
                         break;
                     case R.id.bNavSell:
                         selectedFragment = new SellFragment();

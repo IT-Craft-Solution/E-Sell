@@ -1,30 +1,63 @@
 package com.itcraftsolution.esell.Model;
 
 public class HomeCategory {
-    private int Cat_Img;
-    private String Cat_Name;
+    private int id,status;
+    private String cat_name,cat_img,date,message;
 
-    public HomeCategory(int cat_Img, String cat_Name) {
-        Cat_Img = cat_Img;
-        Cat_Name = cat_Name;
+    public HomeCategory(int id, int status, String cat_name, String cat_img, String date,String message) {
+        this.id = id;
+        this.status = status;
+        this.cat_name = cat_name;
+        this.cat_img = cat_img;
+        this.date = date;
+        this.message = message;
     }
 
-    public HomeCategory() {
+    public int getId() {
+        return id;
     }
 
-    public int getCat_Img() {
-        return Cat_Img;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setCat_Img(int cat_Img) {
-        Cat_Img = cat_Img;
+    public String getMessage() {
+        return message;
     }
 
-    public String getCat_Name() {
-        return Cat_Name;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public void setCat_Name(String cat_Name) {
-        Cat_Name = cat_Name;
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCat_name() {
+        return cat_name;
+    }
+
+    public void setCat_name(String cat_name) {
+        this.cat_name = cat_name;
+    }
+
+    public String getCat_img() {
+        return cat_img;
+    }
+
+    public void setCat_img(String cat_img) {
+        this.cat_img = cat_img;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
 import com.itcraftsolution.esell.Fragment.login;
 import com.itcraftsolution.esell.Model.HomeCategory;
@@ -17,13 +19,14 @@ import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.HomeCategorySampleBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecyclerAdapter.viewHolder> {
 
     Context context;
-    ArrayList<HomeCategory> homeCategories;
+    List<HomeCategory> homeCategories;
 
-    public HomeCatRecyclerAdapter(Context context, ArrayList<HomeCategory> homeCategories) {
+    public HomeCatRecyclerAdapter(Context context, List<HomeCategory> homeCategories) {
         this.context = context;
         this.homeCategories = homeCategories;
     }
@@ -41,8 +44,8 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
 
         HomeCategory homeCategory = homeCategories.get(position);
 
-        holder.binding.igSampleHomeCat.setImageResource(homeCategory.getCat_Img());
-        holder.binding.txSampleHomeCat.setText(homeCategory.getCat_Name());
+        Glide.with(context).load(ApiUtilities.HomeCategory+homeCategory.getCat_img()).into(holder.binding.igSampleHomeCat);
+        holder.binding.txSampleHomeCat.setText(homeCategory.getCat_name());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

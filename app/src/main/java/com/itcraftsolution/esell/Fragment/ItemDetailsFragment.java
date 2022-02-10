@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,8 +49,8 @@ public class ItemDetailsFragment extends Fragment {
 
    private  FragmentItemDetailsBinding binding;
     private SpfUserData spf,spfUserData;
-    private String ItemImg,ItemPrice,ItemDesc,ItemTitle,ItemLocation,ReceiverUid,User_Name,User_img,UserPhone;
-    private int ItemId,UserId;
+    private String ItemImg,ItemPrice,ItemDesc,ItemTitle,ItemLocation,ReceiverUid,User_Name,User_img,UserPhone,ItemCat,Auth_id;
+    private int ItemId,UserId,LoginUserId;
     private LoadingDialog loadingDialog;
 
     @Override
@@ -152,58 +153,16 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
-        binding.btnCall.setOnClickListener(new View.OnClickListener() {
+        binding.btnDiscuss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoadingDialog loadingDialog = new LoadingDialog(requireActivity());
-                loadingDialog.StartLoadingDialog();
-                ApiUtilities.apiInterface().ReadUserId(UserId)
-                        .enqueue(new Callback<UserModel>() {
-                            @Override
-                            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-                                UserModel model = response.body();
-                                if (model != null) {
-                                    if (model.getMessage() == null) {
-                                        loadingDialog.StopLoadingDialog();
-                                       UserPhone = model.getPhone();
-
-                                        Dexter.withContext(requireContext()).withPermission(Manifest.permission.CALL_PHONE)
-                                                .withListener(new PermissionListener() {
-                                                    @Override
-                                                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                                                        Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+UserPhone));
-                                                        try{
-                                                            startActivity(intent);
-                                                        }catch (Exception e)
-                                                        {
-                                                            Toast.makeText(requireContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }
-
-                                                    @Override
-                                                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
-                                                    }
-
-                                                    @Override
-                                                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                                                        permissionToken.continuePermissionRequest();
-                                                    }
-                                                }).check();
-
-                                    } else {
-                                        loadingDialog.StopLoadingDialog();
-                                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<UserModel> call, Throwable t) {
-                                loadingDialog.StopLoadingDialog();
-                                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                SpfUserData spfUserData = new SpfUserData(requireContext());
+                spfUserData.setItemDetail(ItemImg,ItemPrice,ItemTitle,ItemLocation,ItemDesc,ItemId,UserId,0,0,ItemCat,Auth_id,1);
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ItemDetailsFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new DiscussFragment())
+                        .addToBackStack(null).commit();
             }
         });
 
@@ -212,14 +171,22 @@ public class ItemDetailsFragment extends Fragment {
     private void LoadData()
     {
         spf = new SpfUserData(requireContext());
+        UserId = spf.getItemDetails().getInt("UserId", 0);
         ItemImg = spf.getItemDetails().getString("ItemImg",null);
         ItemPrice = spf.getItemDetails().getString("ItemPrice",null);
         ItemTitle = spf.getItemDetails().getString("ItemTitle",null);
-        ItemDesc = spf.getItemDetails().getString("ItemDesc",null);
         ItemLocation = spf.getItemDetails().getString("ItemLocation",null);
         ItemId = spf.getItemDetails().getInt("ItemId", 0);
-        UserId = spf.getItemDetails().getInt("UserId", 0);
+        ItemDesc = spf.getItemDetails().getString("ItemDesc",null);
+        ItemCat = spf.getItemDetails().getString("Category",null);
+        Auth_id = spf.getItemDetails().getString("Auth_Id",null);
+        LoginUserId = spf.getSpf().getInt("UserId",0);
+        if(LoginUserId == UserId)
+        {
+            binding.btnDiscuss.setVisibility(View.GONE);
 
+
+        }
         Glide.with(requireContext()).load(ApiUtilities.SellItemImage+ItemImg).into(binding.igItemDetails);
         binding.txItemDetailsLocation.setText(ItemLocation);
         binding.txItemDetailsName.setText(ItemTitle);
