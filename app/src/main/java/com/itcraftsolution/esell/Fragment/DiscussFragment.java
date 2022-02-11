@@ -84,8 +84,8 @@ public class DiscussFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                i.setData(Uri.parse("mailto:"));
                 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{UserEmail});
                 i.putExtra(Intent.EXTRA_SUBJECT, "Are you Sell this item?");
                 i.putExtra(Intent.EXTRA_TEXT   , "I've found this on #E-Sell. are You Sell this item?" +ItemTitle +" ,"+ItemDesc+" ,"+ApiUtilities.SellItemImage+ItemImg);

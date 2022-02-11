@@ -4672,7 +4672,6 @@ id textStart
 id textTitle
 id textTop
 id textView
-id textView10
 id textView11
 id textView12
 id textView14
@@ -4760,7 +4759,6 @@ id txItemLocation
 id txItemName
 id txItemPrice
 id txLightMode
-id txLikes
 id txLocation
 id txLocationn
 id txLogout
