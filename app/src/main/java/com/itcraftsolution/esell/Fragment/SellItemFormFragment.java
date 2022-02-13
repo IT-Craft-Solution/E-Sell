@@ -68,7 +68,7 @@ public class SellItemFormFragment extends Fragment {
 
     private FragmentSellItemFormBinding binding;
     private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice;
-    private int UserId, Insert, Update,Id;
+    private int UserId, Insert, Update, Id;
     FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
@@ -206,11 +206,10 @@ public class SellItemFormFragment extends Fragment {
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
                                         loadingDialog.StopLoadingDialog();
-                                        Toast.makeText(requireActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
-                    }
-                    else {
+                    } else {
                         loadingDialog.StartLoadingDialog();
                         //cat_name,title,description,price,location,city_area,item_img,status
                         SpfUserData spfUserData = new SpfUserData(requireContext());
@@ -237,6 +236,7 @@ public class SellItemFormFragment extends Fragment {
                                             Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
+
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
                                         loadingDialog.StopLoadingDialog();
@@ -259,8 +259,7 @@ public class SellItemFormFragment extends Fragment {
         binding.edSellItemFormTitle.setText(OldTitle);
         binding.edSellItemFormDesc.setText(OldDesc);
         binding.edSellItemFormPrice.setText(OldPrice);
-        if(Update == 1)
-        {
+        if (Update == 1) {
             binding.btnSellItemFormNext.setText("Update Post");
         }
     }
