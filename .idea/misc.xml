@@ -74,6 +74,7 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.178" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.188" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.178" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.290625" />
@@ -124,6 +125,7 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_expire_orders.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_favorite.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_home_cat_show.xml" value="0.14945652173913043" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_item_details.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_maps_and_location.xml" value="0.27447916666666666" />

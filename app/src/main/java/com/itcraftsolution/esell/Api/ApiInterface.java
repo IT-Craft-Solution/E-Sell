@@ -8,10 +8,13 @@ import com.itcraftsolution.esell.Model.UserModel;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface ApiInterface {
 
@@ -39,6 +42,12 @@ public interface ApiInterface {
     Call<UserModel> ReadUser(
             @Field("phone") String phone,
             @Field("email") String email
+    );
+
+    @FormUrlEncoded
+    @POST("user/read_user_phone.php")
+    Call<UserModel> ReadUserPhone(
+            @Field("phone") String phone
     );
 
     @FormUrlEncoded
@@ -129,6 +138,9 @@ public interface ApiInterface {
             @Field("id") int id,@Field("status") int status
     );
 
+    @Multipart
+    @POST("post/upload_img.php")
+    Call<ResponceModel> uploadImages( @Part List<MultipartBody.Part> images, @Part("user_id") int user_id);
 
 
 }

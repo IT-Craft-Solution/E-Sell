@@ -40,6 +40,7 @@
                 android:layout_height="@dimen/_24mdp"
                 android:layout_marginEnd="@dimen/_3mdp"
                 android:padding="@dimen/_2mdp"
+                android:visibility="gone"
                 android:src="@drawable/like"
                 app:layout_constraintBottom_toBottomOf="@+id/txSampleHomeFreshItemLocation"
                 app:layout_constraintEnd_toEndOf="parent"

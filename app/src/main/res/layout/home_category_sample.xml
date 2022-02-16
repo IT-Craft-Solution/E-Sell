@@ -27,7 +27,7 @@
             android:background="#05000000"
             android:backgroundTint="@color/lightblue"
             android:contentDescription="@string/app_name"
-            android:padding="@dimen/_4mdp"
+            android:padding="@dimen/_6mdp"
             android:src="@drawable/autocar" />
 
 

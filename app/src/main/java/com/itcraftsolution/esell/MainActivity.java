@@ -14,6 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
+import com.itcraftsolution.esell.Fragment.AdsFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
 import com.itcraftsolution.esell.Fragment.DiscussFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
@@ -55,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new HomeFragment();
                         break;
                     case R.id.bNavChat:
-                        selectedFragment = new DiscussFragment();
+                        selectedFragment = new ChatFragment();
                         break;
                     case R.id.bNavSell:
                         selectedFragment = new SellFragment();
                         break;
                     case R.id.bNavMyAds:
-                        selectedFragment = new MyAddFragment();
+                        selectedFragment = new AdsFragment();
                         break;
                     case R.id.bNavAccount:
                         selectedFragment = new AccountFragment();
