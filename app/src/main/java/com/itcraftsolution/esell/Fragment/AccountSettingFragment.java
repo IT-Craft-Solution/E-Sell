@@ -38,7 +38,6 @@ public class AccountSettingFragment extends Fragment {
 
    private FragmentAccountSettingFargmentBinding binding;
     private FirebaseAuth auth;
-    private SharedPreferences spf;
     private boolean isDelete = false;
     private int UserId;
     private LoadingDialog loadingDialog;
@@ -50,29 +49,6 @@ public class AccountSettingFragment extends Fragment {
       binding = FragmentAccountSettingFargmentBinding .inflate(getLayoutInflater());
 
         auth = FirebaseAuth.getInstance();
-        spf = requireContext().getSharedPreferences("ThemeMode" , Context.MODE_PRIVATE);
-        binding.btnSwitch.setChecked(spf.getBoolean("ThemeMode",false));
-
-        if (binding.btnSwitch.isChecked()){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            binding.txLightMode.setText("Dark Mode");
-        }else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
-
-
-        binding.btnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    ThemeMode(true);
-                }else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    ThemeMode(false);
-                }
-            }
-        });
 
       binding.txLogout.setOnClickListener(new View.OnClickListener() {
           @Override

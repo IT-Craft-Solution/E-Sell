@@ -31,9 +31,8 @@ com/itcraftsolution/esell/databinding/FragmentAccountMyordersBinding.java
 com/itcraftsolution/esell/Fragment/AccountSettingFragment.java
  com.itcraftsolution.esell.Fragment.AccountSettingFragment
  com.itcraftsolution.esell.Fragment.AccountSettingFragment$1
- com.itcraftsolution.esell.Fragment.AccountSettingFragment$2
- com.itcraftsolution.esell.Fragment.AccountSettingFragment$2$1
- com.itcraftsolution.esell.Fragment.AccountSettingFragment$2$1$1
+ com.itcraftsolution.esell.Fragment.AccountSettingFragment$1$1
+ com.itcraftsolution.esell.Fragment.AccountSettingFragment$1$1$1
 com/itcraftsolution/esell/Model/ResponceModel.java
  com.itcraftsolution.esell.Model.ResponceModel
 com/itcraftsolution/esell/Fragment/AccountFragment.java
@@ -54,10 +53,12 @@ com/itcraftsolution/esell/databinding/FragmentFavoriteBinding.java
  com.itcraftsolution.esell.databinding.FragmentFavoriteBinding
 com/itcraftsolution/esell/Api/ApiUtilities.java
  com.itcraftsolution.esell.Api.ApiUtilities
-com/itcraftsolution/esell/Adapter/HomeCatShowAdapter.java
- com.itcraftsolution.esell.Adapter.HomeCatShowAdapter
- com.itcraftsolution.esell.Adapter.HomeCatShowAdapter$1
- com.itcraftsolution.esell.Adapter.HomeCatShowAdapter$viewHolder
+com/itcraftsolution/esell/Fragment/login.java
+ com.itcraftsolution.esell.Fragment.login
+ com.itcraftsolution.esell.Fragment.login$1
+ com.itcraftsolution.esell.Fragment.login$2
+ com.itcraftsolution.esell.Fragment.login$3
+ com.itcraftsolution.esell.Fragment.login$4
 com/itcraftsolution/esell/databinding/FragmentAccountSettingFargmentBinding.java
  com.itcraftsolution.esell.databinding.FragmentAccountSettingFargmentBinding
 com/itcraftsolution/esell/databinding/FragmentConfirmationCodeBinding.java
@@ -130,13 +131,8 @@ com/itcraftsolution/esell/Fragment/EditProfileFragment.java
  com.itcraftsolution.esell.Fragment.EditProfileFragment$4
  com.itcraftsolution.esell.Fragment.EditProfileFragment$4$1
  com.itcraftsolution.esell.Fragment.EditProfileFragment$5
-com/itcraftsolution/esell/Adapter/HomeFreshItemRecyclerAdapter.java
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1$1
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1$2
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$2
- com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$viewHolder
+com/itcraftsolution/esell/databinding/FragmentAccountHelpBinding.java
+ com.itcraftsolution.esell.databinding.FragmentAccountHelpBinding
 com/itcraftsolution/esell/Fragment/AdsFragment.java
  com.itcraftsolution.esell.Fragment.AdsFragment
  com.itcraftsolution.esell.Fragment.AdsFragment$1
@@ -256,16 +252,19 @@ com/itcraftsolution/esell/databinding/HomeCatShowSampleBinding.java
  com.itcraftsolution.esell.databinding.HomeCatShowSampleBinding
 com/itcraftsolution/esell/Model/ChatMessage.java
  com.itcraftsolution.esell.Model.ChatMessage
-com/itcraftsolution/esell/databinding/FragmentAccountHelpBinding.java
- com.itcraftsolution.esell.databinding.FragmentAccountHelpBinding
+com/itcraftsolution/esell/Adapter/HomeCatShowAdapter.java
+ com.itcraftsolution.esell.Adapter.HomeCatShowAdapter
+ com.itcraftsolution.esell.Adapter.HomeCatShowAdapter$1
+ com.itcraftsolution.esell.Adapter.HomeCatShowAdapter$viewHolder
+com/itcraftsolution/esell/Adapter/HomeFreshItemRecyclerAdapter.java
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1$1
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$1$2
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$2
+ com.itcraftsolution.esell.Adapter.HomeFreshItemRecyclerAdapter$viewHolder
 com/itcraftsolution/esell/Fragment/ItemDetailsFragment.java
  com.itcraftsolution.esell.Fragment.ItemDetailsFragment
  com.itcraftsolution.esell.Fragment.ItemDetailsFragment$1
  com.itcraftsolution.esell.Fragment.ItemDetailsFragment$2
  com.itcraftsolution.esell.Fragment.ItemDetailsFragment$3
-com/itcraftsolution/esell/Fragment/login.java
- com.itcraftsolution.esell.Fragment.login
- com.itcraftsolution.esell.Fragment.login$1
- com.itcraftsolution.esell.Fragment.login$2
- com.itcraftsolution.esell.Fragment.login$3
- com.itcraftsolution.esell.Fragment.login$4

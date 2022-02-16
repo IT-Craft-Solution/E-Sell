@@ -57,43 +57,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txLogout" />
 
-
-    <TextView
-        android:id="@+id/txLightMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12mdp"
-        android:fontFamily="serif"
-        android:text="Light Mode"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14font_mdp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btnSwitch"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txLogout"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
-
-    <Switch
-        android:id="@+id/btnSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_marginRight="@dimen/_12mdp"
-        app:layout_constraintBottom_toBottomOf="@+id/txLightMode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txLightMode"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <View
-        android:id="@+id/view6"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1mdp"
-        android:layout_marginTop="@dimen/_8mdp"
-        android:background="@color/liteBlack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txLightMode" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

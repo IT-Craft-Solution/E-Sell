@@ -33,7 +33,9 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chat_buying_sample.xml" value="0.264" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_help.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_myorders.xml" value="0.22521367521367522" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_setting_fargment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_active_orders.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_ads.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_chat.xml" value="0.27447916666666666" />
@@ -58,7 +60,7 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_freshitem_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/main_nav_graph.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/myads_item_sample.xml" value="0.4" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/myads_item_sample.xml" value="0.264" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/sell_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/edit_profile_icon.xml" value="0.290625" />

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -39,6 +40,9 @@ public class SplashFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
         auth = FirebaseAuth.getInstance();
+
+
+
 
 
         topAnim = AnimationUtils.loadAnimation(getContext(), R.anim.top_animation);

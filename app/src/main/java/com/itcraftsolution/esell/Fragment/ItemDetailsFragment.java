@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.common.api.Api;
 import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.Api.ApiUtilities;
@@ -33,6 +35,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -58,6 +62,19 @@ public class ItemDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentItemDetailsBinding.inflate(getLayoutInflater());
+
+        // Image Slider
+        List<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(R.drawable.testing));
+        binding.isProductImagesSlider.setImageList(slideModels,true);
+
 
         LoadData();
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {

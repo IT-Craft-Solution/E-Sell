@@ -138,6 +138,7 @@ attr autoSizePresetSizes
 attr autoSizeStepGranularity
 attr autoSizeTextType
 attr autoTransition
+attr auto_cycle
 attr background
 attr backgroundColor
 attr backgroundInsetBottom
@@ -435,6 +436,7 @@ attr cornerSizeBottomLeft
 attr cornerSizeBottomRight
 attr cornerSizeTopLeft
 attr cornerSizeTopRight
+attr corner_radius
 attr counterEnabled
 attr counterMaxLength
 attr counterOverflowTextAppearance
@@ -461,6 +463,7 @@ attr dayTodayStyle
 attr defaultDuration
 attr defaultQueryHint
 attr defaultState
+attr delay
 attr deltaPolarAngle
 attr deltaPolarRadius
 attr deriveConstraintsFrom
@@ -521,6 +524,7 @@ attr errorIconTint
 attr errorIconTintMode
 attr errorTextAppearance
 attr errorTextColor
+attr error_image
 attr expandActivityOverflowButtonDrawable
 attr expanded
 attr expandedHintEnabled
@@ -964,8 +968,10 @@ attr percentHeight
 attr percentWidth
 attr percentX
 attr percentY
+attr period
 attr perpendicularPath_percent
 attr pivotAnchor
+attr placeholder
 attr placeholderText
 attr placeholderTextAppearance
 attr placeholderTextColor
@@ -1019,6 +1025,7 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr selected_dot
 attr selectionRequired
 attr selectorSize
 attr setsTag
@@ -1272,6 +1279,7 @@ attr ucrop_grid_stroke_size
 attr ucrop_show_frame
 attr ucrop_show_grid
 attr ucrop_show_oval_crop_frame
+attr unselected_dot
 attr upDuration
 attr useCompatPadding
 attr useMaterialThemeColors
@@ -3603,15 +3611,19 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable default_selected_dot
+drawable default_unselected_dot
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_profile_icon
+drawable error
 drawable esellnav
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gradient
 drawable ic_audiotrack_dark
 drawable ic_audiotrack_light
 drawable ic_baseline_account_circle_24
@@ -3902,6 +3914,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable phone_icon
+drawable placeholder
 drawable properties
 drawable quantum_ic_art_track_grey600_48
 drawable quantum_ic_bigtop_updates_white_24
@@ -4116,7 +4129,6 @@ id btnPhoneNumLogin
 id btnPreviewAds
 id btnSelectImages
 id btnSellItemFormNext
-id btnSwitch
 id btnVerify
 id button
 id buttonPanel
@@ -4332,6 +4344,7 @@ id imageView6
 id imageView7
 id imageView8
 id imageView9
+id image_view
 id image_view_crop
 id image_view_logo
 id image_view_state_aspect_ratio
@@ -4342,6 +4355,7 @@ id included
 id info
 id invisible
 id inward
+id isProductImagesSlider
 id italic
 id item1
 id item2
@@ -4371,6 +4385,7 @@ id linear
 id linearLayout
 id linearLayout2
 id linearLayout3
+id linear_layout
 id listMode
 id list_item
 id live_indicator_dot
@@ -4528,6 +4543,7 @@ id outline
 id outward
 id overshoot
 id packed
+id pager_dots
 id parallax
 id parent
 id parentPanel
@@ -4691,6 +4707,7 @@ id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_list_view
+id text_view
 id text_view_crop
 id text_view_rotate
 id text_view_scale
@@ -4758,7 +4775,6 @@ id txItemDetailsPrice
 id txItemLocation
 id txItemName
 id txItemPrice
-id txLightMode
 id txLocation
 id txLocationn
 id txLogout
@@ -4803,6 +4819,7 @@ id view5
 id view6
 id view_offset_helper
 id view_overlay
+id view_pager
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -4977,6 +4994,7 @@ layout fragment_user_profile
 layout home_cat_show_sample
 layout home_category_sample
 layout home_freshitem_sample
+layout image_slider
 layout loadingdialog
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -5055,6 +5073,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout pager_row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -6472,6 +6491,7 @@ styleable FragmentContainerView android_name android_tag
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable ImageFilterView altSrc blendSrc brightness contrast crossfade imagePanX imagePanY imageRotate imageZoom overlay round roundPercent saturation warmth
+styleable ImageSlider auto_cycle corner_radius delay error_image period placeholder selected_dot unselected_dot
 styleable Insets paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets paddingTopSystemWindowInsets
 styleable KeyAttribute android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation curveFit framePosition motionProgress motionTarget transformPivotTarget transitionEasing transitionPathRotate
 styleable KeyCycle android_alpha android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation curveFit framePosition motionProgress motionTarget transitionEasing transitionPathRotate waveOffset wavePeriod wavePhase waveShape waveVariesBy
