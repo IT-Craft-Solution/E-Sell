@@ -17,30 +17,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_12mdp"
-            android:fontFamily="serif"
-            android:text="Save"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_18font_mdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/igEditToAccount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/igEditToAccount" />
+<!--        <TextView-->
+<!--            android:id="@+id/txSave"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="@dimen/_12mdp"-->
+<!--            android:fontFamily="serif"-->
+<!--            android:text="Save"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/_18font_mdp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/igEditToAccount"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/igEditToAccount" />-->
 
         <TextView
             android:id="@+id/editProfileHead"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12mdp"
-            android:text="Basic information"
+            android:text="Profile information"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_18font_mdp"
             android:textStyle="bold"
-
             app:layout_constraintStart_toStartOf="@+id/igEditToAccount"
             app:layout_constraintTop_toBottomOf="@+id/igEditToAccount" />
 
@@ -53,18 +52,18 @@
             app:layout_constraintStart_toStartOf="@+id/igEditToAccount"
             app:layout_constraintTop_toBottomOf="@+id/editProfileHead" />
 
-        <TextView
-            android:id="@+id/btnEditImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:padding="@dimen/_1mdp"
-            android:text="Edit"
-            android:textColor="@color/lightblack"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
-            app:layout_constraintEnd_toEndOf="@+id/igProfileDp"
-            app:layout_constraintStart_toStartOf="@+id/igProfileDp" />
+<!--        <TextView-->
+<!--            android:id="@+id/btnEditImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:padding="@dimen/_1mdp"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="@color/lightblack"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/igProfileDp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/igProfileDp" />-->
 
         <EditText
             android:id="@+id/edProfileName"
@@ -203,16 +202,16 @@
             app:layout_constraintTop_toBottomOf="@+id/edProfileEmail" />
 
 
-        <ImageView
-            android:id="@+id/igVerify"
-            android:layout_width="@dimen/_20mdp"
-            android:layout_height="@dimen/_29mdp"
-            android:src="@drawable/verify1"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/editProfileHead"
-            app:layout_constraintEnd_toEndOf="@+id/txSave"
-            app:layout_constraintTop_toTopOf="@+id/editProfileHead"
-            app:layout_constraintVertical_bias="0.0" />
+<!--        <ImageView-->
+<!--            android:id="@+id/igVerify"-->
+<!--            android:layout_width="@dimen/_20mdp"-->
+<!--            android:layout_height="@dimen/_29mdp"-->
+<!--            android:src="@drawable/verify1"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/editProfileHead"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/txSave"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/editProfileHead"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,9 +17,11 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -45,8 +47,10 @@ import com.itcraftsolution.esell.Model.ResponceModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellItemFormBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+import com.itcraftsolution.esell.utils.FileUtils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -54,6 +58,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,6 +77,7 @@ public class SellItemFormFragment extends Fragment {
     private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice;
     private int UserId, Insert, Update, Id;
     FusedLocationProviderClient mFusedLocationClient;
+    private List<MultipartBody.Part> images;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
     private LoadingDialog loadingDialog;
@@ -219,30 +227,53 @@ public class SellItemFormFragment extends Fragment {
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
 
-                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
-                                .enqueue(new Callback<ResponceModel>() {
-                                    @Override
-                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
-                                        ResponceModel responceModel = response.body();
-                                        if (responceModel != null) {
-                                            loadingDialog.StopLoadingDialog();
-                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
-                                                    .addToBackStack(null).commit();
+                        images = new ArrayList<>();
+                        for(int i = 0; i< ImageUris.size(); i++)
+                        {
+                            images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
+                        }
+                        Log.e("mya123" , images.toString());
+                        ApiUtilities.apiInterface().uploadImages(images,5).enqueue(new Callback<ResponceModel>() {
+                            @Override
+                            public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                            ResponceModel model = response.body();
+                            if(model != null)
+                            {
+                                Log.e("mya123", model.getMessage());
+                            }else {
+                                Log.e("mya123", "Model empty !!");
+                            }
+                            }
 
-                                        } else {
-                                            loadingDialog.StopLoadingDialog();
-                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
-                                        loadingDialog.StopLoadingDialog();
-                                        Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                            @Override
+                            public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                Log.e("mya123", ""+t.getMessage()+" "+t.getStackTrace());
+                            }
+                        });
+//                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
+//                                .enqueue(new Callback<ResponceModel>() {
+//                                    @Override
+//                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+//                                        ResponceModel responceModel = response.body();
+//                                        if (responceModel != null) {
+//                                            loadingDialog.StopLoadingDialog();
+//                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+//                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+//                                                    .addToBackStack(null).commit();
+//
+//                                        } else {
+//                                            loadingDialog.StopLoadingDialog();
+//                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
+//                                        loadingDialog.StopLoadingDialog();
+//                                        Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
                     }
                 }
             }
@@ -282,7 +313,8 @@ public class SellItemFormFragment extends Fragment {
                                     ImageUris.add(imageUri);
 
                                 }
-
+                                Log.e("mya123" , ImageUris.toString());
+                                CheckImage = true;
                                 binding.imageView9.setImageURI(ImageUris.get(0));
                                 binding.imageView11.setImageURI(ImageUris.get(1));
 
@@ -306,6 +338,21 @@ public class SellItemFormFragment extends Fragment {
                 }
             });
 
+    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri) {
+        // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
+        // use the FileUtils to get the actual file by uri
+        File file = FileUtils.getFile(requireContext(), fileUri);
+
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(
+                        MediaType.parse(requireActivity().getContentResolver().getType(fileUri)),
+                        file
+                );
+
+        // MultipartBody.Part is used to send also the actual file name
+        return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
+    }
 
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

@@ -154,14 +154,14 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <Button
-                    android:id="@+id/btnDiscuss"
+                    android:id="@+id/btnChat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5mdp"
                     android:layout_weight="1"
                     android:background="@drawable/rectangle_bg"
                     android:padding="@dimen/_10mdp"
-                    android:text="Discuss with Seller"
+                    android:text="Chat with Seller"
                     android:textSize="@dimen/_12font_mdp" />
             </LinearLayout>
 

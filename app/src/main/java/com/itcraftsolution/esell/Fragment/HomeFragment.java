@@ -39,12 +39,12 @@ import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.Model.MyAdsItem;
+import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentHomeBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -60,13 +60,14 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private String Sublocality, Locality, City;
+    private String Sublocality, Locality, City,searchtext;
     private FragmentHomeBinding binding;
     private HomeFreshItemRecyclerAdapter homeFreshitem;
     private FusedLocationProviderClient mFusedLocationClient;
     private int PERMISSION_ID = 44;
     private SpfUserData spfdata;
-    private int UserId;
+    private List<MyAdsItem> list;
+    private int UserId,searchUserId;
     private LoadingDialog loadingDialog;
     private SharedPreferences spf;
 
@@ -77,8 +78,15 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         loadingDialog = new LoadingDialog(requireActivity());
 
-
-        FetchData();
+        if(!binding.edHomeSearch.getText().toString().isEmpty())
+        {
+            searchtext = binding.edHomeSearch.getText().toString();
+            searchtext = "+91"+searchtext;
+            SearchData(searchtext);
+        }
+        else {
+            FetchData();
+        }
 
         binding.tvCityName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +103,15 @@ public class HomeFragment extends Fragment {
         binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getContext(), "" + binding.edHomeSearch.getText().toString(), Toast.LENGTH_SHORT).show();
+                if(!binding.edHomeSearch.getText().toString().isEmpty())
+                {
+                    searchtext = binding.edHomeSearch.getText().toString();
+                    searchtext = "+91"+searchtext;
+                    SearchData(searchtext);
+                }
+                else {
+                    FetchData();
+                }
 
             }
         });
@@ -116,7 +131,56 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
+    private void SearchData(String searchtext)
+    {
+        ApiUtilities.apiInterface().ReadUserPhone(searchtext).enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                UserModel model = response.body();
+                if(model != null)
+                {
+                    if(model.getMessage() == null)
+                    {
+                        searchUserId = model.getId();
+                        Toast.makeText(requireContext(), ""+searchUserId, Toast.LENGTH_SHORT).show();
+                        ApiUtilities.apiInterface().MyadSellItem(searchUserId).enqueue(new Callback<List<MyAdsItem>>() {
+                            @SuppressLint("NotifyDataSetChanged")
+                            @Override
+                            public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
+                                assert response.body() != null;
+                                list.clear();
+                                list.addAll(response.body());
+                                if (list != null) {
+                                    if (list.get(0).getMessage() == null) {
+                                        homeFreshitem.notifyDataSetChanged();
+                                    } else {
+                                        loadingDialog.StopLoadingDialog();
+                                        binding.llNoDataFound.setVisibility(View.VISIBLE);
+                                        binding.rvHomeFreshItems.setVisibility(View.GONE);
+                                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
+                                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else {
+                        Toast.makeText(requireContext(), ""+model.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void FetchData() {
+
         loadingDialog.StartLoadingDialog();
         spfdata = new SpfUserData(requireContext());
         UserId = spfdata.getSpf().getInt("UserId", 0);
@@ -149,7 +213,7 @@ public class HomeFragment extends Fragment {
         ApiUtilities.apiInterface().ReadSellItem(1).enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
-                List<MyAdsItem> list = response.body();
+                 list = response.body();
                 if (list != null) {
                     if (list.get(0).getMessage() == null) {
                         homeFreshitem = new HomeFreshItemRecyclerAdapter(requireContext(), list);
