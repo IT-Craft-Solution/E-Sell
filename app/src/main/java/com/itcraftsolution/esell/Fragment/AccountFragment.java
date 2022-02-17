@@ -46,6 +46,7 @@ public class AccountFragment extends Fragment {
 
 
         LoadData();
+
         binding.llAccountMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
