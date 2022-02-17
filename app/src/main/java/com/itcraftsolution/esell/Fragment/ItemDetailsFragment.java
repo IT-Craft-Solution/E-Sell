@@ -42,10 +42,12 @@ public class ItemDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentItemDetailsBinding.inflate(getLayoutInflater());
 
-        // Image Slider
 
-
+        // Call Load Method
         LoadData();
+
+        // Back Arrow
+        //Go To HomeFragment
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +60,7 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
+        //Button Chat
         binding.btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +73,7 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
+        // Button share Product
         binding.igItemDetailsShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +101,7 @@ public class ItemDetailsFragment extends Fragment {
         return binding.getRoot();
     }
 
+    // LoadData Method
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         UserId = spf.getItemDetails().getInt("UserId", 0);

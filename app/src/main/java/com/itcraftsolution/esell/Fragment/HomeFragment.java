@@ -228,6 +228,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //Fetch Home Fresh Item From Server
         ApiUtilities.apiInterface().ReadSellItem(1).enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
@@ -258,6 +259,7 @@ public class HomeFragment extends Fragment {
     }
 
 
+    //Get Location Method
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -382,6 +384,8 @@ public class HomeFragment extends Fragment {
     }
 
 
+    // Shared Preference
+    //StoreUserLocation Method
     private void StoreUserLocation(String UserLocation) {
         SharedPreferences spf = requireContext().getSharedPreferences("UserLocation", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();

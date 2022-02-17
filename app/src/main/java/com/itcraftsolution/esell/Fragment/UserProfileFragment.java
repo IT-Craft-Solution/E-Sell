@@ -320,6 +320,7 @@ public class UserProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //ValidEmail Method
     private boolean ValidEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();

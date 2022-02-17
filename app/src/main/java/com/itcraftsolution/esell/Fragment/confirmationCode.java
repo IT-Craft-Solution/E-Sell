@@ -63,7 +63,7 @@ public class confirmationCode extends Fragment {
         //Send Verification Code Method
         sendVerificationCode(PhoneNumber);
 
-        //
+        //Dialog Method call
         dialog.show();
 
         //Button To Send Otp

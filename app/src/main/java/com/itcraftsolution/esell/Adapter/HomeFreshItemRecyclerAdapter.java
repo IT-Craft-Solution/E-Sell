@@ -56,6 +56,8 @@ public class HomeFreshItemRecyclerAdapter extends RecyclerView.Adapter<HomeFresh
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         MyAdsItem model = homeFreshItems.get(position);
+
+        //Home Fresh Product Fetch From Server
         String img = model.getItem_img();
         List<String> list = new ArrayList<String>(Arrays.asList(img.split(",")));
     Glide.with(context).load(ApiUtilities.SellItemImage+list.get(0)).into(holder.binding.igSampleHomeFreshItem);

@@ -48,6 +48,7 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
+        //Home Category Product Fetch From Server
         MyAdsItem model = homeCatShows.get(position);
         String img = model.getItem_img();
         List<String> list = new ArrayList<String>(Arrays.asList(img.split(",")));

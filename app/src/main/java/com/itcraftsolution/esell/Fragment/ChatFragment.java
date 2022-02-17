@@ -27,7 +27,7 @@ import com.itcraftsolution.esell.databinding.FragmentChatBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// Chat Fragment Class
 public class ChatFragment extends Fragment {
 
 
@@ -49,6 +49,8 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(getLayoutInflater());
 
+        //Back Arrow
+        // Go To HomeFragment
         binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +62,8 @@ public class ChatFragment extends Fragment {
 
             }
         });
+
+
         binding.rvChatBuying.setHasFixedSize(true);
         binding.rvChatBuying.setLayoutManager(new LinearLayoutManager(getContext()));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
@@ -80,6 +84,7 @@ public class ChatFragment extends Fragment {
                     usersList.add(chatlist);
                 }
 
+                //Call chatList Method
                 chatList();
             }
 
@@ -101,6 +106,7 @@ public class ChatFragment extends Fragment {
 //        reference.child(fuser.getUid()).setValue(token1);
 //    }
 
+    //ChatList Method
     private void chatList() {
         mUsers = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Users");

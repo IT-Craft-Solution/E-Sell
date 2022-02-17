@@ -1,5 +1,6 @@
 package com.itcraftsolution.esell.Model;
 
+// Chat Model Class
 public class Chat {
 
     private String sender;
@@ -8,6 +9,7 @@ public class Chat {
     private boolean isseen;
     private String time;
 
+    // Chat Model Constructor
     public Chat(String sender, String receiver, String message, boolean isseen, String time) {
         this.sender = sender;
         this.receiver = receiver;
@@ -19,6 +21,7 @@ public class Chat {
     public Chat() {
     }
 
+    // Chat Model Class Getter And Setter Method
     public String getSender() {
         return sender;
     }

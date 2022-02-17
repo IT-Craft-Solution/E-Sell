@@ -100,12 +100,17 @@ public class SellItemFormFragment extends Fragment {
         Category = spf.getItemDetails().getString("Category", null);
         Insert = spf.getItemDetails().getInt("Insert", 0);
         Update = spf.getItemDetails().getInt("Update", 0);
+
+
         if (Update == 1) {
             loadingDialog.StartLoadingDialog();
+            //Call LoadData Method
             LoadData();
             loadingDialog.StopLoadingDialog();
             Toast.makeText(requireContext(), "Update", Toast.LENGTH_SHORT).show();
         }
+
+        //Images ArrayList
         ImageUris = new ArrayList<>();
 
         //Back Arrow
@@ -195,6 +200,7 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                 } else {
 
+                    // Store Sell Product Detail To Server
                     if (Update == 1) {
                         loadingDialog.StartLoadingDialog();
                         Update = 0;
@@ -403,6 +409,7 @@ public class SellItemFormFragment extends Fragment {
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
     }
 
+    // encodeBitmapImage Method
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);

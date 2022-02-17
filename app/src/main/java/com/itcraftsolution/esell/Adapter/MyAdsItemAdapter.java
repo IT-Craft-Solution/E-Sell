@@ -53,6 +53,8 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         MyAdsItem myAdsItem = myAdsItems.get(position);
         String img = myAdsItem.getItem_img();
+
+        // Fetch User Added Product From Server
         List<String> list = new ArrayList<String>(Arrays.asList(img.split(",")));
         Glide.with(context).load(ApiUtilities.SellItemImage+list.get(0)).into(holder.binding.igItemImage);
         holder.binding.txItemName.setText(myAdsItem.getTitle());
@@ -75,6 +77,7 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
             }
         });
 
+        //Delete Added Product
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

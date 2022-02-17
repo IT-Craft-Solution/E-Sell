@@ -47,6 +47,7 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
 
         HomeCategory homeCategory = homeCategories.get(position);
 
+        //Fetch Category From Server
         Glide.with(context).load(ApiUtilities.HomeCategory+homeCategory.getCat_img()).into(holder.binding.igSampleHomeCat);
         holder.binding.txSampleHomeCat.setText(homeCategory.getCat_name());
 

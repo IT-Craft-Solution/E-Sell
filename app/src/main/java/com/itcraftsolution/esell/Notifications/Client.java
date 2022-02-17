@@ -3,6 +3,7 @@ package com.itcraftsolution.esell.Notifications;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+// Client  Class
 public class Client {
 
     private static Retrofit retrofit = null;
