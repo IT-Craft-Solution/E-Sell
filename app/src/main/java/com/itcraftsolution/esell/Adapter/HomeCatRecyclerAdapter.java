@@ -22,6 +22,7 @@ import com.itcraftsolution.esell.databinding.HomeCategorySampleBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+//Home Category Recycler View
 public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecyclerAdapter.viewHolder> {
 
     Context context;

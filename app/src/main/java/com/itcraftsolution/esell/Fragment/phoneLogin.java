@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
+//phoneLogin Fragment Class
 public class phoneLogin extends Fragment {
 
 
@@ -38,6 +39,7 @@ public class phoneLogin extends Fragment {
         btnNext = view.findViewById(R.id.btnPhoneNumLogin);
         ivBack = view.findViewById(R.id.ivphoneDetailsBackArrow);
 
+        //Button Get OTP
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +53,9 @@ public class phoneLogin extends Fragment {
                 }
             }
         });
+
+        // Back Arrow
+        //Go to Login Fragment
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +70,7 @@ public class phoneLogin extends Fragment {
 
     }
 
+    // checkPhoneNumber Method
     private boolean checkPhoneNumber() {
         boolean condition = true;
         if (etPhone.getText().toString().length() != 10) {
@@ -73,6 +79,9 @@ public class phoneLogin extends Fragment {
         }
         return condition;
     }
+
+    //Shared Preference
+    //Store Phone Number
     private void StoreUserDetails(String PhoneNumber)
     {
         SpfUserData spfUserData = new SpfUserData(requireContext());

@@ -26,6 +26,7 @@ import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.concurrent.TimeUnit;
 
+// Confirmation Code Class Fragment
 public class confirmationCode extends Fragment {
 
 
@@ -44,6 +45,7 @@ public class confirmationCode extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentConfirmationCodeBinding.inflate(getLayoutInflater());
 
+        //Call Method
         dialog = new ProgressDialog(getContext());
         CheckOtpDialog = new ProgressDialog(getContext());
         dialog.setTitle("OTP Verification");
@@ -51,14 +53,20 @@ public class confirmationCode extends Fragment {
         CheckOtpDialog.setTitle("OTP Verification");
         CheckOtpDialog.setMessage("Verify PhoneNumber & OTP ...");
 
+        // Firebase Authentication
         auth = FirebaseAuth.getInstance();
 
         UserNumber = getspfData().getSpf().getString("UserPhone", null);
         PhoneNumber = "+91"+UserNumber;
         binding.tvDisplayPhoneNumber.setText(PhoneNumber);
 
+        //Send Verification Code Method
         sendVerificationCode(PhoneNumber);
+
+        //
         dialog.show();
+
+        //Button To Send Otp
         binding.btnContinuePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +82,7 @@ public class confirmationCode extends Fragment {
         return  binding.getRoot();
     }
 
+    // Send Verification Code Method
     private void sendVerificationCode(String phoneNumber) {
 
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth)
@@ -88,6 +97,8 @@ public class confirmationCode extends Fragment {
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
+
+        //onVerificationCompleted Method
         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
             final String Code = phoneAuthCredential.getSmsCode();
@@ -98,12 +109,14 @@ public class confirmationCode extends Fragment {
             }
         }
 
+        //onVerificationFailed Method
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
             Toast.makeText(getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
+        //onCodeSent Method
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
@@ -112,12 +125,14 @@ public class confirmationCode extends Fragment {
         }
     };
 
+    //Verify Code Method
     private void verifyCode(String code) {
 
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(VerifyId , code);
         SignInWithCredential(credential);
     }
 
+    //SignInWithCredential Method
     private void SignInWithCredential(PhoneAuthCredential credential) {
         auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -141,6 +156,8 @@ public class confirmationCode extends Fragment {
         });
     }
 
+    //Check Otp Method
+    // Check Automatic OTP
     private boolean CheckOtp() {
         boolean condition = true;
         if (binding.otpView.getOTP().length() != 6) {
@@ -150,6 +167,8 @@ public class confirmationCode extends Fragment {
         return condition;
     }
 
+    // Shared Preference
+    // SpfData Method
     private SpfUserData getspfData()
     {
         SpfUserData spfUserData = new SpfUserData(requireContext());

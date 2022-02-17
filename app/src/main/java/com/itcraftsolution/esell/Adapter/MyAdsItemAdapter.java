@@ -28,6 +28,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//User Added Product Recycler View Adapter
+
 public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.viewHolder>{
     Context context;
     List<MyAdsItem> myAdsItems;

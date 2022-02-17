@@ -59,7 +59,7 @@
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@id/btn_send"
             android:background="@null"
-            android:hint="Type a message..."
+            android:hint="@string/type_a_message"
             android:padding="@dimen/_10mdp"
             android:textColor="@color/black_shade"
             android:textColorHint="@color/black_shade"

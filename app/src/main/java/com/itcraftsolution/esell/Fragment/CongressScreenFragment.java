@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentCongressScreenBinding;
 
-
+//Congerss Screen Fragment
 public class CongressScreenFragment extends Fragment {
 
     public CongressScreenFragment() {
@@ -29,6 +29,8 @@ public class CongressScreenFragment extends Fragment {
 
 
 
+        //Button PreView Add
+        //Go to AdsFragment
         binding.btnPreviewAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

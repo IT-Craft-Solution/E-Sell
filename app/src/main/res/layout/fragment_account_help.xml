@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.AccountHelpFragment">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/igHelpBackToAccount"
         android:layout_width="wrap_content"
@@ -47,7 +60,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Rate us"
+            android:text="@string/rate_us"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -57,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="If You Love our App , Please Take a moment to rate it."
+            android:text="@string/if_you_love_our_app_please_take_a_moment_to_rate_it"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -90,7 +103,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Invite Friends To E-Sell"
+            android:text="@string/invite_friends_to_e_sell"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -100,7 +113,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Invite Your Friends To Buy and Sell"
+            android:text="@string/invite_your_friends_to_buy_and_sell"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -132,7 +145,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Selling On E-Sell"
+            android:text="@string/selling_on_e_sell"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -142,7 +155,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Follow our E - Sell Policy "
+            android:text="@string/follow_our_e_sell_policy"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -174,7 +187,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Services and Content Policy"
+            android:text="@string/services_and_content_policy"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -184,7 +197,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Follow our Services E - Sell Policy "
+            android:text="@string/follow_our_services_e_sell_policy"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -215,7 +228,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="Version"
+            android:text="@string/version"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -225,7 +238,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="V 1.0"
+            android:text="@string/v_1_0"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -239,6 +252,10 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

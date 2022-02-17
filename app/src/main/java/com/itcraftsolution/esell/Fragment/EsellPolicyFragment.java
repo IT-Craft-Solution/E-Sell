@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentEsellPolicyBinding;
 
-
+// EsellPolicy Fragment Class
 public class EsellPolicyFragment extends Fragment {
 
 
@@ -25,6 +25,8 @@ public class EsellPolicyFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentEsellPolicyBinding.inflate(getLayoutInflater());
 
+        //Load Data From Server
+        //Load PDF
         binding.pdfEsellPolicy.fromAsset("service_Content_Policy.pdf").load();
         return binding.getRoot();
     }

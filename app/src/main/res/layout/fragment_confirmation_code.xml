@@ -36,7 +36,7 @@
                 android:layout_marginEnd="@dimen/_10mdp"
                 android:drawablePadding="@dimen/_15mdp"
                 android:padding="@dimen/_10mdp"
-                android:text="OTP Verification"
+                android:text="@string/otp_verification"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -50,7 +50,7 @@
         android:layout_marginStart="@dimen/_25mdp"
         android:layout_marginTop="@dimen/_25mdp"
         android:layout_marginEnd="@dimen/_25mdp"
-        android:text="Enter the OTP Code To Verify Your Phone Number"
+        android:text="@string/enter_the_otp_code_to_verify_your_phone_number"
         android:textColor="@color/lightblack"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -73,7 +73,7 @@
             android:id="@+id/tvMessageBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We Sent a 6-Digit Code"
+            android:text="@string/we_sent_a_6_digit_code"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -119,7 +119,7 @@
         android:backgroundTint="@color/lightblue"
         android:paddingTop="@dimen/_10mdp"
         android:paddingBottom="@dimen/_10mdp"
-        android:text="Verify OTP"
+        android:text="@string/verify_otp"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

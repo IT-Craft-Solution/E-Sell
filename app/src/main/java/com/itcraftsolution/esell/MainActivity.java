@@ -43,8 +43,13 @@ public class MainActivity extends AppCompatActivity {
         dialog = new LoadingDialog(this);
 
 
+        //Loading Home Data Method
         LoadData();
+
+        //Default Navigating Menu Selected Method
         defView();
+
+        //Bottom Navigation Menu Method
         binding.mainBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -73,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Default Menu Selected Method
     private void defView() {
         FragmentTransaction firstFragment = getSupportFragmentManager().beginTransaction();
           firstFragment.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
@@ -80,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         firstFragment.commit();
     }
 
+//Load Home Data From Server
     private void LoadData() {
         dialog.StartLoadingDialog();
         SpfUserData data = new SpfUserData(this);
@@ -113,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //BackPressed Manage Method
     @Override
     public void onBackPressed() {
         if (binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome) {

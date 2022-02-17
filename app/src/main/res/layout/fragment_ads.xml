@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="MyAds Item"
+        android:text="@string/myads_item"
         android:layout_marginStart="@dimen/_10mdp"
         android:textSize="@dimen/_17font_mdp"
         android:textColor="@color/lightblack"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:gravity="center"
-            android:text="Not Found \n Any Your Ads"
+            android:text="@string/not_found_n_any_your_ads"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_20font_mdp"
 

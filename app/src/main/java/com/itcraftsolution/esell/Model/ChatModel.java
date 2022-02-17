@@ -1,9 +1,11 @@
 package com.itcraftsolution.esell.Model;
 
+//Chat Model Class
 public class ChatModel {
     private int id,status;
     private String user_name,user_img,item_location,item_title,receiver_id,date,message;
 
+    // Chat Model Constructor
     public ChatModel(int id, int status, String user_name, String user_img, String item_location, String item_title, String receiver_id, String date, String message) {
         this.id = id;
         this.status = status;
@@ -16,6 +18,7 @@ public class ChatModel {
         this.message = message;
     }
 
+    // Chat Model Class Getter Setter Method
     public int getId() {
         return id;
     }

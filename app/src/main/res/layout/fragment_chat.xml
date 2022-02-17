@@ -21,7 +21,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="All Users Chat"
+        android:text="@string/all_users_chat"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_18font_mdp"
         android:layout_marginStart="@dimen/_8mdp"

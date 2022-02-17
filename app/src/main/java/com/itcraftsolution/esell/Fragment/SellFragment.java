@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+// Sell Fragment Class
 public class SellFragment extends Fragment {
 
     public SellFragment() {
@@ -40,8 +40,13 @@ public class SellFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSellBinding.inflate(getLayoutInflater());
 
+        // Loading Dialog Show
+        //Call Loading Dialog
         loadingDialog = new LoadingDialog(requireActivity());
         loadingDialog.StartLoadingDialog();
+
+        //Back Arrow
+        // Go To HomeFragment
         binding.imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +58,7 @@ public class SellFragment extends Fragment {
             }
         });
 
+        //Load Category From Server
         ApiUtilities.apiInterface().ReadCategory(1).enqueue(new Callback<List<HomeCategory>>() {
             @Override
             public void onResponse(Call<List<HomeCategory>> call, Response<List<HomeCategory>> response) {

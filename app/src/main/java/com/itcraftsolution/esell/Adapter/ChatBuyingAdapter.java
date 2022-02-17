@@ -19,6 +19,8 @@ import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.List;
 
+//Chat Buying User Adapter
+
 public class ChatBuyingAdapter extends  RecyclerView.Adapter<ChatBuyingAdapter.viewHolder>{
     List<ChatModel> list;
     Context context;

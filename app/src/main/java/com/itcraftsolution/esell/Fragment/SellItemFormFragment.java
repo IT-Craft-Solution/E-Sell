@@ -64,7 +64,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+// SellItemFrom Fragment Class
 public class SellItemFormFragment extends Fragment {
 
 
@@ -90,8 +90,13 @@ public class SellItemFormFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSellItemFormBinding.inflate(getLayoutInflater());
 
+        //Loading Dialog Show
         loadingDialog = new LoadingDialog(requireActivity());
+
+        //Shared Preference
         spf = new SpfUserData(requireContext());
+
+        //Call Method
         Category = spf.getItemDetails().getString("Category", null);
         Insert = spf.getItemDetails().getInt("Insert", 0);
         Update = spf.getItemDetails().getInt("Update", 0);
@@ -103,6 +108,8 @@ public class SellItemFormFragment extends Fragment {
         }
         ImageUris = new ArrayList<>();
 
+        //Back Arrow
+        //Go To Ads Fragment
         binding.igSellItemBackCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +121,7 @@ public class SellItemFormFragment extends Fragment {
         });
 
 
+        //Button To Get Location
         binding.btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,11 +131,13 @@ public class SellItemFormFragment extends Fragment {
             }
         });
 
+        //Button Select Images
         binding.btnSelectImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                mGetContent.launch("image/*");
 
+                // intent For Select Images
                 Intent intent = new Intent();
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -138,6 +148,7 @@ public class SellItemFormFragment extends Fragment {
         });
 
 
+        // Verify From Validation
         binding.btnSellItemFormNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -301,7 +312,8 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
-    
+
+    // LoadData Method
     private void LoadData() {
 
         OldTitle = spf.getItemDetails().getString("ItemTitle", null);
@@ -316,6 +328,7 @@ public class SellItemFormFragment extends Fragment {
         }
     }
 
+    //Intent For Get Multiple Images
     ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -383,6 +396,7 @@ public class SellItemFormFragment extends Fragment {
         encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
     }
 
+    // GetLastLocation Method
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -453,6 +467,7 @@ public class SellItemFormFragment extends Fragment {
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
 
+    //Return Last Location
     private LocationCallback mLocationCallback = new LocationCallback() {
 
         @Override

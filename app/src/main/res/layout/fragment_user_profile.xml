@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.UserProfileFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/textView11"
@@ -14,7 +26,7 @@
         android:layout_marginHorizontal="@dimen/_16mdp"
         android:layout_marginTop="@dimen/_8mdp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Manage Profile"
+        android:text="@string/manage_profile"
         android:textColor="@color/black"
         android:textSize="@dimen/_18font_mdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +60,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:padding="@dimen/_1mdp"
-        android:text="Edit"
+        android:text="@string/edit"
         android:textColor="@color/lightblack"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
@@ -70,7 +82,7 @@
             android:id="@+id/edUserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter Your Name"
+            android:hint="@string/enter_your_name"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
@@ -81,7 +93,7 @@
         android:id="@+id/txProfileNameError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Must be Enter Your Good Name"
+        android:text="@string/must_be_enter_your_good_name"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
 
@@ -101,7 +113,7 @@
             android:id="@+id/edUserAboutUs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="About Us"
+            android:hint="@string/about_us"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout1"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout1"
@@ -113,7 +125,7 @@
         android:id="@+id/txProfileAboutError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Your Profession Title like (e.g. Job, Business, Store)"
+        android:text="@string/your_profession_title_like_e_g_job_business_store"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout1"
@@ -132,7 +144,7 @@
             android:id="@+id/edUserPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter Your Phone Number"
+            android:hint="@string/enter_your_phone_number"
             android:inputType="number"
             android:textIsSelectable="true"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
@@ -145,7 +157,7 @@
         android:id="@+id/txProfilePhoneError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Phone Number Must be in Indian Code like +91"
+        android:text="@string/phone_number_must_be_in_indian_code_like_91"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
@@ -164,7 +176,7 @@
             android:id="@+id/edUserEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter Your Email Address"
+            android:hint="@string/enter_your_email_address"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
@@ -175,7 +187,7 @@
         android:id="@+id/txProfileEmailError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Your Email Must be include @ and .com"
+        android:text="@string/your_email_must_be_include_and_com"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
@@ -186,7 +198,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
-        android:text="Confirm Your Location"
+        android:text="@string/confirm_your_location"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_12font_mdp"
         android:layout_marginTop="@dimen/_8mdp"
@@ -197,7 +209,7 @@
         android:id="@+id/txUserLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Verify Location"
+        android:text="@string/verify_location"
         android:textColor="@color/lightblack"
         android:textStyle="bold"
         android:fontFamily="@font/roboto_bold"
@@ -222,7 +234,7 @@
         android:id="@+id/txProfileLocationError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="* Confirm Your Present Location"
+        android:text="@string/confirm_your_present_location"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/confirmlocation"
@@ -232,15 +244,19 @@
         android:id="@+id/btnNextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16mdp"
         android:backgroundTint="@color/lightblue"
         android:padding="@dimen/_8mdp"
-        android:layout_margin="@dimen/_16mdp"
-        android:text="Next"
+        android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txLocationn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

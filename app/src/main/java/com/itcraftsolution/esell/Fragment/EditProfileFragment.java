@@ -23,6 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+// EditProfile Fragment Class
 public class EditProfileFragment extends Fragment {
 
     public EditProfileFragment() {
@@ -46,8 +47,11 @@ public class EditProfileFragment extends Fragment {
         binding = FragmentEditProfileBinding.inflate(getLayoutInflater());
 
 
+        //Call LoadData Method
         LoadData();
 
+        //Back Arrow
+        // Go TO Account Fragment
         binding.igEditToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -183,6 +187,8 @@ public class EditProfileFragment extends Fragment {
 //        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
 //    }
 
+    //LoadData Method
+    //Load Data From Server
     private void LoadData() {
         SpfUserData data = new SpfUserData(requireContext());
         spf = data.getSpf();

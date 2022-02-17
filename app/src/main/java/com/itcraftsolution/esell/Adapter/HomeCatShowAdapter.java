@@ -23,6 +23,8 @@ import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
 
+// Home Category Product Recycler  View Adapter
+
 public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.viewHolder> {
 
     Context context;

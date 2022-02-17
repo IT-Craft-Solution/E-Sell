@@ -20,7 +20,7 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-
+        // UserLogin Activity Start Fragment Call
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
         fragmentTransaction.replace(R.id.frUserDetailsContainer , new SplashFragment());

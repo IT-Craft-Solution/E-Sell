@@ -22,6 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//User Add Item Fragment
 public class AdsFragment extends Fragment {
 
     public AdsFragment() {
@@ -40,16 +41,22 @@ public class AdsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAdsBinding.inflate(getLayoutInflater());
 
+        // Loading Dialog Show
         loadingDialog = new LoadingDialog(requireActivity());
         loadingDialog.StartLoadingDialog();
 
+        // Fetch Data Method
+        // Fetch Data From Server
         FetchData();
 
         return binding.getRoot();
     }
 
+    // Fetch Data Method
+    //Fetch User Added Product From Server
     private  void FetchData()
     {
+        // Shared Preference
         spf = new SpfUserData(requireContext());
         UserId = spf.getSpf().getInt("UserId",0);
 

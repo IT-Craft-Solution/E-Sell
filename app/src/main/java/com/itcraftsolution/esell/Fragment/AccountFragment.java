@@ -24,6 +24,7 @@ import com.itcraftsolution.esell.UserLogin;
 import com.itcraftsolution.esell.databinding.FragmentAccountBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
+// Account Fragment Class
 public class AccountFragment extends Fragment {
 
     public AccountFragment() {
@@ -45,8 +46,11 @@ public class AccountFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
 
 
+        // Load User Account Data From Server
+        // LoadData Method
         LoadData();
 
+        //User My Order
         binding.llAccountMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +87,7 @@ public class AccountFragment extends Fragment {
             }
         });
 
-        //User Account help
+        //User Edit Profile
         binding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +102,7 @@ public class AccountFragment extends Fragment {
       return binding.getRoot();
     }
 
+    // Data Load Method
     private void LoadData()
     {
         spf = new SpfUserData(requireContext());

@@ -1,10 +1,12 @@
 package com.itcraftsolution.esell.Model;
 
+//Home Fresh Item Product Model
 public class HomeFreshItem {
     private int ItemImage;
     private String ItemName,ItemPrice, ItemLocation;
 
 
+    // Home Fresh Item Constructor
     public HomeFreshItem(int itemImage, String itemName, String itemPrice, String itemLocation) {
         ItemImage = itemImage;
         ItemName = itemName;
@@ -15,6 +17,7 @@ public class HomeFreshItem {
     public HomeFreshItem() {
     }
 
+    // Home Fresh Item Getter And Setter Method
     public int getItemImage() {
         return ItemImage;
     }

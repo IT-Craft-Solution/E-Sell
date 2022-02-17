@@ -42,7 +42,7 @@ public class ItemDetailsFragment extends Fragment {
 
         // Image Slider
         List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.testing));
+        slideModels.add(new SlideModel(""));
         slideModels.add(new SlideModel(R.drawable.testing));
         slideModels.add(new SlideModel(R.drawable.testing));
         slideModels.add(new SlideModel(R.drawable.testing));
@@ -53,7 +53,11 @@ public class ItemDetailsFragment extends Fragment {
         binding.isProductImagesSlider.setImageList(slideModels,true);
 
 
+        //Call LoadData Method
         LoadData();
+
+        //BackA Arrow
+        //Go To HomeFragment
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +70,8 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
+        //Button Chat
+        // Go To ChatScreenFragment
         binding.btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +83,8 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
+        //Button Share
+        //Share Product
         binding.igItemDetailsShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +112,8 @@ public class ItemDetailsFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //LoadData Method
+    //Load Data From Server
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         UserId = spf.getItemDetails().getInt("UserId", 0);

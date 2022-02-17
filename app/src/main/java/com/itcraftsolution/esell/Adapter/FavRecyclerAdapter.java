@@ -17,6 +17,8 @@ import com.itcraftsolution.esell.databinding.FavoriteSampleBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+    //Favorite Item Recycler View Adapter
+
 public class FavRecyclerAdapter extends RecyclerView.Adapter<FavRecyclerAdapter.viewHolder> {
     Context context;
     List<MyAdsItem> list;

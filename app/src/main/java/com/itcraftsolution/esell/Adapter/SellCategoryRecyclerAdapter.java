@@ -20,6 +20,8 @@ import com.itcraftsolution.esell.spf.SpfUserData;
 import java.util.ArrayList;
 import java.util.List;
 
+//Category Recycler View Adapter
+
 public class SellCategoryRecyclerAdapter extends RecyclerView.Adapter<SellCategoryRecyclerAdapter.viewHolder> {
 
     Context context;

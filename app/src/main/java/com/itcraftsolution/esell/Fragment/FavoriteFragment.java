@@ -22,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+//Favorite Fragment Class
 public class FavoriteFragment extends Fragment {
 
 
@@ -39,12 +39,16 @@ public class FavoriteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentFavoriteBinding.inflate(getLayoutInflater());
+
+        //Call FetchData Method
         FetchData();
 
 
         return binding.getRoot();
     }
 
+    //FetchData Method
+    //Fetch Data From Server
     private void FetchData() {
         loadingDialog = new LoadingDialog(requireActivity());
         loadingDialog.StartLoadingDialog();

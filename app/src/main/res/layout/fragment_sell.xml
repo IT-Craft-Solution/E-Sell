@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="All Categories"
+        android:text="@string/all_categories"
         android:textSize="@dimen/_18font_mdp"
         android:layout_marginStart="@dimen/_8mdp"
         android:textColor="@color/lightblack"

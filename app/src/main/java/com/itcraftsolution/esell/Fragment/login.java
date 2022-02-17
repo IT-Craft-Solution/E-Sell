@@ -39,6 +39,7 @@ import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentLoginBinding;
 
+//Login Fragment
 public class login extends Fragment {
 
 
@@ -59,13 +60,16 @@ public class login extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(getLayoutInflater());
 
+        //Firebase Authentication
         auth = FirebaseAuth.getInstance();
+
+        //Process Dialog
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Login Account");
         progressDialog.setMessage("SignIn Account With Google");
 
 
-
+        // Button Continue With Phone
         binding.btnContinueWithPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,17 +80,23 @@ public class login extends Fragment {
             }
         });
 
+        //Call CreateRequest Method
         CreateRequest();
 
+        //Button Continue With Google
         binding.btnContinueWithGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Call SignIn Method
                 SignIn();
+
+                //Process Dialog Show
                 progressDialog.show();
             }
         });
 
+        //SignIn Process
      SignInActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
@@ -112,6 +122,7 @@ public class login extends Fragment {
         return binding.getRoot();
     }
 
+    //CreateRequest Method
     private void CreateRequest() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.FirebaseClientid))
@@ -121,6 +132,7 @@ public class login extends Fragment {
         GoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
     }
 
+    //SignIn Method
     private void SignIn()
     {
         Intent intent = GoogleSignInClient.getSignInIntent();
@@ -128,6 +140,7 @@ public class login extends Fragment {
 
     }
 
+    //SignWithGoogle Method
     private void SignInWithGoogle(GoogleSignInAccount account) {
 
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken() , null);
@@ -151,10 +164,4 @@ public class login extends Fragment {
         });
 
     }
-
-
-
-
-
-
 }

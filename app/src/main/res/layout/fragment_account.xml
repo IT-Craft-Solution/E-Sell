@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.AccountFragment">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/igProfileImage"
         android:layout_width="@dimen/_80mdp"
@@ -23,7 +37,7 @@
         android:layout_marginStart="@dimen/_8mdp"
         android:layout_marginEnd="@dimen/_8mdp"
         android:fontFamily="serif"
-        android:text="Prathvik Sankaliya"
+        android:text="@string/prathvik_sankaliya"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_16font_mdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8mdp"
         android:fontFamily="serif"
-        android:text="I am Android Developer At ICS"
+        android:text="@string/i_am_android_developer_at_ics"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintEnd_toEndOf="@+id/txUserName"
@@ -49,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12mdp"
         android:background="@drawable/rectangle_bg"
-        android:text="Edit Profile"
+        android:text="@string/edit_profile"
         android:textSize="@dimen/_8font_mdp"
         app:layout_constraintEnd_toEndOf="@+id/txUserAbout"
         app:layout_constraintTop_toBottomOf="@+id/txUserAbout" />
@@ -80,7 +94,7 @@
             android:layout_marginStart="@dimen/_16mdp"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="My Orders"
+            android:text="@string/my_orders"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -91,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
-            android:text="Active Orders, Expire Orders"
+            android:text="@string/active_orders_expire_orders"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -144,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
-            android:text="Rate us, Invite Firends, Version"
+            android:text="@string/rate_us_invite_firends_version"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -186,7 +200,7 @@
             android:layout_marginStart="@dimen/_16mdp"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold" />
@@ -195,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
-            android:text="Logout , Theme Mode"
+            android:text="@string/logout_theme_mode"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -236,7 +250,7 @@
             android:layout_marginStart="@dimen/_16mdp"
             android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="serif"
-            android:text="Select Language"
+            android:text="@string/select_language"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_15font_mdp"
             android:textStyle="bold"
@@ -247,7 +261,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16mdp"
-            android:text="Default English"
+            android:text="@string/default_english"
             android:textColor="@color/lightblack"
             android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
@@ -262,6 +276,10 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llAccountSelectLang" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
