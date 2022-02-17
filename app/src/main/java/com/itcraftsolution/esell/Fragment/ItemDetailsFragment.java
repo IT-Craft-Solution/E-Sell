@@ -19,6 +19,7 @@ import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ItemDetailsFragment extends Fragment {
@@ -30,9 +31,10 @@ public class ItemDetailsFragment extends Fragment {
 
     private FragmentItemDetailsBinding binding;
     private SpfUserData spf, spfUserData;
-    private String ItemImg, ItemPrice, ItemDesc, ItemTitle, ItemLocation, ReceiverUid, User_Name, User_img, UserPhone, ItemCat, Auth_id;
+    private String ItemImg, ItemPrice, ItemDesc, ItemTitle, ItemLocation, User_Name, User_img, UserPhone, ItemCat, ReceiverUid;
     private int ItemId, UserId, LoginUserId;
     private LoadingDialog loadingDialog;
+    private List<SlideModel> slideModels;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -41,23 +43,9 @@ public class ItemDetailsFragment extends Fragment {
         binding = FragmentItemDetailsBinding.inflate(getLayoutInflater());
 
         // Image Slider
-        List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(""));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        slideModels.add(new SlideModel(R.drawable.testing));
-        binding.isProductImagesSlider.setImageList(slideModels,true);
 
 
-        //Call LoadData Method
         LoadData();
-
-        //BackA Arrow
-        //Go To HomeFragment
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,11 +58,10 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
-        //Button Chat
-        // Go To ChatScreenFragment
         binding.btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spf.setCreateChat(ReceiverUid);
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(ItemDetailsFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
@@ -83,8 +70,6 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
-        //Button Share
-        //Share Product
         binding.igItemDetailsShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +97,6 @@ public class ItemDetailsFragment extends Fragment {
         return binding.getRoot();
     }
 
-    //LoadData Method
-    //Load Data From Server
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         UserId = spf.getItemDetails().getInt("UserId", 0);
@@ -124,13 +107,21 @@ public class ItemDetailsFragment extends Fragment {
         ItemId = spf.getItemDetails().getInt("ItemId", 0);
         ItemDesc = spf.getItemDetails().getString("ItemDesc", null);
         ItemCat = spf.getItemDetails().getString("Category", null);
-        Auth_id = spf.getItemDetails().getString("Auth_Id", null);
+        ReceiverUid = spf.getItemDetails().getString("Auth_Id", null);
         LoginUserId = spf.getSpf().getInt("UserId", 0);
         if (LoginUserId == UserId) {
             binding.btnChat.setVisibility(View.GONE);
         }
 
-        Glide.with(requireContext()).load(ApiUtilities.SellItemImage + ItemImg).into(binding.igItemDetails);
+        List<String> list = new ArrayList<String>(Arrays.asList(ItemImg.split(",")));
+        slideModels = new ArrayList<>();
+        for(int i = 0; i< list.size(); i++)
+        {
+            slideModels.add(new SlideModel(ApiUtilities.SellItemImage+list.get(i)));
+        }
+        binding.isProductImagesSlider.setImageList(slideModels,true);
+
+//        Glide.with(requireContext()).load(ApiUtilities.SellItemImage + list.get(0)).into(binding.igItemDetails);
         binding.txItemDetailsLocation.setText(ItemLocation);
         binding.txItemDetailsName.setText(ItemTitle);
         binding.txItemDetailsPrice.setText(ItemPrice);

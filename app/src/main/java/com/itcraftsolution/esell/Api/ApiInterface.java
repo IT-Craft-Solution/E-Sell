@@ -9,6 +9,7 @@ import com.itcraftsolution.esell.Model.UserModel;
 import java.util.List;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -147,11 +148,11 @@ public interface ApiInterface {
     @Multipart
     @POST("post/upload_img.php")
     Call<ResponceModel> uploadImages( @Part List<MultipartBody.Part> images,
-                                      @Part("user_id") int user_id, @Part("cat_name") String cat_name,
-                                      @Part("title") String title, @Part("description") String description,
-                                      @Part("price") int price, @Part("location") String location,
-                                      @Part("city_area") String city_area,
-                                      @Part("status") int status
+                                      @Part("user_id") int user_id, @Part("cat_name") RequestBody cat_name,
+                                      @Part("title") RequestBody title, @Part("description") RequestBody description,
+                                      @Part("price") int price, @Part("location") RequestBody location,
+                                      @Part("city_area") RequestBody city_area,
+                                      @Part("status") int status, @Part("auth_id") RequestBody auth_id
     );
 
 

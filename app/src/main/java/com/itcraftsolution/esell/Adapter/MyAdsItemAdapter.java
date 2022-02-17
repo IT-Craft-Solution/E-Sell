@@ -22,6 +22,8 @@ import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.MyadsItemSampleBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,8 +52,9 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         MyAdsItem myAdsItem = myAdsItems.get(position);
-
-        Glide.with(context).load(ApiUtilities.SellItemImage+myAdsItem.getItem_img()).into(holder.binding.igItemImage);
+        String img = myAdsItem.getItem_img();
+        List<String> list = new ArrayList<String>(Arrays.asList(img.split(",")));
+        Glide.with(context).load(ApiUtilities.SellItemImage+list.get(0)).into(holder.binding.igItemImage);
         holder.binding.txItemName.setText(myAdsItem.getTitle());
         holder.binding.txItemPrice.setText(String.valueOf("₹ "+myAdsItem.getPrice()));
         holder.binding.txDesc.setText(myAdsItem.getDescription());

@@ -22,6 +22,8 @@ import com.itcraftsolution.esell.databinding.HomeFreshitemSampleBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 // Home Category Product Recycler  View Adapter
 
@@ -47,7 +49,9 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
         MyAdsItem model = homeCatShows.get(position);
-        Glide.with(context).load(ApiUtilities.HomeCategory+model.getItem_img()).into(holder.binding.igHomeCatShowImage);
+        String img = model.getItem_img();
+        List<String> list = new ArrayList<String>(Arrays.asList(img.split(",")));
+        Glide.with(context).load(ApiUtilities.SellItemImage+list.get(0)).into(holder.binding.igHomeCatShowImage);
         holder.binding.txHomeCatDesc.setText(model.getDescription());
         holder.binding.txHomeCatPrice.setText(String.valueOf("₹ "+model.getPrice()));
         holder.binding.txHomeCatItemLocation.setText(String.valueOf(model.getCity_area()+" ,"+model.getLocation()));

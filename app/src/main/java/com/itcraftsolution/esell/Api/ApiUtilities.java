@@ -19,7 +19,6 @@ public class ApiUtilities {
 
         if(retrofit == null)
         {
-
             Gson gson =new GsonBuilder()
                     .setLenient()
                     .create();

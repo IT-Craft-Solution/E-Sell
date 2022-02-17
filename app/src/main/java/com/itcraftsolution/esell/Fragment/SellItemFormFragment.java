@@ -73,7 +73,7 @@ public class SellItemFormFragment extends Fragment {
     }
 
     private FragmentSellItemFormBinding binding;
-    private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice;
+    private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice,ReceiverId;
     private int UserId, Insert, Update, Id;
     FusedLocationProviderClient mFusedLocationClient;
     private List<MultipartBody.Part> images;
@@ -243,7 +243,16 @@ public class SellItemFormFragment extends Fragment {
                             images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
                         }
                         Log.e("mya123" , images.toString());
-                        ApiUtilities.apiInterface().uploadImages(images,UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, 1).enqueue(new Callback<ResponceModel>() {
+
+                        RequestBody cat = createPartFromString(Category);
+                        RequestBody title = createPartFromString(Title);
+                        RequestBody desc = createPartFromString(Desc);
+                        RequestBody locality = createPartFromString(Locality);
+                        RequestBody sublocality = createPartFromString(Sublocality);
+                        ReceiverId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        RequestBody reciverid = createPartFromString(ReceiverId);
+
+                        ApiUtilities.apiInterface().uploadImages(images,UserId, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1,reciverid ).enqueue(new Callback<ResponceModel>() {
                             @Override
                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
                             ResponceModel model = response.body();
@@ -371,6 +380,12 @@ public class SellItemFormFragment extends Fragment {
 
                 }
             });
+
+    @NonNull
+    private RequestBody createPartFromString(String descriptionString) {
+        return RequestBody.create(
+                okhttp3.MultipartBody.FORM, descriptionString);
+    }
 
     private MultipartBody.Part prepareFilePart(String partName, Uri fileUri) {
         // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java

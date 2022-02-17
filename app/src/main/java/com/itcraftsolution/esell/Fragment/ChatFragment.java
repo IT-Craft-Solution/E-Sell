@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -17,12 +18,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.itcraftsolution.esell.Adapter.UserAdapter;
+import com.itcraftsolution.esell.Model.Chatlist;
+import com.itcraftsolution.esell.Model.User;
+import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentChatBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// Chat Fragment
+
 public class ChatFragment extends Fragment {
 
 
@@ -32,11 +37,11 @@ public class ChatFragment extends Fragment {
 
 
     private FragmentChatBinding binding;
-//    private UserAdapter userAdapter;
-//    private List<User> mUsers;
-//    FirebaseUser fuser;
-//    DatabaseReference reference;
-//    private List<Chatlist> usersList;
+    private UserAdapter userAdapter;
+    private List<User> mUsers;
+    FirebaseUser fuser;
+    DatabaseReference reference;
+    private List<Chatlist> usersList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,36 +49,45 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(getLayoutInflater());
 
-//        binding.rvChatBuying.setHasFixedSize(true);
-//        binding.rvChatBuying.setLayoutManager(new LinearLayoutManager(getContext()));
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
-//        binding.rvChatBuying.addItemDecoration(dividerItemDecoration);
-//
-//
-//        // FireBase User Authentication
-//        fuser = FirebaseAuth.getInstance().getCurrentUser();
-//
-//        //User Array List
-//        usersList = new ArrayList<>();
-//
-//        reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                usersList.clear();
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-//                    Chatlist chatlist = snapshot.getValue(Chatlist.class);
-//                    usersList.add(chatlist);
-//                }
-//
-//                chatList();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+        binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ChatFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment())
+                        .addToBackStack(null).commit();
+
+            }
+        });
+        binding.rvChatBuying.setHasFixedSize(true);
+        binding.rvChatBuying.setLayoutManager(new LinearLayoutManager(getContext()));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
+        binding.rvChatBuying.addItemDecoration(dividerItemDecoration);
+
+
+        fuser = FirebaseAuth.getInstance().getCurrentUser();
+
+        usersList = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                usersList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Chatlist chatlist = snapshot.getValue(Chatlist.class);
+                    usersList.add(chatlist);
+                }
+
+                chatList();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 //        updateToken(FirebaseInstanceId.getInstance().getToken());
 
@@ -87,33 +101,32 @@ public class ChatFragment extends Fragment {
 //        reference.child(fuser.getUid()).setValue(token1);
 //    }
 
-    //Chat List Method
-//    private void chatList() {
-//        mUsers = new ArrayList<>();
-//        reference = FirebaseDatabase.getInstance().getReference("Users");
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                mUsers.clear();
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-//                    User user = snapshot.getValue(User.class);
-//                    for (Chatlist chatlist : usersList){
-//                        if (user!= null && user.getId()!=null && chatlist!=null && chatlist.getId()!= null &&
-//                                user.getId().equals(chatlist.getId())){
-//                            mUsers.add(user);
-//                        }
-//                    }
-//                }
-//
-//
-//                userAdapter = new UserAdapter(getContext(),mUsers, true);
-//                binding.rvChatBuying.setAdapter(userAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
+    private void chatList() {
+        mUsers = new ArrayList<>();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mUsers.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    for (Chatlist chatlist : usersList){
+                        if (user!= null && user.getId()!=null && chatlist!=null && chatlist.getId()!= null &&
+                                user.getId().equals(chatlist.getId())){
+                            mUsers.add(user);
+                        }
+                    }
+                }
+
+
+                userAdapter = new UserAdapter(getContext(),mUsers, true);
+                binding.rvChatBuying.setAdapter(userAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

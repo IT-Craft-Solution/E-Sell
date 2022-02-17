@@ -27,9 +27,6 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
   public final Button btnChat;
 
   @NonNull
-  public final ImageView igItemDetails;
-
-  @NonNull
   public final ImageView igItemDetailsBack;
 
   @NonNull
@@ -60,15 +57,13 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
   public final TextView txItemDetailsPrice;
 
   private FragmentItemDetailsBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnChat,
-      @NonNull ImageView igItemDetails, @NonNull ImageView igItemDetailsBack,
-      @NonNull ImageView igItemDetailsShare, @NonNull ImageView imageView10,
-      @NonNull ImageSlider isProductImagesSlider, @NonNull LinearLayout linearLayout2,
-      @NonNull TextView textView12, @NonNull TextView txItemDesc,
-      @NonNull TextView txItemDetailsLocation, @NonNull TextView txItemDetailsName,
-      @NonNull TextView txItemDetailsPrice) {
+      @NonNull ImageView igItemDetailsBack, @NonNull ImageView igItemDetailsShare,
+      @NonNull ImageView imageView10, @NonNull ImageSlider isProductImagesSlider,
+      @NonNull LinearLayout linearLayout2, @NonNull TextView textView12,
+      @NonNull TextView txItemDesc, @NonNull TextView txItemDetailsLocation,
+      @NonNull TextView txItemDetailsName, @NonNull TextView txItemDetailsPrice) {
     this.rootView = rootView;
     this.btnChat = btnChat;
-    this.igItemDetails = igItemDetails;
     this.igItemDetailsBack = igItemDetailsBack;
     this.igItemDetailsShare = igItemDetailsShare;
     this.imageView10 = imageView10;
@@ -111,12 +106,6 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
       id = R.id.btnChat;
       Button btnChat = ViewBindings.findChildViewById(rootView, id);
       if (btnChat == null) {
-        break missingId;
-      }
-
-      id = R.id.igItemDetails;
-      ImageView igItemDetails = ViewBindings.findChildViewById(rootView, id);
-      if (igItemDetails == null) {
         break missingId;
       }
 
@@ -180,9 +169,9 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentItemDetailsBinding((ConstraintLayout) rootView, btnChat, igItemDetails,
-          igItemDetailsBack, igItemDetailsShare, imageView10, isProductImagesSlider, linearLayout2,
-          textView12, txItemDesc, txItemDetailsLocation, txItemDetailsName, txItemDetailsPrice);
+      return new FragmentItemDetailsBinding((ConstraintLayout) rootView, btnChat, igItemDetailsBack,
+          igItemDetailsShare, imageView10, isProductImagesSlider, linearLayout2, textView12,
+          txItemDesc, txItemDetailsLocation, txItemDetailsName, txItemDetailsPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
