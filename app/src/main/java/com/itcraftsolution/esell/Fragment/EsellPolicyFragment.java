@@ -25,7 +25,7 @@ public class EsellPolicyFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentEsellPolicyBinding.inflate(getLayoutInflater());
 
-        binding.pdfEsellPolicy.fromAsset("service_Content_Policy.pdf").load();
+//        binding.pdfEsellPolicy.fromAsset("service_Content_Policy.pdf").load();
         return binding.getRoot();
     }
 }

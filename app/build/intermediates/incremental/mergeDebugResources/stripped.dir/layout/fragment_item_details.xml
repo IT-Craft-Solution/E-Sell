@@ -10,9 +10,11 @@
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/isProductImagesSlider"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150mdp"
+        android:layout_height="@dimen/_250mdp"
         app:auto_cycle="true"
         app:delay="0"
+        android:scaleType="fitXY"
+        android:layout_marginTop="@dimen/_6mdp"
         app:error_image="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,15 +23,15 @@
         app:placeholder="@color/white" />
 
 
-    <ImageView
-        android:id="@+id/igItemDetails"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_150mdp"
-        android:scaleType="fitXY"
-        android:src="@drawable/testing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isProductImagesSlider" />
+<!--    <ImageView-->
+<!--        android:id="@+id/igItemDetails"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_150mdp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/testing"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/isProductImagesSlider" />-->
 
     <ImageView
         android:id="@+id/igItemDetailsBack"
@@ -51,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/igItemDetails">
+        app:layout_constraintTop_toBottomOf="@+id/isProductImagesSlider">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

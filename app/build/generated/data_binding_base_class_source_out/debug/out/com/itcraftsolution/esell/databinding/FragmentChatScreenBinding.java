@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,10 +25,13 @@ public final class FragmentChatScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final RelativeLayout bottom;
+  public final ImageView btnSend;
 
   @NonNull
-  public final ImageButton btnSend;
+  public final ImageView igBackToHome;
+
+  @NonNull
+  public final LinearLayout linearLayout4;
 
   @NonNull
   public final CircleImageView profileImage;
@@ -42,13 +45,14 @@ public final class FragmentChatScreenBinding implements ViewBinding {
   @NonNull
   public final TextView username;
 
-  private FragmentChatScreenBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RelativeLayout bottom, @NonNull ImageButton btnSend,
+  private FragmentChatScreenBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnSend,
+      @NonNull ImageView igBackToHome, @NonNull LinearLayout linearLayout4,
       @NonNull CircleImageView profileImage, @NonNull RecyclerView recyclerView,
       @NonNull EditText textSend, @NonNull TextView username) {
     this.rootView = rootView;
-    this.bottom = bottom;
     this.btnSend = btnSend;
+    this.igBackToHome = igBackToHome;
+    this.linearLayout4 = linearLayout4;
     this.profileImage = profileImage;
     this.recyclerView = recyclerView;
     this.textSend = textSend;
@@ -82,15 +86,21 @@ public final class FragmentChatScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bottom;
-      RelativeLayout bottom = ViewBindings.findChildViewById(rootView, id);
-      if (bottom == null) {
+      id = R.id.btnSend;
+      ImageView btnSend = ViewBindings.findChildViewById(rootView, id);
+      if (btnSend == null) {
         break missingId;
       }
 
-      id = R.id.btn_send;
-      ImageButton btnSend = ViewBindings.findChildViewById(rootView, id);
-      if (btnSend == null) {
+      id = R.id.igBackToHome;
+      ImageView igBackToHome = ViewBindings.findChildViewById(rootView, id);
+      if (igBackToHome == null) {
+        break missingId;
+      }
+
+      id = R.id.linearLayout4;
+      LinearLayout linearLayout4 = ViewBindings.findChildViewById(rootView, id);
+      if (linearLayout4 == null) {
         break missingId;
       }
 
@@ -118,8 +128,8 @@ public final class FragmentChatScreenBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentChatScreenBinding((ConstraintLayout) rootView, bottom, btnSend,
-          profileImage, recyclerView, textSend, username);
+      return new FragmentChatScreenBinding((ConstraintLayout) rootView, btnSend, igBackToHome,
+          linearLayout4, profileImage, recyclerView, textSend, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -20,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Adapter.UserAdapter;
 import com.itcraftsolution.esell.Model.Chatlist;
 import com.itcraftsolution.esell.Model.User;
+import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentChatBinding;
 
 import java.util.ArrayList;
@@ -47,6 +49,17 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(getLayoutInflater());
 
+        binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ChatFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new HomeFragment())
+                        .addToBackStack(null).commit();
+
+            }
+        });
         binding.rvChatBuying.setHasFixedSize(true);
         binding.rvChatBuying.setLayoutManager(new LinearLayoutManager(getContext()));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);

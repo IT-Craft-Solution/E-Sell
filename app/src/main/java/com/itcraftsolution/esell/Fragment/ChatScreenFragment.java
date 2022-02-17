@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Adapter.MessageAdapter;
 import com.itcraftsolution.esell.Api.APIService;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.Chat;
 import com.itcraftsolution.esell.Model.User;
@@ -65,8 +67,6 @@ public class ChatScreenFragment extends Fragment {
 
     MessageAdapter messageAdapter;
     List<Chat> mchat;
-
-
     SpfUserData spf;
 
     ValueEventListener seenListener;
@@ -85,13 +85,21 @@ public class ChatScreenFragment extends Fragment {
 
         apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
 
+        binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ChatScreenFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new ChatFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
 
         binding.recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
         linearLayoutManager.setStackFromEnd(true);
         binding.recyclerView.setLayoutManager(linearLayoutManager);
-
-
 
         spf = new SpfUserData(requireContext());
         userid = spf.getCreateChat().getString("ReceiverId",null);
@@ -121,15 +129,13 @@ public class ChatScreenFragment extends Fragment {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 binding.username.setText(user.getUsername());
-                    Glide.with(requireContext()).load(user.getImageURL()).into(binding.profileImage);
-
-
-                readMesagges(fuser.getUid(), userid, user.getImageURL());
+                Glide.with(requireContext()).load(ApiUtilities.UserImage+user.getImageURL()).into(binding.profileImage);
+                readMesagges(fuser.getUid(), userid, ApiUtilities.UserImage+user.getImageURL());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.d("myapp123", databaseError.getMessage());
             }
         });
 
@@ -158,7 +164,7 @@ public class ChatScreenFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.d("myapp123", databaseError.getMessage());
             }
         });
     }

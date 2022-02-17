@@ -19,13 +19,14 @@ public class SellinEsellFragment extends Fragment {
         // Required empty public constructor
     }
     private FragmentSellinEsellBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSellinEsellBinding.inflate(getLayoutInflater());
 
-        binding.pdfEsellservicepolicy.fromAsset("Sellingpolicy.pdf").load();
+//        binding.pdfEsellservicepolicy.fromAsset("Sellingpolicy.pdf").load();
         return binding.getRoot();
     }
 }
