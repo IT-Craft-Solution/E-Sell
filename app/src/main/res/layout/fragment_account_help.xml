@@ -15,7 +15,8 @@
         android:padding="@dimen/_4mdp"
         android:src="@drawable/ic_baseline_keyboard_backspace_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/app_name" />
 
     <TextView
         android:id="@+id/textView6"
@@ -35,8 +36,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_24mdp"
-        android:orientation="vertical"
         android:layout_marginEnd="@dimen/_8mdp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/igHelpBackToAccount"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -58,7 +59,7 @@
             android:layout_height="wrap_content"
             android:text="If You Love our App , Please Take a moment to rate it."
             android:textColor="@color/lightblack"
-            android:textSize="@dimen/_9font_mdp"/>
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
@@ -105,6 +106,90 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/view7"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1mdp"
+        android:layout_marginTop="@dimen/_5mdp"
+        android:background="@color/liteBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llEsellPolicy" />
+
+    <LinearLayout
+        android:id="@+id/llEsellPolicy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:layout_marginBottom="@dimen/_5mdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/llAccountInvite"
+        app:layout_constraintStart_toStartOf="@+id/llAccountInvite"
+        app:layout_constraintTop_toBottomOf="@+id/view6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:fontFamily="serif"
+            android:text="Selling On E-Sell"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow our E - Sell Policy "
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
+    </LinearLayout>
+
+    <View
+
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1mdp"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:background="@color/liteBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llEsellServicesPolicy" />
+
+    <LinearLayout
+        android:id="@+id/llEsellServicesPolicy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/llEsellPolicy"
+        app:layout_constraintStart_toStartOf="@+id/llEsellPolicy"
+        app:layout_constraintTop_toBottomOf="@+id/view7">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:fontFamily="serif"
+            android:text="Services and Content Policy"
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_15font_mdp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow our Services E - Sell Policy "
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
+    </LinearLayout>
+
+    <View
         android:id="@+id/view6"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1mdp"
@@ -120,11 +205,11 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16mdp"
+        android:layout_marginTop="@dimen/_10mdp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/llAccountInvite"
         app:layout_constraintStart_toStartOf="@+id/llAccountInvite"
-        app:layout_constraintTop_toBottomOf="@+id/view6">
+        app:layout_constraintTop_toBottomOf="@+id/view8">
 
         <TextView
             android:layout_width="match_parent"
@@ -141,15 +226,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="V 1.0"
-            android:textSize="@dimen/_9font_mdp"
-            android:textColor="@color/lightblack" />
+            android:textColor="@color/lightblack"
+            android:textSize="@dimen/_9font_mdp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1mdp"
+        android:layout_marginTop="@dimen/_10mdp"
         android:background="@color/liteBlack"
-        android:layout_marginTop="@dimen/_8mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,170 +7,73 @@
     tools:context=".Fragment.ChatScreenFragment">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_12mdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/igChatScreenBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10mdp"
-            android:layout_marginTop="@dimen/_10mdp"
-            android:padding="@dimen/_4mdp"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/igProfileDp"
-            android:layout_width="@dimen/_40mdp"
-            android:layout_height="@dimen/_40mdp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/edit_profile_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/igChatScreenBack"
-            app:layout_constraintStart_toEndOf="@+id/igChatScreenBack"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/txChatUserName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/roboto_medium"
-            android:maxLines="1"
-            android:layout_marginEnd="@dimen/_6mdp"
-            android:text="Karan Desai"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_16font_mdp"
-            app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/igProfileDp"
-            app:layout_constraintTop_toTopOf="@+id/igProfileDp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/txChatItemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_18mdp"
-            android:layout_marginTop="@dimen/_4mdp"
-            android:fontFamily="@font/roboto_bold"
-            android:maxLines="1"
-
-            android:text="Iphone 12 Pro"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/igProfileDp" />
-
-        <TextView
-            android:id="@+id/txChatItemPrice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4mdp"
-            android:layout_marginBottom="@dimen/_4mdp"
-            android:fontFamily="@font/roboto_bold"
-            android:maxLines="1"
-            android:text="Rp.110000"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14font_mdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txChatItemName"
-            app:layout_constraintStart_toStartOf="@+id/txChatItemName"
-            app:layout_constraintTop_toBottomOf="@+id/txChatItemName" />
-
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_location_on_24"
-            app:layout_constraintBottom_toBottomOf="@+id/txChatItemPrice"
-            app:layout_constraintEnd_toStartOf="@+id/txItemDetailsLocation"
-            app:layout_constraintTop_toTopOf="@+id/txChatItemName"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/txItemDetailsLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:textSize="@dimen/_9font_mdp"
-            android:text="Munjka , Rajkot"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-            app:layout_constraintEnd_toEndOf="@+id/txChatUserName"
-            app:layout_constraintTop_toTopOf="@+id/imageView10" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatDetails"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_6mdp"
-        android:layout_marginBottom="@dimen/_6mdp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <RelativeLayout
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_4mdp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/igAttechment"
+        <EditText
+            android:id="@+id/text_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/btn_send"
+            android:background="@null"
+            android:hint="Type a message..."
+            android:padding="@dimen/_10mdp"
+            android:textColor="@color/black_shade"
+            android:textColorHint="@color/black_shade"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/btn_send"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:padding="@dimen/_3mdp"
-            android:src="@drawable/attachmentblue"
-            app:layout_constraintBottom_toBottomOf="@+id/edMessageBox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edMessageBox" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edMessageBox"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5mdp"
-            android:background="@drawable/rectangle_bg"
-            android:elevation="@dimen/_8mdp"
-            android:hint="Type Here "
-            android:inputType="text"
-            android:padding="@dimen/_8mdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/igSendMSg"
-            app:layout_constraintStart_toEndOf="@+id/igAttechment"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/igSendMSg"
-            android:layout_width="@dimen/_40mdp"
-            android:layout_height="0dp"
-            android:background="@drawable/rectangle_bg"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_paper_plane"
             android:backgroundTint="@color/lightblue"
-            android:padding="@dimen/_7mdp"
-            android:src="@drawable/ic_paper_plane"
-            app:layout_constraintBottom_toBottomOf="@+id/edMessageBox"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edMessageBox" />
+            android:padding="@dimen/_10mdp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

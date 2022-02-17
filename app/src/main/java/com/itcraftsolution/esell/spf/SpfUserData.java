@@ -61,16 +61,16 @@ public class SpfUserData {
         return sharedPreferences;
     }
 
-    public void setCreateChat(String UserName,String UserImg,String ItemName,String ItemLocation,String ReceiverId,int Chated)
+    public void setCreateChat(String ReceiverId)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ChatDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("ReceiverId", ReceiverId);
-        editor.putString("UserName", UserName);
-        editor.putString("UserImg", UserImg);
-        editor.putString("ItemLocation", ItemLocation);
-        editor.putString("ItemName", ItemName);
-        editor.putInt("Chat", Chated);
+//        editor.putString("UserName", UserName);
+//        editor.putString("UserImg", UserImg);
+//        editor.putString("ItemLocation", ItemLocation);
+//        editor.putString("ItemName", ItemName);
+//        editor.putInt("Chat", Chated);
         editor.apply();
     }
 

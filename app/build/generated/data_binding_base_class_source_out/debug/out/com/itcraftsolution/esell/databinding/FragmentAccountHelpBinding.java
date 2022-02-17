@@ -34,6 +34,12 @@ public final class FragmentAccountHelpBinding implements ViewBinding {
   public final LinearLayout llAccountRateUs;
 
   @NonNull
+  public final LinearLayout llEsellPolicy;
+
+  @NonNull
+  public final LinearLayout llEsellServicesPolicy;
+
+  @NonNull
   public final TextView textView6;
 
   @NonNull
@@ -42,18 +48,30 @@ public final class FragmentAccountHelpBinding implements ViewBinding {
   @NonNull
   public final View view6;
 
+  @NonNull
+  public final View view7;
+
+  @NonNull
+  public final View view8;
+
   private FragmentAccountHelpBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageView igHelpBackToAccount, @NonNull LinearLayout linearLayout3,
       @NonNull LinearLayout llAccountInvite, @NonNull LinearLayout llAccountRateUs,
-      @NonNull TextView textView6, @NonNull View view5, @NonNull View view6) {
+      @NonNull LinearLayout llEsellPolicy, @NonNull LinearLayout llEsellServicesPolicy,
+      @NonNull TextView textView6, @NonNull View view5, @NonNull View view6, @NonNull View view7,
+      @NonNull View view8) {
     this.rootView = rootView;
     this.igHelpBackToAccount = igHelpBackToAccount;
     this.linearLayout3 = linearLayout3;
     this.llAccountInvite = llAccountInvite;
     this.llAccountRateUs = llAccountRateUs;
+    this.llEsellPolicy = llEsellPolicy;
+    this.llEsellServicesPolicy = llEsellServicesPolicy;
     this.textView6 = textView6;
     this.view5 = view5;
     this.view6 = view6;
+    this.view7 = view7;
+    this.view8 = view8;
   }
 
   @Override
@@ -107,6 +125,18 @@ public final class FragmentAccountHelpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.llEsellPolicy;
+      LinearLayout llEsellPolicy = ViewBindings.findChildViewById(rootView, id);
+      if (llEsellPolicy == null) {
+        break missingId;
+      }
+
+      id = R.id.llEsellServicesPolicy;
+      LinearLayout llEsellServicesPolicy = ViewBindings.findChildViewById(rootView, id);
+      if (llEsellServicesPolicy == null) {
+        break missingId;
+      }
+
       id = R.id.textView6;
       TextView textView6 = ViewBindings.findChildViewById(rootView, id);
       if (textView6 == null) {
@@ -125,8 +155,21 @@ public final class FragmentAccountHelpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.view7;
+      View view7 = ViewBindings.findChildViewById(rootView, id);
+      if (view7 == null) {
+        break missingId;
+      }
+
+      id = R.id.view8;
+      View view8 = ViewBindings.findChildViewById(rootView, id);
+      if (view8 == null) {
+        break missingId;
+      }
+
       return new FragmentAccountHelpBinding((ConstraintLayout) rootView, igHelpBackToAccount,
-          linearLayout3, llAccountInvite, llAccountRateUs, textView6, view5, view6);
+          linearLayout3, llAccountInvite, llAccountRateUs, llEsellPolicy, llEsellServicesPolicy,
+          textView6, view5, view6, view7, view8);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

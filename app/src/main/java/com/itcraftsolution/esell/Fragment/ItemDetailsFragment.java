@@ -1,47 +1,25 @@
 package com.itcraftsolution.esell.Fragment;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Binder;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
-import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.google.android.gms.common.api.Api;
-import com.google.firebase.auth.FirebaseAuth;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
-import com.itcraftsolution.esell.MainActivity;
-import com.itcraftsolution.esell.Model.ResponceModel;
-import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ItemDetailsFragment extends Fragment {
 
@@ -94,7 +72,7 @@ public class ItemDetailsFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(ItemDetailsFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new ChatFragment())
+                fragmentTransaction.replace(R.id.frMainContainer, new ChatScreenFragment())
                         .addToBackStack(null).commit();
             }
         });

@@ -22,4 +22,5 @@
     <color name="red">#FD0000</color>
     <color name="blue_grey">#60787A</color>
     <color name="folroscent_green">#8acbca</color>
+    <color name="black_shade">#333333</color>
 </resources>

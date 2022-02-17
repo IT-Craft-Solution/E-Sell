@@ -24,7 +24,7 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnDiscuss;
+  public final Button btnChat;
 
   @NonNull
   public final ImageView igItemDetails;
@@ -59,7 +59,7 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
   @NonNull
   public final TextView txItemDetailsPrice;
 
-  private FragmentItemDetailsBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnDiscuss,
+  private FragmentItemDetailsBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnChat,
       @NonNull ImageView igItemDetails, @NonNull ImageView igItemDetailsBack,
       @NonNull ImageView igItemDetailsShare, @NonNull ImageView imageView10,
       @NonNull ImageSlider isProductImagesSlider, @NonNull LinearLayout linearLayout2,
@@ -67,7 +67,7 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
       @NonNull TextView txItemDetailsLocation, @NonNull TextView txItemDetailsName,
       @NonNull TextView txItemDetailsPrice) {
     this.rootView = rootView;
-    this.btnDiscuss = btnDiscuss;
+    this.btnChat = btnChat;
     this.igItemDetails = igItemDetails;
     this.igItemDetailsBack = igItemDetailsBack;
     this.igItemDetailsShare = igItemDetailsShare;
@@ -108,9 +108,9 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnDiscuss;
-      Button btnDiscuss = ViewBindings.findChildViewById(rootView, id);
-      if (btnDiscuss == null) {
+      id = R.id.btnChat;
+      Button btnChat = ViewBindings.findChildViewById(rootView, id);
+      if (btnChat == null) {
         break missingId;
       }
 
@@ -180,7 +180,7 @@ public final class FragmentItemDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentItemDetailsBinding((ConstraintLayout) rootView, btnDiscuss, igItemDetails,
+      return new FragmentItemDetailsBinding((ConstraintLayout) rootView, btnChat, igItemDetails,
           igItemDetailsBack, igItemDetailsShare, imageView10, isProductImagesSlider, linearLayout2,
           textView12, txItemDesc, txItemDetailsLocation, txItemDetailsName, txItemDetailsPrice);
     }

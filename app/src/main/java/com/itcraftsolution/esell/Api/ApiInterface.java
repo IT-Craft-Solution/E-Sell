@@ -98,6 +98,12 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
+    @POST("post/search_post_cat.php")
+    Call<List<MyAdsItem>> SellItemByCategory(
+            @Field("cat_name") String category
+    );
+
+    @FormUrlEncoded
     @POST("post/read_post.php")
     Call<List<MyAdsItem>> ReadSellItem(
             @Field("status") int status
@@ -140,7 +146,14 @@ public interface ApiInterface {
 
     @Multipart
     @POST("post/upload_img.php")
-    Call<ResponceModel> uploadImages( @Part List<MultipartBody.Part> images, @Part("user_id") int user_id);
+    Call<ResponceModel> uploadImages( @Part List<MultipartBody.Part> images,
+                                      @Part("user_id") int user_id, @Part("cat_name") String cat_name,
+                                      @Part("title") String title, @Part("description") String description,
+                                      @Part("price") int price, @Part("location") String location,
+                                      @Part("city_area") String city_area,
+                                      @Part("status") int status
+    );
 
 
 }
+

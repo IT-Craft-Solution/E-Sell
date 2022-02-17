@@ -47,6 +47,27 @@ public class AccountHelpFragment extends Fragment {
             }
         });
 
+        binding.llEsellPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(AccountHelpFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new SellinEsellFragment());
+                fragmentTransaction.addToBackStack(null).commit();
+            }
+        });
+        binding.llEsellServicesPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(AccountHelpFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer , new EsellPolicyFragment());
+                fragmentTransaction.addToBackStack(null).commit();
+            }
+        });
+
         binding.igHelpBackToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -17,9 +16,7 @@ import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
 import com.itcraftsolution.esell.Fragment.AdsFragment;
 import com.itcraftsolution.esell.Fragment.ChatFragment;
-import com.itcraftsolution.esell.Fragment.DiscussFragment;
 import com.itcraftsolution.esell.Fragment.HomeFragment;
-import com.itcraftsolution.esell.Fragment.MyAddFragment;
 import com.itcraftsolution.esell.Fragment.SellFragment;
 import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.databinding.ActivityMainBinding;

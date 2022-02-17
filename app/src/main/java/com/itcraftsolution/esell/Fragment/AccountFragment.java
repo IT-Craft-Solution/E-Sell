@@ -56,6 +56,8 @@ public class AccountFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null).commit();
             }
         });
+
+        //User Account help
         binding.llAccountHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +68,8 @@ public class AccountFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null).commit();
             }
         });
+
+        //User Account Logout
         binding.llAccountLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +81,8 @@ public class AccountFragment extends Fragment {
 
             }
         });
+
+        //User Account help
         binding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +96,7 @@ public class AccountFragment extends Fragment {
 
       return binding.getRoot();
     }
+
     private void LoadData()
     {
         spf = new SpfUserData(requireContext());

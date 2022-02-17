@@ -1,8 +1,11 @@
 package com.itcraftsolution.esell.Model;
 
+import java.util.List;
+
 public class MyAdsItem {
  private int id,user_id,price,status,fav;
- private String cat_name,title,description,location, city_area,item_img,date,message,auth_id;
+ private String cat_name,title,description,location, city_area,date,item_img,message,auth_id;
+
 
     public MyAdsItem(int id, int user_id, int price, int status,int fav, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message,String auth_id) {
         this.id = id;

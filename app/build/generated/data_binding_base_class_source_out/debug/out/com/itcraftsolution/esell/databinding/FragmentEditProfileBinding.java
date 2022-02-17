@@ -26,9 +26,6 @@ public final class FragmentEditProfileBinding implements ViewBinding {
   public final TextView ContactInfo;
 
   @NonNull
-  public final TextView btnEditImage;
-
-  @NonNull
   public final EditText edProfileAbout;
 
   @NonNull
@@ -56,13 +53,7 @@ public final class FragmentEditProfileBinding implements ViewBinding {
   public final CircleImageView igProfileDp;
 
   @NonNull
-  public final ImageView igVerify;
-
-  @NonNull
   public final TextView textView9;
-
-  @NonNull
-  public final TextView txSave;
 
   @NonNull
   public final TextView txerrorAbout;
@@ -71,17 +62,14 @@ public final class FragmentEditProfileBinding implements ViewBinding {
   public final TextView txerrorName;
 
   private FragmentEditProfileBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView ContactInfo, @NonNull TextView btnEditImage,
-      @NonNull EditText edProfileAbout, @NonNull EditText edProfileEmail,
-      @NonNull EditText edProfileName, @NonNull EditText edProfilePhoneNumber,
-      @NonNull TextView editProfileHead, @NonNull TextView epPhoneDetails,
-      @NonNull TextView epPhoneNo, @NonNull ImageView igEditToAccount,
-      @NonNull CircleImageView igProfileDp, @NonNull ImageView igVerify,
-      @NonNull TextView textView9, @NonNull TextView txSave, @NonNull TextView txerrorAbout,
-      @NonNull TextView txerrorName) {
+      @NonNull TextView ContactInfo, @NonNull EditText edProfileAbout,
+      @NonNull EditText edProfileEmail, @NonNull EditText edProfileName,
+      @NonNull EditText edProfilePhoneNumber, @NonNull TextView editProfileHead,
+      @NonNull TextView epPhoneDetails, @NonNull TextView epPhoneNo,
+      @NonNull ImageView igEditToAccount, @NonNull CircleImageView igProfileDp,
+      @NonNull TextView textView9, @NonNull TextView txerrorAbout, @NonNull TextView txerrorName) {
     this.rootView = rootView;
     this.ContactInfo = ContactInfo;
-    this.btnEditImage = btnEditImage;
     this.edProfileAbout = edProfileAbout;
     this.edProfileEmail = edProfileEmail;
     this.edProfileName = edProfileName;
@@ -91,9 +79,7 @@ public final class FragmentEditProfileBinding implements ViewBinding {
     this.epPhoneNo = epPhoneNo;
     this.igEditToAccount = igEditToAccount;
     this.igProfileDp = igProfileDp;
-    this.igVerify = igVerify;
     this.textView9 = textView9;
-    this.txSave = txSave;
     this.txerrorAbout = txerrorAbout;
     this.txerrorName = txerrorName;
   }
@@ -128,12 +114,6 @@ public final class FragmentEditProfileBinding implements ViewBinding {
       id = R.id.ContactInfo;
       TextView ContactInfo = ViewBindings.findChildViewById(rootView, id);
       if (ContactInfo == null) {
-        break missingId;
-      }
-
-      id = R.id.btnEditImage;
-      TextView btnEditImage = ViewBindings.findChildViewById(rootView, id);
-      if (btnEditImage == null) {
         break missingId;
       }
 
@@ -191,21 +171,9 @@ public final class FragmentEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.igVerify;
-      ImageView igVerify = ViewBindings.findChildViewById(rootView, id);
-      if (igVerify == null) {
-        break missingId;
-      }
-
       id = R.id.textView9;
       TextView textView9 = ViewBindings.findChildViewById(rootView, id);
       if (textView9 == null) {
-        break missingId;
-      }
-
-      id = R.id.txSave;
-      TextView txSave = ViewBindings.findChildViewById(rootView, id);
-      if (txSave == null) {
         break missingId;
       }
 
@@ -221,10 +189,10 @@ public final class FragmentEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentEditProfileBinding((ConstraintLayout) rootView, ContactInfo, btnEditImage,
+      return new FragmentEditProfileBinding((ConstraintLayout) rootView, ContactInfo,
           edProfileAbout, edProfileEmail, edProfileName, edProfilePhoneNumber, editProfileHead,
-          epPhoneDetails, epPhoneNo, igEditToAccount, igProfileDp, igVerify, textView9, txSave,
-          txerrorAbout, txerrorName);
+          epPhoneDetails, epPhoneNo, igEditToAccount, igProfileDp, textView9, txerrorAbout,
+          txerrorName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

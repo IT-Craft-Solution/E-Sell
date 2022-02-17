@@ -1,6 +1,5 @@
 package com.itcraftsolution.esell.Adapter;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,15 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.itcraftsolution.esell.Api.ApiUtilities;
-import com.itcraftsolution.esell.Extra.LoadingDialog;
-import com.itcraftsolution.esell.Fragment.MyAddFragment;
+import com.itcraftsolution.esell.Fragment.AdsFragment;
 import com.itcraftsolution.esell.Fragment.SellItemFormFragment;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.Model.ResponceModel;
@@ -95,7 +91,7 @@ public class MyAdsItemAdapter extends RecyclerView.Adapter<MyAdsItemAdapter.view
                                                     Toast.makeText(context, "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                                     ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                                                             .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
-                                                            .replace(R.id.frMainContainer , new MyAddFragment())
+                                                            .replace(R.id.frMainContainer , new AdsFragment())
                                                             .addToBackStack(null)
                                                             .commit();
                                                 } else {

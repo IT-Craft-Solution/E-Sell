@@ -21,7 +21,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -109,7 +108,7 @@ public class SellItemFormFragment extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new MyAddFragment())
+                fragmentTransaction.replace(R.id.frMainContainer, new AdsFragment())
                         .addToBackStack(null).commit();
             }
         });
@@ -233,21 +232,34 @@ public class SellItemFormFragment extends Fragment {
                             images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
                         }
                         Log.e("mya123" , images.toString());
-                        ApiUtilities.apiInterface().uploadImages(images,5).enqueue(new Callback<ResponceModel>() {
+                        ApiUtilities.apiInterface().uploadImages(images,UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, 1).enqueue(new Callback<ResponceModel>() {
                             @Override
                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
                             ResponceModel model = response.body();
                             if(model != null)
                             {
-                                Log.e("mya123", model.getMessage());
+                                if(!model.getMessage().equals("fail"))
+                                {
+                                    Toast.makeText(requireContext(), ""+model.getMessage(), Toast.LENGTH_SHORT).show();
+                                    loadingDialog.StopLoadingDialog();
+                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+                                                    .addToBackStack(null).commit();
+                                }else {
+                                    Toast.makeText(requireContext(), "fail model"+model.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
                             }else {
-                                Log.e("mya123", "Model empty !!");
+                                Toast.makeText(requireContext(), "model empty !!", Toast.LENGTH_SHORT).show();
                             }
+                                loadingDialog.StopLoadingDialog();
                             }
 
                             @Override
                             public void onFailure(Call<ResponceModel> call, Throwable t) {
-                                Log.e("mya123", ""+t.getMessage()+" "+t.getStackTrace());
+                                loadingDialog.StopLoadingDialog();
+                                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
 //                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
@@ -256,11 +268,20 @@ public class SellItemFormFragment extends Fragment {
 //                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
 //                                        ResponceModel responceModel = response.body();
 //                                        if (responceModel != null) {
-//                                            loadingDialog.StopLoadingDialog();
-//                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-//                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
-//                                                    .addToBackStack(null).commit();
+//                                            if(responceModel.getMessage().equals("fail"))
+//                                            {
+//                                                loadingDialog.StopLoadingDialog();
+//                                                Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+//                                            }
+//                                            else {
+//                                                loadingDialog.StopLoadingDialog();
+//                                                Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+//                                                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                                                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+//                                                fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+//                                                        .addToBackStack(null).commit();
+//                                            }
+//
 //
 //                                        } else {
 //                                            loadingDialog.StopLoadingDialog();
@@ -280,7 +301,7 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
-
+    
     private void LoadData() {
 
         OldTitle = spf.getItemDetails().getString("ItemTitle", null);

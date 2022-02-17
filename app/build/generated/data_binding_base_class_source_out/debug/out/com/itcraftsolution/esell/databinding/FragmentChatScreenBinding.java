@@ -4,7 +4,9 @@ package com.itcraftsolution.esell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +14,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.textfield.TextInputEditText;
 import com.itcraftsolution.esell.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
@@ -24,66 +25,34 @@ public final class FragmentChatScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ConstraintLayout constraintLayout;
+  public final RelativeLayout bottom;
 
   @NonNull
-  public final ConstraintLayout constraintLayout2;
+  public final ImageButton btnSend;
 
   @NonNull
-  public final TextInputEditText edMessageBox;
+  public final CircleImageView profileImage;
 
   @NonNull
-  public final ImageView igAttechment;
+  public final RecyclerView recyclerView;
 
   @NonNull
-  public final ImageView igChatScreenBack;
+  public final EditText textSend;
 
   @NonNull
-  public final CircleImageView igProfileDp;
-
-  @NonNull
-  public final ImageView igSendMSg;
-
-  @NonNull
-  public final ImageView imageView10;
-
-  @NonNull
-  public final RecyclerView rvChatDetails;
-
-  @NonNull
-  public final TextView txChatItemName;
-
-  @NonNull
-  public final TextView txChatItemPrice;
-
-  @NonNull
-  public final TextView txChatUserName;
-
-  @NonNull
-  public final TextView txItemDetailsLocation;
+  public final TextView username;
 
   private FragmentChatScreenBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout constraintLayout, @NonNull ConstraintLayout constraintLayout2,
-      @NonNull TextInputEditText edMessageBox, @NonNull ImageView igAttechment,
-      @NonNull ImageView igChatScreenBack, @NonNull CircleImageView igProfileDp,
-      @NonNull ImageView igSendMSg, @NonNull ImageView imageView10,
-      @NonNull RecyclerView rvChatDetails, @NonNull TextView txChatItemName,
-      @NonNull TextView txChatItemPrice, @NonNull TextView txChatUserName,
-      @NonNull TextView txItemDetailsLocation) {
+      @NonNull RelativeLayout bottom, @NonNull ImageButton btnSend,
+      @NonNull CircleImageView profileImage, @NonNull RecyclerView recyclerView,
+      @NonNull EditText textSend, @NonNull TextView username) {
     this.rootView = rootView;
-    this.constraintLayout = constraintLayout;
-    this.constraintLayout2 = constraintLayout2;
-    this.edMessageBox = edMessageBox;
-    this.igAttechment = igAttechment;
-    this.igChatScreenBack = igChatScreenBack;
-    this.igProfileDp = igProfileDp;
-    this.igSendMSg = igSendMSg;
-    this.imageView10 = imageView10;
-    this.rvChatDetails = rvChatDetails;
-    this.txChatItemName = txChatItemName;
-    this.txChatItemPrice = txChatItemPrice;
-    this.txChatUserName = txChatUserName;
-    this.txItemDetailsLocation = txItemDetailsLocation;
+    this.bottom = bottom;
+    this.btnSend = btnSend;
+    this.profileImage = profileImage;
+    this.recyclerView = recyclerView;
+    this.textSend = textSend;
+    this.username = username;
   }
 
   @Override
@@ -113,88 +82,44 @@ public final class FragmentChatScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.constraintLayout;
-      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
-      if (constraintLayout == null) {
+      id = R.id.bottom;
+      RelativeLayout bottom = ViewBindings.findChildViewById(rootView, id);
+      if (bottom == null) {
         break missingId;
       }
 
-      id = R.id.constraintLayout2;
-      ConstraintLayout constraintLayout2 = ViewBindings.findChildViewById(rootView, id);
-      if (constraintLayout2 == null) {
+      id = R.id.btn_send;
+      ImageButton btnSend = ViewBindings.findChildViewById(rootView, id);
+      if (btnSend == null) {
         break missingId;
       }
 
-      id = R.id.edMessageBox;
-      TextInputEditText edMessageBox = ViewBindings.findChildViewById(rootView, id);
-      if (edMessageBox == null) {
+      id = R.id.profile_image;
+      CircleImageView profileImage = ViewBindings.findChildViewById(rootView, id);
+      if (profileImage == null) {
         break missingId;
       }
 
-      id = R.id.igAttechment;
-      ImageView igAttechment = ViewBindings.findChildViewById(rootView, id);
-      if (igAttechment == null) {
+      id = R.id.recycler_view;
+      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerView == null) {
         break missingId;
       }
 
-      id = R.id.igChatScreenBack;
-      ImageView igChatScreenBack = ViewBindings.findChildViewById(rootView, id);
-      if (igChatScreenBack == null) {
+      id = R.id.text_send;
+      EditText textSend = ViewBindings.findChildViewById(rootView, id);
+      if (textSend == null) {
         break missingId;
       }
 
-      id = R.id.igProfileDp;
-      CircleImageView igProfileDp = ViewBindings.findChildViewById(rootView, id);
-      if (igProfileDp == null) {
+      id = R.id.username;
+      TextView username = ViewBindings.findChildViewById(rootView, id);
+      if (username == null) {
         break missingId;
       }
 
-      id = R.id.igSendMSg;
-      ImageView igSendMSg = ViewBindings.findChildViewById(rootView, id);
-      if (igSendMSg == null) {
-        break missingId;
-      }
-
-      id = R.id.imageView10;
-      ImageView imageView10 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView10 == null) {
-        break missingId;
-      }
-
-      id = R.id.rvChatDetails;
-      RecyclerView rvChatDetails = ViewBindings.findChildViewById(rootView, id);
-      if (rvChatDetails == null) {
-        break missingId;
-      }
-
-      id = R.id.txChatItemName;
-      TextView txChatItemName = ViewBindings.findChildViewById(rootView, id);
-      if (txChatItemName == null) {
-        break missingId;
-      }
-
-      id = R.id.txChatItemPrice;
-      TextView txChatItemPrice = ViewBindings.findChildViewById(rootView, id);
-      if (txChatItemPrice == null) {
-        break missingId;
-      }
-
-      id = R.id.txChatUserName;
-      TextView txChatUserName = ViewBindings.findChildViewById(rootView, id);
-      if (txChatUserName == null) {
-        break missingId;
-      }
-
-      id = R.id.txItemDetailsLocation;
-      TextView txItemDetailsLocation = ViewBindings.findChildViewById(rootView, id);
-      if (txItemDetailsLocation == null) {
-        break missingId;
-      }
-
-      return new FragmentChatScreenBinding((ConstraintLayout) rootView, constraintLayout,
-          constraintLayout2, edMessageBox, igAttechment, igChatScreenBack, igProfileDp, igSendMSg,
-          imageView10, rvChatDetails, txChatItemName, txChatItemPrice, txChatUserName,
-          txItemDetailsLocation);
+      return new FragmentChatScreenBinding((ConstraintLayout) rootView, bottom, btnSend,
+          profileImage, recyclerView, textSend, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,6 +1,7 @@
 package com.itcraftsolution.esell.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
 
     Context context;
     List<HomeCategory> homeCategories;
+    SharedPreferences spf;
 
     public HomeCatRecyclerAdapter(Context context, List<HomeCategory> homeCategories) {
         this.context = context;
@@ -50,6 +52,10 @@ public class HomeCatRecyclerAdapter extends RecyclerView.Adapter<HomeCatRecycler
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spf = context.getSharedPreferences("SendCategory", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("Category", homeCategory.getCat_name());
+                editor.apply();
                 ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                         .replace(R.id.frMainContainer , new HomeCatShowFragment())

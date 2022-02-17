@@ -1,9 +1,13 @@
 package com.itcraftsolution.esell.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -11,11 +15,19 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.itcraftsolution.esell.Adapter.HomeCatShowAdapter;
+import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.HomeCatShow;
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentHomeCatShowBinding;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeCatShowFragment extends Fragment {
@@ -25,31 +37,20 @@ public class HomeCatShowFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private ArrayList<HomeCatShow> homeCatShows;
+    private ArrayList<MyAdsItem> list;
     private FragmentHomeCatShowBinding binding;
+    private SharedPreferences spf;
+    private String categoryName;
+    private LoadingDialog loadingDialog;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeCatShowBinding.inflate(getLayoutInflater());
 
-
-        homeCatShows = new ArrayList<>();
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-        homeCatShows.add(new HomeCatShow(R.drawable.testing , "Iphone 11 Pro ka bhai navo lidho ae ho " , "Rp. 11.00.000" , "Limbdi"));
-
-
-        HomeCatShowAdapter catShowAdapter = new HomeCatShowAdapter(getContext(),homeCatShows);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
-        binding.rvHomeCatShow.setLayoutManager(gridLayoutManager);
-        binding.rvHomeCatShow.setAdapter(catShowAdapter);
+        FetchData();
 
         binding.igHomeCatShowBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,5 +65,38 @@ public class HomeCatShowFragment extends Fragment {
 
 
         return binding.getRoot();
+    }
+    private void FetchData()
+    {
+        loadingDialog = new LoadingDialog(requireActivity());
+        loadingDialog.StartLoadingDialog();
+        spf = requireContext().getSharedPreferences("SendCategory", Context.MODE_PRIVATE);
+        categoryName = spf.getString("Category", null);
+        ApiUtilities.apiInterface().SellItemByCategory(categoryName).enqueue(new Callback<List<MyAdsItem>>() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
+                assert response.body() != null;
+                list = new ArrayList<>();
+                list.addAll(response.body());
+                if (list != null) {
+                    if (list.get(0).getMessage() == null) {
+                        HomeCatShowAdapter catShowAdapter = new HomeCatShowAdapter(getContext(),list);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
+                        binding.rvHomeCatShow.setLayoutManager(gridLayoutManager);
+                        loadingDialog.StopLoadingDialog();
+                        binding.rvHomeCatShow.setAdapter(catShowAdapter);
+                    } else {
+                        loadingDialog.StopLoadingDialog();
+                        Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MyAdsItem>> call, Throwable t) {
+                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

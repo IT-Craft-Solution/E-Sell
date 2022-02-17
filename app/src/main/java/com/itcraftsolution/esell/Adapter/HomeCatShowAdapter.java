@@ -9,22 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Fragment.HomeCatShowFragment;
 import com.itcraftsolution.esell.Fragment.ItemDetailsFragment;
 import com.itcraftsolution.esell.Model.HomeCatShow;
 import com.itcraftsolution.esell.Model.HomeFreshItem;
+import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.HomeCatShowSampleBinding;
 import com.itcraftsolution.esell.databinding.HomeFreshitemSampleBinding;
+import com.itcraftsolution.esell.spf.SpfUserData;
 
 import java.util.ArrayList;
 
 public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.viewHolder> {
 
     Context context;
-    ArrayList<HomeCatShow> homeCatShows;
-
-    public HomeCatShowAdapter(Context context, ArrayList<HomeCatShow> homeCatShows) {
+    ArrayList<MyAdsItem> homeCatShows;
+    SpfUserData spf;
+    public HomeCatShowAdapter(Context context, ArrayList<MyAdsItem> homeCatShows) {
         this.context = context;
         this.homeCatShows = homeCatShows;
     }
@@ -39,16 +43,20 @@ public class HomeCatShowAdapter extends RecyclerView.Adapter<HomeCatShowAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        HomeCatShow homeCatShow = homeCatShows.get(position);
 
-        holder.binding.igHomeCatShowImage.setImageResource(homeCatShow.getItemImage());
-        holder.binding.txHomeCatDesc.setText(homeCatShow.getItemName());
-        holder.binding.txHomeCatPrice.setText(homeCatShow.getItemPrice());
-        holder.binding.txHomeCatItemLocation.setText(homeCatShow.getItemLocation());
+        MyAdsItem model = homeCatShows.get(position);
+        Glide.with(context).load(ApiUtilities.HomeCategory+model.getItem_img()).into(holder.binding.igHomeCatShowImage);
+        holder.binding.txHomeCatDesc.setText(model.getDescription());
+        holder.binding.txHomeCatPrice.setText(String.valueOf("₹ "+model.getPrice()));
+        holder.binding.txHomeCatItemLocation.setText(String.valueOf(model.getCity_area()+" ,"+model.getLocation()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spf = new SpfUserData(context);
+                spf.setItemDetail(model.getItem_img(), String.valueOf("₹ "+model.getPrice()),model.getTitle(),String.valueOf(model.getCity_area()+" ,"+model.getLocation())
+                        ,model.getDescription(),model.getId(), model.getUser_id(),0,0,model.getCat_name(),model.getAuth_id(),0);
+
                 ((FragmentActivity) context).getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth)
                         .replace(R.id.frMainContainer , new ItemDetailsFragment())

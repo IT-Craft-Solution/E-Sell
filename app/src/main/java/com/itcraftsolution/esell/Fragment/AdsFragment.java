@@ -61,6 +61,7 @@ public class AdsFragment extends Fragment {
             {
               if(list.get(0).getMessage() == null)
               {
+                  Toast.makeText(requireContext(), ""+list.get(0).getItem_img(), Toast.LENGTH_SHORT).show();
                   adapter = new MyAdsItemAdapter(requireContext(),list);
                   GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() , 1);
                   binding.rvMyAdsItem.setLayoutManager(gridLayoutManager);
