@@ -88,6 +88,8 @@ public class HomeCatShowFragment extends Fragment {
                         binding.rvHomeCatShow.setAdapter(catShowAdapter);
                     } else {
                         loadingDialog.StopLoadingDialog();
+                        binding.rvHomeCatShow.setVisibility(View.GONE);
+                        binding.llNoDataFound.setVisibility(View.VISIBLE);
                         Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
                     }
                 }

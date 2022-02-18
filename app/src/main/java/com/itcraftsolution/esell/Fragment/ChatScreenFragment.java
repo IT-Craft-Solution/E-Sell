@@ -39,6 +39,7 @@ import com.itcraftsolution.esell.spf.SpfUserData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -120,7 +121,7 @@ public class ChatScreenFragment extends Fragment {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 binding.username.setText(user.getUsername());
-                Glide.with(requireActivity()).load(ApiUtilities.UserImage+user.getImageURL()).into(binding.profileImage);
+                Glide.with(getContext()).load(ApiUtilities.UserImage+user.getImageURL()).into(binding.profileImage);
                 readMesagges(fuser.getUid(), userid, ApiUtilities.UserImage+user.getImageURL());
             }
 
@@ -275,7 +276,7 @@ public class ChatScreenFragment extends Fragment {
                         mchat.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapter(requireContext(), mchat, imageurl);
+                    messageAdapter = new MessageAdapter(getContext(), mchat, imageurl);
                     binding.recyclerView.setAdapter(messageAdapter);
                 }
             }

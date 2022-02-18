@@ -12,8 +12,8 @@ public class ApiUtilities {
     public static final String UserImage ="https://esell.co.in/esell_api/user/images/";
     public static final String SellItemImage ="https://esell.co.in/esell_api/post/images/";
     public static final String HomeCategory ="https://esell.co.in/admin/assets/images/";
-    public static final String EsellPolicy = "https://esell.co.in/esell_policy/selling_on_esell.html";
-    public static final String EsellServicePolicy = "https://esell.co.in/esell_policy/esell_services.html";
+    public static final String EsellPolicy = "https://esell.co.in/esell_policy/selling_on_esell.pdf";
+    public static final String EsellServicePolicy = "https://esell.co.in/esell_policy/esell_services.pdf";
 
     public static Retrofit retrofit = null;
 

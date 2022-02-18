@@ -8,11 +8,10 @@
     tools:context=".Fragment.SellinEsellFragment">
 
 
-    <es.voghdev.pdfviewpager.library.PDFViewPager
+    <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

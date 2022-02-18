@@ -383,7 +383,7 @@ public class SellItemFormFragment extends Fragment {
                                 Log.e("mya123" , ImageUris.toString());
                                 CheckImage = true;
                                 binding.txSelctedImg.setVisibility(View.VISIBLE);
-                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Selected");
+                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
                             } else {
                                 ImageUris.clear();
                                 Uri imageUri = data.getData();
@@ -391,7 +391,7 @@ public class SellItemFormFragment extends Fragment {
                                 ImageUris.add(imageUri);
                                 CheckImage = true;
                                 binding.txSelctedImg.setVisibility(View.VISIBLE);
-                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Selected");
+                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
 //                                try {
 //                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
 //                                    bitmap = BitmapFactory.decodeStream(inputStream);
