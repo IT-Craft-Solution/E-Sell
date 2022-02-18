@@ -2,9 +2,9 @@ package com.itcraftsolution.esell.Model;
 
 public class UserModel {
     private int id,status;
-    private String phone,email,user_img,user_name,user_bio, date,location,city_area, message,authid;
+    private String phone,email,user_img,user_name,user_bio, date,location,city_area, message, auth_id;
 
-    public UserModel(int id, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area, String message,int status,String authid) {
+    public UserModel(int id, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area, String message,int status,String auth_id) {
         this.id = id;
         this.phone = phone;
         this.email = email;
@@ -16,7 +16,7 @@ public class UserModel {
         this.city_area = city_area;
         this.message = message;
         this.status = status;
-        this.authid = authid;
+        this.auth_id = auth_id;
     }
 
     public UserModel(int id, int status, String phone, String email, String user_img, String user_name, String user_bio, String date, String location, String city_area) {
@@ -43,12 +43,12 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getAuthid() {
-        return authid;
+    public String getAuth_id() {
+        return auth_id;
     }
 
-    public void setAuthid(String authid) {
-        this.authid = authid;
+    public void setAuth_id(String auth_id) {
+        this.auth_id = auth_id;
     }
 
     public String getPhone() {

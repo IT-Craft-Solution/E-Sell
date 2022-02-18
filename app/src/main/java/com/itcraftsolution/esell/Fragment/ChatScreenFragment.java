@@ -1,24 +1,16 @@
 package com.itcraftsolution.esell.Fragment;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Adapter.MessageAdapter;
 import com.itcraftsolution.esell.Api.APIService;
 import com.itcraftsolution.esell.Api.ApiUtilities;
-import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.Chat;
 import com.itcraftsolution.esell.Model.User;
 import com.itcraftsolution.esell.Notifications.Client;
@@ -48,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

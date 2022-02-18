@@ -10,7 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
@@ -21,6 +25,8 @@ import com.itcraftsolution.esell.Fragment.SellFragment;
 import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.databinding.ActivityMainBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences spf;
     private String Phone, Email;
     private int Status;
+    private DatabaseReference reference;
     private LoadingDialog dialog;
 
     @Override
@@ -41,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dialog = new LoadingDialog(this);
-
 
         LoadData();
         defView();
@@ -96,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     if (model.getMessage() == null) {
                         dialog.StopLoadingDialog();
                         data.setSpf(model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
-                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuthid());
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuth_id());
 
                     } else {
                         dialog.StopLoadingDialog();

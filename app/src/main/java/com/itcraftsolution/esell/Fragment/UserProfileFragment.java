@@ -84,6 +84,7 @@ public class UserProfileFragment extends Fragment {
     private ActivityResultLauncher<String> mGetContent;
     private int Status;
     private DatabaseReference reference;
+    private LoadingDialog dialog;
     private Uri PhotoUri;
     private SpfUserData spfUserData;
     private LoadingDialog loadingDialog;
@@ -143,6 +144,9 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.red));
                     binding.txUserLocation.requestFocus();
+                } else if (!binding.cbPolicy.isChecked()) {
+                    binding.txPolicyError.setText("Please agreed Policy");
+                    binding.txPolicyError.setTextColor(getResources().getColor(R.color.red));
                 } else {
                     loadingDialog.StartLoadingDialog();
                     binding.txProfileNameError.setTextColor(getResources().getColor(R.color.blue_grey));
@@ -150,6 +154,8 @@ public class UserProfileFragment extends Fragment {
                     binding.txProfilePhoneError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileEmailError.setTextColor(getResources().getColor(R.color.blue_grey));
                     binding.txProfileLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
+                    binding.txPolicyError.setText("");
+                    binding.txPolicyError.setTextColor(getResources().getColor(R.color.blue_grey));
 
                     binding.igVerify.setVisibility(View.VISIBLE);
 
@@ -199,59 +205,60 @@ public class UserProfileFragment extends Fragment {
                                                             }
                                                         });
                                             } else {
-                                                Toast.makeText(requireContext(), "Status 1: Already Chhe", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(requireContext(), "Try To Login other Email", Toast.LENGTH_LONG).show();
                                             }
                                         } else {
                                             spfUserData = new SpfUserData(requireContext());
                                             spfUserData.setSpf(0, Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid());
-                                           String Auth_id =  FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                            HashMap<String, String> hashMap = new HashMap<>();
-                                            hashMap.put("id", Auth_id);
-                                            hashMap.put("username", Name);
-                                            hashMap.put("bio", About);
-                                            hashMap.put("phone", Phone);
-                                            hashMap.put("email", Email);
-                                            hashMap.put("locality", Locality);
-                                            hashMap.put("sublocality", Sublocality);
-                                            hashMap.put("imageURL", encodeImageString);
-                                            hashMap.put("status", "offline");
-                                            hashMap.put("search", Name.toLowerCase());
-                                            reference =FirebaseDatabase.getInstance().getReference("Users").child(Auth_id);
-                                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if(task.isSuccessful()) {
+                                            String Auth_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                                        ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, Auth_id)
-                                                                .enqueue(new Callback<ResponceModel>() {
-                                                                    @Override
-                                                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
-                                                                        ResponceModel responceModel = response.body();
-                                                                        if (responceModel != null) {
-                                                                            if (responceModel.getMessage().equals("fail")) {
-                                                                                Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
-                                                                            } else {
-                                                                                Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                            ApiUtilities.apiInterface().InsertUser(Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, Auth_id)
+                                                    .enqueue(new Callback<ResponceModel>() {
+                                                        @Override
+                                                        public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                                            ResponceModel responceModel = response.body();
+                                                            if (responceModel != null) {
+                                                                if (responceModel.getMessage().equals("fail")) {
+                                                                    Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                                                } else {
+
+                                                                    HashMap<String, String> hashMap = new HashMap<>();
+                                                                    hashMap.put("id", model.getAuth_id());
+                                                                    hashMap.put("username", model.getUser_name());
+                                                                    hashMap.put("bio", model.getUser_bio());
+                                                                    hashMap.put("phone", model.getPhone());
+                                                                    hashMap.put("email", model.getEmail());
+                                                                    hashMap.put("locality", model.getLocation());
+                                                                    hashMap.put("sublocality", model.getCity_area());
+                                                                    hashMap.put("imageURL", model.getUser_img());
+                                                                    hashMap.put("status", "offline");
+                                                                    hashMap.put("search", model.getUser_name().toLowerCase());
+                                                                    reference = FirebaseDatabase.getInstance().getReference("Users").child(model.getAuth_id());
+                                                                    reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                            if(task.isSuccessful()) {
                                                                                 Intent intent = new Intent(getContext(), MainActivity.class);
                                                                                 startActivity(intent);
                                                                                 requireActivity().finishAffinity();
+                                                                                Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
                                                                             }
-                                                                        } else {
-                                                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                                                                         }
-                                                                        loadingDialog.StopLoadingDialog();
-                                                                    }
+                                                                    });
 
-                                                                    @Override
-                                                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
-                                                                        loadingDialog.StopLoadingDialog();
-                                                                        Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                });
-                                                    }
-                                                }
-                                            });
+                                                                }
+                                                            } else {
+                                                                Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                            loadingDialog.StopLoadingDialog();
+                                                        }
 
+                                                        @Override
+                                                        public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                                            loadingDialog.StopLoadingDialog();
+                                                            Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
                                         }
                                     }
                                 }
