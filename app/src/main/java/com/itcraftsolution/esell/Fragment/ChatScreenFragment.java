@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Adapter.MessageAdapter;
 import com.itcraftsolution.esell.Api.APIService;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.MainActivity;
 import com.itcraftsolution.esell.Model.Chat;
 import com.itcraftsolution.esell.Model.User;
 import com.itcraftsolution.esell.Notifications.Client;
@@ -119,7 +120,7 @@ public class ChatScreenFragment extends Fragment {
                 User user = dataSnapshot.getValue(User.class);
                 assert user != null;
                 binding.username.setText(user.getUsername());
-                Glide.with(requireContext()).load(ApiUtilities.UserImage+user.getImageURL()).into(binding.profileImage);
+                Glide.with(requireActivity()).load(ApiUtilities.UserImage+user.getImageURL()).into(binding.profileImage);
                 readMesagges(fuser.getUid(), userid, ApiUtilities.UserImage+user.getImageURL());
             }
 
@@ -274,7 +275,7 @@ public class ChatScreenFragment extends Fragment {
                         mchat.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapter(requireActivity(), mchat, imageurl);
+                    messageAdapter = new MessageAdapter(requireContext(), mchat, imageurl);
                     binding.recyclerView.setAdapter(messageAdapter);
                 }
             }

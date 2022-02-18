@@ -139,6 +139,15 @@ public interface ApiInterface {
                                       @Part("status") int status, @Part("auth_id") RequestBody auth_id
     );
 
+    @Multipart
+    @POST("post/update_post.php")
+    Call<ResponceModel> UpdateuploadImages( @Part List<MultipartBody.Part> images,
+                                      @Part("id") int id, @Part("cat_name") RequestBody cat_name,
+                                      @Part("title") RequestBody title, @Part("description") RequestBody description,
+                                      @Part("price") int price, @Part("location") RequestBody location,
+                                      @Part("city_area") RequestBody city_area,
+                                      @Part("status") int status
+    );
 
 }
 

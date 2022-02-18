@@ -73,39 +73,12 @@ public class ItemDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 spf.setCreateChat(ReceiverUid);
-                fuser = FirebaseAuth.getInstance().getCurrentUser();
-                usersList = new ArrayList<>();
-                reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        usersList.clear();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                            Chatlist chatlist = snapshot.getValue(Chatlist.class);
-                            usersList.add(chatlist);
-                        }
-                        if(usersList.isEmpty() )
-                        {
+
                             FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                             fragmentTransaction.remove(ItemDetailsFragment.this);
                             fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
                             fragmentTransaction.replace(R.id.frMainContainer, new ChatScreenFragment())
                                     .addToBackStack(null).commit();
-                        }
-                        else {
-                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                            fragmentTransaction.remove(ItemDetailsFragment.this);
-                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                            fragmentTransaction.replace(R.id.frMainContainer, new ChatFragment())
-                                    .addToBackStack(null).commit();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
 
             }
         });

@@ -221,30 +221,50 @@ public class UserProfileFragment extends Fragment {
                                                                 if (responceModel.getMessage().equals("fail")) {
                                                                     Toast.makeText(requireActivity(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
                                                                 } else {
-
-                                                                    HashMap<String, String> hashMap = new HashMap<>();
-                                                                    hashMap.put("id", model.getAuth_id());
-                                                                    hashMap.put("username", model.getUser_name());
-                                                                    hashMap.put("bio", model.getUser_bio());
-                                                                    hashMap.put("phone", model.getPhone());
-                                                                    hashMap.put("email", model.getEmail());
-                                                                    hashMap.put("locality", model.getLocation());
-                                                                    hashMap.put("sublocality", model.getCity_area());
-                                                                    hashMap.put("imageURL", model.getUser_img());
-                                                                    hashMap.put("status", "offline");
-                                                                    hashMap.put("search", model.getUser_name().toLowerCase());
-                                                                    reference = FirebaseDatabase.getInstance().getReference("Users").child(model.getAuth_id());
-                                                                    reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    ApiUtilities.apiInterface().ReadUser(Phone, Email).enqueue(new Callback<UserModel>() {
                                                                         @Override
-                                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                                            if(task.isSuccessful()) {
-                                                                                Intent intent = new Intent(getContext(), MainActivity.class);
-                                                                                startActivity(intent);
-                                                                                requireActivity().finishAffinity();
-                                                                                Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                        public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                                                                            UserModel model = response.body();
+                                                                            if (model != null) {
+                                                                                if (model.getMessage() == null) {
+                                                                                    loadingDialog.StopLoadingDialog();
+                                                                                    HashMap<String, String> hashMap = new HashMap<>();
+                                                                                    hashMap.put("id", FirebaseAuth.getInstance().getUid());
+                                                                                    hashMap.put("username", model.getUser_name());
+                                                                                    hashMap.put("bio", model.getUser_bio());
+                                                                                    hashMap.put("phone", model.getPhone());
+                                                                                    hashMap.put("email", model.getEmail());
+                                                                                    hashMap.put("locality", model.getLocation());
+                                                                                    hashMap.put("sublocality", model.getCity_area());
+                                                                                    hashMap.put("imageURL", model.getUser_img());
+                                                                                    hashMap.put("status", "offline");
+                                                                                    hashMap.put("search", model.getUser_name().toLowerCase());
+                                                                                    reference = FirebaseDatabase.getInstance().getReference("Users").child(model.getAuth_id());
+                                                                                    reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                        @Override
+                                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                                            if (task.isSuccessful()) {
+                                                                                                Intent intent = new Intent(getContext(), MainActivity.class);
+                                                                                                startActivity(intent);
+                                                                                                requireActivity().finishAffinity();
+                                                                                                Toast.makeText(requireContext(), "" + responceModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                                            }
+                                                                                        }
+                                                                                    });
+                                                                                } else {
+                                                                                    loadingDialog.StopLoadingDialog();
+                                                                                    Toast.makeText(requireContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                                                                                }
                                                                             }
                                                                         }
+
+                                                                        @Override
+                                                                        public void onFailure(Call<UserModel> call, Throwable t) {
+                                                                            loadingDialog.StopLoadingDialog();
+                                                                            Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                        }
                                                                     });
+
 
                                                                 }
                                                             } else {
