@@ -133,8 +133,6 @@ public class ChatScreenFragment extends Fragment {
 
         seenMessage(userid);
 
-
-
         return binding.getRoot();
     }
 

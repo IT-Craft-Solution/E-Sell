@@ -83,15 +83,7 @@ public class ChatFragment extends Fragment {
                     Chatlist chatlist = snapshot.getValue(Chatlist.class);
                     usersList.add(chatlist);
                 }
-                if(usersList.isEmpty())
-                {
-                    loadingDialog.StopLoadingDialog();
-                    binding.rvChatBuying.setVisibility(View.GONE);
-                    binding.llNoDataFound.setVisibility(View.VISIBLE);
-                }else{
                     chatList();
-                }
-
             }
 
             @Override
@@ -125,14 +117,22 @@ public class ChatFragment extends Fragment {
                         if (user!= null && user.getId()!=null && chatlist!=null && chatlist.getId()!= null &&
                                 user.getId().equals(chatlist.getId())){
                             mUsers.add(user);
+
                         }
                     }
                 }
 
+                if(mUsers.isEmpty())
+                {
+                    loadingDialog.StopLoadingDialog();
+                    binding.rvChatBuying.setVisibility(View.GONE);
+                    binding.llNoDataFound.setVisibility(View.VISIBLE);
+                }else{
+                    userAdapter = new UserAdapter(getContext(),mUsers, true);
+                    loadingDialog.StopLoadingDialog();
+                    binding.rvChatBuying.setAdapter(userAdapter);
+                }
 
-                userAdapter = new UserAdapter(getContext(),mUsers, true);
-                loadingDialog.StopLoadingDialog();
-                binding.rvChatBuying.setAdapter(userAdapter);
             }
 
             @Override

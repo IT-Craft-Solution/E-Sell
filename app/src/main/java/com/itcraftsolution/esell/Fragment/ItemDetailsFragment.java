@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -132,8 +133,15 @@ public class ItemDetailsFragment extends Fragment {
         {
             slideModels.add(new SlideModel(ApiUtilities.SellItemImage+list.get(i)));
         }
+
         binding.isProductImagesSlider.setImageList(slideModels,true);
 
+        binding.isProductImagesSlider.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemSelected(int i) {
+
+            }
+        });
 //        Glide.with(requireContext()).load(ApiUtilities.SellItemImage + list.get(0)).into(binding.igItemDetails);
         binding.txItemDetailsLocation.setText(ItemLocation);
         binding.txItemDetailsName.setText(ItemTitle);

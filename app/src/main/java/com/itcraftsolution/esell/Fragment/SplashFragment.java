@@ -41,10 +41,6 @@ public class SplashFragment extends Fragment {
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
         auth = FirebaseAuth.getInstance();
 
-
-
-
-
         topAnim = AnimationUtils.loadAnimation(getContext(), R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bottom_animation);
         initViewsAndListener();

@@ -1,8 +1,12 @@
 package com.itcraftsolution.esell;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -14,6 +18,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.itcraftsolution.esell.Api.ApiUtilities;
@@ -38,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private SharedPreferences spf;
-    private String Phone, Email;
-    private int Status;
+    private String Phone, Email, message;
+    private int Status, color;
     private DatabaseReference reference;
     private LoadingDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,43 +56,78 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(binding.getRoot());
-        dialog = new LoadingDialog(this);
 
-        LoadData();
-        defView();
-        binding.mainBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
-                switch (item.getItemId()) {
-                    case R.id.bNavHome:
-                        selectedFragment = new HomeFragment();
-                        break;
-                    case R.id.bNavChat:
-                        selectedFragment = new ChatFragment();
-                        break;
-                    case R.id.bNavSell:
-                        selectedFragment = new SellFragment();
-                        break;
-                    case R.id.bNavMyAds:
-                        selectedFragment = new AdsFragment();
-                        break;
-                    case R.id.bNavAccount:
-                        selectedFragment = new AccountFragment();
-                        break;
+//        if (!isNetworkConnected()) {
+//            binding.mainBottomNav.setVisibility(View.GONE);
+//            binding.frMainContainer.setVisibility(View.GONE);
+//            binding.btnInternet.setVisibility(View.VISIBLE);
+//            message = "Not Connected To Internet";
+//            color = Color.RED;
+//            Snackbar.make(binding.btnInternet, message, Snackbar.LENGTH_LONG).show();
+//        } else {
+//            binding.btnInternet.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (!isNetworkConnected()) {
+//                        binding.mainBottomNav.setVisibility(View.GONE);
+//                        binding.frMainContainer.setVisibility(View.GONE);
+//                        binding.btnInternet.setVisibility(View.VISIBLE);
+//                        message = "Not Connected To Internet";
+//                        color = Color.RED;
+//                    } else {
+//                        message = "Connected To Internet";
+//                        color = Color.GREEN;
+//                    }
+//                    Snackbar.make(binding.btnInternet, message, Snackbar.LENGTH_LONG).show();
+//                }
+//            });
 
+
+            dialog = new LoadingDialog(this);
+
+            LoadData();
+            defView();
+            binding.mainBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch (item.getItemId()) {
+                        case R.id.bNavHome:
+                            selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.bNavChat:
+                            selectedFragment = new ChatFragment();
+                            break;
+                        case R.id.bNavSell:
+                            selectedFragment = new SellFragment();
+                            break;
+                        case R.id.bNavMyAds:
+                            selectedFragment = new AdsFragment();
+                            break;
+                        case R.id.bNavAccount:
+                            selectedFragment = new AccountFragment();
+                            break;
+
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frMainContainer, selectedFragment).addToBackStack(null).commit();
+                    return true;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frMainContainer, selectedFragment).addToBackStack(null).commit();
-                return true;
-            }
-        });
+            });
+//        }
+
     }
 
     private void defView() {
         FragmentTransaction firstFragment = getSupportFragmentManager().beginTransaction();
-          firstFragment.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+        firstFragment.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
         firstFragment.replace(R.id.frMainContainer, new HomeFragment());
         firstFragment.commit();
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
     private void LoadData() {
@@ -104,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     if (model.getMessage() == null) {
                         dialog.StopLoadingDialog();
                         data.setSpf(model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
-                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuth_id());
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(), model.getAuth_id());
 
                     } else {
                         dialog.StopLoadingDialog();
