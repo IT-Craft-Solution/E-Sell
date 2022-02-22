@@ -57,6 +57,20 @@ public class ItemDetailsFragment extends Fragment {
         // Call Load Method
         LoadData();
 
+
+        //Product Image Fragment
+        binding.isProductImagesSlider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ItemDetailsFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
+
+
         // Back Arrow
         //Go To HomeFragment
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +80,7 @@ public class ItemDetailsFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(ItemDetailsFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new HomeFragment())
+                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
                         .addToBackStack(null).commit();
             }
         });

@@ -14,6 +14,7 @@
         android:layout_height="@dimen/_250mdp"
         app:auto_cycle="true"
         app:delay="0"
+        android:clickable="true"
         android:scaleType="fitXY"
         android:layout_marginTop="@dimen/_6mdp"
         app:error_image="@color/blue"
