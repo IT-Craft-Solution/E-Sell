@@ -17,6 +17,8 @@ import com.itcraftsolution.esell.databinding.FavoriteSampleBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+    //Favorite Item Recycler View Adapter
+
 public class FavRecyclerAdapter extends RecyclerView.Adapter<FavRecyclerAdapter.viewHolder> {
     Context context;
     List<MyAdsItem> list;
@@ -37,6 +39,7 @@ public class FavRecyclerAdapter extends RecyclerView.Adapter<FavRecyclerAdapter.
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         MyAdsItem model = list.get(position);
 
+        //Load Data Favorite Data From Server
         Glide.with(context).load(ApiUtilities.SellItemImage+model.getItem_img()).into(holder.binding.igHomeCatShowImage);
         holder.binding.txHomeCatPrice.setText(String.valueOf("₹ "+model.getPrice()));
         holder.binding.txHomeCatDesc.setText(model.getDescription());

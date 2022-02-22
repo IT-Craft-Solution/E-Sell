@@ -19,7 +19,7 @@ import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSplashBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
 
-
+//Splash Fragment Class
 public class SplashFragment extends Fragment {
 
 
@@ -39,14 +39,23 @@ public class SplashFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentSplashBinding.inflate(getLayoutInflater());
+
+        //Firebase Authentication
         auth = FirebaseAuth.getInstance();
 
+        //Set Animation
         topAnim = AnimationUtils.loadAnimation(getContext(), R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bottom_animation);
+
+        // Call Method
+        // Splash screen
         initViewsAndListener();
+
+
         return binding.getRoot();
     }
 
+    //initViewsAndListener Method
     private void initViewsAndListener() {
         binding.igSplashLogo.setAnimation(topAnim);
         binding.tvSlogan.setAnimation(bottomAnim);

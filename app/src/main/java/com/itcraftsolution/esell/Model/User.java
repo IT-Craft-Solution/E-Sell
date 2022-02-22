@@ -1,5 +1,7 @@
 package com.itcraftsolution.esell.Model;
 
+
+// User Model Class
 public class User {
 
     private String bio, email,id, imageURL,locality,phone,search,status,sublocality,username;
@@ -7,6 +9,7 @@ public class User {
     public User() {
     }
 
+    // User Model Constructor
     public User(String bio, String email, String id, String imageURL, String locality, String phone, String search, String status, String sublocality, String username) {
         this.bio = bio;
         this.email = email;
@@ -20,6 +23,7 @@ public class User {
         this.username = username;
     }
 
+    // User Model Class Getter And Setter Method
     public String getBio() {
         return bio;
     }

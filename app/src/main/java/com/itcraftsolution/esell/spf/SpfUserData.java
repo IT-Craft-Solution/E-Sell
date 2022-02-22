@@ -3,6 +3,7 @@ package com.itcraftsolution.esell.spf;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+//Shared Preference Class
 public class SpfUserData {
     Context context;
 

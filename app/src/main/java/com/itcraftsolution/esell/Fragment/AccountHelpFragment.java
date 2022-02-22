@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentAccountHelpBinding;
 
-
+// Account Help Fragment
 public class AccountHelpFragment extends Fragment {
 
     public AccountHelpFragment() {
@@ -30,12 +30,17 @@ public class AccountHelpFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAccountHelpBinding.inflate(getLayoutInflater());
 
+        // Account Rate Us
+        // Redirect To Play Store E-Sell App
         binding.llAccountRateUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("market://details?id="+ R.string.app_name)));
             }
         });
+
+        //Account Invite
+        //Invite Other To E-Sell
         binding.llAccountInvite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +52,7 @@ public class AccountHelpFragment extends Fragment {
             }
         });
 
+        // Account E-Sell Sell Policy
         binding.llEsellPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +63,8 @@ public class AccountHelpFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null).commit();
             }
         });
+
+        //Account E-Sell Service Policy
         binding.llEsellServicesPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +76,8 @@ public class AccountHelpFragment extends Fragment {
             }
         });
 
+        //Back Arrow
+        // Go To Account Fragment
         binding.igHelpBackToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

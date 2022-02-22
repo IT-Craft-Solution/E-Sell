@@ -54,10 +54,26 @@ public class ItemDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentItemDetailsBinding.inflate(getLayoutInflater());
 
-        // Image Slider
 
-
+        // Call Load Method
         LoadData();
+
+
+        //Product Image Fragment
+        binding.isProductImagesSlider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ItemDetailsFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
+
+
+        // Back Arrow
+        //Go To HomeFragment
         binding.igItemDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,11 +81,12 @@ public class ItemDetailsFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(ItemDetailsFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new HomeFragment())
+                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
                         .addToBackStack(null).commit();
             }
         });
 
+        //Button Chat
         binding.btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +101,7 @@ public class ItemDetailsFragment extends Fragment {
             }
         });
 
+        // Button share Product
         binding.igItemDetailsShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +129,7 @@ public class ItemDetailsFragment extends Fragment {
         return binding.getRoot();
     }
 
+    // LoadData Method
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         UserId = spf.getItemDetails().getInt("UserId", 0);

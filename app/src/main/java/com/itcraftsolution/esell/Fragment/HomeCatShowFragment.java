@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+//HomeCatShow Fragment Class
 public class HomeCatShowFragment extends Fragment {
 
 
@@ -50,8 +50,11 @@ public class HomeCatShowFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeCatShowBinding.inflate(getLayoutInflater());
 
+        //Call FetchData Method
         FetchData();
 
+        //Back Arrow
+        //Go To HomeFragment
         binding.igHomeCatShowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +69,9 @@ public class HomeCatShowFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+    //FetchData Method
+    //Fetch Data From Server
     private void FetchData()
     {
         loadingDialog = new LoadingDialog(requireActivity());

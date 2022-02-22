@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+// Account Setting Fragment
 public class AccountSettingFragment extends Fragment {
 
     public AccountSettingFragment() {
@@ -45,11 +45,14 @@ public class AccountSettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
       binding = FragmentAccountSettingFargmentBinding .inflate(getLayoutInflater());
 
+      //Firebase User Authentication Check
         auth = FirebaseAuth.getInstance();
 
+        // Logout Method
       binding.txLogout.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -106,6 +109,7 @@ public class AccountSettingFragment extends Fragment {
       return binding.getRoot();
     }
 
+    // Theme Shared Preference Method
     private  void ThemeMode(boolean Mode){
         SharedPreferences spf = requireContext().getSharedPreferences("ThemeMode", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();

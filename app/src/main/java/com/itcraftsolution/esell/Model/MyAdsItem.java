@@ -2,11 +2,13 @@ package com.itcraftsolution.esell.Model;
 
 import java.util.List;
 
+//User Added Item Model
 public class MyAdsItem {
  private int id,user_id,price,status,fav;
  private String cat_name,title,description,location, city_area,date,item_img,message,auth_id;
 
 
+ //User Item Constructor
     public MyAdsItem(int id, int user_id, int price, int status,int fav, String cat_name, String title, String description, String location, String city_area, String item_img, String date, String message,String auth_id) {
         this.id = id;
         this.user_id = user_id;
@@ -24,6 +26,7 @@ public class MyAdsItem {
         this.auth_id = auth_id;
     }
 
+    //User Item Getter And Setter Method
     public int getId() {
         return id;
     }

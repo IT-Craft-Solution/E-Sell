@@ -26,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+// Account My Order Fragment
 public class AccountMyordersFragment extends Fragment {
 
 
@@ -46,9 +46,16 @@ public class AccountMyordersFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAccountMyordersBinding.inflate(getLayoutInflater());
 
+        //Loading Dialog
         loadingDialog = new LoadingDialog(requireActivity());
         loadingDialog.StartLoadingDialog();
+
+
+        // Fetch My Order Data From Server
         FetchData();
+
+        //Back Arrow
+        // Go To Account Fragment
         binding.igMyOrdersToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +69,8 @@ public class AccountMyordersFragment extends Fragment {
         return binding.getRoot();
     }
 
+    // Fetch Order Data From Server
+    //Fetch Data Method
     private void FetchData()
     {
         spfdata = new SpfUserData(requireContext());

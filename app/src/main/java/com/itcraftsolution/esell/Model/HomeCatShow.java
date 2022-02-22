@@ -1,9 +1,11 @@
 package com.itcraftsolution.esell.Model;
 
+//Home Category Show Model
 public class HomeCatShow {
     private int ItemImage;
     private String ItemName,ItemPrice, ItemLocation;
 
+    //Home Category Show Constructor
     public HomeCatShow(int itemImage, String itemName, String itemPrice, String itemLocation) {
         ItemImage = itemImage;
         ItemName = itemName;
@@ -13,6 +15,8 @@ public class HomeCatShow {
     public HomeCatShow(){
 
     }
+
+    // Home Category Getter And Setter Method
     public int getItemImage() {
         return ItemImage;
     }

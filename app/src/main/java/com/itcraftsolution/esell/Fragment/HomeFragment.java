@@ -52,7 +52,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+//Home Fragment Class
 public class HomeFragment extends Fragment {
 
     public HomeFragment() {
@@ -76,18 +76,26 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
+
+        //LoadDialog show
         loadingDialog = new LoadingDialog(requireActivity());
 
+        //Search Bar Condition
         if(!binding.edHomeSearch.getText().toString().isEmpty())
         {
+            //Search Number
+            //Call SearchData Method
             searchtext = binding.edHomeSearch.getText().toString();
             searchtext = "+91"+searchtext;
             SearchData(searchtext);
         }
         else {
+            // Call FetchData Methood
             FetchData();
         }
 
+
+        //Get Current Location
         binding.tvCityName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,10 +104,12 @@ public class HomeFragment extends Fragment {
                 getLastLocation();
             }
         });
+
         //get User Current Location & Print it.
         spf = requireContext().getSharedPreferences("UserLocation", Context.MODE_PRIVATE);
         binding.tvCityName.setText(spf.getString("UserLocation", null));
 
+        //Search Bar
         binding.edHomeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,11 +120,15 @@ public class HomeFragment extends Fragment {
                     SearchData(searchtext);
                 }
                 else {
+                    //Call FetchData Method
                     FetchData();
                 }
 
             }
         });
+
+        //Home Category
+        // Go TO  SellFragment
         binding.igHomeCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +145,7 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //SearchData Method
     private void SearchData(String searchtext)
     {
         ApiUtilities.apiInterface().ReadUserPhone(searchtext).enqueue(new Callback<UserModel>() {
@@ -181,6 +196,9 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    //FetchData Method
+    //Fetch Data From Server
     private void FetchData() {
 
         loadingDialog.StartLoadingDialog();
@@ -212,6 +230,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //Fetch Home Fresh Item From Server
         ApiUtilities.apiInterface().ReadSellItem(1).enqueue(new Callback<List<MyAdsItem>>() {
             @Override
             public void onResponse(Call<List<MyAdsItem>> call, Response<List<MyAdsItem>> response) {
@@ -242,6 +261,7 @@ public class HomeFragment extends Fragment {
     }
 
 
+    //Get Location Method
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -365,6 +385,9 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
+    // Shared Preference
+    //StoreUserLocation Method
     private void StoreUserLocation(String UserLocation) {
         SharedPreferences spf = requireContext().getSharedPreferences("UserLocation", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = spf.edit();

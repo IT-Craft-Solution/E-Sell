@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8mdp"
-        android:text="My Orders"
+        android:text="@string/my_orders"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_18font_mdp"
         app:layout_constraintBottom_toBottomOf="@+id/igMyOrdersToAccount"

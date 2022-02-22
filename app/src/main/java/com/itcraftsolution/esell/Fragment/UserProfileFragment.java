@@ -70,6 +70,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//User Profile Fragment
 public class UserProfileFragment extends Fragment {
 
     public UserProfileFragment() {
@@ -97,20 +98,29 @@ public class UserProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentUserProfileBinding.inflate(getLayoutInflater());
 
+        //Loading Dialog Show
         loadingDialog = new LoadingDialog(requireActivity());
+
+        //Call LoadData Methode
         LoadData();
+
+        //Set Image From Gallery
         binding.igProfileDp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkStoragePermission()) {
+                    //Intent For Image Select
                     mGetContent.launch("image/*");
 
                 } else {
+                    //Check Permission
                     requestStoragePermission();
                 }
             }
         });
 
+        //From Validation
+        // If All Right Profile Save
         binding.btnNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +177,11 @@ public class UserProfileFragment extends Fragment {
 
                     Email = binding.edUserEmail.getText().toString();
                     Location = binding.txLocationn.getText().toString();
+
+                    //Loading Dialog Show
                     loadingDialog.StartLoadingDialog();
+
+                    //store User Data To Server
                     ApiUtilities.apiInterface().ReadUser(Phone, Email)
                             .enqueue(new Callback<UserModel>() {
                                 @Override
@@ -208,6 +222,8 @@ public class UserProfileFragment extends Fragment {
                                                 Toast.makeText(requireContext(), "Try To Login other Email", Toast.LENGTH_LONG).show();
                                             }
                                         } else {
+                                            //Shared Preference
+                                            //Store User Data
                                             spfUserData = new SpfUserData(requireContext());
                                             spfUserData.setSpf(0, Phone, Email, encodeImageString, Name, About, Locality, Sublocality, 1, FirebaseAuth.getInstance().getUid());
                                             String Auth_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -293,6 +309,7 @@ public class UserProfileFragment extends Fragment {
             }
         });
 
+        //Get Current Location
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         binding.txUserLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -302,6 +319,7 @@ public class UserProfileFragment extends Fragment {
             }
         });
 
+        //Load Image In Array
         mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -329,21 +347,28 @@ public class UserProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //ValidEmail Method
     private boolean ValidEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();
     }
 
+    //requestStoragePermission Method
+    //Request For Permission
     private void requestStoragePermission() {
 
         ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_ID);
     }
 
+    //checkStoragePermission Method
+    // Check Permission
     private boolean checkStoragePermission() {
         Toast.makeText(requireContext(), "select image less then 1 mb", Toast.LENGTH_SHORT).show();
         return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 
+    //LoadData Method
+    //Fetch LoadData Method
     private void LoadData() {
         SpfUserData spfUserData = new SpfUserData(requireContext());
         GoogleSignIn.getLastSignedInAccount(requireContext());
@@ -364,6 +389,7 @@ public class UserProfileFragment extends Fragment {
         }
     }
 
+    //Get Multiple Image
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -382,6 +408,7 @@ public class UserProfileFragment extends Fragment {
         }
     }
 
+    //Get Current Location
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -451,6 +478,7 @@ public class UserProfileFragment extends Fragment {
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
 
+    // Get Last Location
     private LocationCallback mLocationCallback = new LocationCallback() {
 
         @Override
@@ -517,6 +545,7 @@ public class UserProfileFragment extends Fragment {
     }
 
 
+    //encodeBitmapImage Method
     private void encodeBitmapImage(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);

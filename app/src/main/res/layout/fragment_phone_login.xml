@@ -33,7 +33,7 @@
                 android:layout_marginEnd="@dimen/_10mdp"
                 android:drawablePadding="@dimen/_15mdp"
                 android:padding="@dimen/_10mdp"
-                android:text="Continue With Phone"
+                android:text="@string/continue_with_phone"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -56,7 +56,7 @@
         android:layout_marginStart="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_15mdp"
         android:layout_marginEnd="@dimen/_5mdp"
-        android:text="Enter Your Phone Number "
+        android:text="@string/enter_your_phone_number"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -68,7 +68,7 @@
         android:layout_marginStart="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_10mdp"
         android:layout_marginEnd="@dimen/_5mdp"
-        android:text="We will send confirmation code to your phone."
+        android:text="@string/we_will_send_confirmation_code_to_your_phone"
         android:textColor="@color/black"
         android:alpha="0.5"
         android:textSize="14sp" />
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20mdp"
             android:layout_marginTop="@dimen/_25mdp"
-            android:text="Country"
+            android:text="@string/country"
             android:textColor="@color/black"
             android:alpha="0.5"
             android:textSize="14sp" />
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_30mdp"
             android:layout_marginTop="@dimen/_25mdp"
-            android:text="Phone Number"
+            android:text="@string/phone_number"
             android:textColor="@color/black"
             android:alpha="0.5"
             android:textSize="14sp" />
@@ -138,7 +138,7 @@
             android:backgroundTint="@color/lightblue"
             android:paddingTop="@dimen/_8mdp"
             android:paddingBottom="@dimen/_8mdp"
-            android:text="Get OTP"
+            android:text="@string/get_otp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="22sp"

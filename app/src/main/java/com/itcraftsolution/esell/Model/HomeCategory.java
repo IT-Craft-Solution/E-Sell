@@ -1,9 +1,11 @@
 package com.itcraftsolution.esell.Model;
 
+// Home Category Model
 public class HomeCategory {
     private int id,status;
     private String cat_name,cat_img,date,message;
 
+    //Home Category Constructor
     public HomeCategory(int id, int status, String cat_name, String cat_img, String date,String message) {
         this.id = id;
         this.status = status;
@@ -13,6 +15,7 @@ public class HomeCategory {
         this.message = message;
     }
 
+    // Home Category Getter and Setter Method
     public int getId() {
         return id;
     }

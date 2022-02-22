@@ -38,7 +38,7 @@
         android:layout_marginTop="@dimen/_12mdp"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:fontFamily="serif"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_15font_mdp"
         android:textStyle="bold"

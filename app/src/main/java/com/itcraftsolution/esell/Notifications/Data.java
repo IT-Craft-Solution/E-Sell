@@ -1,5 +1,6 @@
 package com.itcraftsolution.esell.Notifications;
 
+// Data Model Class
 public class Data {
     private String user;
     private int icon;
@@ -7,6 +8,7 @@ public class Data {
     private String title;
     private String sented;
 
+    // Data Model Constructor
     public Data(String user, int icon, String body, String title, String sented) {
         this.user = user;
         this.icon = icon;
@@ -18,6 +20,7 @@ public class Data {
     public Data() {
     }
 
+    // Data Model Class Getter And Setter Method
     public String getUser() {
         return user;
     }

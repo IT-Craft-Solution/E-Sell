@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//Active Order Recycler View Adapter
+
 public class AccountMyordersRecyclerAdapter extends RecyclerView.Adapter<AccountMyordersRecyclerAdapter.viewHolder> {
 
     Context context;

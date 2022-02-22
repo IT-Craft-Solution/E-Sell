@@ -45,7 +45,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+// ChatScreen Fragment Class
 public class ChatScreenFragment extends Fragment {
 
     public ChatScreenFragment() {
@@ -77,6 +77,8 @@ public class ChatScreenFragment extends Fragment {
 
         apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
 
+        // Back Arrow
+        // GO To ChatFragment
         binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -30,6 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//Discuss Fragment Class
 public class DiscussFragment extends Fragment {
 
 
@@ -50,7 +51,11 @@ public class DiscussFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentDiscussBinding.inflate(getLayoutInflater());
          loadingDialog = new LoadingDialog(requireActivity());
+
+         // Call LoadData Method
          LoadData();
+
+         //Call Method
         binding.cvDiscussCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +85,7 @@ public class DiscussFragment extends Fragment {
             }
         });
 
+        //Email Method
         binding.cvDiscussEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +105,8 @@ public class DiscussFragment extends Fragment {
         return binding.getRoot();
     }
 
+    // LoadData Method
+    // Load User Data From Server
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         if (spf.getItemDetails().getInt("Discuss", 0) == 1) {
