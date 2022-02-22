@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.UserProfileFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
 
     <TextView
         android:id="@+id/textView11"
@@ -26,7 +14,7 @@
         android:layout_marginHorizontal="@dimen/_16mdp"
         android:layout_marginTop="@dimen/_8mdp"
         android:fontFamily="@font/roboto_bold"
-        android:text="@string/manage_profile"
+        android:text="Manage Profile"
         android:textColor="@color/black"
         android:textSize="@dimen/_18font_mdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +35,7 @@
         android:id="@+id/igProfileDp"
         android:layout_width="@dimen/_120mdp"
         android:layout_height="@dimen/_120mdp"
-        android:layout_marginTop="@dimen/_13mdp"
+        android:layout_marginTop="@dimen/_8mdp"
         android:src="@drawable/edit_profile_icon"
         app:layout_constraintEnd_toEndOf="@+id/igVerify"
         app:layout_constraintHorizontal_bias="0.495"
@@ -60,7 +48,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:padding="@dimen/_1mdp"
-        android:text="@string/edit"
+        android:text="Edit"
         android:textColor="@color/lightblack"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/igProfileDp"
@@ -72,7 +60,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16mdp"
+        android:layout_marginTop="@dimen/_12mdp"
         android:layout_marginHorizontal="@dimen/_16mdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +70,7 @@
             android:id="@+id/edUserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/enter_your_name"
+            android:hint="Enter Your Name"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
@@ -93,7 +81,7 @@
         android:id="@+id/txProfileNameError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/must_be_enter_your_good_name"
+        android:text="* Must be Enter Your Good Name"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
 
@@ -104,7 +92,7 @@
         android:id="@+id/textInputLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/txProfileNameError">
@@ -113,7 +101,7 @@
             android:id="@+id/edUserAboutUs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/about_us"
+            android:hint="About Us"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout1"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout1"
@@ -125,7 +113,7 @@
         android:id="@+id/txProfileAboutError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/your_profession_title_like_e_g_job_business_store"
+        android:text="* Your Profession Title like (e.g. Job, Business, Store)"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout1"
@@ -135,7 +123,7 @@
         android:id="@+id/textInputLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout1"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout1"
         app:layout_constraintTop_toBottomOf="@+id/txProfileAboutError">
@@ -144,7 +132,7 @@
             android:id="@+id/edUserPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/enter_your_phone_number"
+            android:hint="Enter Your Phone Number"
             android:inputType="number"
             android:textIsSelectable="true"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
@@ -157,7 +145,7 @@
         android:id="@+id/txProfilePhoneError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/phone_number_must_be_in_indian_code_like_91"
+        android:text="* Phone Number Must be in Indian Code like +91"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
@@ -167,7 +155,7 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/txProfilePhoneError">
@@ -176,7 +164,7 @@
             android:id="@+id/edUserEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/enter_your_email_address"
+            android:hint="Enter Your Email Address"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
@@ -187,7 +175,7 @@
         android:id="@+id/txProfileEmailError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/your_email_must_be_include_and_com"
+        android:text="* Your Email Must be include @ and .com"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
@@ -198,10 +186,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
-        android:text="@string/confirm_your_location"
+        android:text="Confirm Your Location"
         android:textColor="@color/lightblack"
         android:textSize="@dimen/_12font_mdp"
-        android:layout_marginTop="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
         app:layout_constraintTop_toBottomOf="@+id/txProfileEmailError" />
 
@@ -209,7 +197,7 @@
         android:id="@+id/txUserLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/verify_location"
+        android:text="Verify Location"
         android:textColor="@color/lightblack"
         android:textStyle="bold"
         android:fontFamily="@font/roboto_bold"
@@ -224,7 +212,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/city_name"
-        android:textSize="@dimen/_14font_mdp"
+        android:textSize="@dimen/_13font_mdp"
         android:visibility="gone"
         android:layout_marginTop="@dimen/_6mdp"
         app:layout_constraintStart_toStartOf="@+id/confirmlocation"
@@ -234,7 +222,7 @@
         android:id="@+id/txProfileLocationError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/confirm_your_present_location"
+        android:text="* Confirm Your Present Location"
         android:textColor="@color/blue_grey"
         android:textSize="@dimen/_9font_mdp"
         app:layout_constraintStart_toStartOf="@+id/confirmlocation"
@@ -247,16 +235,39 @@
         android:layout_margin="@dimen/_16mdp"
         android:backgroundTint="@color/lightblue"
         android:padding="@dimen/_8mdp"
-        android:text="@string/next"
+        android:text="Next"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txLocationn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <CheckBox
+        android:id="@+id/cbPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/confirmlocation"
+        app:layout_constraintTop_toBottomOf="@+id/txProfileLocationError" />
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="I've agreed to the E-sell Policy and E-Sell Service Policy"
+        android:textSize="@dimen/_9font_mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/cbPolicy"
+        app:layout_constraintEnd_toEndOf="@+id/txUserLocation"
+        app:layout_constraintStart_toEndOf="@+id/cbPolicy"
+        app:layout_constraintTop_toTopOf="@+id/cbPolicy" />
+
+    <TextView
+        android:id="@+id/txPolicyError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_9font_mdp"
+        android:layout_marginTop="@dimen/_3mdp"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/cbPolicy"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

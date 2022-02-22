@@ -1,6 +1,5 @@
 package com.itcraftsolution.esell.Api;
 
-import com.itcraftsolution.esell.Model.ChatModel;
 import com.itcraftsolution.esell.Model.HomeCategory;
 import com.itcraftsolution.esell.Model.MyAdsItem;
 import com.itcraftsolution.esell.Model.ResponceModel;
@@ -30,15 +29,6 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
-    @POST("chat/create_chat.php")
-    Call<ResponceModel> CreateChat(
-            @Field("user_name") String user_name,
-            @Field("user_img") String user_img, @Field("item_location") String item_location,
-            @Field("item_title") String item_title, @Field("receiver_id") String receiver_id,
-            @Field("status") int status
-    );
-
-    @FormUrlEncoded
     @POST("user/read_user.php")
     Call<UserModel> ReadUser(
             @Field("phone") String phone,
@@ -58,12 +48,6 @@ public interface ApiInterface {
 
     );
 
-    @FormUrlEncoded
-    @POST("chat/read_chat_user.php")
-    Call<List<ChatModel>> ReadChatUser(
-            @Field("receiver_id") String receiver_id,@Field("user_name") String user_name
-
-    );
 
     @FormUrlEncoded
     @POST("user/update_user.php")
@@ -81,15 +65,15 @@ public interface ApiInterface {
     );
 
 
-    @FormUrlEncoded
-    @POST("post/create_post.php")
-    Call<ResponceModel> InsertSellItem(
-            @Field("user_id") int user_id, @Field("cat_name") String cat_name,
-            @Field("title") String title, @Field("description") String description,
-            @Field("price") int price, @Field("location") String location,
-            @Field("city_area") String city_area, @Field("item_img") String item_img,
-            @Field("status") int status, @Field("auth_id") String auth_id
-    );
+//    @FormUrlEncoded
+//    @POST("post/create_post.php")
+//    Call<ResponceModel> InsertSellItem(
+//            @Field("user_id") int user_id, @Field("cat_name") String cat_name,
+//            @Field("title") String title, @Field("description") String description,
+//            @Field("price") int price, @Field("location") String location,
+//            @Field("city_area") String city_area, @Field("item_img") String item_img,
+//            @Field("status") int status, @Field("auth_id") String auth_id
+//    );
 
     @FormUrlEncoded
     @POST("post/myad_post.php")
@@ -155,6 +139,15 @@ public interface ApiInterface {
                                       @Part("status") int status, @Part("auth_id") RequestBody auth_id
     );
 
+    @Multipart
+    @POST("post/update_post.php")
+    Call<ResponceModel> UpdateuploadImages( @Part List<MultipartBody.Part> images,
+                                      @Part("id") int id, @Part("cat_name") RequestBody cat_name,
+                                      @Part("title") RequestBody title, @Part("description") RequestBody description,
+                                      @Part("price") int price, @Part("location") RequestBody location,
+                                      @Part("city_area") RequestBody city_area,
+                                      @Part("status") int status
+    );
 
 }
 

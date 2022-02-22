@@ -7,9 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentSellinEsellBinding;
+
 
 
 public class SellinEsellFragment extends Fragment {
@@ -26,7 +25,8 @@ public class SellinEsellFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSellinEsellBinding.inflate(getLayoutInflater());
 
-//        binding.pdfEsellservicepolicy.fromAsset("Sellingpolicy.pdf").load();
+        binding.pdfViewPager.fromAsset("selling_on_esell.pdf").load();
         return binding.getRoot();
     }
+
 }

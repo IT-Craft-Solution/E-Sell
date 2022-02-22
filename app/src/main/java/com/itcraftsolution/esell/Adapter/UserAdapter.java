@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Fragment.ChatScreenFragment;
 import com.itcraftsolution.esell.Model.Chat;
 import com.itcraftsolution.esell.Model.User;
@@ -60,7 +61,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         if (user.getImageURL().equals("default")){
             holder.profile_image.setImageResource(R.drawable.testing);
         } else {
-            Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
+            Glide.with(mContext).load(ApiUtilities.UserImage+user.getImageURL()).into(holder.profile_image);
         }
 
         if (ischat){

@@ -183,6 +183,8 @@ public class HomeFragment extends Fragment {
                             }
                         });
                     }else {
+                        binding.llNoDataFound.setVisibility(View.VISIBLE);
+                        binding.rvHomeFreshItems.setVisibility(View.GONE);
                         Toast.makeText(requireContext(), ""+model.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }

@@ -30,16 +30,9 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/drawable/rectangle_bg.xml" value="0.290625" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/drawable/settings.xml" value="0.290625" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout-land/fragment_account.xml" value="0.2708333333333333" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/activeorder_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/activity_user_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chat_buying_sample.xml" value="0.264" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chat_item_left.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chat_item_right.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chatrecive_sample.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/chatsend_sample.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/favorite_sample.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account.xml" value="0.264" />
+        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_help.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_myorders.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_account_setting_fargment.xml" value="0.27447916666666666" />
@@ -51,9 +44,7 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_chat_selling.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_confirmation_code.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_congress_screen.xml" value="0.2604166666666667" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_discuss.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_edit_profile.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_esell_policy.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_expire_orders.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_favorite.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
@@ -63,19 +54,14 @@
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_maps_and_location.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_my_add.xml" value="0.22521367521367522" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_phone_login.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_sell.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_sell_item_form.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_sellin_esell.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_splash.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/fragment_user_profile.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_cat_show_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_category_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/home_freshitem_sample.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/loadingdialog.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/main_nav_graph.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/myads_item_sample.xml" value="0.264" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/sell_category_sample.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/layout/user_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/LENOVO SLIM/AndroidStudioProjects/ICS/E-Sell/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/edit_profile_icon.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/ic_baseline_arrow_forward_ios_24.xml" value="0.27870370370370373" />
@@ -84,12 +70,15 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/ic_sell_fill.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/language.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable-v24/settings.xml" value="0.27870370370370373" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/background_left.xml" value="0.174" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/background_right.xml" value="0.174" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/box.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/edit_profile_icon.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_account.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.178" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.188" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.178" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.290625" />
@@ -115,16 +104,19 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/phone_icon.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/rectangle_bg.xml" value="0.290625" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/drawable/settings.xml" value="0.290625" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout-land/chat_item_right.xml" value="0.23236331569664903" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activeorder_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_splash_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/activity_user_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chat_buying_sample.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chat_item_left.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chat_item_right.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chatrecive_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/chatsend_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/favorite_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account_help.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account_help.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account_myorders.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_account_setting_fargment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_active_orders.xml" value="0.27447916666666666" />
@@ -133,13 +125,16 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_buying.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chat_selling.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_chats.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_confirmation_code.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_congress_screen.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_discuss.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_edit_profile.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_esell_policy.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_expire_orders.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_favorite.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_home_cat_show.xml" value="0.264" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_item_details.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_maps_and_location.xml" value="0.27447916666666666" />
@@ -147,6 +142,7 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_phone_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sell.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sell_item_form.xml" value="0.264" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sellin_esell.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_sign_in.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_splash.xml" value="0.152" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/fragment_user_profile.xml" value="0.264" />
@@ -156,6 +152,7 @@
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/loadingdialog.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/myads_item_sample.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/sell_category_sample.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/layout/user_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Shadow/AndroidStudioProjects/ITCraftSolution/E-sell/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.290625" />
       </map>

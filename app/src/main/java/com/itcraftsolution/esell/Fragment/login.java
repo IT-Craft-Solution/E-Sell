@@ -68,6 +68,15 @@ public class login extends Fragment {
         progressDialog.setTitle("Login Account");
         progressDialog.setMessage("SignIn Account With Google");
 
+        binding.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frUserDetailsContainer , new EsellPolicyFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
 
         // Button Continue With Phone
         binding.btnContinueWithPhone.setOnClickListener(new View.OnClickListener() {

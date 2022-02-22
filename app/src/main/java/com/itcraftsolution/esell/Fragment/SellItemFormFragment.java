@@ -12,6 +12,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
@@ -64,7 +65,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-// SellItemFrom Fragment Class
+
 public class SellItemFormFragment extends Fragment {
 
 
@@ -90,31 +91,19 @@ public class SellItemFormFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentSellItemFormBinding.inflate(getLayoutInflater());
 
-        //Loading Dialog Show
         loadingDialog = new LoadingDialog(requireActivity());
-
-        //Shared Preference
         spf = new SpfUserData(requireContext());
-
-        //Call Method
         Category = spf.getItemDetails().getString("Category", null);
         Insert = spf.getItemDetails().getInt("Insert", 0);
         Update = spf.getItemDetails().getInt("Update", 0);
-
-
         if (Update == 1) {
             loadingDialog.StartLoadingDialog();
-            //Call LoadData Method
             LoadData();
             loadingDialog.StopLoadingDialog();
             Toast.makeText(requireContext(), "Update", Toast.LENGTH_SHORT).show();
         }
-
-        //Images ArrayList
         ImageUris = new ArrayList<>();
 
-        //Back Arrow
-        //Go To Ads Fragment
         binding.igSellItemBackCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +115,6 @@ public class SellItemFormFragment extends Fragment {
         });
 
 
-        //Button To Get Location
         binding.btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,13 +124,11 @@ public class SellItemFormFragment extends Fragment {
             }
         });
 
-        //Button Select Images
         binding.btnSelectImages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                mGetContent.launch("image/*");
 
-                // intent For Select Images
                 Intent intent = new Intent();
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -153,7 +139,6 @@ public class SellItemFormFragment extends Fragment {
         });
 
 
-        // Verify From Validation
         binding.btnSellItemFormNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,7 +185,6 @@ public class SellItemFormFragment extends Fragment {
                     binding.txFormLocationError.setTextColor(getResources().getColor(R.color.blue_grey));
                 } else {
 
-                    // Store Sell Product Detail To Server
                     if (Update == 1) {
                         loadingDialog.StartLoadingDialog();
                         Update = 0;
@@ -210,7 +194,43 @@ public class SellItemFormFragment extends Fragment {
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
 
-                        ApiUtilities.apiInterface().UpdateSellItem(Id, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+//                        ApiUtilities.apiInterface().UpdateSellItem(Id, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1)
+//                                .enqueue(new Callback<ResponceModel>() {
+//                                    @Override
+//                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+//                                        ResponceModel responceModel = response.body();
+//                                        if (responceModel != null) {
+//                                            loadingDialog.StopLoadingDialog();
+//                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+//                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+//                                                    .addToBackStack(null).commit();
+//                                        } else {
+//                                            Toast.makeText(requireActivity(), "Something went Wrong! model khali", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                        loadingDialog.StopLoadingDialog();
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
+//                                        loadingDialog.StopLoadingDialog();
+//                                        Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+                        images = new ArrayList<>();
+                        for(int i = 0; i< ImageUris.size(); i++)
+                        {
+                            images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
+                        }
+                        Log.e("mya123" , images.toString());
+
+                        RequestBody cat = createPartFromString(Category);
+                        RequestBody title = createPartFromString(Title);
+                        RequestBody desc = createPartFromString(Desc);
+                        RequestBody locality = createPartFromString(Locality);
+                        RequestBody sublocality = createPartFromString(Sublocality);
+
+                        ApiUtilities.apiInterface().UpdateuploadImages(images,Id,cat,title,desc,Integer.parseInt(Price),locality,sublocality,1)
                                 .enqueue(new Callback<ResponceModel>() {
                                     @Override
                                     public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
@@ -229,8 +249,8 @@ public class SellItemFormFragment extends Fragment {
 
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                        Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                                         loadingDialog.StopLoadingDialog();
-                                        Toast.makeText(requireActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
@@ -327,8 +347,7 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
-
-    // LoadData Method
+    
     private void LoadData() {
 
         OldTitle = spf.getItemDetails().getString("ItemTitle", null);
@@ -343,7 +362,6 @@ public class SellItemFormFragment extends Fragment {
         }
     }
 
-    //Intent For Get Multiple Images
     ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -354,7 +372,7 @@ public class SellItemFormFragment extends Fragment {
                         if (data != null) {
 
                             if (data.getClipData() != null) {
-
+                                    ImageUris.clear();
                                 int Count = data.getClipData().getItemCount();
                                 for (int i = 0; i < Count; i++) {
 
@@ -364,20 +382,24 @@ public class SellItemFormFragment extends Fragment {
                                 }
                                 Log.e("mya123" , ImageUris.toString());
                                 CheckImage = true;
-                                binding.imageView9.setImageURI(ImageUris.get(0));
-                                binding.imageView11.setImageURI(ImageUris.get(1));
-
+                                binding.txSelctedImg.setVisibility(View.VISIBLE);
+                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
                             } else {
+                                ImageUris.clear();
                                 Uri imageUri = data.getData();
 
-                                try {
-                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
-                                    bitmap = BitmapFactory.decodeStream(inputStream);
-                                    encodeBitmapImage(bitmap);
-                                    CheckImage = true;
-                                } catch (Exception e) {
-                                    Toast.makeText(requireContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
+                                ImageUris.add(imageUri);
+                                CheckImage = true;
+                                binding.txSelctedImg.setVisibility(View.VISIBLE);
+                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
+//                                try {
+//                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
+//                                    bitmap = BitmapFactory.decodeStream(inputStream);
+//                                    encodeBitmapImage(bitmap);
+//                                    CheckImage = true;
+//                                } catch (Exception e) {
+//                                    Toast.makeText(requireContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                }
                             }
 
                         }
@@ -409,16 +431,13 @@ public class SellItemFormFragment extends Fragment {
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
     }
 
-    // encodeBitmapImage Method
-    private void encodeBitmapImage(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);
-        binding.imageView9.setImageBitmap(bitmap);
-        byte[] bytesofimage = byteArrayOutputStream.toByteArray();
-        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
-    }
+//    private void encodeBitmapImage(Bitmap bitmap) {
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);
+//        byte[] bytesofimage = byteArrayOutputStream.toByteArray();
+//        encodeImageString = android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+//    }
 
-    // GetLastLocation Method
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -489,7 +508,6 @@ public class SellItemFormFragment extends Fragment {
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
 
-    //Return Last Location
     private LocationCallback mLocationCallback = new LocationCallback() {
 
         @Override

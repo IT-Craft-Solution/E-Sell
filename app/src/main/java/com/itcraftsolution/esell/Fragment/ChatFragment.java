@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Adapter.UserAdapter;
+import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Model.Chatlist;
 import com.itcraftsolution.esell.Model.User;
 import com.itcraftsolution.esell.R;
@@ -27,7 +28,7 @@ import com.itcraftsolution.esell.databinding.FragmentChatBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-// Chat Fragment Class
+
 public class ChatFragment extends Fragment {
 
 
@@ -42,6 +43,7 @@ public class ChatFragment extends Fragment {
     FirebaseUser fuser;
     DatabaseReference reference;
     private List<Chatlist> usersList;
+    private LoadingDialog loadingDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,8 +51,7 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(getLayoutInflater());
 
-        //Back Arrow
-        // Go To HomeFragment
+        loadingDialog = new LoadingDialog(requireActivity());
         binding.igBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,8 +63,6 @@ public class ChatFragment extends Fragment {
 
             }
         });
-
-
         binding.rvChatBuying.setHasFixedSize(true);
         binding.rvChatBuying.setLayoutManager(new LinearLayoutManager(getContext()));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
@@ -75,6 +74,7 @@ public class ChatFragment extends Fragment {
         usersList = new ArrayList<>();
 
         reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
+        loadingDialog.StartLoadingDialog();
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -83,14 +83,20 @@ public class ChatFragment extends Fragment {
                     Chatlist chatlist = snapshot.getValue(Chatlist.class);
                     usersList.add(chatlist);
                 }
+                if(usersList.isEmpty())
+                {
+                    loadingDialog.StopLoadingDialog();
+                    binding.rvChatBuying.setVisibility(View.GONE);
+                    binding.llNoDataFound.setVisibility(View.VISIBLE);
+                }else{
+                    chatList();
+                }
 
-                //Call chatList Method
-                chatList();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            loadingDialog.StopLoadingDialog();
             }
         });
 
@@ -106,7 +112,6 @@ public class ChatFragment extends Fragment {
 //        reference.child(fuser.getUid()).setValue(token1);
 //    }
 
-    //ChatList Method
     private void chatList() {
         mUsers = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -126,12 +131,13 @@ public class ChatFragment extends Fragment {
 
 
                 userAdapter = new UserAdapter(getContext(),mUsers, true);
+                loadingDialog.StopLoadingDialog();
                 binding.rvChatBuying.setAdapter(userAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                loadingDialog.StopLoadingDialog();
             }
         });
     }

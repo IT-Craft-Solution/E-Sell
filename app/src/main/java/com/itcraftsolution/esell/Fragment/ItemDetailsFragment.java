@@ -12,8 +12,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
+import com.itcraftsolution.esell.Model.Chatlist;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentItemDetailsBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
@@ -35,6 +43,9 @@ public class ItemDetailsFragment extends Fragment {
     private int ItemId, UserId, LoginUserId;
     private LoadingDialog loadingDialog;
     private List<SlideModel> slideModels;
+    FirebaseUser fuser;
+    DatabaseReference reference;
+    private List<Chatlist> usersList;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -65,11 +76,13 @@ public class ItemDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 spf.setCreateChat(ReceiverUid);
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.remove(ItemDetailsFragment.this);
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new ChatScreenFragment())
-                        .addToBackStack(null).commit();
+
+                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                            fragmentTransaction.remove(ItemDetailsFragment.this);
+                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                            fragmentTransaction.replace(R.id.frMainContainer, new ChatScreenFragment())
+                                    .addToBackStack(null).commit();
+
             }
         });
 

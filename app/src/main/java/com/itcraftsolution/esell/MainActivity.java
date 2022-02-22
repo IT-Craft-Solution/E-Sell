@@ -3,6 +3,7 @@ package com.itcraftsolution.esell;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -10,7 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.itcraftsolution.esell.Api.ApiUtilities;
 import com.itcraftsolution.esell.Extra.LoadingDialog;
 import com.itcraftsolution.esell.Fragment.AccountFragment;
@@ -21,6 +26,8 @@ import com.itcraftsolution.esell.Fragment.SellFragment;
 import com.itcraftsolution.esell.Model.UserModel;
 import com.itcraftsolution.esell.databinding.ActivityMainBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,23 +40,19 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences spf;
     private String Phone, Email;
     private int Status;
+    private DatabaseReference reference;
     private LoadingDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(binding.getRoot());
         dialog = new LoadingDialog(this);
 
-
-        //Loading Home Data Method
         LoadData();
-
-        //Default Navigating Menu Selected Method
         defView();
-
-        //Bottom Navigation Menu Method
         binding.mainBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -78,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Default Menu Selected Method
     private void defView() {
         FragmentTransaction firstFragment = getSupportFragmentManager().beginTransaction();
           firstFragment.setCustomAnimations(R.anim.enter_from_rigth,R.anim.enter_from_rigth);
@@ -86,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         firstFragment.commit();
     }
 
-//Load Home Data From Server
     private void LoadData() {
         dialog.StartLoadingDialog();
         SpfUserData data = new SpfUserData(this);
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     if (model.getMessage() == null) {
                         dialog.StopLoadingDialog();
                         data.setSpf(model.getId(), model.getPhone(), model.getEmail(), model.getUser_img(),
-                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuthid());
+                                model.getUser_name(), model.getUser_bio(), model.getLocation(), model.getCity_area(), model.getStatus(),model.getAuth_id());
 
                     } else {
                         dialog.StopLoadingDialog();
@@ -120,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //BackPressed Manage Method
     @Override
     public void onBackPressed() {
         if (binding.mainBottomNav.getSelectedItemId() == R.id.bNavHome) {
