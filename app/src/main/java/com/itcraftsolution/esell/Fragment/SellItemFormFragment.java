@@ -74,15 +74,15 @@ public class SellItemFormFragment extends Fragment {
     }
 
     private FragmentSellItemFormBinding binding;
-    private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice,ReceiverId;
+    private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice, ReceiverId;
     private int UserId, Insert, Update, Id;
-    FusedLocationProviderClient mFusedLocationClient;
+    private FusedLocationProviderClient mFusedLocationClient;
     private List<MultipartBody.Part> images;
     private ArrayList<Uri> ImageUris;
     private Bitmap bitmap;
     private LoadingDialog loadingDialog;
     private boolean CheckImage = false;
-    int PERMISSION_ID = 44;
+    private int PERMISSION_ID = 44;
     private SpfUserData spf;
 
     @Override
@@ -218,11 +218,10 @@ public class SellItemFormFragment extends Fragment {
 //                                    }
 //                                });
                         images = new ArrayList<>();
-                        for(int i = 0; i< ImageUris.size(); i++)
-                        {
-                            images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
+                        for (int i = 0; i < ImageUris.size(); i++) {
+                            images.add(prepareFilePart("file[" + i + "]", ImageUris.get(i)));
                         }
-                        Log.e("mya123" , images.toString());
+                        Log.e("mya123", images.toString());
 
                         RequestBody cat = createPartFromString(Category);
                         RequestBody title = createPartFromString(Title);
@@ -230,7 +229,7 @@ public class SellItemFormFragment extends Fragment {
                         RequestBody locality = createPartFromString(Locality);
                         RequestBody sublocality = createPartFromString(Sublocality);
 
-                        ApiUtilities.apiInterface().UpdateuploadImages(images,Id,cat,title,desc,Integer.parseInt(Price),locality,sublocality,1)
+                        ApiUtilities.apiInterface().UpdateuploadImages(images, Id, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1)
                                 .enqueue(new Callback<ResponceModel>() {
                                     @Override
                                     public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
@@ -249,7 +248,7 @@ public class SellItemFormFragment extends Fragment {
 
                                     @Override
                                     public void onFailure(Call<ResponceModel> call, Throwable t) {
-                                        Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                         loadingDialog.StopLoadingDialog();
                                     }
                                 });
@@ -264,11 +263,10 @@ public class SellItemFormFragment extends Fragment {
                         Price = binding.edSellItemFormPrice.getText().toString();
 
                         images = new ArrayList<>();
-                        for(int i = 0; i< ImageUris.size(); i++)
-                        {
-                            images.add(prepareFilePart("file["+i+"]", ImageUris.get(i)));
+                        for (int i = 0; i < ImageUris.size(); i++) {
+                            images.add(prepareFilePart("file[" + i + "]", ImageUris.get(i)));
                         }
-                        Log.e("mya123" , images.toString());
+                        Log.e("mya123", images.toString());
 
                         RequestBody cat = createPartFromString(Category);
                         RequestBody title = createPartFromString(Title);
@@ -278,34 +276,32 @@ public class SellItemFormFragment extends Fragment {
                         ReceiverId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         RequestBody reciverid = createPartFromString(ReceiverId);
 
-                        ApiUtilities.apiInterface().uploadImages(images,UserId, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1,reciverid ).enqueue(new Callback<ResponceModel>() {
+                        ApiUtilities.apiInterface().uploadImages(images, UserId, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1, reciverid).enqueue(new Callback<ResponceModel>() {
                             @Override
                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
-                            ResponceModel model = response.body();
-                            if(model != null)
-                            {
-                                if(!model.getMessage().equals("fail"))
-                                {
-                                    Toast.makeText(requireContext(), ""+model.getMessage(), Toast.LENGTH_SHORT).show();
-                                    loadingDialog.StopLoadingDialog();
-                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
-                                                    .addToBackStack(null).commit();
-                                }else {
-                                    Toast.makeText(requireContext(), "fail model"+model.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
+                                ResponceModel model = response.body();
+                                if (model != null) {
+                                    if (!model.getMessage().equals("fail")) {
+                                        Toast.makeText(requireContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                                        loadingDialog.StopLoadingDialog();
+                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                                        fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+                                                .addToBackStack(null).commit();
+                                    } else {
+                                        Toast.makeText(requireContext(), "fail model" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
 
-                            }else {
-                                Toast.makeText(requireContext(), "model empty !!", Toast.LENGTH_SHORT).show();
-                            }
+                                } else {
+                                    Toast.makeText(requireContext(), "model empty !!", Toast.LENGTH_SHORT).show();
+                                }
                                 loadingDialog.StopLoadingDialog();
                             }
 
                             @Override
                             public void onFailure(Call<ResponceModel> call, Throwable t) {
                                 loadingDialog.StopLoadingDialog();
-                                Toast.makeText(requireContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
 //                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
@@ -347,7 +343,7 @@ public class SellItemFormFragment extends Fragment {
         });
         return binding.getRoot();
     }
-    
+
     private void LoadData() {
 
         OldTitle = spf.getItemDetails().getString("ItemTitle", null);
@@ -372,7 +368,7 @@ public class SellItemFormFragment extends Fragment {
                         if (data != null) {
 
                             if (data.getClipData() != null) {
-                                    ImageUris.clear();
+                                ImageUris.clear();
                                 int Count = data.getClipData().getItemCount();
                                 for (int i = 0; i < Count; i++) {
 
@@ -380,10 +376,10 @@ public class SellItemFormFragment extends Fragment {
                                     ImageUris.add(imageUri);
 
                                 }
-                                Log.e("mya123" , ImageUris.toString());
+                                Log.e("mya123", ImageUris.toString());
                                 CheckImage = true;
                                 binding.txSelctedImg.setVisibility(View.VISIBLE);
-                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
+                                binding.txSelctedImg.setText("You Have " + ImageUris.size() + " Image Selected");
                             } else {
                                 ImageUris.clear();
                                 Uri imageUri = data.getData();
@@ -391,7 +387,7 @@ public class SellItemFormFragment extends Fragment {
                                 ImageUris.add(imageUri);
                                 CheckImage = true;
                                 binding.txSelctedImg.setVisibility(View.VISIBLE);
-                                binding.txSelctedImg.setText("You Have "+ ImageUris.size()+" Image Selected");
+                                binding.txSelctedImg.setText("You Have " + ImageUris.size() + " Image Selected");
 //                                try {
 //                                    InputStream inputStream = requireContext().getContentResolver().openInputStream(imageUri);
 //                                    bitmap = BitmapFactory.decodeStream(inputStream);

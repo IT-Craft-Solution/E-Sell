@@ -39,7 +39,7 @@ public class DiscussFragment extends Fragment {
         // Required empty public constructor
     }
 
-    FragmentDiscussBinding binding;
+    private FragmentDiscussBinding binding;
     private SpfUserData spf;
     private int UserId;
     private String UserPhone,UserEmail,UserImg,UserName,ItemPrice,ItemTitle,ItemLocation,ItemDesc,ItemImg;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -81,7 +82,7 @@ public class ItemDetailsFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.remove(ItemDetailsFragment.this);
                 fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
+                fragmentTransaction.replace(R.id.frMainContainer, new HomeFragment())
                         .addToBackStack(null).commit();
             }
         });
@@ -158,7 +159,11 @@ public class ItemDetailsFragment extends Fragment {
         binding.isProductImagesSlider.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemSelected(int i) {
-
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.remove(ItemDetailsFragment.this);
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                fragmentTransaction.replace(R.id.frMainContainer, new ProductImageFragment())
+                        .addToBackStack(null).commit();
             }
         });
 //        Glide.with(requireContext()).load(ApiUtilities.SellItemImage + list.get(0)).into(binding.igItemDetails);

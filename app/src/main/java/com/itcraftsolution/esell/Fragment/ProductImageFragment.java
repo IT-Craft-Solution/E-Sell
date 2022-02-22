@@ -65,19 +65,8 @@ public class ProductImageFragment extends Fragment {
     // LoadData Method
     private void LoadData() {
         spf = new SpfUserData(requireContext());
-//        UserId = spf.getItemDetails().getInt("UserId", 0);
         ItemImg = spf.getItemDetails().getString("ItemImg", null);
-//        ItemPrice = spf.getItemDetails().getString("ItemPrice", null);
-//        ItemTitle = spf.getItemDetails().getString("ItemTitle", null);
-//        ItemLocation = spf.getItemDetails().getString("ItemLocation", null);
-//        ItemId = spf.getItemDetails().getInt("ItemId", 0);
-//        ItemDesc = spf.getItemDetails().getString("ItemDesc", null);
-//        ItemCat = spf.getItemDetails().getString("Category", null);
-//        ReceiverUid = spf.getItemDetails().getString("Auth_Id", null);
-//        LoginUserId = spf.getSpf().getInt("UserId", 0);
-//        if (LoginUserId == UserId) {
-//            binding.btnChat.setVisibility(View.GONE);
-//        }
+
 
         List<String> list = new ArrayList<String>(Arrays.asList(ItemImg.split(",")));
         slideModels = new ArrayList<>();
