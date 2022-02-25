@@ -162,5 +162,12 @@ public interface ApiInterface {
                                       @Part("status") int status
     );
 
+    @FormUrlEncoded
+    @POST("post/post_size.php")
+    Call<ResponceModel> ReadPostSize(
+            @Field("user_id") int user_id,
+            @Field("status") int status
+    );
+
 }
 

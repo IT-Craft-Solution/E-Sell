@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.itcraftsolution.esell.Adapter.SliderAdapter;
 import com.itcraftsolution.esell.Api.ApiUtilities;
+import com.itcraftsolution.esell.Model.SliderModel;
 import com.itcraftsolution.esell.R;
 import com.itcraftsolution.esell.databinding.FragmentProductImageBinding;
 import com.itcraftsolution.esell.spf.SpfUserData;
+import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +33,7 @@ public class ProductImageFragment extends Fragment {
     private FragmentProductImageBinding binding;
     private SpfUserData spf;
     private String ItemImg;
-    private List<SlideModel> slideModels;
+    private List<SliderModel> slideModels;
 
 
     @Override
@@ -66,14 +69,24 @@ public class ProductImageFragment extends Fragment {
     private void LoadData() {
         spf = new SpfUserData(requireContext());
         ItemImg = spf.getItemDetails().getString("ItemImg", null);
-
-
         List<String> list = new ArrayList<String>(Arrays.asList(ItemImg.split(",")));
         slideModels = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            slideModels.add(new SlideModel(ApiUtilities.SellItemImage + list.get(i)));
+
+//            slideModels.add(new SlideModel(ApiUtilities.SellItemImage + list.get(i)));
+        slideModels.add(new SliderModel(ApiUtilities.SellItemImage + list.get(i)));
+
         }
-        binding.isProductImagesSlider.setImageList(slideModels, true);
+        SliderAdapter adapter = new SliderAdapter(requireContext(),slideModels);
+        binding.isProductImagesSlider.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
+        binding.isProductImagesSlider.setSliderAdapter(adapter);
+
+        binding.isProductImagesSlider.setScrollTimeInSec(3);
+
+        binding.isProductImagesSlider.setAutoCycle(true);
+
+        binding.isProductImagesSlider.startAutoCycle();
+//        binding.isProductImagesSlider.setImageList(slideModels, true);
     }
 
 }

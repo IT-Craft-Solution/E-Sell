@@ -75,6 +75,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:4.2.2"
     // Image Slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.0.6'
+    implementation 'com.github.smarteist:autoimageslider:1.4.0-appcompat'
     // Pdf View
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 

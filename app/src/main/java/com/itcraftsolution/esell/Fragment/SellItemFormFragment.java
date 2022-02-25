@@ -75,7 +75,7 @@ public class SellItemFormFragment extends Fragment {
 
     private FragmentSellItemFormBinding binding;
     private String Title, Desc, Price, Sublocality, Locality, City, Category, encodeImageString, OldTitle, OldDesc, OldPrice, ReceiverId;
-    private int UserId, Insert, Update, Id;
+    private int UserId, Insert, Update, Id, postCount;
     private FusedLocationProviderClient mFusedLocationClient;
     private List<MultipartBody.Part> images;
     private ArrayList<Uri> ImageUris;
@@ -255,6 +255,7 @@ public class SellItemFormFragment extends Fragment {
                     } else {
                         loadingDialog.StartLoadingDialog();
                         //cat_name,title,description,price,location,city_area,item_img,status
+
                         SpfUserData spfUserData = new SpfUserData(requireContext());
                         Category = spfUserData.getItemDetails().getString("Category", null);
                         UserId = spfUserData.getSpf().getInt("UserId", 0);
@@ -262,82 +263,79 @@ public class SellItemFormFragment extends Fragment {
                         Desc = binding.edSellItemFormDesc.getText().toString();
                         Price = binding.edSellItemFormPrice.getText().toString();
 
-                        images = new ArrayList<>();
-                        for (int i = 0; i < ImageUris.size(); i++) {
-                            images.add(prepareFilePart("file[" + i + "]", ImageUris.get(i)));
-                        }
-                        Log.e("mya123", images.toString());
-
-                        RequestBody cat = createPartFromString(Category);
-                        RequestBody title = createPartFromString(Title);
-                        RequestBody desc = createPartFromString(Desc);
-                        RequestBody locality = createPartFromString(Locality);
-                        RequestBody sublocality = createPartFromString(Sublocality);
-                        ReceiverId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        RequestBody reciverid = createPartFromString(ReceiverId);
-
-                        ApiUtilities.apiInterface().uploadImages(images, UserId, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1, reciverid).enqueue(new Callback<ResponceModel>() {
+                        ApiUtilities.apiInterface().ReadPostSize(UserId, 1).enqueue(new Callback<ResponceModel>() {
                             @Override
                             public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
                                 ResponceModel model = response.body();
                                 if (model != null) {
-                                    if (!model.getMessage().equals("fail")) {
-                                        Toast.makeText(requireContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
-                                        loadingDialog.StopLoadingDialog();
-                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-                                        fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
-                                                .addToBackStack(null).commit();
-                                    } else {
-                                        Toast.makeText(requireContext(), "fail model" + model.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
+                                    if (model.getMessage() == null) {
+                                        postCount = 0;
+                                        postCount = model.getPostCount();
 
-                                } else {
-                                    Toast.makeText(requireContext(), "model empty !!", Toast.LENGTH_SHORT).show();
+                                        if (postCount <= 9 && postCount != 0) {
+                                            images = new ArrayList<>();
+                                            for (int i = 0; i < ImageUris.size(); i++) {
+                                                images.add(prepareFilePart("file[" + i + "]", ImageUris.get(i)));
+                                            }
+                                            RequestBody cat = createPartFromString(Category);
+                                            RequestBody title = createPartFromString(Title);
+                                            RequestBody desc = createPartFromString(Desc);
+                                            RequestBody locality = createPartFromString(Locality);
+                                            RequestBody sublocality = createPartFromString(Sublocality);
+                                            ReceiverId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                            RequestBody reciverid = createPartFromString(ReceiverId);
+
+                                            ApiUtilities.apiInterface().uploadImages(images, UserId, cat, title, desc, Integer.parseInt(Price), locality, sublocality, 1, reciverid).enqueue(new Callback<ResponceModel>() {
+                                                @Override
+                                                public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
+                                                    ResponceModel model = response.body();
+                                                    if (model != null) {
+                                                        if (!model.getMessage().equals("fail")) {
+                                                            Toast.makeText(requireContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                                                            loadingDialog.StopLoadingDialog();
+                                                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
+                                                            fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
+                                                                    .addToBackStack(null).commit();
+                                                        } else {
+                                                            Toast.makeText(requireContext(), "fail model" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        }
+
+                                                    } else {
+                                                        Toast.makeText(requireContext(), "model empty !!", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    loadingDialog.StopLoadingDialog();
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<ResponceModel> call, Throwable t) {
+                                                    loadingDialog.StopLoadingDialog();
+                                                    Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            loadingDialog.StopLoadingDialog();
+                                        } else {
+                                            loadingDialog.StopLoadingDialog();
+                                            Toast.makeText(requireContext(), "Sorry! Your 10 Post Already Uploaded", Toast.LENGTH_LONG).show();
+                                        }
+                                        loadingDialog.StopLoadingDialog();
+
+                                    } else {
+                                        loadingDialog.StopLoadingDialog();
+                                        Toast.makeText(requireContext(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                                loadingDialog.StopLoadingDialog();
+
                             }
 
                             @Override
                             public void onFailure(Call<ResponceModel> call, Throwable t) {
                                 loadingDialog.StopLoadingDialog();
-                                Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), "Something went wrong!! " + t.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
-//                        ApiUtilities.apiInterface().InsertSellItem(UserId, Category, Title, Desc, Integer.parseInt(Price), Locality, Sublocality, encodeImageString, 1, FirebaseAuth.getInstance().getUid())
-//                                .enqueue(new Callback<ResponceModel>() {
-//                                    @Override
-//                                    public void onResponse(Call<ResponceModel> call, Response<ResponceModel> response) {
-//                                        ResponceModel responceModel = response.body();
-//                                        if (responceModel != null) {
-//                                            if(responceModel.getMessage().equals("fail"))
-//                                            {
-//                                                loadingDialog.StopLoadingDialog();
-//                                                Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
-//                                            }
-//                                            else {
-//                                                loadingDialog.StopLoadingDialog();
-//                                                Toast.makeText(requireContext(), ""+responceModel.getMessage(), Toast.LENGTH_SHORT).show();
-//                                                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                                                fragmentTransaction.setCustomAnimations(R.anim.enter_from_rigth, R.anim.enter_from_rigth);
-//                                                fragmentTransaction.replace(R.id.frMainContainer, new CongressScreenFragment())
-//                                                        .addToBackStack(null).commit();
-//                                            }
-//
-//
-//                                        } else {
-//                                            loadingDialog.StopLoadingDialog();
-//                                            Toast.makeText(requireActivity(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    }
-//
-//                                    @Override
-//                                    public void onFailure(Call<ResponceModel> call, Throwable t) {
-//                                        loadingDialog.StopLoadingDialog();
-//                                        Toast.makeText(requireContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                });
                     }
+
                 }
             }
         });
